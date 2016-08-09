@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:orientation="vertical" android:layout_height="fill_parent" android:id="@+id/LinearLayout">
+    <FrameLayout android:id="@+id/TopBarLayout" android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="50dp">
+		<Button android:layout_marginLeft="4dp" android:text="Review" android:textColor="#ffffffff" android:id="@+id/button1" android:background="@drawable/selector_graphic_buttons" android:layout_gravity="center_vertical" android:layout_height="45dp" android:layout_width="80dp" android:textSize="20sp"></Button>
+		<TextView android:id="@+id/TitleText" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_gravity="center_vertical|center_horizontal" android:textSize="32sp" android:text="Scores"></TextView>
+		<Button android:layout_marginRight="4dp" android:text="Home" android:textColor="#ffffffff" android:id="@+id/button2" android:background="@drawable/selector_graphic_buttons" android:layout_gravity="right|center_vertical" android:layout_height="45dp" android:layout_width="80dp" android:textSize="20sp"></Button>
+	</FrameLayout>   
+    <RelativeLayout android:id="@+id/RelativeLayout1" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+            <Button android:id="@+id/StepsButton" android:text="Steps" android:layout_width="0dp" android:layout_weight="1" android:background="@drawable/score_tab_selected" android:textColor="#ff000000" android:layout_marginLeft="2dp" android:layout_height="50dp" android:textSize="24sp"></Button>
+            <Button android:id="@+id/ChampButton" android:textColor="#ffffffff" android:layout_width="0dp" android:layout_weight="1" android:background="@drawable/score_tab_unselected" android:layout_height="50dp" android:textSize="24sp" android:text="Compete"></Button>
+            <Button android:id="@+id/CustomButton" android:textColor="#ffffffff" android:layout_width="0dp" android:layout_weight="1" android:background="@drawable/score_tab_unselected" android:layout_marginRight="2dp" android:layout_height="50dp" android:textSize="24sp" android:text="Train"></Button>
+        </LinearLayout>
+        <ImageView android:id="@+id/imageView1" android:layout_width="fill_parent" android:scaleType="fitXY" android:layout_height="50dp" android:src="@drawable/score_border" android:layout_marginTop="42dp"></ImageView>
+        <TextView android:layout_height="wrap_content" android:text="Abstract Images" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/GameTypeText" android:layout_centerHorizontal="true" android:layout_marginTop="52dp" android:textSize="24sp"></TextView>
+        <Button android:id="@+id/LastGameButton" android:background="@drawable/selector_previous_arrow" android:layout_height="40dp" android:layout_width="40dp" android:layout_marginLeft="20dp" android:layout_marginTop="47dp"></Button>
+        <Button android:layout_alignBaseline="@+id/LastGameButton" android:background="@drawable/selector_next_arrow" android:id="@+id/NextGameButton" android:layout_height="40dp" android:layout_width="40dp" android:layout_marginRight="20dp" android:layout_alignParentRight="true" android:layout_marginTop="47dp"></Button>
+    </RelativeLayout>
+    <FrameLayout android:id="@+id/GraphLayout" android:layout_marginTop="20dp" android:layout_width="fill_parent" android:background="#dd151515" android:layout_marginLeft="30dp" android:layout_marginRight="30dp" android:layout_height="240dp" android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Past Scores" android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_gravity="left" android:paddingLeft="30dp"></TextView>
+        <ImageView android:id="@+id/ImageView1" android:layout_gravity="center_vertical" android:paddingTop="15dp" android:src="@drawable/text_score" android:scaleType="fitXY" android:layout_height="60dp" android:layout_width="10dp" android:layout_marginLeft="10dp"></ImageView>
+        <ImageView android:scaleType="fitXY" android:id="@+id/graph" android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_gravity="bottom" android:layout_marginLeft="20dp" android:layout_marginRight="40dp" android:layout_marginBottom="5dp" android:layout_marginTop="25dp"></ImageView>
+        <Button android:background="@drawable/selector_prearrowbutton" android:layout_width="125dp" android:layout_height="70dp" android:text="Take Test" android:textColor="#ffffffff" android:textSize="18sp" android:paddingRight="25dp" android:layout_gravity="right" android:layout_marginRight="5dp" android:id="@+id/AnimatedArrow"></Button>
+        <Button android:layout_gravity="right" android:text="Take Test" android:textColor="#ffffffff" android:paddingRight="25dp" android:layout_height="70dp" android:textSize="18sp" android:layout_marginRight="6dp" android:background="@drawable/pre_arrow_faded" android:layout_width="125dp" android:id="@+id/TakeTestButton"></Button>
+    </FrameLayout>
+    <FrameLayout android:layout_width="fill_parent" android:layout_marginTop="20dp" android:id="@+id/StepsLayout" android:visibility="visible" android:layout_height="240dp">
+        <ImageView android:layout_marginLeft="20dp" android:id="@+id/SuccessGraphic" android:scaleType="fitXY" android:layout_gravity="bottom" android:src="@drawable/graphic_mark_x" android:layout_height="150dp" android:layout_width="180dp"></ImageView>
+        <TextView android:layout_height="wrap_content" android:id="@+id/SuccessText" android:layout_width="wrap_content" android:text="You passed Step 3!" android:textSize="42sp" android:paddingLeft="20dp"></TextView>
+        <Button android:layout_gravity="right" android:id="@+id/NextStepButton" android:background="@drawable/selector_prearrowbutton" android:text="Next Step" android:paddingRight="30dp" android:textColor="#ffffffff" android:layout_height="110dp" android:layout_marginRight="50dp" android:layout_width="180dp" android:layout_marginTop="60dp" android:textSize="23sp"></Button>
+    </FrameLayout>
+    <FrameLayout android:layout_width="fill_parent" android:background="@drawable/layout_red" android:layout_height="fill_parent" android:layout_marginTop="15dp" android:id="@+id/layout">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/LastScore" android:text="Last Score" android:textColor="#ffffffff" android:textSize="40sp" android:paddingLeft="50dp" android:paddingTop="25dp"></TextView>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:id="@+id/linearLayout2" android:paddingTop="80dp" android:paddingLeft="60dp">
+            <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/LabelLayout" android:orientation="vertical">
+                <TextView android:id="@+id/Label0" android:text="Recall Accuracy:" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffffff" android:textSize="23sp" android:layout_marginTop="20dp"></TextView>
+                <TextView android:id="@+id/Label1" android:text="Memorization time:" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffffff" android:textSize="23sp" android:layout_marginTop="5dp"></TextView>
+                <TextView android:id="@+id/Label2" android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffffff" android:textSize="23sp" android:layout_marginTop="5dp"></TextView>
+                <TextView android:id="@+id/ScoreLabel" android:text="Score:" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffe7f50c" android:textSize="34sp" android:layout_marginTop="5dp"></TextView>
+            </LinearLayout>
+            <LinearLayout android:layout_marginLeft="20dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/ValueLayout" android:orientation="vertical">
+                <TextView android:id="@+id/Value0" android:layout_marginTop="20dp" android:text="90% (18 / 20)" android:layout_height="wrap_content" android:textColor="#ffffffff" android:layout_width="wrap_content" android:textSize="23sp"></TextView>
+                <TextView android:id="@+id/Value1" android:text="4:32" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffffff" android:textSize="23sp" android:layout_marginTop="5dp"></TextView>
+                <TextView android:id="@+id/Value2" android:text="TextView" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffffffff" android:textSize="23sp" android:layout_marginTop="5dp"></TextView>
+                <TextView android:id="@+id/ScoreValue" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textColor="#ffe7f50c" android:textSize="34sp" android:layout_marginTop="5dp" android:text="4"></TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+ 
+</LinearLayout>
+

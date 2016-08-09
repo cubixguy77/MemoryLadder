@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="wrap_content"
+   android:orientation="horizontal" android:gravity="left" android:id="@+id/list_grid" android:layout_width="fill_parent">
+	<TableLayout android:id="@+id/tableLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent">
+        <TableRow android:id="@+id/tableRow1" android:layout_height="wrap_content" android:background="@drawable/outline_whiteonblacklong" android:layout_width="fill_parent">
+            <EditText android:layout_column="0" android:id="@+id/datebox" android:layout_height="wrap_content" android:maxLines="1" android:paddingLeft="5dp" android:paddingRight="5dp" android:text="1984" android:layout_marginLeft="2dp" android:layout_marginTop="2dp" android:layout_width="70dp" android:layout_gravity="center_vertical">
+            </EditText>
+            <TextView android:layout_column="0" android:gravity="right" android:id="@+id/numtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="right|center_vertical" android:paddingRight="4dp" android:paddingLeft="3dp" android:text="1" android:maxLines="2" android:textSize="20sp"></TextView>
+            <TextView android:layout_column="1" android:gravity="left" android:id="@+id/wordtext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="marshmallow" android:layout_gravity="left|center_vertical" android:textSize="20sp"></TextView>
+            <EditText android:layout_column="1" android:id="@+id/wordbox" android:layout_height="wrap_content" android:text="marshes" android:paddingLeft="5dp" android:paddingRight="5dp" android:layout_marginRight="2dp" android:layout_marginTop="2dp" android:layout_weight="1" android:layout_width="fill_parent" android:layout_gravity="center_vertical">
+            </EditText>
+        </TableRow>
+    </TableLayout>
+   
+</LinearLayout>

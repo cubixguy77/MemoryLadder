@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/LinearLayout1" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical" android:background="@drawable/background_dark">
+	<FrameLayout android:id="@+id/frameLayout1" android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="80dp">
+		<Button android:text="Cancel" android:textColor="#ffffffff" android:id="@+id/CancelButton" android:background="@drawable/selector_graphic_buttons" android:layout_gravity="center_vertical" android:layout_height="70dp" android:layout_width="120dp" android:textSize="30sp" android:layout_marginLeft="8dp"></Button>
+		<TextView android:text="Settings" android:id="@+id/TitleText" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_gravity="center_vertical|center_horizontal" android:textSize="50sp"></TextView>
+		<Button android:text="Save" android:textColor="#ffffffff" android:id="@+id/SaveButton" android:background="@drawable/selector_graphic_buttons" android:layout_gravity="right|center_vertical" android:layout_height="70dp" android:layout_width="120dp" android:textSize="30sp" android:layout_marginRight="8dp"></Button>
+	</FrameLayout>   
+	    <TableLayout android:layout_alignParentLeft="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:layout_marginBottom="30dp" android:id="@+id/OptionsContainer" android:layout_below="@+id/frameLayout1" android:layout_marginLeft="60dp" android:layout_marginRight="60dp">
+        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/cards_tablerow1" android:layout_marginTop="30dp">
+            <TextView android:id="@+id/textView2" android:text="Cards per deck:" android:layout_weight="1" android:layout_width="0dp" android:gravity="center_vertical" android:layout_height="fill_parent" android:textSize="45sp"></TextView>
+            <TextView android:id="@+id/tv_cardsperdeck" android:textColor="#FFdace0a" android:gravity="center_vertical|center_horizontal" android:background="@drawable/selector_text" android:layout_height="fill_parent" android:layout_width="180dp" android:textSize="40sp" android:text="5:00:00">
+            </TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/cards_tablerow2" android:layout_marginTop="30dp">
+            <TextView android:id="@+id/TextView01" android:text="Number of decks:" android:layout_width="0dp" android:layout_weight="1" android:gravity="center_vertical" android:layout_height="fill_parent" android:textSize="45sp"></TextView>
+            <TextView android:id="@+id/tv_numdecks" android:textColor="#FFdace0a" android:gravity="center_vertical|center_horizontal" android:background="@drawable/selector_text" android:layout_height="fill_parent" android:layout_width="180dp" android:textSize="40sp" android:text="5:00:00"></TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/cards_tablerow3" android:layout_marginTop="30dp">
+            <TextView android:id="@+id/TextView02" android:text="Memorization time:" android:layout_width="0dp" android:layout_weight="1" android:gravity="center_vertical" android:layout_height="fill_parent" android:textSize="45sp"></TextView>
+            <TextView android:id="@+id/tv_memtime" android:textColor="#FFdace0a" android:gravity="center_vertical|center_horizontal" android:background="@drawable/selector_text" android:layout_height="fill_parent" android:layout_width="180dp" android:textSize="40sp" android:text="5:00:00"></TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/cards_tablerow4" android:layout_marginTop="30dp">
+            <TextView android:id="@+id/TextView03" android:text="Recall time:" android:layout_width="0dp" android:layout_weight="1" android:gravity="center_vertical" android:layout_height="fill_parent" android:textSize="45sp"></TextView>
+            <TextView android:id="@+id/tv_recalltime" android:textColor="#FFdace0a" android:gravity="center_vertical|center_horizontal" android:background="@drawable/selector_text" android:layout_height="fill_parent" android:layout_width="180dp" android:textSize="40sp" android:text="5:00:00"></TextView>
+        </TableRow>
+        <TableRow android:layout_height="wrap_content" android:layout_marginTop="30dp" android:layout_width="wrap_content" android:id="@+id/cards_tablerow5">
+            <TextView android:layout_height="fill_parent" android:id="@+id/TextView05" android:layout_width="0dp" android:textSize="45sp" android:layout_weight="1" android:gravity="center_vertical" android:text="Mnemonic Assist:"></TextView>
+            <TextView android:textColor="#FFdace0a" android:layout_height="fill_parent" android:layout_width="180dp" android:textSize="40sp" android:text="5:00:00" android:background="@drawable/selector_text" android:gravity="center_vertical|center_horizontal" android:id="@+id/tv_mnemo"></TextView>
+        </TableRow>
+    </TableLayout>
+ 	<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/OptionsContainer" android:layout_toLeftOf="@+id/spacer" android:text="Speed Cards" android:id="@+id/wmc_CARDS_SPEED" android:visibility="invisible"></Button>
+ 	<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/wmc_CARDS_SPEED" android:layout_alignLeft="@+id/wmc_CARDS_SPEED" android:text="Long Cards" android:id="@+id/wmc_CARDS_LONG" android:visibility="invisible"></Button>
+    <TextView android:layout_below="@+id/OptionsContainer" android:layout_centerHorizontal="true" android:layout_height="wrap_content" android:id="@+id/spacer" android:layout_width="50dp"></TextView>
+    <Button android:id="@+id/defaultSettings" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/OptionsContainer" android:layout_toRightOf="@+id/spacer" android:text="Default" android:visibility="invisible"></Button>
+ 	
+</RelativeLayout>

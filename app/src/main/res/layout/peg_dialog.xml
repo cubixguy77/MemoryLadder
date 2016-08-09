@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:orientation="vertical" android:background="#FF000000">
+ 
+ 	<FrameLayout android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="40dp" android:id="@+id/TopBar">
+ 		<Button android:id="@+id/CancelButton" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_height="35dp" android:textColor="#ffffffff" android:text="Cancel" android:layout_gravity="center_vertical" android:layout_marginLeft="4dp"></Button>
+ 		<Button android:id="@+id/SaveButton" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_height="35dp" android:textColor="#ffffffff" android:text="Save" android:layout_gravity="right|center_vertical" android:layout_marginRight="4dp"></Button>
+ 	</FrameLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/Label" android:layout_below="@+id/TopBar" android:layout_marginTop="20dp" android:layout_centerHorizontal="true" android:textSize="20sp" android:text="Enter your desired Peg Word:"></TextView>
+    <LinearLayout android:layout_height="wrap_content" android:layout_below="@+id/Label" android:layout_width="fill_parent" android:layout_marginLeft="20dp" android:id="@+id/Entry" android:layout_marginTop="10dp">
+        <ImageView android:src="@drawable/card_c4" android:id="@+id/cardImage" android:layout_width="50dp" android:layout_height="66dp" android:scaleType="fitXY"></ImageView>
+        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="74" android:textSize="26sp" android:id="@+id/number" android:layout_gravity="center_vertical" android:background="@drawable/outline_whiteonblack" android:padding="5dp"></TextView>
+        <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_marginRight="20dp" android:layout_marginLeft="5dp" android:id="@+id/textBox" android:layout_gravity="center_vertical">
+            <requestFocus></requestFocus>
+        </EditText>
+    </LinearLayout>
+    <TextView android:layout_below="@+id/Entry" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:gravity="center_horizontal" android:textSize="20sp" android:layout_height="wrap_content" android:text="Suggestions" android:layout_width="fill_parent" android:id="@+id/SuggestionsLabel" android:background="#ff456456" android:layout_marginTop="15dp"></TextView>
+    <ListView android:layout_width="fill_parent" android:layout_height="200dp" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:id="@+id/listview" android:layout_below="@+id/SuggestionsLabel"></ListView>   
+ 	
+ 
+ 
+ 
+</RelativeLayout>
+
