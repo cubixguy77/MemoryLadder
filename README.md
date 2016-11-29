@@ -14,3 +14,4 @@ The quizzes are fully customizable to fit your needs, and you can track your sco
 
 You can also use the app to learn mnemonics, which are the basis of the methods used by all memory athletes. You're free to create your own list of peg words for both numbers and cards.
 
+<a href="https://play.google.com/store/apps/details?id=com.mastersofmemory.memoryladder">Get it on Google Play!</a>
