@@ -1,12 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/LinearLayout1" xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/LinearLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical">
-    <FrameLayout android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:id="@+id/frameLayout1" android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="40dp">
-        <Button android:background="@drawable/selector_graphic_buttons" android:layout_height="35dp" android:layout_width="70dp" android:textColor="#ffffffff" android:id="@+id/button1" android:text="Stop" android:layout_gravity="center_vertical" android:layout_marginLeft="4dp"></Button>
-        <TextView android:id="@+id/TitleText" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Memorization" android:layout_gravity="center_vertical|center_horizontal"></TextView>
-        <Button android:background="@drawable/selector_graphic_buttons" android:layout_height="35dp" android:layout_width="70dp" android:textColor="#ffffffff" android:id="@+id/button2" android:text="Recall" android:layout_marginRight="4dp" android:layout_gravity="right|center_vertical"></Button>
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/graphic_titlebar"
+        >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_height="35dp"
+            android:layout_width="70dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:textColor="#ffffffff"
+            android:text="Stop"
+            />
+
+        <TextView
+            android:id="@+id/TitleText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Memorization"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_height="35dp"
+            android:layout_width="70dp"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="right|center_vertical"
+            android:background="@drawable/selector_graphic_buttons"
+            android:textColor="#ffffffff"
+            android:text="Recall"
+            />
     </FrameLayout>
+
     <TextView android:layout_centerHorizontal="true" android:layout_below="@+id/frameLayout1" android:layout_gravity="center_horizontal" android:id="@+id/timerText" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="00:00"></TextView>
     <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="Page 1 of 3" android:layout_centerHorizontal="true" android:id="@+id/PageNumber" android:textSize="20sp" android:layout_marginBottom="13dp" android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_alignParentBottom="true" android:visibility="gone"></TextView>
     <Button android:layout_centerHorizontal="true" android:textColor="#ffffffff" android:background="@drawable/selector_graphic_buttons" android:textSize="20sp" android:text="Next Group" android:id="@+id/NextGroupButton" android:layout_alignParentBottom="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"></Button>
