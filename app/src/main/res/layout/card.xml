@@ -8,7 +8,7 @@
     <Button android:layout_alignParentRight="true" android:background="@drawable/selector_graphic_buttons" android:layout_height="35dp" android:layout_width="70dp" android:textColor="#ffffffff" android:layout_marginRight="2dp" android:layout_marginTop="1dp" android:id="@+id/button2" android:text="Recall"></Button>
     <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_centerHorizontal="true" android:id="@+id/timerText" android:text="00:00" android:layout_below="@+id/titleBarImage"></TextView>
     <view
-    	class="com.Tester.CustomGallery"	
+    	class="com.MemoryLadder.CustomGallery"
     	android:id="@+id/gallery"
     	android:layout_width="fill_parent"
    		android:scrollbars="none" 
