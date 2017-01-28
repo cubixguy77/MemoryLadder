@@ -101,8 +101,8 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
 
     
     public void setScreenOrientation() {
-    	//int screenSize = getResources().getConfiguration().screenLayout;
-    	if (gameType != NUMBERS_SPOKEN)     //(screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) < Configuration.SCREENLAYOUT_SIZE_LARGE && gameType != NUMBERS_SPOKEN && numCols > 20)
+    	int screenSize = getResources().getConfiguration().screenLayout;
+    	if ((screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) < Configuration.SCREENLAYOUT_SIZE_LARGE && gameType != NUMBERS_SPOKEN && numCols > 20)
     		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
     

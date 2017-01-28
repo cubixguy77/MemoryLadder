@@ -83,7 +83,7 @@ public class Main extends Activity implements OnClickListener {
 	public void onMainFinished(int mode) {
 		Intent i = new Intent(this, ChooseTest.class);
 		i.putExtra("mode", mode);	
-		i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+		//i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
 		this.startActivity(i); 
 	}
 	

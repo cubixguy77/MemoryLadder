@@ -175,7 +175,7 @@ public class ChooseTest extends Activity implements OnClickListener {
 		else
 			i.setClass(this, Utils.getPreClass(gameType));
 		
-		i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		//i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		this.startActivity(i);
     }
 
