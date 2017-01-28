@@ -17,6 +17,8 @@ import com.mastersofmemory.memoryladder.R;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
+import static com.MemoryLadder.Constants.getGameName;
+
 public class ChooseTest extends Activity implements OnClickListener {
 	
 	private Boolean[] permits;
@@ -179,9 +181,8 @@ public class ChooseTest extends Activity implements OnClickListener {
 
     private void logChooseTestEvent(int gameType) {
 		Bundle bundle = new Bundle();
-		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Integer.toString(gameType));
-		bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, mode == STEPS ? "Steps" : mode == WMC ? "WMC" : "Custom");
-		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Test Type");
+		bundle.putString(FirebaseAnalytics.Param.ITEM_ID, getGameName(gameType));
+		bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, mode == STEPS ? "Steps" : mode == WMC ? "WMC" : "Custom");
 		mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 	}
     

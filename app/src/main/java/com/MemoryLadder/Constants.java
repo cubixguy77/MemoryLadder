@@ -148,7 +148,22 @@ public class Constants {
 	final public static int[] shapes_faces_tv_numimages      = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120};
 	final public static int[] shapes_abstract_tv_numimages   = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175};
 	
-	
+
+	static String getGameName(int gameType) {
+		switch (gameType) {
+			case NUMBERS_SPEED: return "NUMBERS_SPEED";
+			case NUMBERS_LONG: return "NUMBERS_LONG";
+			case NUMBERS_BINARY: return "NUMBERS_BINARY";
+			case NUMBERS_SPOKEN: return "NUMBERS_SPOKEN";
+			case LISTS_WORDS: return "LISTS_WORDS";
+			case LISTS_EVENTS: return "LISTS_EVENTS";
+			case SHAPES_FACES: return "SHAPES_FACES";
+			case SHAPES_ABSTRACT: return "SHAPES_ABSTRACT";
+			case CARDS_SPEED: return "CARDS_SPEED";
+			case CARDS_LONG: return "CARDS_LONG";
+			default: return "Unknown";
+		}
+	}
 	
 	
 	public static int[] getSpecs_STEPS_Numbers(int level) {
