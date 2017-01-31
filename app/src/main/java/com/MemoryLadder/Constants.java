@@ -277,8 +277,9 @@ public class Constants {
     	return specs;
     }
 	
-	public static int[] getSpecs_STEPS_RandomWords(int level) {
+	static int[] getSpecs_STEPS_RandomWords(int level) {
     	int[] specs = new int[5];
+
     	switch (level) {
     		case 1: 
     			specs[0] = 5;
@@ -299,14 +300,14 @@ public class Constants {
     			specs[3] = 600;
 				specs[4] = 16; break;
     		case 4: 
-    			specs[0] = 5;
-				specs[1] = 6;
+    			specs[0] = 6;
+				specs[1] = 5;
 				specs[2] = 300;
     			specs[3] = 600;
 				specs[4] = 25; break;
     		case 5: 
-    			specs[0] = 5;
-				specs[1] = 8;
+    			specs[0] = 8;
+				specs[1] = 5;
 				specs[2] = 300;
     			specs[3] = 600;
 				specs[4] = 35; break;
