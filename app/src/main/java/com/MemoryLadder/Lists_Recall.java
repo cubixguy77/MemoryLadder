@@ -21,6 +21,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +31,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Lists_Recall extends Activity implements OnClickListener {
 	
@@ -82,6 +83,21 @@ public class Lists_Recall extends Activity implements OnClickListener {
         grid.setNumColumns(numCols);
         adapter = new ListAdapter(this);
         grid.setAdapter(adapter);
+
+		/* the following resolves a crash caused by scrolling of a listview full of edittexts.
+		 * see http://stackoverflow.com/a/40659632/215141 for more info */
+		grid.setRecyclerListener(new AbsListView.RecyclerListener() {
+			@Override
+			public void onMovedToScrapHeap(View view) {
+				if ( view.hasFocus()){
+					view.clearFocus();
+					if ( view instanceof EditText) {
+						InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+					}
+				}
+			}
+		});
     }
     
     @Override
@@ -187,8 +203,11 @@ public class Lists_Recall extends Activity implements OnClickListener {
     public int getRow(int pos) {
     	return (pos / numCols);
     }
-    
-    private class ListAdapter extends BaseAdapter {
+
+
+
+
+	private class ListAdapter extends BaseAdapter {
 
         public ListAdapter(Context context) {}
         public int getCount() {           			 return numItems;        }

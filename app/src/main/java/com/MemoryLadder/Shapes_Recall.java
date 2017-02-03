@@ -3,6 +3,7 @@ package com.MemoryLadder;
 import java.util.HashMap;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -21,6 +22,8 @@ import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -109,6 +112,19 @@ public class Shapes_Recall extends Activity implements OnClickListener {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) grid.getLayoutParams();
     	params.addRule(RelativeLayout.ABOVE, R.id.KeyboardLayout);
     	grid.setLayoutParams(params);
+
+		grid.setRecyclerListener(new AbsListView.RecyclerListener() {
+			@Override
+			public void onMovedToScrapHeap(View view) {
+				if ( view.hasFocus()){
+					view.clearFocus();
+					if ( view instanceof EditText) {
+						InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+					}
+				}
+			}
+		});
     }
     
     public void initTimer() {

@@ -47,7 +47,7 @@
         <activity android:name="com.MemoryLadder.Shapes_PreGame" android:screenOrientation="portrait"></activity>
         
         <activity android:name="com.MemoryLadder.Lists_Mem"    android:configChanges="keyboardHidden|orientation" android:screenOrientation="landscape" android:noHistory="true"></activity>
-        <activity android:name="com.MemoryLadder.Lists_Recall" android:configChanges="keyboardHidden|orientation" android:screenOrientation="landscape" android:noHistory="true"></activity>
+        <activity android:name="com.MemoryLadder.Lists_Recall" android:configChanges="keyboardHidden|orientation" android:screenOrientation="landscape" android:noHistory="true" android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name="com.MemoryLadder.Lists_Review" android:screenOrientation="landscape"></activity>
         <activity android:name="com.MemoryLadder.Lists_Settings" android:screenOrientation="portrait" android:noHistory="true"></activity>
         <activity android:name="com.MemoryLadder.Lists_PreGame" android:screenOrientation="portrait"></activity>

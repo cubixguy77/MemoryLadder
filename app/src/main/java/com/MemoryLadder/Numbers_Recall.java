@@ -18,6 +18,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,6 +69,19 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         grid = (GridView) findViewById(R.id.grid);
         grid.setNumColumns(numCols);
         grid.setAdapter(new NumberAdapter(this));
+
+		grid.setRecyclerListener(new AbsListView.RecyclerListener() {
+			@Override
+			public void onMovedToScrapHeap(View view) {
+				if ( view.hasFocus()){
+					view.clearFocus();
+					if ( view instanceof EditText) {
+						InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+						imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+					}
+				}
+			}
+		});
         
         initButtons();
         initText();
