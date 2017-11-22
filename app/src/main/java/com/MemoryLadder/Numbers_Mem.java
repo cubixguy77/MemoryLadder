@@ -300,7 +300,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
 	            }
 	            else {
 	            	view.setTextColor(Color.WHITE);
-            		view.setBackgroundResource(R.drawable.outline_whiteonblack);
+            		view.setBackgroundResource(0);
             		if (countDownComplete)
             			view.setText(Character.toString(answer[row][col]));
             		else

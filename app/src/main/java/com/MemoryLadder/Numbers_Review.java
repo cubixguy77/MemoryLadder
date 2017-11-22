@@ -124,7 +124,7 @@ public class Numbers_Review extends Activity implements OnClickListener{
             	}
             	else {
             		view.setGravity(Gravity.CENTER_HORIZONTAL);
-            		view.setBackgroundResource(R.drawable.outline_whiteonblack);
+            		view.setBackgroundResource(0);
             	}
             	
             }	            
@@ -149,7 +149,7 @@ public class Numbers_Review extends Activity implements OnClickListener{
             	}
             	else {
             		view.setTextColor(Color.LTGRAY);
-            		view.setBackgroundResource(R.drawable.outline_whiteonblack);
+            		view.setBackgroundResource(0);
             	}
             }
             
