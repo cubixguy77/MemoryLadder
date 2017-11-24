@@ -27,7 +27,6 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
 	private TextView TargetTextLabel;
 	private TextView TargetTextValue; 
 	private Button startGameButton;
-	private Button aboutTestButton;
 	private int numDecks;
 	private int deckSize;
 	private int gameType;
@@ -88,9 +87,6 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
         
         startGameButton = (Button) findViewById(R.id.startGameButton);
         startGameButton.setOnClickListener(this);
-        
-        aboutTestButton = (Button) findViewById(R.id.aboutTestButton);
-        aboutTestButton.setOnClickListener(this);
     }
     
     public void initText() {
@@ -152,8 +148,6 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
 			startActivity(new Intent(this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		else if (v == startGameButton)
 			launchMemActivity();
-		else if (v == aboutTestButton)
-			launchVideoDialog();
 	}
 	
 	public void launchSettings() {

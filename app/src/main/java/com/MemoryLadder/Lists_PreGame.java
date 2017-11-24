@@ -18,7 +18,6 @@ public class Lists_PreGame extends Activity implements OnClickListener {
 	private Button button1;
 	private Button button2;
 	private Button startGameButton;
-	private Button aboutTestButton;
 	private TextView Label0;
 	private TextView Label1;
 	private TextView Label2;
@@ -87,9 +86,6 @@ public class Lists_PreGame extends Activity implements OnClickListener {
         
         startGameButton = (Button) findViewById(R.id.startGameButton);
         startGameButton.setOnClickListener(this);
-        
-        aboutTestButton = (Button) findViewById(R.id.aboutTestButton);
-        aboutTestButton.setOnClickListener(this);
     }
     
     public void initText() {
@@ -168,8 +164,6 @@ public class Lists_PreGame extends Activity implements OnClickListener {
 			startActivity(new Intent(this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		else if (view == startGameButton)
 			onPreGameFinished();
-		else if (view == aboutTestButton)
-			launchVideoDialog();
 	}
 	
 	public void initModeTitle() {
