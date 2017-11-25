@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class ScoreActivity extends Activity implements OnClickListener {
 	
@@ -27,7 +25,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	private Button button2;
 	private Button TakeTestButton;
 	private Button NextStepButton;
-//	private Button HighScoresButton;
 	private Button StepsButton;
 	private Button ChampButton;
 	private Button CustomButton;
@@ -513,13 +510,20 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	to_left.reset();
 		final Animation from_right_fast = AnimationUtils.loadAnimation(this, R.anim.from_right_fast);
 		from_right_fast.reset();
-		
+
+		to_left.setAnimationListener(new Animation.AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {}
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				GameTypeText.setText(Utils.getTestString(gameType));
+				GameTypeText.startAnimation(from_right_fast);
+			}
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+		});
+
 		GameTypeText.startAnimation(to_left);
-		
-		new Handler().postDelayed(new Runnable(){ public void run()  { 
-			GameTypeText.setText(Utils.getTestString(gameType));
-			GameTypeText.startAnimation(from_right_fast);
-    	}} , 250);
     }
     
     public void animateTextLastGame(final int gameType) {
@@ -527,14 +531,21 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	to_right.reset();
 		final Animation from_left_fast = AnimationUtils.loadAnimation(this, R.anim.from_left_fast);
 		from_left_fast.reset();
-		
+
+		to_right.setAnimationListener(new Animation.AnimationListener() {
+			@Override
+			public void onAnimationStart(Animation animation) {}
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				GameTypeText.setText(Utils.getTestString(gameType));
+				GameTypeText.startAnimation(from_left_fast);
+			}
+			@Override
+			public void onAnimationRepeat(Animation animation) {}
+		});
+
 		GameTypeText.startAnimation(to_right);
-		
-		new Handler().postDelayed(new Runnable(){ public void run()  { 
-			GameTypeText.setText(Utils.getTestString(gameType));
-			GameTypeText.startAnimation(from_left_fast);
-    	}} , 250);
-    }
+	}
     
     
     
