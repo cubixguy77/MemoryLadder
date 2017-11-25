@@ -147,11 +147,6 @@ public class Shapes_PreGame extends Activity implements OnClickListener {
 		this.startActivity(i);     	
     }
 	
-	public void launchVideoDialog() {
-		VideoDialog v = new VideoDialog(this, gameType);
-		v.show();		
-	}
-	
 	public void onPreGameFinished() {
 		Intent i = getIntent();
     	i.setClass(this, Shapes_Mem.class);
