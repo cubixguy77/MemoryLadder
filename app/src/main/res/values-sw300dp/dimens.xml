@@ -2,15 +2,16 @@
 
     <dimen name="toolbar.height">40dp</dimen>
     <dimen name="toolbar.button_size">30dp</dimen>
+    <dimen name="toolbar.button_long_width">70dp</dimen>
+    <dimen name="toolbar.button_long_height">36dp</dimen>
+
+    <dimen name="arrow.width">140dp</dimen>
+    <dimen name="arrow.height">100dp</dimen>
+    <dimen name="arrow.margin_top">40dp</dimen>
+    <dimen name="arrow.padding_right">25dp</dimen>
+    <dimen name="arrow.text_size">16sp</dimen>
 
     <dimen name="pregame.graphic.height">175dp</dimen>
-
-    <dimen name="pregame.arrow.width">140dp</dimen>
-    <dimen name="pregame.arrow.height">100dp</dimen>
-    <dimen name="pregame.arrow.margin_top">40dp</dimen>
-    <dimen name="pregame.arrow.padding_right">25dp</dimen>
-    <dimen name="pregame.arrow.text_size">16sp</dimen>
-
 
     <dimen name="pregame.settings.title.margin_left">40dp</dimen>
     <dimen name="pregame.settings.title.margin_top">24dp</dimen>
@@ -25,6 +26,33 @@
     <dimen name="pregame.settings.list.text_size">18sp</dimen>
     <dimen name="pregame.settings.list.summary.text_size">24sp</dimen>
     <dimen name="pregame.settings.list.summary.margin_top">10dp</dimen>
+
+
+
+
+    <dimen name="scores.arrow_button.size">36dp</dimen>
+    <dimen name="scores.game_selector_panel.height">40dp</dimen>
+
+    <dimen name="scores.graph_panel.height">180dp</dimen>
+    <dimen name="scores.steps_panel.height">180dp</dimen>
+
+    <dimen name="scores.steps.text.text_size">26sp</dimen>
+    <dimen name="scores.steps.success_graphic.width">125dp</dimen>
+    <dimen name="scores.steps.success_graphic.height">100dp</dimen>
+
+    <dimen name="scores.settings.title.padding_left">40dp</dimen>
+    <dimen name="scores.settings.title.padding_top">6dp</dimen>
+    <dimen name="scores.settings.title.text_size">30sp</dimen>
+
+    <dimen name="scores.settings.list.margin_top">40dp</dimen>
+    <dimen name="scores.settings.list.text_size">14sp</dimen>
+    <dimen name="scores.settings.list.summary.text_size">26sp</dimen>
+
+
+
+
+
+
 
 
 </resources>
