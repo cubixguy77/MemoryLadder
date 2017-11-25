@@ -54,16 +54,16 @@
 
         <Button
             android:id="@+id/startGameButton"
-            android:layout_width="@dimen/pregame.arrow.width"
-            android:layout_height="@dimen/pregame.arrow.height"
+            android:layout_width="@dimen/arrow.width"
+            android:layout_height="@dimen/arrow.height"
             android:layout_gravity="top|right"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="@dimen/pregame.arrow.margin_top"
+            android:layout_marginTop="@dimen/arrow.margin_top"
             android:background="@drawable/selector_prearrowbutton"
-            android:paddingRight="@dimen/pregame.arrow.padding_right"
+            android:paddingRight="@dimen/arrow.padding_right"
             android:text="Take The Test"
             android:textColor="#ffffffff"
-            android:textSize="@dimen/pregame.arrow.text_size" />
+            android:textSize="@dimen/arrow.text_size" />
     </FrameLayout>
 
     <ImageView
