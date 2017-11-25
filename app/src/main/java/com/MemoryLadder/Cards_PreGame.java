@@ -171,11 +171,6 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
 		this.startActivity(i);
 	}
 	
-	public void launchVideoDialog() {
-		VideoDialog v = new VideoDialog(this, gameType);
-		v.show();		
-	}
-	
 	public void getExtras() {
 		Intent i = getIntent();
         gameType  = i.getIntExtra("gameType",    -1);

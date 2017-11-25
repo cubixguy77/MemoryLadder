@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Numbers_PreGame extends Activity implements OnClickListener{
 
@@ -155,12 +154,6 @@ public class Numbers_PreGame extends Activity implements OnClickListener{
     	i.setClass(this, Numbers_Settings.class);		
 		this.startActivity(i);    	
     }
-    
-    public void launchVideoDialog() {
-		VideoDialog v = new VideoDialog(this, gameType);
-		v.show();		
-	}
-        
     
     public void getExtras() {
     	Intent i = getIntent();
