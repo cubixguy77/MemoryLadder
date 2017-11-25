@@ -181,6 +181,8 @@ public class Numbers_PreGame extends Activity implements OnClickListener{
 			return "Medium";
 		else if (secondsPerDigit == 3)
 			return "Slow";
+		else if (secondsPerDigit < 1)
+			return "Super Fast";
 		return "NULL";
 	}
 	

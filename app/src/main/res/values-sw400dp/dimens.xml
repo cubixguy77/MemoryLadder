@@ -1,6 +1,6 @@
 <resources>
 
-    <dimen name="pregame.settings.title.margin_left">56dp</dimen>
+    <dimen name="pregame.settings.title.margin_left">48dp</dimen>
     <dimen name="pregame.settings.title.margin_top">28dp</dimen>
     <dimen name="pregame.settings.title.text_size">44sp</dimen>
     <dimen name="pregame.settings.list.margin_top">40dp</dimen>

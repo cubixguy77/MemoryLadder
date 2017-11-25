@@ -65,6 +65,7 @@
 	    <item>Slow</item>
 	    <item>Medium</item>
 	    <item>Fast</item>    
+	    <item>Super Fast</item>
     </string-array>
 
 	<string-array name="randomwords1">

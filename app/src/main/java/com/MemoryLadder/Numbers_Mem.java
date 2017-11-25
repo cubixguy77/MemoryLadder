@@ -89,6 +89,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     	super.onPause();
     	if (gameType == NUMBERS_SPOKEN) {
     		userQuit = true;
+    		soundManager.stop();
     	}
     	else if (timer != null)
     		timer.cancel();
@@ -201,7 +202,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     
     public void initSounds() {
     	if (gameType == NUMBERS_SPOKEN)
-    		soundManager = new SoundManager(this);
+    		soundManager = new SoundManager(this, secondsPerDigit);
     }
     
     public void playSound(int digit) {

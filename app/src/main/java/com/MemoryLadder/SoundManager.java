@@ -9,13 +9,16 @@ class SoundManager {
 
     private TextToSpeech speaker;
 
-    SoundManager(Context mContext) {
+    SoundManager(Context mContext, final double secondsPerDigit) {
         this.speaker = new TextToSpeech(mContext, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
                 if(status != TextToSpeech.ERROR) {
                     speaker.setLanguage(Locale.UK);
                     speaker.setPitch(.8f);
+                    if (secondsPerDigit < 1) {
+                        speaker.setSpeechRate(2.5f);
+                    }
                 }
             }
         });
@@ -24,5 +27,10 @@ class SoundManager {
     void playSound(int index) {
         speaker.speak(Integer.toString(index), TextToSpeech.QUEUE_FLUSH, null);
         System.out.println("Play: " + index);
+    }
+
+    public void stop() {
+        speaker.stop();
+        speaker.shutdown();
     }
 }

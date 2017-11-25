@@ -1,6 +1,5 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
 import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
 import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
 import com.mastersofmemory.memoryladder.R;
@@ -55,9 +54,10 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
 	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
 	
-	final int SLOW   = 0;
-	final int MEDIUM = 1;
-	final int FAST   = 2;
+	final static int SLOW   = 0;
+	final static int MEDIUM = 1;
+	final static int FAST   = 2;
+	final static int SUPER_FAST = 3;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -137,12 +137,20 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     		SPOKEN_numRows = numDigits / SPOKEN_numCols;
     		
     		String digitSpeed = spinner_digitspeed.getSelectedItem().toString();
-    		if (digitSpeed.equals("Slow"))
-    			SPOKEN_secondsPerDigit = 3;
-    		else if (digitSpeed.equals("Medium"))
-    			SPOKEN_secondsPerDigit = 2;
-    		else if (digitSpeed.equals("Fast"))
-    			SPOKEN_secondsPerDigit = 1;
+			switch (digitSpeed) {
+				case "Slow":
+					SPOKEN_secondsPerDigit = 3;
+					break;
+				case "Medium":
+					SPOKEN_secondsPerDigit = 2;
+					break;
+				case "Fast":
+					SPOKEN_secondsPerDigit = 1;
+					break;
+				case "Super Fast":
+					SPOKEN_secondsPerDigit = 0.5f;
+					break;
+			}
     	}
     	else {
         	WRITTEN_numRows = Integer.parseInt( tv_numlines.getText().toString() );
