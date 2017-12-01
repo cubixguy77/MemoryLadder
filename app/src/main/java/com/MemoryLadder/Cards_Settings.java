@@ -27,6 +27,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
 	private  int numdecks;
 	private  int memTime;
 	private  int recallTime;
+	private  int cardsPerGroup;
 	private Boolean mnemo_enabled;
 	private Boolean showMnemo;
 	private TextView tv_cardsperdeck;
@@ -34,6 +35,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
 	private TextView tv_memtime;
 	private TextView tv_recalltime;
 	private TextView tv_mnemo;
+	private TextView tv_cardspergroup;
 	private final int CARDS_SPEED  = Constants.CARDS_SPEED;
 	private final int CARDS_LONG   = Constants.CARDS_LONG;
 	
@@ -72,13 +74,15 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	tv_memtime      = (TextView) findViewById(R.id.tv_memtime);
     	tv_recalltime   = (TextView) findViewById(R.id.tv_recalltime);
     	tv_mnemo        = (TextView) findViewById(R.id.tv_mnemo);
-    	
+    	tv_cardspergroup        = (TextView) findViewById(R.id.tv_cardspergroup);
+
     	tv_cardsperdeck.setOnClickListener(this);
     	tv_numdecks.setOnClickListener(this);
     	tv_memtime.setOnClickListener(this);
     	tv_recalltime.setOnClickListener(this);
     	tv_mnemo.setOnClickListener(this);
-    	
+    	tv_cardspergroup.setOnClickListener(this);
+
     	if (!showMnemo) {
     		TableRow row = (TableRow) findViewById(R.id.cards_tablerow5);
     		row.setVisibility(View.GONE);
@@ -103,14 +107,16 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	tv_memtime.setText(prefs.getString        ("tv_memtime",         Utils.formatIntoHHMMSS(Constants.default_cards_memTime)));
     	tv_recalltime.setText(prefs.getString     ("tv_recalltime",      Utils.formatIntoHHMMSS(Constants.default_cards_recallTime))); 
     	tv_mnemo.setText(prefs.getString          ("tv_mnemo",           "Off")); 
-    } 
+    	tv_cardspergroup.setText(prefs.getString          ("tv_cardspergroup", Integer.toString(Constants.default_cards_cardsPerGroup)));
+    }
     
     public void updateSettings() {	
     	cardsperdeck = Integer.parseInt( tv_cardsperdeck.getText().toString() );
     	numdecks =     Integer.parseInt( tv_numdecks.getText().toString() );
     	memTime =      Utils.getTotalSeconds( tv_memtime.getText().toString() );    
     	recallTime =   Utils.getTotalSeconds( tv_recalltime.getText().toString() );		        
-    	
+    	cardsPerGroup =   Integer.parseInt( tv_cardspergroup.getText().toString() );
+
     	if (showMnemo) {
     		if (tv_mnemo.getText().toString().equals("On"))
     			mnemo_enabled = true;
@@ -124,6 +130,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	System.out.println("memtime:  "       + memTime);
     	System.out.println("recalltime: "     + recallTime);
     	System.out.println("mnemo_enabled: "  + mnemo_enabled);
+    	System.out.println("cards per group: "  + cardsPerGroup);
     }
     
     public void commitPreferences() {
@@ -136,6 +143,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
         editor.putString("tv_memtime",       tv_memtime.getText().toString());
         editor.putString("tv_recalltime",    tv_recalltime.getText().toString());
         editor.putString("tv_mnemo",         tv_mnemo.getText().toString());
+        editor.putString("tv_cardspergroup", tv_cardspergroup.getText().toString());
 
         /* In game variable values */
         editor.putInt("deckSize",          cardsperdeck);
@@ -143,6 +151,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
         editor.putInt("memTime",           memTime);
         editor.putInt("recallTime",        recallTime);
         editor.putBoolean("mnemo_enabled", mnemo_enabled);
+        editor.putInt("numCardsPerGroup",  cardsPerGroup);
 
         editor.commit();
     }
@@ -168,6 +177,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	tv_numdecks.setText(Integer.toString(Constants.default_cards_numDecks));
     	tv_memtime.setText(Integer.toString(Constants.default_cards_memTime));
     	tv_recalltime.setText(Integer.toString(Constants.default_cards_recallTime)); 
+    	tv_cardspergroup.setText(Integer.toString(Constants.default_cards_cardsPerGroup));
     }
     
 	@Override
@@ -188,6 +198,13 @@ public class Cards_Settings extends Activity implements OnClickListener{
 			SettingsDialog dialog = new SettingsDialog(this, tv_cardsperdeck.getText().toString(), "Cards per deck:", Constants.cards_tv_cardsperdeck);
 			dialog.setDialogResult(new OnMyDialogResult() {
 			    public void finish(String result){  tv_cardsperdeck.setText(result);   }
+			});
+			dialog.show();
+		}
+		else if (view == tv_cardspergroup) {
+			SettingsDialog dialog = new SettingsDialog(this, tv_cardspergroup.getText().toString(), "Cards per group:", Constants.cards_tv_cardspergroup);
+			dialog.setDialogResult(new OnMyDialogResult() {
+				public void finish(String result){  tv_cardspergroup.setText(result);   }
 			});
 			dialog.show();
 		}

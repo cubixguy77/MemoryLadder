@@ -406,7 +406,7 @@ public class Lists_Recall extends Activity implements OnClickListener {
 	
 	
 	public void launchExitDialog() {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
     	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {

@@ -388,7 +388,7 @@ public class Lists_Mem extends Activity implements OnClickListener, android.cont
 	
 	
 	public void launchExitDialog() {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
     	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {

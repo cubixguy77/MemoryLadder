@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.MemoryLadder.Cards.CardPrototype;
 import com.mastersofmemory.memoryladder.R;
 //import com.MemoryLadderFull.R;
 
@@ -29,6 +30,7 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
 	private Button startGameButton;
 	private int numDecks;
 	private int deckSize;
+	private int cardsPerGroup;
 	private int gameType;
 	private int mode;
 	private int step;
@@ -158,13 +160,14 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
 	
 	public void launchMemActivity() {
 		Intent i = getIntent();
-    	i.setClass(this, Cards_Mem.class);
+    	i.setClass(this, CardPrototype.class);
 
 		i.putExtra("deckSize", deckSize);
 		i.putExtra("numDecks", numDecks);
 		i.putExtra("memTime", memTime);
 		i.putExtra("recallTime", recallTime);
 		i.putExtra("mnemo_enabled", mnemo_enabled);
+		i.putExtra("numCardsPerGroup", cardsPerGroup);
 		i.putExtra("step", step);
 		i.putExtra("target", target);
 		
@@ -211,10 +214,12 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
     			memTime      = specs[2];
     			recallTime	 = specs[3];
     			target       = specs[4];
+    			cardsPerGroup = 2;
     		}
     		else if (mode == WMC) {
     			deckSize         = Constants.wmc_cards_speed_deckSize;
     			numDecks         = Constants.wmc_cards_speed_numDecks;
+    			cardsPerGroup    = Constants.wmc_cards_speed_cardsPerGroup;
     	        memTime          = Constants.wmc_cards_speed_memTime;
     	        recallTime       = Constants.wmc_cards_speed_recallTime;
     		}
@@ -222,6 +227,7 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
     			SharedPreferences settings = getSharedPreferences("Card_Preferences", 0);
     			deckSize         = settings.getInt("deckSize",   Constants.default_cards_deckSize);
     	        numDecks         = settings.getInt("numDecks",   Constants.default_cards_numDecks);
+    	        cardsPerGroup    = settings.getInt("numCardsPerGroup", Constants.default_cards_cardsPerGroup);
     	        memTime          = settings.getInt("memTime",    Constants.default_cards_memTime);
     	        recallTime       = settings.getInt("recallTime", Constants.default_cards_recallTime);
     	        mnemo_enabled    = settings.getBoolean("mnemo_enabled", false);
@@ -237,10 +243,12 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
     			memTime      = specs[2];
     			recallTime	 = specs[3];
     			target       = specs[4];
+				cardsPerGroup = 2;
     		}
     		else if (mode == WMC) { 
     			deckSize         = Constants.wmc_cards_long_deckSize;
     			numDecks         = Constants.wmc_cards_long_numDecks;
+				cardsPerGroup    = Constants.wmc_cards_long_cardsPerGroup;
     	        memTime          = Constants.wmc_cards_long_memTime;
     	        recallTime       = Constants.wmc_cards_long_recallTime;
     		}
@@ -248,6 +256,7 @@ public class Cards_PreGame extends Activity implements OnClickListener  {
     			SharedPreferences settings = getSharedPreferences("Card_Preferences", 0);
     			deckSize         = settings.getInt("deckSize",   Constants.default_cards_deckSize);
     	        numDecks         = settings.getInt("numDecks",   Constants.default_cards_numDecks);
+    	        cardsPerGroup    = settings.getInt("numCardsPerGroup",   Constants.default_cards_cardsPerGroup);
     	        memTime          = settings.getInt("memTime",    Constants.default_cards_memTime);
     	        recallTime       = settings.getInt("recallTime", Constants.default_cards_recallTime);
     	        mnemo_enabled    = settings.getBoolean("mnemo_enabled", false);

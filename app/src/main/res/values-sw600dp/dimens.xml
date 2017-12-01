@@ -47,4 +47,23 @@
     <dimen name="scores.settings.list.summary.text_size">38sp</dimen>
 
 
+
+    <dimen name="small_card.height">70dp</dimen>
+    <dimen name="small_card.review.margin">16dp</dimen>
+    <dimen name="small_card.suit.size">34dp</dimen>
+    <dimen name="small_card.rank.size">34sp</dimen>
+
+    <dimen name="suit_selector.height">80dp</dimen>
+    <dimen name="suit_selector.icon.size">40dp</dimen>
+
+    <dimen name="cards.navigation_button.size">100dp</dimen>
+    <dimen name="cards.navigation_button.margin">20dp</dimen>
+    <dimen name="cards.navigation_button.margin_from_center">72dp</dimen>
+
+    <dimen name="deck_selector.size">36dp</dimen>
+    <dimen name="deck_selector.margin">12dp</dimen>
+    <dimen name="deck_selector.text.size">20sp</dimen>
+    <dimen name="deck_selector.arrow.size">32dp</dimen>
+
+    <dimen name="mnemonic_hint.text.size">30sp</dimen>
 </resources>

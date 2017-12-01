@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout android:id="@+id/RelativeLayout1" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="fill_parent" android:layout_width="fill_parent">
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:textColor="#ffff0000" android:text="3" android:id="@+id/text" android:textSize="220sp"></TextView>
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#ffff0000"
+            android:text="3"
+            android:textSize="220sp" />
     </RelativeLayout>
 
 

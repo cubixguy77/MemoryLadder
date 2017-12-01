@@ -20,5 +20,28 @@
     <dimen name="scores.settings.list.margin_top">80dp</dimen>
     <dimen name="scores.settings.list.text_size">18sp</dimen>
 
+    <dimen name="score_panel.height">100dp</dimen>
+    <dimen name="score_panel.top_label.text.size">20sp</dimen>
+    <dimen name="score_panel.top_label.padding.bottom">16dp</dimen>
+    <dimen name="score_panel.value.text.size">44sp</dimen>
+    <dimen name="score_panel.value.margin.top">-20dp</dimen>
+
+
+
+
+    <dimen name="small_card.height">48dp</dimen>
+    <dimen name="small_card.review.margin">8dp</dimen>
+    <dimen name="small_card.suit.size">22dp</dimen>
+    <dimen name="small_card.rank.size">22sp</dimen>
+
+    <dimen name="suit_selector.height">52dp</dimen>
+
+    <dimen name="cards.navigation_button.size">80dp</dimen>
+    <dimen name="cards.navigation_button.margin">16dp</dimen>
+    <dimen name="cards.navigation_button.margin_from_center">56dp</dimen>
+
+    <dimen name="deck_selector.size">26dp</dimen>
+    <dimen name="deck_selector.margin">6dp</dimen>
+    <dimen name="deck_selector.text.size">14sp</dimen>
 
 </resources>

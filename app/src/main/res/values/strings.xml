@@ -55,8 +55,13 @@
     <string name="cards_cards_point3">0 points if there are 2 or more mistakes in the deck.</string>    
     <string name="cards_cards_addon1">For the final deck only, any cards left blank will not count as mistakes.</string>
     <string name="cards_cards_addon2"></string>
-    
-    <string-array name="Settings_NumberTypes">
+	<string name="title_activity_card_prototype">Card Proto</string>
+    <string name="deckNum">Deck %d/%d</string>
+    <string name="accuracy">Accuracy</string>
+	<string name="scoreList.Score">Score</string>
+	<string name="mem_time">Mem Time</string>
+
+	<string-array name="Settings_NumberTypes">
 	    <item>Binary</item>
 	    <item >Decimal</item>    
 	    </string-array>

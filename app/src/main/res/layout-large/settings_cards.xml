@@ -29,6 +29,10 @@
             <TextView android:layout_height="fill_parent" android:id="@+id/TextView05" android:layout_width="0dp" android:textSize="26sp" android:layout_weight="1" android:gravity="center_vertical" android:text="Mnemonic Assist:"></TextView>
             <TextView android:textColor="#FFdace0a" android:layout_height="fill_parent" android:layout_width="120dp" android:textSize="26sp" android:text="TextView" android:background="@drawable/selector_text" android:gravity="center_vertical|center_horizontal" android:id="@+id/tv_mnemo"></TextView>
         </TableRow>
+        <TableRow android:layout_marginTop="30dp" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/cards_tablerow6">
+            <TextView android:layout_height="fill_parent" android:id="@+id/TextView06" android:layout_width="0dp" android:textSize="26sp" android:layout_weight="1" android:gravity="center_vertical" android:text="Cards per group:"></TextView>
+            <TextView android:textColor="#FFdace0a" android:layout_height="fill_parent" android:layout_width="120dp" android:textSize="26sp" android:text="TextView" android:background="@drawable/selector_text" android:gravity="center_vertical|center_horizontal" android:id="@+id/tv_cardspergroup"></TextView>
+        </TableRow>
     </TableLayout>
  	<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/OptionsContainer" android:layout_toLeftOf="@+id/spacer" android:text="Speed Cards" android:id="@+id/wmc_CARDS_SPEED" android:visibility="invisible"></Button>
  	<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/wmc_CARDS_SPEED" android:layout_alignLeft="@+id/wmc_CARDS_SPEED" android:text="Long Cards" android:id="@+id/wmc_CARDS_LONG" android:visibility="invisible"></Button>

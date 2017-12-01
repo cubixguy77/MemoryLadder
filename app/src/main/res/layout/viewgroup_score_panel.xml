@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.MemoryLadder.Cards.ScorePanel.ScorePanel
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#5c5c5c"
+    android:visibility="gone"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    app:behavior_peekHeight="@dimen/score_panel.height"
+    tools:visibility="visible"
+    tools:context="com.MemoryLadder.Cards.CardPrototype"
+    tools:showIn="@layout/activity_card_prototype"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/viewgroup_score_panel_summary_section"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/score_panel.height"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/score_panel.height"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
+                android:text="@string/accuracy"
+                android:textColor="@color/score_panel.top_label"
+                android:textSize="@dimen/score_panel.top_label.text.size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accuracyText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/score_panel.value.margin.top"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|top"
+                android:textColor="@color/score_panel.value"
+                android:textSize="@dimen/score_panel.value.text.size"
+                tools:text="100%" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/score_panel.height"
+            android:orientation="vertical"
+            android:layout_weight="10">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/scoreList.Score"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
+                android:textSize="@dimen/score_panel.top_label.text.size"
+                android:textStyle="bold"
+                android:textColor="@color/score_panel.top_label"
+                />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|top"
+                android:layout_marginTop="@dimen/score_panel.value.margin.top"
+                tools:text="50"
+                android:textSize="@dimen/score_panel.value.text.size"
+                android:textColor="@color/score_panel.value"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/score_panel.height"
+            android:orientation="vertical"
+            android:layout_weight="9">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/mem_time"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
+                android:textSize="@dimen/score_panel.top_label.text.size"
+                android:textStyle="bold"
+                android:textColor="@color/score_panel.top_label"
+                />
+
+            <TextView
+                android:id="@+id/memTimeText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|top"
+                android:layout_marginTop="@dimen/score_panel.value.margin.top"
+                tools:text="37.1s"
+                android:textSize="@dimen/score_panel.value.text.size"
+                android:textColor="@color/score_panel.value"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/viewgroup_score_panel_graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="16dp"
+        />
+
+</com.MemoryLadder.Cards.ScorePanel.ScorePanel>

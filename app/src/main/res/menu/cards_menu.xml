@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_finished_mem"
+        app:showAsAction="withText|always"
+        android:title="Finish">
+    </item>
+
+    <item
+        android:id="@+id/menu_finished_recall"
+        app:showAsAction="withText|always"
+        android:title="Finish">
+    </item>
+
+    <item
+        android:id="@+id/menu_play_again"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_replay"
+        android:title="Play Again">
+    </item>
+</menu>

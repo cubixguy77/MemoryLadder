@@ -12,6 +12,8 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.jjoe64.graphview.series.DataPoint;
 //import com.MemoryLadderFull.R;
 
 public class FileOps {
@@ -298,21 +300,40 @@ public class FileOps {
     	else
     		return null;
 	}
-    
-    public String[] readPastScores(int mode, int gameType) {
-    	List<String> scores = new ArrayList<String>();
+
+	public String[] readPastScores(int mode, int gameType) {
+		List<String> scores = new ArrayList<String>();
+		try {
+			BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreResource(mode, gameType))));
+			String score;
+			while ((score = inputReader.readLine()) != null) {
+				if (score != null && !score.equals(""))
+					scores.add(score);
+			}
+		} catch (IOException e) {    e.printStackTrace();  	}
+		catch (NullPointerException e) {    e.printStackTrace();  	}
+
+		String[] strings = (String[]) scores.toArray(new String[scores.size()]);
+		return strings;
+	}
+
+    public DataPoint[] readPastScoresToDataPoints(int mode, int gameType) {
+    	List<DataPoint> scores = new ArrayList<>();
+    	int i = 0;
+
     	try {
     	    BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreResource(mode, gameType))));
     	    String score;                
     	    while ((score = inputReader.readLine()) != null) {
-    	    	if (score != null && !score.equals(""))
-    	    		scores.add(score);
+    	    	if (!score.equals(""))
+    	    		scores.add(new DataPoint(i++, Integer.parseInt(score)));
     	    }
-    	} catch (IOException e) {    e.printStackTrace();  	}
-    	  catch (NullPointerException e) {    e.printStackTrace();  	}
+    	}
+    	catch (IOException e) {    e.printStackTrace();  	}
+    	catch (NullPointerException e) {    e.printStackTrace();  	}
     	
-    	String[] strings = (String[]) scores.toArray(new String[scores.size()]);
-	    return strings;
+    	DataPoint[] dataPoints = scores.toArray(new DataPoint[scores.size()]);
+	    return dataPoints;
     }
     
     public void updatePastScores(int mode, int gameType, String score) {

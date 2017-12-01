@@ -1,6 +1,10 @@
 package com.MemoryLadder;
 
 //import com.MemoryLadderFull.R;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
@@ -125,8 +129,6 @@ public class Utils {
 	        case 6:  return Lists_Review.class;
 	        case 7:  return Shapes_Review.class;
 	        case 8:  return Shapes_Review.class;
-	        case 9:  return Cards_Review.class;
-	        case 10: return Cards_Review.class;
         default: return null;
 	}
     }
@@ -386,4 +388,11 @@ public class Utils {
     public static int getTotalSeconds(String timestring) { 
     	return (getHours(timestring) * 3600) + (getMinutes(timestring) * 60) + (getSeconds(timestring));
     }
+
+	public static int convertDpToPixel(float dp, Context context){
+		Resources resources = context.getResources();
+		DisplayMetrics metrics = resources.getDisplayMetrics();
+		float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
+		return (int) px;
+	}
 }

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.MemoryLadder.Cards.CardPrototype">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true"
+        android:background="@color/activity.background">
+
+        <include
+            android:id="@+id/cardsToolbar"
+            layout="@layout/toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/deck_selector.size"
+                android:layout_marginTop="@dimen/deck_selector.margin"
+                android:layout_marginBottom="@dimen/deck_selector.margin"
+                >
+
+                <com.MemoryLadder.Cards.DeckSelectorView
+                    android:id="@+id/layout_deck_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    >
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/button_prev_deck"
+                        style="@style/DeckSelectorButton"
+                        app:srcCompat="@drawable/ic_arrow_left_small" />
+
+                    <TextView
+                        android:id="@+id/text_deck_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:textColor="#ffffffff"
+                        android:textSize="@dimen/deck_selector.text.size"
+                        tools:text="Deck 1/5" />
+
+                    <android.support.v7.widget.AppCompatImageButton
+                        android:id="@+id/button_next_deck"
+                        style="@style/DeckSelectorButton"
+                        app:srcCompat="@drawable/ic_arrow_right_small" />
+
+                </com.MemoryLadder.Cards.DeckSelectorView>
+
+                <com.MemoryLadder.Cards.Timer.TimerView
+                    android:id="@+id/text_timer"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="5:00"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/timer.text.size"
+                    />
+
+
+            </FrameLayout>
+
+            <com.MemoryLadder.Cards.DeckView
+                android:id="@+id/deck_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="horizontal"
+                tools:layout_height="192dp" />
+
+            <com.MemoryLadder.Cards.SelectedCardsView
+                android:id="@+id/selected_cards_view"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="8dp"
+                android:background="@color/green"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/button_prev_group_alt"
+                    style="@style/NextGroupButton"
+                    android:layout_marginLeft="@dimen/cards.navigation_button.margin"
+                    android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                    android:contentDescription="Last Group"
+                    app:srcCompat="@drawable/ic_arrow_left" />
+
+                <com.MemoryLadder.Cards.LargeCardView
+                    android:id="@+id/card_large_one"
+                    style="@style/LargeCardLayoutStyle">
+                    <android.support.v7.widget.AppCompatImageView
+                        style="@style/LargeCardStyle"
+                        tools:src="@drawable/card_h1" />
+                    <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+                </com.MemoryLadder.Cards.LargeCardView>
+
+                <com.MemoryLadder.Cards.LargeCardView
+                    android:id="@+id/card_large_two"
+                    style="@style/LargeCardLayoutStyle">
+                    <android.support.v7.widget.AppCompatImageView
+                        style="@style/LargeCardStyle"
+                        tools:src="@drawable/card_h1" />
+                    <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+                </com.MemoryLadder.Cards.LargeCardView>
+
+                <com.MemoryLadder.Cards.LargeCardView
+                    android:id="@+id/card_large_three"
+                    style="@style/LargeCardLayoutStyle">
+                    <android.support.v7.widget.AppCompatImageView
+                        style="@style/LargeCardStyle"
+                        tools:src="@drawable/card_h1" />
+                    <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+                </com.MemoryLadder.Cards.LargeCardView>
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/button_next_group_alt"
+                    style="@style/NextGroupButton"
+                    android:layout_marginLeft="@dimen/cards.navigation_button.margin"
+                    android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                    android:contentDescription="Last Group"
+                    app:srcCompat="@drawable/ic_arrow_right" />
+
+            </com.MemoryLadder.Cards.SelectedCardsView>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/layout_bottom_navigator_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/button_prev_group"
+                style="@style/NextGroupButton"
+                android:layout_marginRight="@dimen/cards.navigation_button.margin_from_center"
+                android:contentDescription="Last Group"
+                app:srcCompat="@drawable/ic_arrow_left" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/button_next_group"
+                style="@style/NextGroupButton"
+                android:layout_marginLeft="@dimen/cards.navigation_button.margin_from_center"
+                android:contentDescription="Next Group"
+                app:srcCompat="@drawable/ic_arrow_right" />
+
+        </FrameLayout>
+
+        <com.MemoryLadder.Cards.SuitSelectorView
+            android:id="@+id/layout_suit_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/image_suit_selector_heart"
+                style="@style/SuitSelectorCell"
+                app:srcCompat="@drawable/icon_suit_heart"/>
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/image_suit_selector_diamond"
+                style="@style/SuitSelectorCell"
+                app:srcCompat="@drawable/icon_suit_diamond" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/image_suit_selector_club"
+                style="@style/SuitSelectorCell"
+                app:srcCompat="@drawable/icon_suit_club" />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/image_suit_selector_spade"
+                style="@style/SuitSelectorCell"
+                app:srcCompat="@drawable/icon_suit_spade" />
+
+        </com.MemoryLadder.Cards.SuitSelectorView>
+
+        <com.MemoryLadder.Cards.CardSelectionView
+            android:id="@+id/card_selector_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:columnCount="7"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="true"
+            android:visibility="visible"
+            tools:visibility="gone"
+            tools:layout_height="96dp" />
+
+        <FrameLayout
+            android:id="@+id/layout_button_start"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            tools:visibility="gone">
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_height="180dp"
+                android:layout_width="180dp"
+                android:layout_gravity="center"
+                android:background="@drawable/selector_startbutton" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/cards_score_panel"
+        layout="@layout/viewgroup_score_panel"
+        android:visibility="gone"
+        tools:visibility="visible">
+    </include>
+
+</android.support.design.widget.CoordinatorLayout>

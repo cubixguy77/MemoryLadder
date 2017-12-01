@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#064e09</color>
+    <color name="colorAccent">#051bae</color>
+
     <color name="orange">#aaff9900</color>
     <color name="yellow">#fffcff00</color>
+    <color name="grey">#5c5c5c</color>
+    <color name="green">@color/colorPrimary</color>
+
+    <color name="activity.background">@color/grey</color>
+
+    <color name="score_panel.top_label">#ffffff</color>
+    <color name="score_panel.value">#ffffff</color>
 </resources>
