@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
 //import com.MemoryLadderFull.R;
 
@@ -70,6 +71,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         grid.setNumColumns(numCols);
         grid.setAdapter(new NumberAdapter(this));
 
+        /*
 		grid.setRecyclerListener(new AbsListView.RecyclerListener() {
 			@Override
 			public void onMovedToScrapHeap(View view) {
@@ -82,7 +84,8 @@ public class Numbers_Recall extends Activity implements OnClickListener {
 				}
 			}
 		});
-        
+        */
+
         initButtons();
         initText();
     }
@@ -90,7 +93,11 @@ public class Numbers_Recall extends Activity implements OnClickListener {
     @Override
     public void onResume() {
     	super.onResume();    	
-    	initTimer();
+
+    	if (timer == null) {
+			initTimer();
+		}
+
     	timer.start();
     }
     
@@ -98,7 +105,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
     public void onPause() {
     	super.onPause();
     	if (timer != null)
-    		timer.cancel();
+    		timer.pause();
     }
     
     @Override
@@ -288,7 +295,8 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         i.putExtra("scores", scores);
         
         i.setClass(this, ScoreActivity.class);
-        this.startActivity(i);		
+        this.startActivity(i);
+        finish();
     }
 	   
     public void getExtras() {
@@ -331,7 +339,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
     }
     
     
-    private class Timer extends CountDownTimer {
+    private class Timer extends CountDownTimerPausable {
 		private Boolean displayTime; // whether or not we should be setting the timer's time to a textview
 		private TextView TimerText;	
 		

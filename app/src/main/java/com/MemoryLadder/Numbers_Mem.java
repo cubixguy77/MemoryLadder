@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
 //import com.MemoryLadderFull.R;
 
@@ -83,6 +84,15 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
         initSounds();
         initTimer();
     }
+
+	@Override
+	public void onResume() {
+		super.onResume();
+
+		if (timer != null && timer.getSecondsElapsed() > 0) {
+			timer.start();
+		}
+	}
     
     @Override
     public void onPause() {
@@ -91,8 +101,8 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     		userQuit = true;
     		soundManager.stop();
     	}
-    	else if (timer != null)
-    		timer.cancel();
+    	else if (timer != null && !timer.isPaused())
+    		timer.pause();
     }
     
     @Override
@@ -340,6 +350,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
 		
 		i.setClass(this, Numbers_Recall.class);
 		this.startActivity(i);
+		finish();
     }
 
     public void getExtras() {
@@ -415,16 +426,16 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     }
 	
 	
-	private class Timer extends CountDownTimer {
+	private class Timer extends CountDownTimerPausable {
 		private Boolean displayTime; // whether or not we should be setting the timer's time to a textview
 		private TextView TimerText;	
 		private int secondsElapsed = 0;
 		
 		public Timer(long millisInFuture, long countDownInterval, TextView TimerText) {
-				super(millisInFuture, countDownInterval);
-				this.TimerText = TimerText;
-				displayTime = true;
-				TimerText.setText(Utils.formatIntoHHMMSStruncated(millisInFuture / 1000));
+			super(millisInFuture, countDownInterval);
+			this.TimerText = TimerText;
+			displayTime = true;
+			TimerText.setText(Utils.formatIntoHHMMSStruncated(millisInFuture / 1000));
 		}
 		public Timer(long millisInFuture, long countDownInterval) {
 			super(millisInFuture, countDownInterval);

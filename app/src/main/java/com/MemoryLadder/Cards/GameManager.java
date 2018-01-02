@@ -14,9 +14,9 @@ import android.widget.FrameLayout;
 
 import com.MemoryLadder.Cards.ScorePanel.Score;
 import com.MemoryLadder.Cards.ScorePanel.ScorePanel;
-import com.MemoryLadder.Cards.Timer.ITimer;
-import com.MemoryLadder.Cards.Timer.SimpleTimer;
-import com.MemoryLadder.Cards.Timer.TimerView;
+import com.MemoryLadder.Timer.ITimer;
+import com.MemoryLadder.Timer.SimpleTimer;
+import com.MemoryLadder.Timer.TimerView;
 import com.MemoryLadder.Cards_PreGame;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.CountDownDialog;

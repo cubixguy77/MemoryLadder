@@ -1,4 +1,4 @@
-package com.MemoryLadder.Cards.Timer;
+package com.MemoryLadder.Timer;
 
 public interface ITimer {
     interface View {

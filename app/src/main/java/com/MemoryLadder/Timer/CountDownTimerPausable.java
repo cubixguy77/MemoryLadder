@@ -1,4 +1,4 @@
-package com.MemoryLadder.Cards.Timer;
+package com.MemoryLadder.Timer;
 
 import android.os.CountDownTimer;
 
@@ -9,7 +9,7 @@ import android.os.CountDownTimer;
  * provide implementation for onTick() and onFinish()
  * then use it in your projects.
  */
-abstract class CountDownTimerPausable {
+public abstract class CountDownTimerPausable {
     private long countDownInterval = 0;
     private long millisRemaining =  0;
     private long originalTimeLimitInMillis = 0;
@@ -18,7 +18,7 @@ abstract class CountDownTimerPausable {
 
     private boolean isPaused = true;
 
-    CountDownTimerPausable(long millisInFuture, long countDownInterval) {
+    protected CountDownTimerPausable(long millisInFuture, long countDownInterval) {
         super();
         this.countDownInterval = countDownInterval;
         this.millisRemaining = originalTimeLimitInMillis = millisInFuture;
@@ -93,5 +93,9 @@ abstract class CountDownTimerPausable {
             throw new IllegalStateException("CountDownTimerPausable is already in pause state, start counter before pausing it.");
         }
         isPaused = true;
+    }
+
+    public boolean isPaused() {
+        return this.isPaused;
     }
 }

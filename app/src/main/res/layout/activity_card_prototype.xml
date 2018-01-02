@@ -62,7 +62,7 @@
 
                 </com.MemoryLadder.Cards.DeckSelectorView>
 
-                <com.MemoryLadder.Cards.Timer.TimerView
+                <com.MemoryLadder.Timer.TimerView
                     android:id="@+id/text_timer"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"

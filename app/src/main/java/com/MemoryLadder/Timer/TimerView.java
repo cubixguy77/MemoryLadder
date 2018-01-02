@@ -1,4 +1,4 @@
-package com.MemoryLadder.Cards.Timer;
+package com.MemoryLadder.Timer;
 
 import android.content.Context;
 import android.util.AttributeSet;
