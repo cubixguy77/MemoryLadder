@@ -33,6 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
 //import com.MemoryLadderFull.R;
 
@@ -88,7 +89,11 @@ public class Shapes_Recall extends Activity implements OnClickListener {
     @Override
     public void onResume() {
     	super.onResume();
-    	initTimer();
+
+		if (timer == null) {
+			initTimer();
+		}
+
     	timer.start();
     }
     
@@ -96,7 +101,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
     public void onPause() {
     	super.onPause();
     	if (timer != null)
-    		timer.cancel();
+    		timer.pause();
     }
     
     @Override
@@ -353,6 +358,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
     	    	
 		i.setClass(this, ScoreActivity.class);
         this.startActivity(i);
+        finish();
     }
     
 	@Override
@@ -419,7 +425,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
 	
 	
 	
-	private class Timer extends CountDownTimer {
+	private class Timer extends CountDownTimerPausable {
 		private Boolean displayTime; // whether or not we should be setting the timer's time to a textview
 		private TextView TimerText;	
 		
