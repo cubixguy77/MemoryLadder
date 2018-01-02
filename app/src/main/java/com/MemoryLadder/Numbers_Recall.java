@@ -5,21 +5,16 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-//import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,7 +23,6 @@ import android.widget.TextView;
 
 import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Numbers_Recall extends Activity implements OnClickListener {
 	
@@ -50,11 +44,6 @@ public class Numbers_Recall extends Activity implements OnClickListener {
 	private Timer timer;
 	private TextView timerText;
 	
-//	private final static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-//	private final static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
-//	private final static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
-	private final static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,27 +53,19 @@ public class Numbers_Recall extends Activity implements OnClickListener {
                 
         setContentView(R.layout.game);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        
-        
-        
-        grid = (GridView) findViewById(R.id.grid);
+
+        grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);
         grid.setAdapter(new NumberAdapter(this));
-
-        /*
-		grid.setRecyclerListener(new AbsListView.RecyclerListener() {
-			@Override
-			public void onMovedToScrapHeap(View view) {
-				if ( view.hasFocus()){
-					view.clearFocus();
-					if ( view instanceof EditText) {
-						InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-						imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-					}
-				}
-			}
-		});
-        */
+		
+		grid.setRecyclerListener(view -> {
+            if (view.hasFocus()) {
+                view.clearFocus();
+                if ( view instanceof EditText) {
+                    hideKeyboard(view);
+                }
+            }
+        });
 
         initButtons();
         initText();
@@ -107,36 +88,46 @@ public class Numbers_Recall extends Activity implements OnClickListener {
     	if (timer != null)
     		timer.pause();
     }
-    
+
+    /*
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
     	super.onWindowFocusChanged(hasFocus);
     	if (hasFocus && openKeyboard) {
-    		openKeyboard();
+    		openKeyboardOnStartup();
     	}    		
     }
-    
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-    }
-/*
-    public void setScreenOrientation() {
-    	//int screenSize = getResources().getConfiguration().screenLayout;
-    	if (gameType == NUMBERS_SPOKEN)     //(screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) < Configuration.SCREENLAYOUT_SIZE_LARGE && gameType != NUMBERS_SPOKEN && numCols > 20)
-    		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-  */  
-    public void openKeyboard() {
+	*/
+
+    /*
+    public void openKeyboardOnStartup() {
     	openKeyboard = false;
     	
     	ViewGroup griditem = (ViewGroup) grid.getChildAt(grid.getFirstVisiblePosition()); //First item
         for(int i = 0; i < griditem.getChildCount(); i++) {
-            if(griditem != null && griditem.getChildAt(i) instanceof EditText) {
-                griditem.getChildAt(i).requestFocus();                             
+            if(griditem.getChildAt(i) instanceof EditText) {
+                griditem.getChildAt(i).requestFocus();
+				showKeyboard();
+                return;
             }
         }        
     }
+	*/
+
+    /*
+    private void showKeyboard() {
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+	}
+	*/
+
+	private void hideKeyboard(View view) {
+    	if (view == null)
+    		return;
+
+		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+	}
     
     public void initButtons() {
     	button1 = (Button) findViewById(R.id.button1);
@@ -192,14 +183,13 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         public long getItemId(int position) {        return position;        }
         
         
-        public EditText setEditTextFilters(EditText et) {        	
+        void setEditTextFilters(EditText et) {
         	int maxLength = numColsMEM;
         	InputFilter[] FilterArray = new InputFilter[1];
         	FilterArray[0] = new InputFilter.LengthFilter(maxLength);
         	et.setFilters(FilterArray);
-        	et.setInputType(InputType.TYPE_CLASS_PHONE);
+        	//et.setInputType(InputType.TYPE_CLASS_NUMBER);
         	et.setSingleLine();
-        	return et;
         }
         
         public View getView(int position, View convertView, ViewGroup parent) {
@@ -209,8 +199,8 @@ public class Numbers_Recall extends Activity implements OnClickListener {
             if (convertView == null) {
                 convertView = getLayoutInflater().inflate(R.layout.number, null);
             	holder = new ViewHolder();            	
-                holder.editText = (EditText) convertView.findViewById(R.id.number_edittext);
-                holder.editText = setEditTextFilters(holder.editText);
+                holder.editText = convertView.findViewById(R.id.number_edittext);
+                setEditTextFilters(holder.editText);
                 holder.editText.addTextChangedListener(new TextWatcher() {	                    
                 	public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2){}
                     public void onTextChanged(CharSequence s, int start, int before, int count) {}
@@ -270,6 +260,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
 	
     public void launchScoreActivity() {
     	timer.cancel();
+
     	guess = getGuessArray();
 		Intent i = getIntent();
 				
@@ -286,7 +277,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         
         String[] scores = new String[4];
         scores[0] = "Recall Accuracy:" +  percent + "% (" +  analysis[0] + " / " +  analysis[1] + ")";
-        if (gameType == NUMBERS_SPOKEN)
+        if (gameType == Constants.NUMBERS_SPOKEN)
         	scores[1] = "hide";
         else
         	scores[1] = "Memorization Time:" + Utils.formatIntoHHMMSStruncated(i.getIntExtra("memTimeUsed", -1));
@@ -295,6 +286,9 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         i.putExtra("scores", scores);
         
         i.setClass(this, ScoreActivity.class);
+
+
+
         this.startActivity(i);
         finish();
     }
@@ -324,9 +318,9 @@ public class Numbers_Recall extends Activity implements OnClickListener {
     	       .setCancelable(false)
     	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {
     	           public void onClick(DialogInterface dialog, int id) {
-    	        	   Numbers_Recall.this.startActivity(new Intent(Numbers_Recall.this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
     	        	   userQuit = true;
     	        	   timer.cancel();
+    	        	   finish();
     	           }
     	       })
     	       .setNegativeButton("Continue Game", new DialogInterface.OnClickListener() {
