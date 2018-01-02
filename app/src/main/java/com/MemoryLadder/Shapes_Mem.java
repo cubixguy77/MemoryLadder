@@ -69,9 +69,11 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
         
         getExtras();
         setScreenOrientation();
-        
-        setContentView(R.layout.game);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		setContentView(R.layout.game);
+
         initButtons();
         loadData();
         initTimer();

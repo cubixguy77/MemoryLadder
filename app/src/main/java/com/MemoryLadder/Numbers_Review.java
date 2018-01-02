@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -47,7 +48,8 @@ public class Numbers_Review extends Activity implements OnClickListener{
         
         getExtras();
         setScreenOrientation();
-        
+
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.game);
         
         initButtons();

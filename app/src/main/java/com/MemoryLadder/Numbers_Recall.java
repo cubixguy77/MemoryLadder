@@ -50,9 +50,10 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         
         getExtras();
-                
-        setContentView(R.layout.game);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.game);
 
         grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);

@@ -74,11 +74,12 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
         
         getExtras();       
         setScreenOrientation();
-        
-        setContentView(R.layout.game);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        
-        
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+		setContentView(R.layout.game);
+
         initButtons();
         initMnemonics();
         initSounds();

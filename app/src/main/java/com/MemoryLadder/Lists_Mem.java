@@ -61,10 +61,11 @@ public class Lists_Mem extends Activity implements OnClickListener, android.cont
         super.onCreate(savedInstanceState);
         getExtras();                
         setScreenOrientation();
-        
-        setContentView(R.layout.game);
-        
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);        
+
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		setContentView(R.layout.game);
+
         loadStrings();
         initButtons();
         initTimer();

@@ -73,11 +73,12 @@ public class Shapes_Recall extends Activity implements OnClickListener {
         
         getExtras();
         setScreenOrientation();
-        
-        setContentView(R.layout.game);
-        
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-                
+
+		getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.game);
+
+
         getAnswers();
         
         initButtons();
