@@ -30,7 +30,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.HelpActivity"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.ChoosePegs_Numbers"
@@ -73,12 +72,10 @@
         <activity
             android:name="com.MemoryLadder.Shapes_Mem"
             android:configChanges="keyboardHidden|orientation"
-            android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
             android:name="com.MemoryLadder.Shapes_Recall"
             android:configChanges="keyboardHidden|orientation"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan" />
         <activity
@@ -86,7 +83,6 @@
             android:screenOrientation="landscape" />
         <activity
             android:name="com.MemoryLadder.Shapes_Settings"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Shapes_PreGame"
@@ -94,12 +90,10 @@
         <activity
             android:name="com.MemoryLadder.Lists_Mem"
             android:configChanges="keyboardHidden|orientation"
-            android:noHistory="true"
             android:screenOrientation="landscape" />
         <activity
             android:name="com.MemoryLadder.Lists_Recall"
             android:configChanges="keyboardHidden|orientation"
-            android:noHistory="true"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan" />
         <activity
@@ -107,14 +101,12 @@
             android:screenOrientation="landscape" />
         <activity
             android:name="com.MemoryLadder.Lists_Settings"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Lists_PreGame"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Cards_Settings"
-            android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Cards_PreGame"

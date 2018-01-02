@@ -59,6 +59,7 @@ public class Lists_Review extends Activity implements OnClickListener {
         
         grid = (GridView) findViewById(R.id.grid);
         grid.setNumColumns(numCols);
+        grid.setVerticalSpacing(0);
         adapter = new ListAdapter(this);
         grid.setAdapter(adapter);
         
