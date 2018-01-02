@@ -1,48 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/LinearLayout1" xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical" android:background="@drawable/background_dark">
-    <FrameLayout android:id="@+id/frameLayout1" android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="40dp">
-		<Button android:layout_marginLeft="4dp" android:text="Cancel" android:textColor="#ffffffff" android:id="@+id/CancelButton" android:layout_height="35dp" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_gravity="center_vertical"></Button>
-		<TextView android:text="Settings" android:id="@+id/TitleText" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:layout_gravity="center_vertical|center_horizontal"></TextView>
-		<Button android:layout_marginRight="4dp" android:text="Save" android:textColor="#ffffffff" android:id="@+id/SaveButton" android:layout_height="35dp" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_gravity="right|center_vertical"></Button>
-	</FrameLayout>   
-    <TableLayout android:layout_alignParentLeft="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:layout_marginBottom="30dp" android:id="@+id/OptionsContainer" android:layout_below="@+id/frameLayout1" android:layout_marginLeft="35dp" android:layout_marginRight="35dp">
-        <TableRow android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/tablerow1" android:layout_marginTop="10dp">
-            <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:text="Number of lines:              " android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <TextView android:layout_width="100dp" android:id="@+id/tv_numlines" android:text="32" android:layout_height="25dp" android:gravity="center" android:textColor="#FFdace0a" android:background="@drawable/selector_text">
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_dark"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/graphic_titlebar">
+
+        <Button
+            android:id="@+id/CancelButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Cancel"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:id="@+id/TitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:text="Settings"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/SaveButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Save"
+            android:textColor="#ffffffff" />
+    </FrameLayout>
+
+    <TableLayout
+        android:id="@+id/OptionsContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/frameLayout1"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="30dp">
+
+        <TableRow
+            android:id="@+id/tablerow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Number of lines:              " />
+
+            <TextView
+                android:id="@+id/tv_numlines"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="32"
+                android:textColor="#FFdace0a">
+
                 <requestFocus></requestFocus>
             </TextView>
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tablerow2" android:layout_marginTop="10dp">
-            <TextView android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="Digits per line:" android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <TextView android:text="TextView" android:id="@+id/tv_digitsperline" android:layout_height="25dp" android:gravity="center" android:textColor="#FFdace0a" android:background="@drawable/selector_text" android:layout_width="100dp">
-            </TextView>
+
+        <TableRow
+            android:id="@+id/tablerow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Digits per line:" />
+
+            <TextView
+                android:id="@+id/tv_digitsperline"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#FFdace0a" />
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tablerow3" android:layout_marginTop="10dp">
-            <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:text="Memorization time:" android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <TextView android:text="TextView" android:id="@+id/tv_memtime" android:layout_height="25dp" android:gravity="center" android:textColor="#FFdace0a" android:background="@drawable/selector_text" android:layout_width="100dp"></TextView>
+
+        <TableRow
+            android:id="@+id/tablerow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Memorization time:" />
+
+            <TextView
+                android:id="@+id/tv_memtime"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#FFdace0a" />
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tablerow4" android:layout_marginTop="10dp">
-            <TextView android:text="Number of digits:            " android:id="@+id/TextView06" android:layout_height="wrap_content" android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <TextView android:text="TextView" android:layout_width="100dp" android:id="@+id/tv_numdigits" android:layout_height="25dp" android:gravity="center" android:textColor="#FFdace0a" android:background="@drawable/selector_text"></TextView>
+
+        <TableRow
+            android:id="@+id/tablerow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView06"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Number of digits:            " />
+
+            <TextView
+                android:id="@+id/tv_numdigits"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/yellow" />
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tablerow5" android:layout_marginTop="10dp">
-            <TextView android:id="@+id/TextView07" android:layout_height="wrap_content" android:text="Digit speed:" android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <Spinner android:layout_height="wrap_content" android:layout_width="wrap_content" android:entries="@array/Settings_DigitSpeed" android:id="@+id/spinner_digitSpeed"></Spinner>
+
+        <TableRow
+            android:id="@+id/tablerow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView07"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Digit speed:" />
+
+            <Spinner
+                android:id="@+id/spinner_digitSpeed"
+                android:theme="@style/mySpinnerItemStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:entries="@array/Settings_DigitSpeed"
+                />
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tablerow6" android:layout_marginTop="10dp">
-            <TextView android:id="@+id/TextView03" android:layout_height="wrap_content" android:text="Recall time:" android:layout_width="0dp" android:layout_weight="1"></TextView>
-            <TextView android:text="TextView" android:id="@+id/tv_recalltime" android:layout_height="25dp" android:gravity="center" android:textColor="#FFdace0a" android:background="@drawable/selector_text" android:layout_width="100dp"></TextView>
+
+        <TableRow
+            android:id="@+id/tablerow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Recall time:" />
+
+            <TextView
+                android:id="@+id/tv_recalltime"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/yellow" />
         </TableRow>
-        <TableRow android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_width="wrap_content" android:id="@+id/tablerow7">
-            <TextView android:layout_weight="1" android:id="@+id/TextView05" android:layout_width="0dp" android:layout_height="wrap_content" android:text="Mnemonic Assist:"></TextView>
-            <TextView android:layout_width="100dp" android:background="@drawable/selector_text" android:gravity="center" android:layout_height="25dp" android:textColor="#FFdace0a" android:text="TextView" android:id="@+id/tv_mnemo"></TextView>
+
+        <TableRow
+            android:id="@+id/tablerow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/TextView05"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mnemonic Assist:" />
+
+            <TextView
+                android:id="@+id/tv_mnemo"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:background="@drawable/selector_text"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/yellow" />
         </TableRow>
     </TableLayout>
-    <Button android:id="@+id/wmcSettings" android:layout_height="wrap_content" android:layout_below="@+id/OptionsContainer" android:layout_toLeftOf="@+id/spacer" android:text="Champ Settings" android:layout_width="70dp" android:visibility="invisible"></Button>
-    <TextView android:layout_below="@+id/OptionsContainer" android:layout_centerHorizontal="true" android:layout_height="wrap_content" android:id="@+id/spacer" android:layout_width="50dp"></TextView>
-    <Button android:id="@+id/defaultSettings" android:layout_height="wrap_content" android:layout_below="@+id/OptionsContainer" android:layout_toRightOf="@+id/spacer" android:text="Default Settings" android:layout_width="70dp" android:visibility="invisible"></Button>
- 
+
+    <Button
+        android:id="@+id/wmcSettings"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/OptionsContainer"
+        android:layout_toLeftOf="@+id/spacer"
+        android:text="Champ Settings"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/spacer"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/OptionsContainer"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/defaultSettings"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/OptionsContainer"
+        android:layout_toRightOf="@+id/spacer"
+        android:text="Default Settings"
+        android:visibility="invisible" />
+
 </RelativeLayout>
 
