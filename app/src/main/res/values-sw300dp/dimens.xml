@@ -79,4 +79,15 @@
     <dimen name="mnemonic_hint.text.size">20sp</dimen>
 
 
+
+
+    <dimen name="pegs.toolbar.button.width">56dp</dimen>
+    <dimen name="pegs.toolbar.button.width.small">44dp</dimen>
+    <dimen name="pegs.toolbar.button.margin.left">4dp</dimen>
+    <dimen name="pegs.toolbar.button.margin.right">62dp</dimen>
+
+
+
+
+
 </resources>

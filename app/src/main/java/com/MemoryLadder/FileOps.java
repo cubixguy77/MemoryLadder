@@ -64,11 +64,12 @@ public class FileOps {
     	    		}    	    		
     	    	}
     	    }
-    	} catch (IOException e)          {    e.printStackTrace(); return "File Access Error: Do you have permission to read this file?";  	}
-    	  catch (NullPointerException e) {    e.printStackTrace(); return "Null Exception: File could not be read";	}  
+    	}
+    	catch (IOException e)          {    e.printStackTrace(); return "File Access Error: Do you have permission to read this file?";  	}
+		catch (NullPointerException e) {    e.printStackTrace(); return "Null Exception: File could not be read";	}
     	  
-    	  editor.commit();     	  
-    	  return "Success";
+		editor.commit();
+		return "Success";
 	}
 	
 	public static String loadPegsFromFileCards(String path, Context context) {

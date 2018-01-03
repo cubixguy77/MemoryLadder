@@ -48,10 +48,6 @@
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.FileChooser"
-            android:noHistory="true"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.Numbers_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />

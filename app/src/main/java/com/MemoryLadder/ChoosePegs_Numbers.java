@@ -1,36 +1,37 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
-import com.MemoryLadder.ChoosePegs_Dialog.OnMyDialogResultTime;
-import com.mastersofmemory.memoryladder.R;
-
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.aditya.filebrowser.Constants;
+import com.aditya.filebrowser.FileChooser;
+import com.mastersofmemory.memoryladder.R;
+
+import static com.aditya.filebrowser.Constants.SELECTION_MODE;
+
 
 public class ChoosePegs_Numbers extends Activity implements OnClickListener {
-	
-	private GridView grid;
+
 	private ListAdapter adapter;
-	
-	private Button back;
+
 	private Button open;
+	private Button help;
 	private Button howItWorks;
 	private Button CardsButton;
 	
@@ -65,31 +66,27 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
     }
     
     public void initButtons() {
-    	back = (Button) findViewById(R.id.button1);
-    	back.setOnClickListener(this);
-    	
-    	open = (Button) findViewById(R.id.openButton);
+    	open = findViewById(R.id.openButton);
     	open.setOnClickListener(this);
-        
-        howItWorks = (Button) findViewById(R.id.button2);
+
+    	help = findViewById(R.id.importHelpButton);
+		help.setOnClickListener(this);
+
+        howItWorks = findViewById(R.id.button2);
         howItWorks.setOnClickListener(this);
         
-        CardsButton = (Button) findViewById(R.id.CardsButton);
+        CardsButton = findViewById(R.id.CardsButton);
         CardsButton.setBackgroundResource(R.drawable.button_pegs_cards_off);
         CardsButton.setTextColor(Color.LTGRAY);
         CardsButton.setOnClickListener(this);
-        
-        
     }
     
     public void hideSuits() { 
-    	LinearLayout suits = (LinearLayout) findViewById(R.id.SuitLayout);
+    	LinearLayout suits = findViewById(R.id.SuitLayout);
     	suits.setVisibility(View.GONE);
     }
     
     public void initPegStrings() {
-    	
-    	
     	SharedPreferences prefs = getSharedPreferences(prefs_filename, 0);
     	
     	Boolean firstTime = prefs.getBoolean("firstTime", true);
@@ -117,29 +114,25 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
 			editor.putString(prefix + Integer.toString(i), string);
 			pegs[i] = string;
 		}
-        editor.commit();
+        editor.apply();
     }
     
     public void initGrid() {
-    	grid = (GridView) findViewById(R.id.grid);
+		GridView grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);
-        adapter = new ListAdapter(this);
+        adapter = new ListAdapter();
         grid.setAdapter(adapter);
-        grid.setOnItemClickListener(new OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-            	final int index = getTranspose(position);
-            	String currentString = pegs[index];
-            	String[] suggestions = Utils.getNumberSuggestions(index);
+        grid.setOnItemClickListener((parent, v, position, id) -> {
+            final int index = getTranspose(position);
+            String currentString = pegs[index];
+            String[] suggestions = Utils.getNumberSuggestions(index);
 
-            	ChoosePegs_Dialog dialog = new ChoosePegs_Dialog(ChoosePegs_Numbers.this, NUMBER, index, currentString, suggestions);
-    			dialog.setDialogResult(new OnMyDialogResultTime() {
-    			    public void finish(String result) {  
-    			    	pegs[index] = result;
-    			    	adapter.notifyDataSetChanged();
-    			    }
-    			});
-    			dialog.show();
-            }
+            ChoosePegs_Dialog dialog = new ChoosePegs_Dialog(ChoosePegs_Numbers.this, NUMBER, index, currentString, suggestions);
+            dialog.setDialogResult(result -> {
+                pegs[index] = result;
+                adapter.notifyDataSetChanged();
+            });
+            dialog.show();
         });
     }
     
@@ -151,7 +144,7 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
         	editor.putString("peg_numbers_" + Integer.toString(i), pegs[i]);
         }
              
-        editor.commit();
+        editor.apply();
     }
     
     @Override
@@ -167,39 +160,32 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
     
 	@Override
 	public void onClick(View v) {
-		if (v == back) {
-			saveChanges();
-			
-			Intent i = new Intent(this, Main.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			startActivity(i);
-			finish();			
+		if (v == open) {
+			Intent i = new Intent(getApplicationContext(), FileChooser.class);
+			i.putExtra(SELECTION_MODE, Constants.SELECTION_MODES.SINGLE_SELECTION.ordinal());
+			i.putExtra(Constants.ALLOWED_FILE_EXTENSIONS, "csv;txt");
+			startActivityForResult(i, 0);
 		}
-		else if (v == open) {
-			Intent i = new Intent(this, FileChooser.class);
-			i.putExtra("getNumbers", true);
-			this.startActivity(i);
+		else if (v == help) {
+			Intent i = new Intent(this, Help_LoadPegs.class);
+			startActivity(i);
 		}
 		else if (v == howItWorks) {
 			Intent i = new Intent(this, HowItWorks_Numbers.class);	
-			this.startActivity(i);
+			startActivity(i);
 		}
 		else if (v == CardsButton) {
 			Intent i = new Intent(this, ChoosePegs_Cards.class);	
-			this.startActivity(i);
+			startActivity(i);
 		}
 	}
 	
 	public int getCol(int pos)     {  return pos % numCols;                      }
     public int getRow(int pos)     {  return (pos / numCols) % numRows;          }
 	public int getTranspose(int i) {  return (numRows * getCol(i)) + getRow(i);  }
-	
-	
-	
-	
+
 	private class ListAdapter extends BaseAdapter {
-        
-        public ListAdapter(Context context) {  	   }
+        ListAdapter() {  	   }
         public int getCount() {           			 return numItems;        }
         public Object getItem(int position) {        return null;        }
         public long getItemId(int position) {        return 0;        }
@@ -211,12 +197,12 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
         	
             if (convertView == null) {            	        
                 MyView = getLayoutInflater().inflate(R.layout.peg_view, null);
-                numtext  = (TextView) MyView.findViewById(R.id.index);
-            	wordtext = (TextView) MyView.findViewById(R.id.string);
+                numtext  = MyView.findViewById(R.id.index);
+            	wordtext = MyView.findViewById(R.id.string);
             }
             else {
-            	numtext  = (TextView) MyView.findViewById(R.id.index);
-            	wordtext = (TextView) MyView.findViewById(R.id.string);
+            	numtext  = MyView.findViewById(R.id.index);
+            	wordtext = MyView.findViewById(R.id.string);
             }
           
             int index = getTranspose(position);
@@ -235,11 +221,33 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
             return MyView;        
         }
     }
-	
-	
-	
-	
-	
 
-	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data != null) {
+			if (resultCode == RESULT_OK) {
+				Uri uri = data.getData();
+
+				assert uri != null;
+				String result = FileOps.loadPegsFromFileNumbers(uri.getPath(), this);
+				if (result.equals("Success")) {
+					initPegStrings();
+					adapter.notifyDataSetChanged();
+					Snackbar.make(open, "Successfully imported peg words!", Snackbar.LENGTH_SHORT).show();
+				}
+				else {
+					new AlertDialog.Builder(this, R.style.AlertDialogStyle)
+							.setIcon(R.drawable.icon)
+							.setTitle("Error Interpreting Your File")
+							.setMessage(result + "\n" + "Each line should follow the format: \"74,car\"")
+							.setNegativeButton("Help", (dialog, which) -> {
+								Intent i = new Intent(this, Help_LoadPegs.class);
+								startActivity(i);
+							})
+							.setPositiveButton("OK", (dialog, which) -> finish())
+							.show();
+				}
+			}
+		}
+	}
 }
