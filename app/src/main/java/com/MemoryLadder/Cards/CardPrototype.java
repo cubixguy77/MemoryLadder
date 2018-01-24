@@ -74,7 +74,7 @@ public class CardPrototype extends AppCompatActivity {
         int deckSize          = i.getIntExtra("deckSize", -1);
         int numDecks          = i.getIntExtra("numDecks", -1);
         int numCardsPerGroup  = i.getIntExtra("numCardsPerGroup", 2);
-        boolean mnemonicsEnabled  = i.getBooleanExtra("mnemo_enabled", false);
+        boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
 
         return new CardSettings(mode, gameType, step, numDecks, deckSize, numCardsPerGroup, true, memTime, recallTime, mnemonicsEnabled);
     }

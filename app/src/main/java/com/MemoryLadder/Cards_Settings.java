@@ -2,6 +2,7 @@ package com.MemoryLadder;
 
 //import com.MemoryLadderFull.R;
 import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
 import com.mastersofmemory.memoryladder.R;
 
@@ -28,8 +29,8 @@ public class Cards_Settings extends Activity implements OnClickListener{
 	private  int memTime;
 	private  int recallTime;
 	private  int cardsPerGroup;
-	private Boolean mnemo_enabled;
-	private Boolean showMnemo;
+	private boolean mnemo_enabled;
+	private boolean showMnemo;
 	private TextView tv_cardsperdeck;
 	private TextView tv_numdecks;
 	private TextView tv_memtime;
@@ -237,18 +238,16 @@ public class Cards_Settings extends Activity implements OnClickListener{
 		}
 	}
 
-    public void onSaveSettings() {    	
-    	
-    		updateSettings();
-    		commitPreferences();
-    		onSettingsFinished();
-    	
+    public void onSaveSettings() {
+		updateSettings();
+		commitPreferences();
+		onSettingsFinished();
     }
     
     
     public void onSettingsFinished() {
     	Intent i = getIntent();
-    	i.setClass(this, Cards_PreGame.class);
+    	i.setClass(this, TestDetailsActivity.class);
 		this.startActivity(i);
 		finish();
     }

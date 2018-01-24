@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.MemoryLadder.TestDetailsScreen.TestDetailsCard
+    android:id="@+id/testDetailsCard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="#aad1bd"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/testDetailsCardTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="LEVEL 3"
+                android:textSize="32sp"
+                android:textColor="#FFFFFF"
+                />
+
+            <TextView
+                android:id="@+id/testDetailsEditSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:padding="8dp"
+                android:text="Edit"
+                android:textColor="@color/enabled_disabled"
+                android:textSize="32sp" />
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:id="@+id/GameSpecsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pregame.settings.list.margin_top"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:padding="8dp">
+
+            <LinearLayout
+                android:id="@+id/testDetailsLabelLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Label0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Words Per Column:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Label1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Number of Columns:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Label2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Memorization Time:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Label3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Recall Time:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Label4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Recall Time:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Label5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="Recall Time:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/TargetTextLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.summary.margin_top"
+                    android:text="Target Score:"
+                    android:textSize="@dimen/pregame.settings.list.summary.text_size"
+                    android:textColor="#ffe7f50c" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/testDetailsValueLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/pregame.settings.list.margin_between_columns"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Value0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="20"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Value1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="10"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Value2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="05:00"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Value3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="10:00"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Value4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="10:00"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/Value5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
+                    android:text="10:00"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/pregame.settings.list.text_size" />
+
+                <TextView
+                    android:id="@+id/TargetTextValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pregame.settings.list.summary.margin_top"
+                    android:text="10"
+                    android:textSize="@dimen/pregame.settings.list.summary.text_size"
+                    android:textColor="#ffe7f50c" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/testDetailsPlayButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Play"
+            android:textSize="32sp"
+            />
+
+        <Button
+            android:id="@+id/testDetailsUnlockButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="UNLOCK"
+            android:textSize="32sp"
+            />
+
+    </LinearLayout>
+
+</com.MemoryLadder.TestDetailsScreen.TestDetailsCard>

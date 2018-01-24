@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_mnemo_numbers"
+        android:title="Numbers"
+        android:icon="@drawable/icon_mnemo"
+        app:showAsAction="always"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_mnemo_cards"
+        android:title="Cards"
+        android:icon="@drawable/icon_mnemo"
+        app:showAsAction="always"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_help"
+        android:icon="@drawable/icon_help"
+        android:title="Play Again"
+        app:showAsAction="always"
+        >
+    </item>
+</menu>
