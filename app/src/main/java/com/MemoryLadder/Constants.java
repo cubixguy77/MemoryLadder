@@ -2,6 +2,10 @@ package com.MemoryLadder;
 
 //import com.MemoryLadderFull.R;
 
+import android.support.annotation.DrawableRes;
+
+import com.mastersofmemory.memoryladder.R;
+
 public class Constants {
 	
 	final public static int NUMBERS_SPEED   = 1;
@@ -153,7 +157,7 @@ public class Constants {
 	final public static int[] shapes_abstract_tv_numimages   = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175};
 
 
-	static String getGameName(int gameType) {
+	public static String getGameName(int gameType) {
 		switch (gameType) {
 			case NUMBERS_SPEED: return "NUMBERS_SPEED";
 			case NUMBERS_LONG: return "NUMBERS_LONG";
@@ -168,7 +172,54 @@ public class Constants {
 			default: return "Unknown";
 		}
 	}
-	
+
+	public static String getGameSku(int gameType) {
+		switch (gameType) {
+			case NUMBERS_SPEED: return "com.memoryladder.numbers";
+			case NUMBERS_LONG: return "com.memoryladder.numbers";
+			case NUMBERS_BINARY: return "com.memoryladder.numbers";
+			case NUMBERS_SPOKEN: return "com.memoryladder.numbers";
+			case LISTS_WORDS: return "com.memoryladder.randomwords";
+			case LISTS_EVENTS: return "com.memoryladder.historicdates";
+			case SHAPES_FACES: return "com.memoryladder.namesandfaces";
+			case SHAPES_ABSTRACT: return "com.memoryladder.abstractimages";
+			case CARDS_SPEED: return "com.memoryladder.cards";
+			case CARDS_LONG: return "com.memoryladder.cards";
+			default: return "Unknown";
+		}
+	}
+
+	public static String getGameDisplayName(int gameType) {
+        switch (gameType) {
+            case NUMBERS_SPEED: return "Speed Numbers";
+            case NUMBERS_LONG: return "Speed Numbers";
+            case NUMBERS_BINARY: return "Binary Numbers";
+            case NUMBERS_SPOKEN: return "Spoken Numbers";
+            case LISTS_WORDS: return "Random Words";
+            case LISTS_EVENTS: return "Historic Dates";
+            case SHAPES_FACES: return "Names and Faces";
+            case SHAPES_ABSTRACT: return "Abstract Images";
+            case CARDS_SPEED: return "Cards";
+            case CARDS_LONG: return "Cards";
+            default: return "Unknown";
+        }
+    }
+
+    public static @DrawableRes int getGameIcon(int gameType) {
+        switch (gameType) {
+            case NUMBERS_SPEED: return R.drawable.icon_numbers;
+            case NUMBERS_LONG: return R.drawable.icon_numbers;
+            case NUMBERS_BINARY: return R.drawable.icon_binary;
+            case NUMBERS_SPOKEN: return R.drawable.icon_numbers_spoken;
+            case LISTS_WORDS: return R.drawable.icon_randomwords;
+            case LISTS_EVENTS: return R.drawable.icon_historicdates;
+            case SHAPES_FACES: return R.drawable.icon_namesandfaces;
+            case SHAPES_ABSTRACT: return R.drawable.icon_abstract_images;
+            case CARDS_SPEED: return R.drawable.icon_cards;
+            case CARDS_LONG: return R.drawable.icon_cards;
+            default: return R.drawable.icon_numbers;
+        }
+    }
 	
 	public static int[] getSpecs_STEPS_Numbers(int level) {
     	int[] specs = new int[5];

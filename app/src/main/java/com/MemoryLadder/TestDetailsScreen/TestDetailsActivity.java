@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 
 import com.MemoryLadder.ChoosePegs_Cards;
 import com.MemoryLadder.ChoosePegs_Numbers;
@@ -22,19 +23,24 @@ public class TestDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_test_details);
-        this.gameType = Constants.CARDS_SPEED;
+
+        gameType = getIntent().getIntExtra("gameType", Constants.NUMBERS_SPOKEN);
 
         /* Toolbar stuff */
         Toolbar toolbar = findViewById(R.id.test_details_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Cards");
+        toolbar.setNavigationIcon(Constants.getGameIcon(gameType));
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(Constants.getGameDisplayName(gameType));
+        }
 
         /* Tabs & Viewpager stuff */
         ViewPager viewPager = findViewById(R.id.test_details_view_pager);
         TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
-        adapter.addFragment(TestDetailsFragmentLoader.getTestDetailsFragment(this, gameType, Constants.STEPS, false), "LEVELS");
-        adapter.addFragment(TestDetailsFragmentLoader.getTestDetailsFragment(this, gameType, Constants.CUSTOM, true), "CUSTOM");
+        adapter.addFragment(TestDetailsFragmentLoader.getTestDetailsFragmentLevels(this, gameType), "LEVELS");
+        adapter.addFragment(TestDetailsFragmentLoader.getTestDetailsFragmentCustom(this, gameType), "CUSTOM");
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = findViewById(R.id.test_details_tab_layout);
         tabLayout.setupWithViewPager(viewPager);

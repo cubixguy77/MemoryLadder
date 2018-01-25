@@ -1,12 +1,14 @@
 package com.MemoryLadder.TestDetailsScreen;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.MemoryLadder.Billing.BillingManager;
 import com.MemoryLadder.Cards.CardPrototype;
 import com.MemoryLadder.Cards_Settings;
 import com.MemoryLadder.Constants;
@@ -19,13 +21,13 @@ import butterknife.OnClick;
 
 public class TestDetailsFragment extends Fragment {
 
+    BillingManager billingManager;
     private ArrayList<Setting> settings;
     private TestDetailsCard card;
     private int gameType;
     private int mode;
-    private boolean locked;
 
-    public static TestDetailsFragment newInstance(String title, ArrayList<Setting> settings, int gameType, int mode, boolean locked) {
+    public static TestDetailsFragment newInstance(String title, ArrayList<Setting> settings, int gameType, int mode, boolean lockable, boolean editable) {
         TestDetailsFragment frag = new TestDetailsFragment();
 
         Bundle args = new Bundle();
@@ -33,7 +35,8 @@ public class TestDetailsFragment extends Fragment {
         args.putParcelableArrayList("settings", settings);
         args.putInt("gameType", gameType);
         args.putInt("mode", mode);
-        args.putBoolean("locked", locked);
+        args.putBoolean("lockable", lockable);
+        args.putBoolean("editable", editable);
         frag.setArguments(args);
         return frag;
     }
@@ -48,15 +51,59 @@ public class TestDetailsFragment extends Fragment {
         settings = args.getParcelableArrayList("settings");
         gameType = getArguments().getInt("gameType");
         mode = getArguments().getInt("mode");
-        locked = getArguments().getBoolean("locked");
+        boolean lockable = getArguments().getBoolean("lockable");
+        boolean editable = getArguments().getBoolean("editable");
 
-        this.card = view.findViewById(R.id.testDetailsCard);
+        card = view.findViewById(R.id.testDetailsCard);
         card.setTitle(title);
         card.setSettings(settings);
-        card.setEditableSettings(mode == Constants.CUSTOM);
-        card.setLocked(locked);
+        card.setEditableSettings(editable);
+
+        if (lockable) {
+            billingManager = new BillingManager(getActivity(), Constants.getGameSku(gameType), new BillingManager.BillingUpdatesListener() {
+                @Override
+                public void onBillingSetupSuccess() {
+                    card.setLocked(!billingManager.isPurchased());
+                }
+
+                @Override
+                public void onBillingSetupFailed() {
+                    card.setLocked(!isPurchased());
+                }
+
+                @Override
+                public void onUnlockChallenge() {
+                    card.setLocked(false);
+                    savePurchase();
+
+                }
+            });
+        }
+        else {
+            card.setLocked(false);
+        }
 
         return view;
+    }
+
+    private void savePurchase() {
+        SharedPreferences purchases = getActivity().getSharedPreferences("Purchases", 0);
+        SharedPreferences.Editor editor = purchases.edit();
+        editor.putBoolean(Constants.getGameSku(gameType), true);
+        editor.apply();
+    }
+
+    private boolean isPurchased() {
+        SharedPreferences purchases = getActivity().getSharedPreferences("Purchases", 0);
+        return purchases.getBoolean(Constants.getGameSku(gameType), false);
+    }
+
+    @Override
+    public void onDestroyView () {
+        super.onDestroyView();
+        if (billingManager != null) {
+            billingManager.destroy();
+        }
     }
 
     @OnClick(R.id.testDetailsPlayButton) public void onPlayClick() {
@@ -77,7 +124,9 @@ public class TestDetailsFragment extends Fragment {
     }
 
     @OnClick(R.id.testDetailsUnlockButton) public void onUnlockClick() {
-
+        if (billingManager != null) {
+            billingManager.launchPurchaseDialog();
+        }
     }
 
     @OnClick(R.id.testDetailsEditSettings) public void onEditSettings() {

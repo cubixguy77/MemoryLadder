@@ -8,10 +8,17 @@ import java.util.ArrayList;
 
 class TestDetailsFragmentLoader {
 
-    static TestDetailsFragment getTestDetailsFragment(Context context, int game, int gameMode, boolean locked) {
-        String title = gameMode == Constants.STEPS ? "LEVEL " + SettingLoader.getCurrentLevel(context, game) : "CUSTOM";
-        ArrayList<Setting> settings = SettingLoader.getSettings(context, game, gameMode);
+    static TestDetailsFragment getTestDetailsFragmentLevels(Context context, int game) {
+        String title = "LEVEL " + SettingLoader.getCurrentLevel(context, game);
+        ArrayList<Setting> settings = SettingLoader.getSettings(context, game, Constants.STEPS);
 
-        return TestDetailsFragment.newInstance(title, settings, game, gameMode, locked);
+        return TestDetailsFragment.newInstance(title, settings, game, Constants.STEPS, false, false);
+    }
+
+    static TestDetailsFragment getTestDetailsFragmentCustom(Context context, int game) {
+        String title = "CUSTOM";
+        ArrayList<Setting> settings = SettingLoader.getSettings(context, game, Constants.CUSTOM);
+
+        return TestDetailsFragment.newInstance(title, settings, game, Constants.CUSTOM, true, true);
     }
 }
