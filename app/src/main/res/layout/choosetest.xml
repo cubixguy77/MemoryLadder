@@ -1,287 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LinearLayout1"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#000000">
+    android:background="#252525">
 
-    <FrameLayout
-        android:id="@+id/frameLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/graphic_titlebar">
-
-        <TextView
-            android:id="@+id/TitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:text="Choose a Test"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"/>
-    </FrameLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include
+            android:id="@+id/test_details_toolbar"
+            layout="@layout/toolbar" />
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/Numbers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp">
 
         <ImageView
             android:id="@+id/SpeedNumbersImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_numbers" />
-
-        <ImageView
-            android:id="@+id/LongNumbersImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_numbers" />
 
         <ImageView
             android:id="@+id/BinaryNumbersImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_binary" />
 
         <ImageView
             android:id="@+id/SpokenNumbersImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_numbers_spoken" />
 
         <ImageView
-            android:id="@+id/SpeedCardsImageAlternate"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            android:id="@+id/SpeedCardsImage"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_cards" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/NumbersText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Numbers"
-        android:layout_centerHorizontal="true">
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:id="@+id/SpeedNumbers"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Speed Numbers"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:id="@+id/LongNumbers"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Long Numbers"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Speed Numbers" />
 
         <TextView
             android:id="@+id/BinaryNumbers"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Binary Numbers"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Binary Numbers" />
 
         <TextView
             android:id="@+id/SpokenNumbers"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Spoken Numbers"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Spoken Numbers" />
 
         <TextView
-            android:id="@+id/SpeedCardsAlternate"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Cards"
-            android:textColor="#ffffffff" />
+            android:id="@+id/SpeedCards"
+            style="@style/ChooseTest_Text"
+            android:text="Speed Cards" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/Lists"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Numbers"
-        android:layout_below="@+id/NumbersText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp">
 
         <ImageView
             android:id="@+id/RandomWordsImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_randomwords" />
 
         <ImageView
             android:id="@+id/HistoricDatesImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_historicdates" />
 
         <ImageView
             android:id="@+id/NamesFacesImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_namesandfaces" />
 
         <ImageView
             android:id="@+id/AbstractImagesImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
+            style="@style/ChooseTest_Image"
             android:src="@drawable/icon_abstract_images" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ListsText"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Numbers"
-        android:layout_below="@+id/Lists">
+        android:layout_gravity="center_horizontal">
 
         <TextView
             android:id="@+id/RandomWords"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Random Words"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Random Words" />
 
         <TextView
             android:id="@+id/HistoricDates"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Historic Dates"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Historic Dates" />
 
         <TextView
             android:id="@+id/NamesFaces"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Names &amp; Faces"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Names and Faces" />
 
         <TextView
             android:id="@+id/AbstractImages"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Abstract Images"
-            android:textColor="#ffffffff" />
+            style="@style/ChooseTest_Text"
+            android:text="Abstract Images" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/Cards"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Numbers"
-        android:layout_below="@+id/ListsText"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:id="@+id/SpeedCardsImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_cards" />
-
-        <ImageView
-            android:id="@+id/LongCardsImage"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginLeft="7dp"
-            android:background="@drawable/selector_orange"
-            android:clickable="true"
-            android:scaleType="fitXY"
-            android:src="@drawable/icon_cards" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/CardsText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Numbers"
-        android:layout_below="@+id/Cards">
-
-        <TextView
-            android:id="@+id/SpeedCards"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Speed Cards"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:id="@+id/LongCards"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7dp"
-            android:gravity="center_horizontal"
-            android:text="Long Cards"
-            android:textColor="#ffffffff" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>
 

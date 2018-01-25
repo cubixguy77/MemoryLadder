@@ -76,4 +76,21 @@
         <item name="android:background">@drawable/shape_rounded_corners</item>
     </style>
 
+    <style name="ChooseTest_Image">
+        <item name="android:layout_width">@dimen/choose_test.image.size</item>
+        <item name="android:layout_height">@dimen/choose_test.image.size</item>
+        <item name="android:layout_marginLeft">@dimen/choose_test.image.margin.left</item>
+        <item name="android:background">@drawable/selector_orange</item>
+        <item name="android:clickable">true</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="ChooseTest_Text">
+        <item name="android:layout_width">@dimen/choose_test.image.size</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/choose_test.image.margin.left</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">@dimen/choose_test.text.size</item>
+    </style>
 </resources>

@@ -88,6 +88,12 @@
 
 
 
+    <dimen name="choose_test.image.size">66dp</dimen>
+    <dimen name="choose_test.image.margin.left">8dp</dimen>
+    <dimen name="choose_test.text.size">15sp</dimen>
+
+
+
 
 
 </resources>

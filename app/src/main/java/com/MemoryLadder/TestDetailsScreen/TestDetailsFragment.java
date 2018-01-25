@@ -12,6 +12,7 @@ import com.MemoryLadder.Billing.BillingManager;
 import com.MemoryLadder.Cards.CardPrototype;
 import com.MemoryLadder.Cards_Settings;
 import com.MemoryLadder.Constants;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ import butterknife.OnClick;
 public class TestDetailsFragment extends Fragment {
 
     BillingManager billingManager;
+    private FirebaseAnalytics analytics;
+
     private ArrayList<Setting> settings;
     private TestDetailsCard card;
     private int gameType;
@@ -45,6 +48,7 @@ public class TestDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_details_card, container, false);
         ButterKnife.bind(this, view);
+        analytics = FirebaseAnalytics.getInstance(getActivity());
 
         Bundle args = getArguments();
         String title = args.getString("title");
@@ -106,7 +110,23 @@ public class TestDetailsFragment extends Fragment {
         }
     }
 
+    private void logChooseTestEvent() {
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, Constants.getGameName(gameType));
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, mode == Constants.STEPS ? "Steps" : "Custom");
+        analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
+    private void logUnlockClickEvent() {
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "Unlock_Click");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, Constants.getGameName(gameType));
+        analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+    }
+
     @OnClick(R.id.testDetailsPlayButton) public void onPlayClick() {
+        logChooseTestEvent();
+
         Intent i = new Intent();
         i.setClass(getActivity(), CardPrototype.class);
 
@@ -124,6 +144,8 @@ public class TestDetailsFragment extends Fragment {
     }
 
     @OnClick(R.id.testDetailsUnlockButton) public void onUnlockClick() {
+        logUnlockClickEvent();
+
         if (billingManager != null) {
             billingManager.launchPurchaseDialog();
         }

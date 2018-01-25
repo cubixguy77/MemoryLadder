@@ -66,4 +66,8 @@
     <dimen name="deck_selector.arrow.size">32dp</dimen>
 
     <dimen name="mnemonic_hint.text.size">30sp</dimen>
+
+    <dimen name="choose_test.image.size">132dp</dimen>
+    <dimen name="choose_test.image.margin.left">8dp</dimen>
+    <dimen name="choose_test.text.size">22sp</dimen>
 </resources>

@@ -1,7 +1,5 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
-
 import android.support.annotation.DrawableRes;
 
 import com.mastersofmemory.memoryladder.R;
@@ -199,8 +197,8 @@ public class Constants {
             case LISTS_EVENTS: return "Historic Dates";
             case SHAPES_FACES: return "Names and Faces";
             case SHAPES_ABSTRACT: return "Abstract Images";
-            case CARDS_SPEED: return "Cards";
-            case CARDS_LONG: return "Cards";
+            case CARDS_SPEED: return "Speed Cards";
+            case CARDS_LONG: return "Speed Cards";
             default: return "Unknown";
         }
     }
