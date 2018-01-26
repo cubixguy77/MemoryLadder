@@ -186,8 +186,12 @@ public class Cards_Settings extends Activity implements OnClickListener{
 		commitPreferences();
 		onSettingsFinished();
     }
-    
-    
+
+    @Override
+    public void onBackPressed() {
+        onSettingsFinished();
+    }
+
     public void onSettingsFinished() {
     	Intent i = getIntent();
     	i.setClass(this, TestDetailsActivity.class);

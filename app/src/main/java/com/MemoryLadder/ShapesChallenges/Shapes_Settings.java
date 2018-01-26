@@ -217,6 +217,11 @@ public class Shapes_Settings extends Activity implements OnClickListener{
 		onSettingsFinished();
     }
 
+    @Override
+    public void onBackPressed() {
+        onSettingsFinished();
+    }
+
     public void onSettingsFinished() {
     	Intent i = getIntent();
 		i.setClass(this, TestDetailsActivity.class);

@@ -221,14 +221,17 @@ public class Lists_Settings extends Activity implements OnClickListener{
 		}
 	}
 
-    public void onSaveSettings() {    	
-    	
-    		updateSettings();
-    		commitPreferences();
-    		onSettingsFinished();
-    	
+    public void onSaveSettings() {
+        updateSettings();
+        commitPreferences();
+        onSettingsFinished();
     }
-    
+
+    @Override
+    public void onBackPressed() {
+        onSettingsFinished();
+    }
+
     public void onSettingsFinished() {
     	Intent i = getIntent();
     	i.setClass(this, TestDetailsActivity.class);

@@ -158,6 +158,7 @@ public class TestDetailsFragment extends Fragment {
         Intent i = new Intent();
         i.setClass(getActivity(), Constants.getSettingsClass(gameType));
         i.putExtra("gameType", gameType);
+        i.putExtra("mode", Constants.CUSTOM);
         startActivity(i);
         getActivity().finish();
     }
