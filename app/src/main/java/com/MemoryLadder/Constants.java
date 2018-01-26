@@ -15,7 +15,7 @@ public class Constants {
 	final public static int LISTS_EVENTS    = 6;
 	final public static int SHAPES_FACES    = 7;
 	final public static int SHAPES_ABSTRACT = 8;
-	final public static int CARDS_SPEED     = 9;
+	//final public static int CARDS_SPEED     = 9;
 	final public static int CARDS_LONG      = 10;
 	
 	final static int SLOW   = 0;
@@ -151,6 +151,16 @@ public class Constants {
 	final public static int[] shapes_faces_tv_numimages      = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120};
 	final public static int[] shapes_abstract_tv_numimages   = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175};
 
+	final static int[] gameTypes = {
+        NUMBERS_SPEED,
+        NUMBERS_BINARY,
+        NUMBERS_SPOKEN,
+        LISTS_WORDS,
+        LISTS_EVENTS,
+        SHAPES_FACES,
+        SHAPES_ABSTRACT,
+        CARDS_LONG
+    };
 
 	public static String getGameName(int gameType) {
 		switch (gameType) {
@@ -162,7 +172,6 @@ public class Constants {
 			case LISTS_EVENTS: return "LISTS_EVENTS";
 			case SHAPES_FACES: return "SHAPES_FACES";
 			case SHAPES_ABSTRACT: return "SHAPES_ABSTRACT";
-			case CARDS_SPEED: return "CARDS_SPEED";
 			case CARDS_LONG: return "CARDS_LONG";
 			default: return "Unknown";
 		}
@@ -178,7 +187,6 @@ public class Constants {
 			case LISTS_EVENTS: return "com.memoryladder.historicdates";
 			case SHAPES_FACES: return "com.memoryladder.namesandfaces";
 			case SHAPES_ABSTRACT: return "com.memoryladder.abstractimages";
-			case CARDS_SPEED: return "com.memoryladder.cards";
 			case CARDS_LONG: return "com.memoryladder.cards";
 			default: return "Unknown";
 		}
@@ -194,7 +202,6 @@ public class Constants {
             case LISTS_EVENTS: return "Historic Dates";
             case SHAPES_FACES: return "Names and Faces";
             case SHAPES_ABSTRACT: return "Abstract Images";
-            case CARDS_SPEED: return "Speed Cards";
             case CARDS_LONG: return "Speed Cards";
             default: return "Unknown";
         }
@@ -210,7 +217,6 @@ public class Constants {
             case LISTS_EVENTS: return R.drawable.icon_historicdates;
             case SHAPES_FACES: return R.drawable.icon_namesandfaces;
             case SHAPES_ABSTRACT: return R.drawable.icon_abstract_images;
-            case CARDS_SPEED: return R.drawable.icon_cards;
             case CARDS_LONG: return R.drawable.icon_cards;
             default: return R.drawable.icon_numbers;
         }
@@ -226,7 +232,6 @@ public class Constants {
             case LISTS_EVENTS: return Lists_Mem.class;
             case SHAPES_FACES: return Shapes_Mem.class;
             case SHAPES_ABSTRACT: return Shapes_Mem.class;
-            case CARDS_SPEED: return CardPrototype.class;
             case CARDS_LONG: return CardPrototype.class;
             default: return Numbers_Mem.class;
         }
@@ -242,7 +247,6 @@ public class Constants {
             case LISTS_EVENTS: return Lists_Settings.class;
             case SHAPES_FACES: return Shapes_Settings.class;
             case SHAPES_ABSTRACT: return Shapes_Settings.class;
-            case CARDS_SPEED: return Cards_Settings.class;
             case CARDS_LONG: return Cards_Settings.class;
             default: return Numbers_Mem.class;
         }

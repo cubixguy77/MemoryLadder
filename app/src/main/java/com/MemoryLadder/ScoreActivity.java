@@ -42,14 +42,8 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	private Boolean reviewPossible = false;
 	private int origGameType;
 	private int origMode;
-	private static int width;
-	private static int height;
 	private Animation a;
-	
-	private Boolean[] permitsWMC;
-	private Boolean[] permitsCUSTOM;
-	private Boolean[] permitsSTEPS;
-	
+
 	final private static int STEPS  = Constants.STEPS;
 	final private static int WMC    = Constants.WMC;
 	final private static int CUSTOM = Constants.CUSTOM;
@@ -65,8 +59,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.scores);
         
-        getExtras();                        
-        initPermissions();
+        getExtras();
         initButtons();  
         initText();
         if (source == JUSTPLAYED) {
@@ -82,59 +75,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
         
     }
 
-/*  @Override
-    public void onPause() {
-    	super.onPause();
-    	finish();
-    }
-*/
-    
-    public void initPermissions() {
-    	Permissions p = new Permissions(this);
-    	permitsWMC = p.getPermissions(WMC);
-    	permitsSTEPS = p.getPermissions(STEPS);
-    	permitsCUSTOM = p.getPermissions(CUSTOM);
-    }
-    
-    public Boolean[] getPermissions(int mode) {
-    	if (mode == WMC)
-    		return permitsWMC;
-    	else if (mode == STEPS)
-    		return permitsSTEPS;
-    	else if (mode == CUSTOM)
-    		return permitsCUSTOM;
-    	return null;    			
-    }
-    
-    public int getNextGameType(int gameType, int mode) {
-    	Boolean[] permissions = getPermissions(mode);
-    	int result = gameType;
-    	while (result == gameType || !permissions[result]) {
-    		System.out.println("********Result************: " + result);
-    		result++;
-    		if (result >= (permissions.length))
-    			result = 1;
-    	}
-    	return result;
-    }
-    
-    public int getPreviousGameType(int gameType, int mode) {
-    	Boolean[] permissions = getPermissions(mode);
-    	int result = gameType;
-    	while (result == gameType || !permissions[result]) {
-    		System.out.println("********Result************: " + result);
-    		result--;
-    		if (result <= 0)
-    			result = 10;
-    	}
-    	return result;
-    }
-    
-    public Boolean legalGameType(int gameType, int mode) {
-    	return getPermissions(mode)[gameType];
-    }
-      
-    
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -209,17 +149,17 @@ public class ScoreActivity extends Activity implements OnClickListener {
     public void refreshGraphLayout() {
     	
     	if (pastScores.length == 0) {
-    		FrameLayout GraphLayout = (FrameLayout) findViewById(R.id.GraphLayout);
+    		FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.GONE);    		
     	}
     	else if (mode == WMC || mode == CUSTOM) {
-			FrameLayout GraphLayout = (FrameLayout) findViewById(R.id.GraphLayout);
+			FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.VISIBLE);
 			drawGraph();
 		//	graphVisible = true;
     	}
     	else if (mode == STEPS) {
-			FrameLayout GraphLayout = (FrameLayout) findViewById(R.id.GraphLayout);
+			FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.GONE);
 		//	graphVisible = false;
     	}
@@ -228,11 +168,11 @@ public class ScoreActivity extends Activity implements OnClickListener {
     public void refreshStepsLayout() {
     	
     	if (pastScores.length == 0) {
-    		FrameLayout StepsLayout = (FrameLayout) findViewById(R.id.StepsLayout);
+    		FrameLayout StepsLayout = findViewById(R.id.StepsLayout);
     		StepsLayout.setVisibility(View.VISIBLE);
     		
-			TextView SuccessText = (TextView) findViewById(R.id.SuccessText);
-			ImageView SuccessGraphic = (ImageView) findViewById(R.id.SuccessGraphic);
+			TextView SuccessText = findViewById(R.id.SuccessText);
+			ImageView SuccessGraphic = findViewById(R.id.SuccessGraphic);
 			SuccessGraphic.setVisibility(View.INVISIBLE);
 			SuccessText.setText("You have not taken this test.");
 			if (mode == STEPS)
@@ -241,15 +181,15 @@ public class ScoreActivity extends Activity implements OnClickListener {
 				NextStepButton.setText("Take Test");
     	}
     	else if (mode == WMC || mode == CUSTOM) {
-    		FrameLayout StepsLayout = (FrameLayout) findViewById(R.id.StepsLayout);
+    		FrameLayout StepsLayout = findViewById(R.id.StepsLayout);
     		StepsLayout.setVisibility(View.GONE);
     	}
     	else if (mode == STEPS) {	
-    		FrameLayout StepsLayout = (FrameLayout) findViewById(R.id.StepsLayout);
+    		FrameLayout StepsLayout = findViewById(R.id.StepsLayout);
     		StepsLayout.setVisibility(View.VISIBLE);
     		NextStepButton.setText("Step " + step);
-			TextView SuccessText = (TextView) findViewById(R.id.SuccessText);
-			ImageView SuccessGraphic = (ImageView) findViewById(R.id.SuccessGraphic);
+			TextView SuccessText = findViewById(R.id.SuccessText);
+			ImageView SuccessGraphic = findViewById(R.id.SuccessGraphic);
 			
 			if (source == JUSTPLAYED) {
 				double score = Double.parseDouble(getValue(scoreSummary[scoreSummary.length - 1]));
@@ -288,22 +228,22 @@ public class ScoreActivity extends Activity implements OnClickListener {
     
     public void refreshScoreSummaryLayout() {
     	if (scoreSummary.length == 0) {
-    		FrameLayout ScoreSummaryLayout = (FrameLayout) findViewById(R.id.layout);
+    		FrameLayout ScoreSummaryLayout = findViewById(R.id.layout);
     		ScoreSummaryLayout.setVisibility(View.GONE);
     	}
     	else {    	
 	    	TextView[] labels = new TextView[3];
-	    	labels[0] = (TextView) findViewById(R.id.Label0);
-	    	labels[1] = (TextView) findViewById(R.id.Label1);
-	    	labels[2] = (TextView) findViewById(R.id.Label2);
+	    	labels[0] = findViewById(R.id.Label0);
+	    	labels[1] = findViewById(R.id.Label1);
+	    	labels[2] = findViewById(R.id.Label2);
 	    	
 	    	TextView[] values = new TextView[3];
-	    	values[0] = (TextView) findViewById(R.id.Value0);
-	    	values[1] = (TextView) findViewById(R.id.Value1);
-	    	values[2] = (TextView) findViewById(R.id.Value2);
-	    	TextView ScoreValue = (TextView) findViewById(R.id.ScoreValue);
+	    	values[0] = findViewById(R.id.Value0);
+	    	values[1] = findViewById(R.id.Value1);
+	    	values[2] = findViewById(R.id.Value2);
+	    	TextView ScoreValue = findViewById(R.id.ScoreValue);
 	    	
-	    	FrameLayout ScoreSummaryLayout = (FrameLayout) findViewById(R.id.layout);
+	    	FrameLayout ScoreSummaryLayout = findViewById(R.id.layout);
     		ScoreSummaryLayout.setVisibility(View.VISIBLE);
 	    	
 	    	for (int i=0; i<=2; i++) {
@@ -325,26 +265,22 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	    	ScoreValue.setText(getValue(scoreSummary[scoreSummary.length - 1]));
     	}
     }
-    
-    public String getLabel(String string) {
-    	return string.substring(0, (string.indexOf(':') + 1) );
-    }
-    
+
     public String getValue(String string) {
     	return string.substring(string.indexOf(':') + 1, string.length());
     }
     
     public void drawGraph() {
-    	ImageView image = (ImageView) findViewById(R.id.graph);
-    	Display display = getWindowManager().getDefaultDisplay(); 
-    	width = display.getWidth() - 10;
-    	height = width * 4 / 5;
+    	ImageView image = findViewById(R.id.graph);
+    	Display display = getWindowManager().getDefaultDisplay();
+		int width = display.getWidth() - 10;
+		int height = width * 4 / 5;
     	Graphing graph = new Graphing(width, height, pastScores);
     	image.setImageBitmap(graph.getGraph());
     }
     
     public void initButtons() {
-    	button1 = (Button) findViewById(R.id.button1);
+    	button1 = findViewById(R.id.button1);
     	if (source == JUSTPLAYED) {
     		button1.setOnClickListener(this);
         	button1.setText("Review");
@@ -352,34 +288,31 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	else
     		button1.setVisibility(View.INVISIBLE);
         
-        button2 = (Button) findViewById(R.id.button2);
+        button2 = findViewById(R.id.button2);
         button2.setOnClickListener(this);
         button2.setText("Home");
         
-        TakeTestButton = (Button) findViewById(R.id.TakeTestButton);
+        TakeTestButton = findViewById(R.id.TakeTestButton);
         TakeTestButton.setOnClickListener(this);
-        AnimatedArrow = (Button) findViewById(R.id.AnimatedArrow);
+        AnimatedArrow = findViewById(R.id.AnimatedArrow);
         AnimatedArrow.setOnClickListener(this);
         
-        NextStepButton = (Button) findViewById(R.id.NextStepButton);
+        NextStepButton = findViewById(R.id.NextStepButton);
         NextStepButton.setOnClickListener(this);
-        
-     //   HighScoresButton = (Button) findViewById(R.id.HighScoresButton);
-     //   HighScoresButton.setOnClickListener(this);
-        
-        StepsButton = (Button) findViewById(R.id.StepsButton);
+
+        StepsButton = findViewById(R.id.StepsButton);
         StepsButton.setOnClickListener(this);
-        CustomButton = (Button) findViewById(R.id.CustomButton);
+        CustomButton = findViewById(R.id.CustomButton);
         CustomButton.setOnClickListener(this);
         
-        NextGameButton = (Button) findViewById(R.id.NextGameButton);
+        NextGameButton = findViewById(R.id.NextGameButton);
         NextGameButton.setOnClickListener(this);
-        LastGameButton = (Button) findViewById(R.id.LastGameButton);
+        LastGameButton = findViewById(R.id.LastGameButton);
         LastGameButton.setOnClickListener(this);
     }
     
     public void initText() {
-    	GameTypeText = (TextView) findViewById(R.id.GameTypeText);
+    	GameTypeText = findViewById(R.id.GameTypeText);
     }
                                   
     public void launchReviewActivity() {
@@ -393,80 +326,40 @@ public class ScoreActivity extends Activity implements OnClickListener {
     public void onTabClick(Button button) {
     	if (button == StepsButton) {
 			mode = STEPS;
-		/*	if (gameType == NUMBERS_LONG)
-				gameType = NUMBERS_SPEED;
-			else if (gameType == CARDS_SPEED)
-				gameType = CARDS_LONG; */
     	}
 		else if (button == CustomButton) {
 			mode = CUSTOM;
-	    /*	if (gameType == NUMBERS_LONG)
-				gameType = NUMBERS_SPEED;
-			else if (gameType == CARDS_SPEED)
-				gameType = CARDS_LONG;  */
 		}
-    	if (!legalGameType(gameType, mode))
-    		gameType = getNextGameType(gameType, mode);
     	
     	button1.setVisibility(View.INVISIBLE);
     	getLocalVariables(NAVIGATION);
     	refresh();
     }
-    
-    public void onNextGameClick() {
-    /*	if (mode == STEPS || mode == CUSTOM) {
-    		if (gameType == NUMBERS_SPEED)
-    			gameType = NUMBERS_BINARY;
-    		else if (gameType == CARDS_LONG)
-    			gameType = NUMBERS_SPEED;
-    		else if (gameType == SHAPES_ABSTRACT)
-    			gameType = CARDS_LONG;
-    		else
-    			gameType++;
-    	}
-    	else if (mode == WMC) {
-    		if (gameType == CARDS_LONG)
-    			gameType = NUMBERS_SPEED;
-    		else
-    			gameType++;
-    	} */
-    	
-    	gameType = getNextGameType(gameType, mode);
-    	
+
+
+
+
+    private void onNextGameClick() {
+    	gameType = getNextGameType(gameType, true);
     	getLocalVariables(NAVIGATION);
-    	
     	animateTextNextGame(gameType);
     	refreshExcludeSelector();
     }
-    
-    
-    
-    public void onLastGameClick() {
-     /*	if (mode == STEPS || mode == CUSTOM) {
-    		if (gameType == NUMBERS_BINARY)
-    			gameType = NUMBERS_SPEED;
-    		else if (gameType == NUMBERS_SPEED)
-    			gameType = CARDS_LONG;
-    		else if (gameType == CARDS_LONG)
-    			gameType = SHAPES_ABSTRACT;
-    		else
-    			gameType--;
-    	}
-    	else if (mode == WMC) {
-    		if (gameType == NUMBERS_SPEED)
-    			gameType = CARDS_LONG;
-    		else
-    			gameType--;
-    	}    */
-    	
-    	gameType = getPreviousGameType(gameType, mode);
-    	
+
+	private void onLastGameClick() {
+    	gameType = getNextGameType(gameType, false);
     	getLocalVariables(NAVIGATION);
-    	
     	animateTextLastGame(gameType);
     	refreshExcludeSelector();
     }
-    
+
+	private int getNextGameType(int gameType, boolean forward) {
+		return Constants.gameTypes[(gameType + (forward ? 1 : -1)) % Constants.gameTypes.length];
+	}
+
+
+
+
     public void animateTextNextGame(final int gameType) {
     	final Animation to_left = AnimationUtils.loadAnimation(this, R.anim.to_left);
     	to_left.reset();
