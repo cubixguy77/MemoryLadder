@@ -21,10 +21,8 @@ import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
 
 public class Numbers_Review extends Activity implements OnClickListener{
-	
-	private GridView grid;
+
 	private Button button1;
-	private Button button2;
 	private int numRows;
 	private int numCols;
 	private int numItems;
@@ -33,14 +31,7 @@ public class Numbers_Review extends Activity implements OnClickListener{
 	private int mode;
 	private char[][] guess;
 	private char[][] answer;
-	
-//	private final char ROW_MARKER = 'x';
-//	private final static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-//	private final static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
-//	private final static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
-	private final static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
 
-	
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,8 +48,8 @@ public class Numbers_Review extends Activity implements OnClickListener{
         
         numCols++;
         numItems = numRows * numCols;
-        
-        grid = (GridView) findViewById(R.id.grid);
+
+		GridView grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);
         grid.setAdapter(new NumberAdapter(this));
 
@@ -68,28 +59,28 @@ public class Numbers_Review extends Activity implements OnClickListener{
     
     public void setScreenOrientation() {
     	int screenSize = getResources().getConfiguration().screenLayout;
-    	if ((screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) < Configuration.SCREENLAYOUT_SIZE_LARGE && gameType != NUMBERS_SPOKEN && numCols > 20)
+    	if ((screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) < Configuration.SCREENLAYOUT_SIZE_LARGE && gameType != Constants.NUMBERS_SPOKEN && numCols > 20)
     		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
     
     public void initButtons() {
-    	button1 = (Button) findViewById(R.id.button1);
+    	button1 = findViewById(R.id.button1);
         button1.setOnClickListener(this);
         button1.setText("Back");
-        
-        button2 = (Button) findViewById(R.id.button2);
+
+		Button button2 = findViewById(R.id.button2);
         button2.setOnClickListener(this);
         button2.setText("Play Again");
     }
     
     public void initText() {
-    	TextView TitleText = (TextView) findViewById(R.id.TitleText);
+    	TextView TitleText = findViewById(R.id.TitleText);
     	TitleText.setText("Review");
     	
-    	TextView timerText = (TextView) findViewById(R.id.timerText);
+    	TextView timerText = findViewById(R.id.timerText);
     	timerText.setVisibility(View.INVISIBLE);
     	
-    	TextView ScoreText = (TextView) findViewById(R.id.PageNumber);
+    	TextView ScoreText = findViewById(R.id.PageNumber);
     	ScoreText.setVisibility(View.VISIBLE);
     	ScoreText.setTextSize(30);
     	ScoreText.setTextColor(Color.YELLOW);
@@ -106,7 +97,7 @@ public class Numbers_Review extends Activity implements OnClickListener{
     public class NumberAdapter extends BaseAdapter {
 
         private Context context;                
-        public NumberAdapter(Context context) {  	 this.context = context;    }
+        NumberAdapter(Context context) {  	 this.context = context;    }
         public int getCount() {           			 return numItems;        }
         public Object getItem(int position) {        return null;        }
         public long getItemId(int position) {        return 0;        }
@@ -174,8 +165,8 @@ public class Numbers_Review extends Activity implements OnClickListener{
 	
 	public void launchTest() {
 		Intent i = new Intent(this, TestDetailsActivity.class);
-		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
+		i.putExtra("mode", mode);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		startActivity(i);
 	}
@@ -186,7 +177,6 @@ public class Numbers_Review extends Activity implements OnClickListener{
         numCols         = i.getIntExtra("numCols",     -1);
         mode            = i.getIntExtra("mode", -1);
         gameType        = i.getIntExtra("gameType", -1);
-        
         score           = i.getIntExtra("score", -1);
         
         getGuessArray(i);

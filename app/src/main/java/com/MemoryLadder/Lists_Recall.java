@@ -46,6 +46,7 @@ public class Lists_Recall extends Activity implements OnClickListener {
 	private  int numItems;
 	private  int recallTime;
 	private  int gameType;
+	private  int mode;
 	private int numPages = 1;
 	private int currentPage = 0;
 	private  String[][] guess;
@@ -326,7 +327,8 @@ public class Lists_Recall extends Activity implements OnClickListener {
         numCols    = intent.getIntExtra("numCols", -1);
         recallTime = intent.getIntExtra("recallTime",  -1);
         gameType   = intent.getIntExtra("gameType", -1);
-        strings    = intent.getStringArrayExtra("strings");     
+        mode   = intent.getIntExtra("mode", -1);
+        strings    = intent.getStringArrayExtra("strings");
         
         if (gameType == LISTS_WORDS) {
         	if (numCols <= 5)
@@ -425,6 +427,7 @@ public class Lists_Recall extends Activity implements OnClickListener {
                    Intent i = getIntent();
                    i.setClass(Lists_Recall.this, TestDetailsActivity.class);
                    i.putExtra("gameType", gameType);
+                   i.putExtra("mode", mode);
                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                    startActivity(i);
                })

@@ -21,6 +21,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 	private Button defaultSettings;
 	
 	private int gameType;
+	private int mode;
 	private Boolean showMnemo;
 	
 	private int WRITTEN_numRows;
@@ -46,8 +47,9 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 //	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
 	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
 	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	
-    @Override
+
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_numbers);
@@ -159,8 +161,9 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     
     public void getExtras() {
     	Intent i = getIntent();
-        gameType = i.getIntExtra("gameType",    -1);        
-        if ((gameType == NUMBERS_SPEED || gameType == NUMBERS_BINARY) && getIntent().getIntExtra("mode", -1) == Constants.CUSTOM)
+        gameType = i.getIntExtra("gameType",    -1);
+        mode = i.getIntExtra("mode", -1);
+        if ((gameType == NUMBERS_SPEED || gameType == NUMBERS_BINARY) && mode == Constants.CUSTOM)
         	showMnemo = true;
         else
         	showMnemo = false;
@@ -316,6 +319,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     	Intent i = getIntent();
 		i.setClass(this, TestDetailsActivity.class);
 		i.putExtra("gameType", gameType);
+		i.putExtra("mode", mode);
 		startActivity(i);
 		finish();
     }

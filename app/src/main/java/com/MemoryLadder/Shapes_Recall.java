@@ -45,6 +45,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
 	private int numCols;
 	private int recallTime;
 	private int gameType;
+	private int mode;
 	private String[][] guess;
 	private String[][] answer;
 	private int[] images;
@@ -300,6 +301,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
         numCols     = intent.getIntExtra("numCols", -1);
         recallTime  = intent.getIntExtra("recallTime",  -1);
         gameType    = intent.getIntExtra("gameType", -1);
+        mode    = intent.getIntExtra("mode", -1);
         images      = intent.getIntArrayExtra("images");
         strings     = intent.getStringArrayExtra("strings");        
     }
@@ -409,6 +411,7 @@ public class Shapes_Recall extends Activity implements OnClickListener {
 				   Intent i = getIntent();
 				   i.setClass(Shapes_Recall.this, TestDetailsActivity.class);
 				   i.putExtra("gameType", gameType);
+				   i.putExtra("mode", mode);
 				   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				   startActivity(i);
                })

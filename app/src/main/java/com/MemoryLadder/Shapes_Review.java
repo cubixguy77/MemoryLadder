@@ -1,7 +1,6 @@
 package com.MemoryLadder;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -23,9 +22,8 @@ import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
 
 public class Shapes_Review extends Activity implements OnClickListener {
-	
-	private GridView grid;
-	private Button button1;
+
+    private Button button1;
 	private Button button2;
 	private int numRows;
 	private int numCols;
@@ -36,11 +34,7 @@ public class Shapes_Review extends Activity implements OnClickListener {
 	private String[][] guess;
 	private String[][] answer;
 	private int[] images;
-	
-//	final private static int SHAPES_FACES    = Constants.SHAPES_FACES;
-	final private static int SHAPES_ABSTRACT = Constants.SHAPES_ABSTRACT;
-	
-    /** Called when the activity is first created. */
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,30 +47,30 @@ public class Shapes_Review extends Activity implements OnClickListener {
                 
         initButtons();
         initText();
-        
-        grid = (GridView) findViewById(R.id.grid);
+
+        GridView grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);
         grid.setBackgroundColor(Color.WHITE);
-        grid.setAdapter(new ShapeAdapter(this));
+        grid.setAdapter(new ShapeAdapter());
     }
             
     public void initButtons() {
-    	button1 = (Button) findViewById(R.id.button1);
+    	button1 = findViewById(R.id.button1);
         button1.setOnClickListener(this);
         button1.setText("Back");
         
-        button2 = (Button) findViewById(R.id.button2);
+        button2 = findViewById(R.id.button2);
         button2.setOnClickListener(this);
         button2.setText("Play Again");
     }
     
     public void initText() {
-    	TextView TitleText = (TextView) findViewById(R.id.TitleText);
+    	TextView TitleText = findViewById(R.id.TitleText);
     	TitleText.setText("Review");
-    	TextView timerText = (TextView) findViewById(R.id.timerText);
+    	TextView timerText = findViewById(R.id.timerText);
     	timerText.setVisibility(View.INVISIBLE);
     	
-    	TextView ScoreText = (TextView) findViewById(R.id.PageNumber);
+    	TextView ScoreText = findViewById(R.id.PageNumber);
     	ScoreText.setVisibility(View.VISIBLE);
     	ScoreText.setTextSize(30);
     	ScoreText.setTextColor(Color.YELLOW);
@@ -98,7 +92,7 @@ public class Shapes_Review extends Activity implements OnClickListener {
     
     private class ShapeAdapter extends BaseAdapter {
 
-        public ShapeAdapter(Context context) {}
+        ShapeAdapter() {}
         public int getCount() {           			 return numItems;        }
         public Object getItem(int position) {        return null;        }
         public long getItemId(int position) {        return 0;        }
@@ -109,17 +103,17 @@ public class Shapes_Review extends Activity implements OnClickListener {
             	LayoutInflater li = getLayoutInflater();
                 MyView = li.inflate(R.layout.shape, null);
                 
-                EditText textbox = (EditText) MyView.findViewById(R.id.shape_edittext);
+                EditText textbox = MyView.findViewById(R.id.shape_edittext);
             	textbox.setVisibility(View.GONE);                                      	            	
             }
-            ImageView image = (ImageView) MyView.findViewById(R.id.shape_image);
+            ImageView image = MyView.findViewById(R.id.shape_image);
             image.setBackgroundResource(images[position]);
             
             int row = getRow(position);
         	int col = getCol(position);
-            TextView text = (TextView) MyView.findViewById(R.id.shape_text);
+            TextView text = MyView.findViewById(R.id.shape_text);
             
-        	if (gameType == SHAPES_ABSTRACT)
+        	if (gameType == Constants.SHAPES_ABSTRACT)
         		text.setText("Seq: " + answer[row][col] + "\n" + 
         				     "Seq: " + guess [row][col]);
         	else {
@@ -175,8 +169,8 @@ public class Shapes_Review extends Activity implements OnClickListener {
     
     public void launchTest() {
 		Intent i = new Intent(this, TestDetailsActivity.class);
-		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
+        i.putExtra("mode", mode);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		startActivity(i);
 	}

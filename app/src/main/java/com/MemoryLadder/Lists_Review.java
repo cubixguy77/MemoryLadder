@@ -1,7 +1,6 @@
 package com.MemoryLadder;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -20,11 +19,9 @@ import android.widget.TextView;
 
 import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Lists_Review extends Activity implements OnClickListener {
-	
-	private GridView grid;
+
 	private Button button1;
 	private Button button2;
 	private Button Previous;
@@ -59,34 +56,34 @@ public class Lists_Review extends Activity implements OnClickListener {
                              
         initButtons();
         initText();
-        
-        grid = (GridView) findViewById(R.id.grid);
+
+		GridView grid = findViewById(R.id.grid);
         grid.setNumColumns(numCols);
         grid.setVerticalSpacing(0);
-        adapter = new ListAdapter(this);
+        adapter = new ListAdapter();
         grid.setAdapter(adapter);
         
     }
             
     public void initButtons() {
-    	button1 = (Button) findViewById(R.id.button1);
+    	button1 = findViewById(R.id.button1);
         button1.setOnClickListener(this);
         button1.setText("Back");
         
-        button2 = (Button) findViewById(R.id.button2);
+        button2 = findViewById(R.id.button2);
         button2.setOnClickListener(this);
         button2.setText("Play Again");
         
         if (numPages > 1) {
-        	Previous = (Button) findViewById(R.id.Previous);
+        	Previous = findViewById(R.id.Previous);
         	Previous.setVisibility(View.VISIBLE);
         	Previous.setOnClickListener(this);
             
-            Next = (Button) findViewById(R.id.Next);
+            Next = findViewById(R.id.Next);
             Next.setVisibility(View.VISIBLE);
             Next.setOnClickListener(this);
             
-            PageNumber = (TextView) findViewById(R.id.PageNumber);
+            PageNumber = findViewById(R.id.PageNumber);
             PageNumber.setVisibility(View.VISIBLE);
             updatePageNumberText();
         }
@@ -103,12 +100,12 @@ public class Lists_Review extends Activity implements OnClickListener {
     }
     
     public void initText() {
-    	TextView TitleText = (TextView) findViewById(R.id.TitleText);
+    	TextView TitleText = findViewById(R.id.TitleText);
     	TitleText.setText("Review");
-    	TextView timerText = (TextView) findViewById(R.id.timerText);
+    	TextView timerText = findViewById(R.id.timerText);
     	timerText.setVisibility(View.INVISIBLE);
     	
-    	TextView ScoreText = (TextView) findViewById(R.id.PageNumber);
+    	TextView ScoreText = findViewById(R.id.PageNumber);
     	ScoreText.setVisibility(View.VISIBLE);
     	ScoreText.setTextSize(30);
     	ScoreText.setTextColor(Color.YELLOW);
@@ -124,7 +121,7 @@ public class Lists_Review extends Activity implements OnClickListener {
     
     private class ListAdapter extends BaseAdapter {
 
-        public ListAdapter(Context context) {}
+        ListAdapter() {}
         public int getCount() {           			 return numItems;        }
         public Object getItem(int position) {        return null;        }
         public long getItemId(int position) {        return 0;        }
@@ -137,19 +134,19 @@ public class Lists_Review extends Activity implements OnClickListener {
             
             if (convertView == null) {            	
                 MyView = getLayoutInflater().inflate(R.layout.list, null);                                 
-                EditText datebox = (EditText)  MyView.findViewById(R.id.datebox); datebox.setVisibility(View.GONE);
-                EditText wordbox = (EditText)  MyView.findViewById(R.id.wordbox); wordbox.setVisibility(View.GONE);
+                EditText datebox = MyView.findViewById(R.id.datebox); datebox.setVisibility(View.GONE);
+                EditText wordbox = MyView.findViewById(R.id.wordbox); wordbox.setVisibility(View.GONE);
                 
-                numtext  = (TextView) MyView.findViewById(R.id.numtext);
-            	wordtext = (TextView) MyView.findViewById(R.id.wordtext);
+                numtext  = MyView.findViewById(R.id.numtext);
+            	wordtext = MyView.findViewById(R.id.wordtext);
                 if (gameType == LISTS_EVENTS){
                 	numtext.setTextSize(20);
                 	wordtext.setTextSize(20); 
                 }
             }
             else {
-            	numtext = (TextView)  MyView.findViewById(R.id.numtext);
-            	wordtext = (TextView) MyView.findViewById(R.id.wordtext);                                        
+            	numtext = MyView.findViewById(R.id.numtext);
+            	wordtext = MyView.findViewById(R.id.wordtext);
             }
             
             position = position + ( numItems * currentPage );
@@ -163,7 +160,7 @@ public class Lists_Review extends Activity implements OnClickListener {
             
             if (gameType == LISTS_WORDS) {
             	
-            	TableRow tablerow = (TableRow) MyView.findViewById(R.id.tableRow1);
+            	TableRow tablerow = MyView.findViewById(R.id.tableRow1);
             	            	
             	numtext.setLines(1);
 	            numtext.setText(num);
@@ -188,7 +185,7 @@ public class Lists_Review extends Activity implements OnClickListener {
             }
           
             else {
-            	TableRow tablerow = (TableRow) MyView.findViewById(R.id.tableRow1);
+            	TableRow tablerow = MyView.findViewById(R.id.tableRow1);
             	//numtext.setLines(1);
 	            numtext.setText(num + "\n" + guess[row][col]);
             	//numtext.setText(num);
@@ -269,8 +266,8 @@ public class Lists_Review extends Activity implements OnClickListener {
     
     public void launchTest() {
 		Intent i = new Intent(this, TestDetailsActivity.class);
-		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
+		i.putExtra("mode", mode);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		startActivity(i);
 	}
