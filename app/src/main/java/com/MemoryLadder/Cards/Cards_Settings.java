@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.MemoryLadder.Constants;
@@ -29,7 +28,6 @@ public class Cards_Settings extends Activity implements OnClickListener{
 	private  int recallTime;
 	private  int cardsPerGroup;
 	private boolean mnemo_enabled;
-	private boolean showMnemo;
 	private TextView tv_cardsperdeck;
 	private TextView tv_numdecks;
 	private TextView tv_memtime;
@@ -46,7 +44,6 @@ public class Cards_Settings extends Activity implements OnClickListener{
         initButtons();
         initTable();        
         getPreferences();
-
     }
     
     public void initButtons() {
@@ -74,21 +71,11 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	tv_recalltime.setOnClickListener(this);
     	tv_mnemo.setOnClickListener(this);
     	tv_cardspergroup.setOnClickListener(this);
-
-    	if (!showMnemo) {
-    		TableRow row = findViewById(R.id.cards_tablerow5);
-    		row.setVisibility(View.GONE);
-    	}
-    		
     }
         
     public void getExtras() {
     	Intent i = getIntent();
         gameType = i.getIntExtra("gameType",    -1);
-        if (getIntent().getIntExtra("mode", -1) == Constants.CUSTOM)
-        	showMnemo = true;
-        else
-        	showMnemo = false;
     }
     
     public void getPreferences() {
@@ -109,13 +96,8 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	recallTime =   Utils.getTotalSeconds( tv_recalltime.getText().toString() );		        
     	cardsPerGroup =   Integer.parseInt( tv_cardspergroup.getText().toString() );
 
-    	if (showMnemo) {
-    		if (tv_mnemo.getText().toString().equals("On"))
-    			mnemo_enabled = true;
-    		else
-    			mnemo_enabled = false;
-    	}
-    	
+        mnemo_enabled = tv_mnemo.getText().toString().equals("On");
+
     	System.out.println("gametype: "       + gameType);
     	System.out.println("cards per deck: " + cardsperdeck);
     	System.out.println("num decks: "      + numdecks);
