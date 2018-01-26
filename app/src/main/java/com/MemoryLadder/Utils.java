@@ -1,6 +1,5 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
@@ -103,22 +102,6 @@ public class Utils {
     	}
     }
     
-    public static Class<?> getPreClass(int gameType) {
-    	switch (gameType) {
-	        case 1:  return Numbers_PreGame.class;
-	        case 2:  return Numbers_PreGame.class;
-	        case 3:  return Numbers_PreGame.class;
-	        case 4:  return Numbers_PreGame.class;
-	        case 5:  return Lists_PreGame.class;
-	        case 6:  return Lists_PreGame.class;
-	        case 7:  return Shapes_PreGame.class;
-	        case 8:  return Shapes_PreGame.class;
-	        case 9:  return Cards_PreGame.class;
-	        case 10: return Cards_PreGame.class;
-	        default: return null;
-    	}
-    }
-    
     public static Class<?> getReviewClass(int gameType) {
     	switch (gameType) {
 	        case 1:  return Numbers_Review.class;
@@ -130,7 +113,7 @@ public class Utils {
 	        case 7:  return Shapes_Review.class;
 	        case 8:  return Shapes_Review.class;
         default: return null;
-	}
+		}
     }
     
     

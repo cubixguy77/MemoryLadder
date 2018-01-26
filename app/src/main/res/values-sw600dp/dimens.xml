@@ -5,23 +5,15 @@
     <dimen name="toolbar.button_long_width">90dp</dimen>
     <dimen name="toolbar.button_long_height">56dp</dimen>
 
-    <dimen name="pregame.graphic.height">275dp</dimen>
-
     <dimen name="arrow.width">200dp</dimen>
     <dimen name="arrow.height">120dp</dimen>
     <dimen name="arrow.margin_top">40dp</dimen>
     <dimen name="arrow.padding_right">25dp</dimen>
     <dimen name="arrow.text_size">24sp</dimen>
 
-    <dimen name="pregame.settings.title.margin_left">72dp</dimen>
-    <dimen name="pregame.settings.title.margin_top">40dp</dimen>
-    <dimen name="pregame.settings.title.text_size">48sp</dimen>
+
+
     <dimen name="pregame.settings.list.margin_top">40dp</dimen>
-
-    <dimen name="pregame.settings.title_graphic.width">100dp</dimen>
-    <dimen name="pregame.settings.title_graphic.height">60dp</dimen>
-    <dimen name="pregame.settings.title_graphic.margin_left">16dp</dimen>
-
     <dimen name="pregame.settings.list.text_size">32sp</dimen>
     <dimen name="pregame.settings.list.summary.text_size">42sp</dimen>
 

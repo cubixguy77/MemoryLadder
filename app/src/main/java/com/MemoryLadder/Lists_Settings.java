@@ -2,6 +2,7 @@ package com.MemoryLadder;
 
 //import com.MemoryLadderFull.R;
 import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
 import com.mastersofmemory.memoryladder.R;
 
@@ -259,7 +260,8 @@ public class Lists_Settings extends Activity implements OnClickListener{
     
     public void onSettingsFinished() {
     	Intent i = getIntent();
-    	i.setClass(this, Lists_PreGame.class);		
+    	i.setClass(this, TestDetailsActivity.class);
+    	i.putExtra("gameType", gameType);
 		this.startActivity(i);
 		finish();
     }

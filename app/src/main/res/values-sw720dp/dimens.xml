@@ -1,16 +1,8 @@
 <resources>
 
-    <dimen name="pregame.settings.title.margin_left">100dp</dimen>
-    <dimen name="pregame.settings.title.margin_top">60dp</dimen>
-    <dimen name="pregame.settings.title.text_size">68sp</dimen>
-
     <dimen name="pregame.settings.list.margin_top">90dp</dimen>
     <dimen name="pregame.settings.list.text_size">42sp</dimen>
     <dimen name="pregame.settings.list.summary.text_size">62sp</dimen>
-
-    <dimen name="pregame.settings.title_graphic.width">100dp</dimen>
-    <dimen name="pregame.settings.title_graphic.height">60dp</dimen>
-
 
 
     <dimen name="scores.arrow_button.size">80dp</dimen>

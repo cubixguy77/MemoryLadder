@@ -368,18 +368,12 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
     	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
-    	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	        	   Shapes_Mem.this.startActivity(new Intent(Shapes_Mem.this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-    	        	   userQuit = true;
-    	        	   timer.cancel();
-    	           }
-    	       })
-    	       .setNegativeButton("Continue Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	                dialog.cancel();
-    	           }
-    	       });
+    	       .setPositiveButton("Stop Game", (dialog, id) -> {
+                   userQuit = true;
+                   timer.cancel();
+                   finish();
+               })
+    	       .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
     	AlertDialog alert = builder.create();
     	alert.show();
     }
