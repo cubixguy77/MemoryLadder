@@ -28,7 +28,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	private Button TakeTestButton;
 	private Button NextStepButton;
 	private Button StepsButton;
-	private Button ChampButton;
 	private Button CustomButton;
 	private Button NextGameButton;
 	private Button LastGameButton;
@@ -50,17 +49,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	private Boolean[] permitsWMC;
 	private Boolean[] permitsCUSTOM;
 	private Boolean[] permitsSTEPS;
-	
-	final private static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
-	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
-	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	private static final int LISTS_WORDS     = Constants.LISTS_WORDS;
-	private static final int LISTS_EVENTS    = Constants.LISTS_EVENTS;	
-	final private static int SHAPES_FACES    = Constants.SHAPES_FACES;
-	final private static int SHAPES_ABSTRACT = Constants.SHAPES_ABSTRACT;
-	final private static int CARDS_SPEED     = Constants.CARDS_SPEED;
-    final private static int CARDS_LONG      = Constants.CARDS_LONG;
 	
 	final private static int STEPS  = Constants.STEPS;
 	final private static int WMC    = Constants.WMC;
@@ -204,17 +192,14 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	
     	if (mode == STEPS) {
         	StepsButton.setBackgroundResource(selected);    StepsButton.setTextColor(Color.BLACK);
-        	ChampButton.setBackgroundResource(unselected);  ChampButton.setTextColor(Color.WHITE);
         	CustomButton.setBackgroundResource(unselected); CustomButton.setTextColor(Color.WHITE);
     	}
     	else if (mode == WMC) {
         	StepsButton.setBackgroundResource(unselected);  StepsButton.setTextColor(Color.WHITE);
-        	ChampButton.setBackgroundResource(selected);    ChampButton.setTextColor(Color.BLACK);
         	CustomButton.setBackgroundResource(unselected); CustomButton.setTextColor(Color.WHITE);
     	}
     	else if (mode == CUSTOM) {
         	StepsButton.setBackgroundResource(unselected); StepsButton.setTextColor(Color.WHITE);
-        	ChampButton.setBackgroundResource(unselected); ChampButton.setTextColor(Color.WHITE);
         	CustomButton.setBackgroundResource(selected);  CustomButton.setTextColor(Color.BLACK);
     	}    	
     	
@@ -384,8 +369,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
         
         StepsButton = (Button) findViewById(R.id.StepsButton);
         StepsButton.setOnClickListener(this);
-        ChampButton = (Button) findViewById(R.id.ChampButton);
-        ChampButton.setOnClickListener(this);
         CustomButton = (Button) findViewById(R.id.CustomButton);
         CustomButton.setOnClickListener(this);
         
@@ -415,8 +398,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
 			else if (gameType == CARDS_SPEED)
 				gameType = CARDS_LONG; */
     	}
-		else if (button == ChampButton)
-			mode = WMC;
 		else if (button == CustomButton) {
 			mode = CUSTOM;
 	    /*	if (gameType == NUMBERS_LONG)
@@ -544,7 +525,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	else if (fromsource == MAIN) {
     		SharedPreferences prefs = getSharedPreferences("LastGameMode", 0);    		
     		mode = prefs.getInt("mode", WMC);
-    		gameType = prefs.getInt("gameType", NUMBERS_SPEED);
+    		gameType = prefs.getInt("gameType", Constants.NUMBERS_SPEED);
     		getPastScores();
     		getPastScoreSummary();
     		if (mode == STEPS)
@@ -629,8 +610,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
 		}
 		else if (v == StepsButton && mode != STEPS)
 			onTabClick(StepsButton);
-		else if (v == ChampButton && mode != WMC)
-			onTabClick(ChampButton);
 		else if (v == CustomButton && mode != CUSTOM)
 			onTabClick(CustomButton);
 		
