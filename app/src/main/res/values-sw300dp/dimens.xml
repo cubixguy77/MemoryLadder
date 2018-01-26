@@ -86,6 +86,11 @@
 
 
 
+    <dimen name="instructions.section_text.size">20sp</dimen>
+    <dimen name="instructions.general_text.size">16sp</dimen>
+
+
+
 
 
 </resources>

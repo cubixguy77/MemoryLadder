@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import com.MemoryLadder.ChoosePegs_Cards;
 import com.MemoryLadder.ChoosePegs_Numbers;
 import com.MemoryLadder.Constants;
-import com.MemoryLadder.HelpActivity;
+import com.MemoryLadder.InstructionsDialog;
 import com.mastersofmemory.memoryladder.R;
 
 public class TestDetailsActivity extends AppCompatActivity {
@@ -79,9 +79,8 @@ public class TestDetailsActivity extends AppCompatActivity {
                 startActivity(intentCard);
                 return true;
             case R.id.menu_help:
-                Intent intentHelp = new Intent();
-                intentHelp.setClass(this, HelpActivity.class);
-                startActivity(intentHelp);
+                InstructionsDialog dialog = new InstructionsDialog(this, gameType);
+                dialog.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -4,18 +4,15 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
-public class InstructionsDialog extends Dialog implements OnClickListener {
+public class InstructionsDialog extends Dialog {
 	
 	Context context;
-	Button CloseButton;
+
 	final private static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
 //	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
 //	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
@@ -32,9 +29,10 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
 		this.context = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.instructions);
-		initButtons();
 		setCancelable(true);
 		setCanceledOnTouchOutside(true);
+
+        ((TextView) findViewById(R.id.InstructionsDialogTitleText)).setText(Constants.getGameDisplayName(gameType));
 		
 		if (gameType >= NUMBERS_SPEED && gameType <= NUMBERS_SPOKEN)
 			initInstructions_Numbers(gameType);
@@ -43,30 +41,25 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
 		else if (gameType == SHAPES_FACES || gameType == SHAPES_ABSTRACT)
 			initInstructions_Shapes(gameType);
 		else if (gameType == CARDS_SPEED || gameType == CARDS_LONG)
-			initInstructions_Cards(gameType);
+			initInstructions_Cards();
 	}
 	
-	public void initButtons() {
-		CloseButton = (Button) findViewById(R.id.button1);
-		CloseButton.setOnClickListener(this);
-	}
-	
-	public void initInstructions_Numbers(int gameType) {
+	private void initInstructions_Numbers(int gameType) {
     	
-    	TextView about = (TextView) findViewById(R.id.about);
-    	TextView Point1 = (TextView) findViewById(R.id.Point1);
-    	TextView Point2 = (TextView) findViewById(R.id.Point2);
-    	TextView Point3 = (TextView) findViewById(R.id.Point3);
+    	TextView about = findViewById(R.id.about);
+    	TextView Point1 = findViewById(R.id.Point1);
+    	TextView Point2 = findViewById(R.id.Point2);
+    	TextView Point3 = findViewById(R.id.Point3);
     	
-    	TextView AddOn1 = (TextView) findViewById(R.id.AddOn1);
-    	TextView AddOn2 = (TextView) findViewById(R.id.AddOn2);
+    	TextView AddOn1 = findViewById(R.id.AddOn1);
+    	TextView AddOn2 = findViewById(R.id.AddOn2);
     	
     	Resources res = context.getResources();	    	
     	
     	if (gameType != NUMBERS_SPOKEN) {    		    	        	       	
         	about.setText(res.getText(R.string.numbers_written_about));
         	
-        	TextView preface = (TextView) findViewById(R.id.preface);
+        	TextView preface = findViewById(R.id.preface);
         	preface.setVisibility(View.VISIBLE);
         	preface.setText(res.getText(R.string.numbers_written_preface));
         	
@@ -80,9 +73,9 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
     	else {	    	
     		about.setText(res.getText(R.string.numbers_spoken_about));
     		
-    		TextView Bullet1 = (TextView) findViewById(R.id.Bullet1);Bullet1.setVisibility(View.GONE);
-    		TextView Bullet2 = (TextView) findViewById(R.id.Bullet2);Bullet2.setVisibility(View.GONE);
-    		TextView Bullet3 = (TextView) findViewById(R.id.Bullet3);Bullet3.setVisibility(View.GONE);
+    		TextView Bullet1 = findViewById(R.id.Bullet1);Bullet1.setVisibility(View.GONE);
+    		TextView Bullet2 = findViewById(R.id.Bullet2);Bullet2.setVisibility(View.GONE);
+    		TextView Bullet3 = findViewById(R.id.Bullet3);Bullet3.setVisibility(View.GONE);
 	    	Point1.setVisibility(View.GONE);
 	    	Point2.setVisibility(View.GONE);
 	    	Point3.setVisibility(View.GONE);
@@ -93,22 +86,22 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
     }
 	
 	
-	public void initInstructions_Lists(int gameType) {
+	private void initInstructions_Lists(int gameType) {
     	
-    	TextView about = (TextView) findViewById(R.id.about);
-    	TextView Point1 = (TextView) findViewById(R.id.Point1);
-    	TextView Point2 = (TextView) findViewById(R.id.Point2);
-    	TextView Point3 = (TextView) findViewById(R.id.Point3);
+    	TextView about = findViewById(R.id.about);
+    	TextView Point1 = findViewById(R.id.Point1);
+    	TextView Point2 = findViewById(R.id.Point2);
+    	TextView Point3 = findViewById(R.id.Point3);
     	
-    	TextView AddOn1 = (TextView) findViewById(R.id.AddOn1);
-    	TextView AddOn2 = (TextView) findViewById(R.id.AddOn2);
+    	TextView AddOn1 = findViewById(R.id.AddOn1);
+    	TextView AddOn2 = findViewById(R.id.AddOn2);
     	
     	Resources res = context.getResources();	    	
     	
     	if (gameType == LISTS_WORDS) {    		    	        	       	
         	about.setText(res.getText(R.string.lists_words_about));
         	
-        	TextView preface = (TextView) findViewById(R.id.preface);
+        	TextView preface = findViewById(R.id.preface);
         	preface.setVisibility(View.VISIBLE);
         	preface.setText(res.getText(R.string.lists_words_preface));
         	
@@ -123,7 +116,7 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
     		about.setText(res.getText(R.string.lists_dates_about));
     		Point1.setText(res.getText(R.string.lists_dates_point1));
 	    	Point2.setText(res.getText(R.string.lists_dates_point2));
-    		TextView Bullet3 = (TextView) findViewById(R.id.Bullet3);Bullet3.setVisibility(View.GONE);
+    		TextView Bullet3 = findViewById(R.id.Bullet3);Bullet3.setVisibility(View.GONE);
 	    	Point3.setVisibility(View.GONE);
     	}    	
     }
@@ -131,15 +124,15 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
 	
 	
 	
-	public void initInstructions_Shapes(int gameType) {
+	private void initInstructions_Shapes(int gameType) {
     	
-    	TextView about = (TextView) findViewById(R.id.about);
-    	TextView Point1 = (TextView) findViewById(R.id.Point1);
-    	TextView Point2 = (TextView) findViewById(R.id.Point2);
-    	TextView Point3 = (TextView) findViewById(R.id.Point3);
+    	TextView about = findViewById(R.id.about);
+    	TextView Point1 = findViewById(R.id.Point1);
+    	TextView Point2 = findViewById(R.id.Point2);
+    	TextView Point3 = findViewById(R.id.Point3);
     	
-    	TextView AddOn1 = (TextView) findViewById(R.id.AddOn1);
-    	TextView AddOn2 = (TextView) findViewById(R.id.AddOn2);
+    	TextView AddOn1 = findViewById(R.id.AddOn1);
+    	TextView AddOn2 = findViewById(R.id.AddOn2);
     	
     	Resources res = context.getResources();	    	
     	
@@ -162,20 +155,20 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
     }
 	
 	
-	public void initInstructions_Cards(int gameType) {
+	private void initInstructions_Cards() {
     	
-    	TextView about = (TextView) findViewById(R.id.about);
-    	TextView Point1 = (TextView) findViewById(R.id.Point1);
-    	TextView Point2 = (TextView) findViewById(R.id.Point2);
-    	TextView Point3 = (TextView) findViewById(R.id.Point3);
+    	TextView about = findViewById(R.id.about);
+    	TextView Point1 = findViewById(R.id.Point1);
+    	TextView Point2 = findViewById(R.id.Point2);
+    	TextView Point3 = findViewById(R.id.Point3);
     	
-    	TextView AddOn1 = (TextView) findViewById(R.id.AddOn1);
+    	TextView AddOn1 = findViewById(R.id.AddOn1);
     	
     	Resources res = context.getResources();	    	
    		    	        	       	
     	about.setText(res.getText(R.string.cards_cards_about));
     	
-    	TextView preface = (TextView) findViewById(R.id.preface);
+    	TextView preface = findViewById(R.id.preface);
     	preface.setVisibility(View.VISIBLE);
     	preface.setText(res.getText(R.string.cards_cards_preface));
     	
@@ -185,12 +178,4 @@ public class InstructionsDialog extends Dialog implements OnClickListener {
     	
     	AddOn1.setText(res.getText(R.string.cards_cards_addon1)); 	  	
     }
-	
-	
-	
-	@Override
-	public void onClick(View v) {
-		if (v == CloseButton) 
-			dismiss();
-	}	
 }
