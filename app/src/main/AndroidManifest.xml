@@ -36,9 +36,6 @@
             android:name="com.MemoryLadder.ScoreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.HelpActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.ChoosePegs_Numbers"
             android:screenOrientation="portrait" />
         <activity

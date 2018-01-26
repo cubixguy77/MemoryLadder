@@ -384,8 +384,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
         
         StepsButton = (Button) findViewById(R.id.StepsButton);
         StepsButton.setOnClickListener(this);
-        ChampButton = (Button) findViewById(R.id.ChampButton);
-        ChampButton.setOnClickListener(this);
         CustomButton = (Button) findViewById(R.id.CustomButton);
         CustomButton.setOnClickListener(this);
         
