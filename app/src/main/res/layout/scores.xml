@@ -62,22 +62,13 @@
                 android:textColor="#ff000000" />
 
             <Button
-                android:id="@+id/ChampButton"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/toolbar.button_long_height"
-                android:layout_weight="1"
-                android:background="@drawable/score_tab_unselected"
-                android:text="Compete"
-                android:textColor="#ffffffff" />
-
-            <Button
                 android:id="@+id/CustomButton"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/toolbar.button_long_height"
                 android:layout_marginRight="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/score_tab_unselected"
-                android:text="Train"
+                android:text="CUSTOM"
                 android:textColor="#ffffffff" />
         </LinearLayout>
 
