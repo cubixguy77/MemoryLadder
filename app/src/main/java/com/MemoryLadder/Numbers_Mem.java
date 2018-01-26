@@ -360,7 +360,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
         numRows         = i.getIntExtra("numRows",     -1);
         numCols         = i.getIntExtra("numCols",     -1);
         memTime         = i.getIntExtra("memTime",     -1);
-        secondsPerDigit = i.getDoubleExtra("secondsPerDigit", -1);
+        secondsPerDigit = i.getFloatExtra("secondsPerDigit", 1.0f);
         
         getAnswerArray();
     }

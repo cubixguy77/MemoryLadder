@@ -6,21 +6,28 @@ import android.os.Parcelable;
 public class Setting implements Parcelable {
     String key;
     String label;
-    int value;
+    float value;
     String displayValue;
+    boolean display;
 
-    Setting(String key, String label, int value, String displayValue) {
+    Setting(String key, String label, float value, String displayValue) {
+        this(key, label, value, displayValue, true);
+    }
+
+    Setting(String key, String label, float value, String displayValue, boolean display) {
         this.key = key;
         this.label = label;
         this.value = value;
         this.displayValue = displayValue;
+        this.display = display;
     }
 
     protected Setting(Parcel in) {
         key = in.readString();
         label = in.readString();
-        value = in.readInt();
+        value = in.readFloat();
         displayValue = in.readString();
+        display = in.readByte() != 0;
     }
 
     @Override
@@ -32,8 +39,9 @@ public class Setting implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(key);
         dest.writeString(label);
-        dest.writeInt(value);
+        dest.writeFloat(value);
         dest.writeString(displayValue);
+        dest.writeByte((byte) (display ? 1 : 0));
     }
 
     @SuppressWarnings("unused")

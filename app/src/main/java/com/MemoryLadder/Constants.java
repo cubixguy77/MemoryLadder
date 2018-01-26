@@ -2,6 +2,7 @@ package com.MemoryLadder;
 
 import android.support.annotation.DrawableRes;
 
+import com.MemoryLadder.Cards.CardPrototype;
 import com.mastersofmemory.memoryladder.R;
 
 public class Constants {
@@ -16,10 +17,6 @@ public class Constants {
 	final public static int SHAPES_ABSTRACT = 8;
 	final public static int CARDS_SPEED     = 9;
 	final public static int CARDS_LONG      = 10;
-	
-	final public static int NUMTESTS_STEPS  = 8;
-	final public static int NUMTESTS_WMC    = 10;
-	final public static int NUMTESTS_CUSTOM = 8;
 	
 	final static int SLOW   = 0;
 	final static int MEDIUM = 1;
@@ -218,7 +215,39 @@ public class Constants {
             default: return R.drawable.icon_numbers;
         }
     }
-	
+
+    public static Class getClass(int gameType) {
+        switch (gameType) {
+            case NUMBERS_SPEED: return Numbers_Mem.class;
+            case NUMBERS_LONG: return Numbers_Mem.class;
+            case NUMBERS_BINARY: return Numbers_Mem.class;
+            case NUMBERS_SPOKEN: return Numbers_Mem.class;
+            case LISTS_WORDS: return Lists_Mem.class;
+            case LISTS_EVENTS: return Lists_Mem.class;
+            case SHAPES_FACES: return Shapes_Mem.class;
+            case SHAPES_ABSTRACT: return Shapes_Mem.class;
+            case CARDS_SPEED: return CardPrototype.class;
+            case CARDS_LONG: return CardPrototype.class;
+            default: return Numbers_Mem.class;
+        }
+    }
+
+    public static Class<?> getSettingsClass(int gameType) {
+        switch (gameType) {
+            case NUMBERS_SPEED: return Numbers_Settings.class;
+            case NUMBERS_LONG: return Numbers_Settings.class;
+            case NUMBERS_BINARY: return Numbers_Settings.class;
+            case NUMBERS_SPOKEN: return Numbers_Settings.class;
+            case LISTS_WORDS: return Lists_Settings.class;
+            case LISTS_EVENTS: return Lists_Settings.class;
+            case SHAPES_FACES: return Shapes_Settings.class;
+            case SHAPES_ABSTRACT: return Shapes_Settings.class;
+            case CARDS_SPEED: return Cards_Settings.class;
+            case CARDS_LONG: return Cards_Settings.class;
+            default: return Numbers_Mem.class;
+        }
+    }
+
 	public static int[] getSpecs_STEPS_Numbers(int level) {
     	int[] specs = new int[5];
     	switch (level) {
@@ -330,7 +359,7 @@ public class Constants {
     	return specs;
     }
 	
-	static int[] getSpecs_STEPS_RandomWords(int level) {
+	public static int[] getSpecs_STEPS_RandomWords(int level) {
     	int[] specs = new int[5];
 
     	switch (level) {
@@ -515,5 +544,4 @@ public class Constants {
     	}
     	return specs;
     }
-	
 }

@@ -291,35 +291,13 @@ public class ScoreActivity extends Activity implements OnClickListener {
     	step++;
     	SharedPreferences settings = getSharedPreferences("Steps", 0);
         SharedPreferences.Editor editor = settings.edit();
-        switch (gameType) {
-			case NUMBERS_SPEED:   editor.putInt("NUMBERS_SPEED",   step); break;
-			case NUMBERS_BINARY:  editor.putInt("NUMBERS_BINARY",  step); break;
-			case NUMBERS_SPOKEN:  editor.putInt("NUMBERS_SPOKEN",  step); break;
-			case LISTS_WORDS:     editor.putInt("LISTS_WORDS",     step); break;
-			case LISTS_EVENTS:    editor.putInt("LISTS_EVENTS",    step); break;
-			case SHAPES_FACES:    editor.putInt("SHAPES_FACES",    step); break;
-			case SHAPES_ABSTRACT: editor.putInt("SHAPES_ABSTRACT", step); break;
-			case CARDS_SPEED:     editor.putInt("CARDS_SPEED",     step); break;
-			case CARDS_LONG:      editor.putInt("CARDS_LONG",      step); break;
-        }
+        editor.putInt(Constants.getGameName(gameType), step);
         editor.commit();        
     }
     
     public int getStep(int gameType) {
     	SharedPreferences settings = getSharedPreferences("Steps", 0);
-    	switch (gameType) {
-			case NUMBERS_SPEED:   return settings.getInt("NUMBERS_SPEED", 1);
-			case NUMBERS_LONG:    return settings.getInt("NUMBERS_LONG", 1);
-			case NUMBERS_BINARY:  return settings.getInt("NUMBERS_BINARY", 1);
-			case NUMBERS_SPOKEN:  return settings.getInt("NUMBERS_SPOKEN", 1);
-			case LISTS_WORDS:     return settings.getInt("LISTS_WORDS", 1);
-			case LISTS_EVENTS:    return settings.getInt("LISTS_EVENTS", 1);
-			case SHAPES_FACES:    return settings.getInt("SHAPES_FACES", 1);
-			case SHAPES_ABSTRACT: return settings.getInt("SHAPES_ABSTRACT", 1);
-			case CARDS_SPEED:     return settings.getInt("CARDS_SPEED", 1);
-			case CARDS_LONG:      return settings.getInt("CARDS_LONG", 1);
-			default: return -1;
-    	}
+    	return settings.getInt(Constants.getGameName(gameType), 1);
     }
     
     public void refreshScoreSummaryLayout() {

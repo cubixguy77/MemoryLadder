@@ -48,31 +48,25 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
     }
 
     void setSettings(List<Setting> settings) {
-        boolean targetScoreProvided = false;
+        int i = 0;
 
-        for (int i=0; i<settings.size(); i++) {
-            Setting setting = settings.get(i);
+        for (Setting setting : settings) {
+            if (!setting.display)
+                continue;
+
             if (setting.key.equals("target")) {
-                targetScoreProvided = true;
                 ((TextView) findViewById(R.id.TargetTextLabel)).setText(setting.label);
                 ((TextView) findViewById(R.id.TargetTextValue)).setText(setting.displayValue);
-                getTextLabelAt(i).setVisibility(View.GONE);
-                getTextValueAt(i).setVisibility(View.GONE);
+                findViewById(R.id.TargetTextLabel).setVisibility(View.VISIBLE);
+                findViewById(R.id.TargetTextValue).setVisibility(View.VISIBLE);
             }
             else {
-                getTextLabelAt(i).setText(settings.get(i).label);
-                getTextValueAt(i).setText(settings.get(i).displayValue);
+                getTextLabelAt(i).setText(setting.label);
+                getTextValueAt(i).setText(setting.displayValue);
+                getTextLabelAt(i).setVisibility(View.VISIBLE);
+                getTextValueAt(i).setVisibility(View.VISIBLE);
+                i++;
             }
-        }
-
-        for (int i=settings.size(); i<6; i++) {
-            getTextLabelAt(i).setVisibility(View.GONE);
-            getTextValueAt(i).setVisibility(View.GONE);
-        }
-
-        if (!targetScoreProvided) {
-            findViewById(R.id.TargetTextLabel).setVisibility(View.GONE);
-            findViewById(R.id.TargetTextValue).setVisibility(View.GONE);
         }
     }
 

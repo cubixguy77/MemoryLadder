@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.MemoryLadder.Billing.BillingManager;
-import com.MemoryLadder.Cards.CardPrototype;
-import com.MemoryLadder.Cards_Settings;
 import com.MemoryLadder.Constants;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mastersofmemory.memoryladder.R;
@@ -128,10 +126,15 @@ public class TestDetailsFragment extends Fragment {
         logChooseTestEvent();
 
         Intent i = new Intent();
-        i.setClass(getActivity(), CardPrototype.class);
+        i.setClass(getActivity(), Constants.getClass(gameType));
 
         for (Setting setting : settings) {
-            i.putExtra(setting.key, setting.value);
+            if (setting.key.equals("secondsPerDigit")) {
+                i.putExtra(setting.key, setting.value);
+            }
+            else {
+                i.putExtra(setting.key, (int) setting.value);
+            }
         }
 
         i.putExtra("gameType", gameType);
@@ -153,7 +156,8 @@ public class TestDetailsFragment extends Fragment {
 
     @OnClick(R.id.testDetailsEditSettings) public void onEditSettings() {
         Intent i = new Intent();
-        i.setClass(getActivity(), Cards_Settings.class);
+        i.setClass(getActivity(), Constants.getSettingsClass(gameType));
+        i.putExtra("gameType", gameType);
         startActivity(i);
         getActivity().finish();
     }
