@@ -11,23 +11,22 @@ import android.widget.TextView;
 import com.mastersofmemory.memoryladder.R;
 
 public class TimePickerDialog extends Dialog implements OnClickListener {
+
+	private Button CancelButton;
+	private Button SaveButton;
+	private String oldValue;
+	private String newValue;
 	
-	Context context;
-	Button CancelButton;
-	Button SaveButton;
-	String oldValue;
-	String newValue;
+	private TextView Hours;
+	private TextView Minutes;
+	private TextView Seconds;
 	
-	TextView Hours;
-	TextView Minutes;
-	TextView Seconds;
-	
-	Button HoursUp;
-	Button HoursDown;
-	Button MinutesUp;
-	Button MinutesDown;	
-	Button SecondsUp;
-	Button SecondsDown;
+	private Button HoursUp;
+	private Button HoursDown;
+	private Button MinutesUp;
+	private Button MinutesDown;
+	private Button SecondsUp;
+	private Button SecondsDown;
 	
 	private int hours;
 	private int minutes;
@@ -38,11 +37,10 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 	
 	final private static int MAX_HOUR = 5;
 	
-	OnMyDialogResultTime mDialogResult; // the callback
+	private OnMyDialogResultTime mDialogResult; // the callback
 	
 	public TimePickerDialog(Context context, String oldValue, String LabelText) {
 		super(context);
-		this.context = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.timepickerdialog);
 		
@@ -57,7 +55,7 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 		setCancelable(true);	
 	}
 	
-	public void initTimeVariables() {
+	private void initTimeVariables() {
 		hours = Utils.getHours(oldValue);
 		minutes = Utils.getMinutes(oldValue);
 		seconds = Utils.getSeconds(oldValue);
@@ -71,40 +69,40 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
         mDialogResult = dialogResult;
     }
 	
-	public void initText(String labeltext) {
-		TextView Label = (TextView) findViewById(R.id.Label);
+	private void initText(String labeltext) {
+		TextView Label = findViewById(R.id.Label);
 		Label.setText(labeltext);		
-		Hours = (TextView) findViewById(R.id.Hours);
-		Minutes = (TextView) findViewById(R.id.Minutes);
-		Seconds = (TextView) findViewById(R.id.Seconds);
+		Hours = findViewById(R.id.Hours);
+		Minutes = findViewById(R.id.Minutes);
+		Seconds = findViewById(R.id.Seconds);
 		
 		refreshTimeDisplay();
 	}
 	
 	public void initButtons() {
-		CancelButton = (Button) findViewById(R.id.CancelButton);
+		CancelButton = findViewById(R.id.CancelButton);
 		CancelButton.setOnClickListener(this);
 		
-		SaveButton = (Button) findViewById(R.id.SaveButton);
+		SaveButton = findViewById(R.id.SaveButton);
 		SaveButton.setOnClickListener(this);
 		
-		HoursUp = (Button) findViewById(R.id.HoursUp);
+		HoursUp = findViewById(R.id.HoursUp);
 		HoursUp.setOnClickListener(this);
-		HoursDown = (Button) findViewById(R.id.HoursDown);
+		HoursDown = findViewById(R.id.HoursDown);
 		HoursDown.setOnClickListener(this);
 		
-		MinutesUp = (Button) findViewById(R.id.MinutesUp);
+		MinutesUp = findViewById(R.id.MinutesUp);
 		MinutesUp.setOnClickListener(this);
-		MinutesDown = (Button) findViewById(R.id.MinutesDown);
+		MinutesDown = findViewById(R.id.MinutesDown);
 		MinutesDown.setOnClickListener(this);
 		
-		SecondsUp = (Button) findViewById(R.id.SecondsUp);
+		SecondsUp = findViewById(R.id.SecondsUp);
 		SecondsUp.setOnClickListener(this);
-		SecondsDown = (Button) findViewById(R.id.SecondsDown);
+		SecondsDown = findViewById(R.id.SecondsDown);
 		SecondsDown.setOnClickListener(this);		
 	}	
 	
-	public void refreshTimeDisplay() {
+	private void refreshTimeDisplay() {
 		String hours_string;
 		String minutes_string;
 		String seconds_string;
@@ -128,7 +126,7 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 		newValue = hours_string + ":" + minutes_string + ":" + seconds_string;
 	}
 	
-	public void updateHours(int button) {
+	private void updateHours(int button) {
 		if (button == UP && hours < MAX_HOUR) 
 			hours++;		
 		else if (button == DOWN && hours > 0)
@@ -136,7 +134,7 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 		refreshTimeDisplay();
 	}
 	
-	public void updateMinutes(int button) {
+	private void updateMinutes(int button) {
 		if (button == UP && minutes < 59) 
 			minutes++;
 		else if (button == UP && minutes == 59)
@@ -148,7 +146,7 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 		refreshTimeDisplay();
 	}
 	
-	public void updateSeconds(int button) {
+	private void updateSeconds(int button) {
 		if (button == UP && seconds < 59) 
 			seconds++;	
 		else if (button == UP && seconds == 59)

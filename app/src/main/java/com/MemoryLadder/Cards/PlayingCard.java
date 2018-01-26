@@ -3,7 +3,7 @@ package com.MemoryLadder.Cards;
 public class PlayingCard {
 
     /* Index of the card, ranges from 0 - 51 */
-    int cardNum;
+    public int cardNum;
 
     /* Suit ranges from 0 - 3 but should be referenced using the constants provided in this class */
     int suit;

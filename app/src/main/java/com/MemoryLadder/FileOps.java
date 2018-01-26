@@ -13,6 +13,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.MemoryLadder.Cards.Card;
 import com.jjoe64.graphview.series.DataPoint;
 
 public class FileOps {
@@ -38,7 +39,7 @@ public class FileOps {
 	}
 	
 	
-	static String loadPegsFromFileNumbers(String path, Context context) {
+	public static String loadPegsFromFileNumbers(String path, Context context) {
 		
 		SharedPreferences settings = context.getSharedPreferences("Peg_Numbers", 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -70,7 +71,7 @@ public class FileOps {
 		return "Success";
 	}
 	
-	static String loadPegsFromFileCards(String path, Context context) {
+	public static String loadPegsFromFileCards(String path, Context context) {
 		
 		SharedPreferences settings = context.getSharedPreferences("Peg_Cards", 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -268,7 +269,7 @@ public class FileOps {
     		return null;
 	}
 
-	String[] readPastScores(int mode, int gameType) {
+	public String[] readPastScores(int mode, int gameType) {
 		List<String> scores = new ArrayList<>();
 		try {
 			BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreResource(mode, gameType))));
@@ -312,7 +313,7 @@ public class FileOps {
     	}
     }
 
-    String[] readScoreSummary(int mode, int gameType) {
+    public String[] readScoreSummary(int mode, int gameType) {
     	List<String> scores = new ArrayList<>();
     	try {
     	    BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreSummaryResource(mode, gameType))));
@@ -328,7 +329,7 @@ public class FileOps {
         return scores.toArray(new String[scores.size()]);
     }
     
-	void updateScoreSummary(int mode, int gameType, String[] strings) {
+	public void updateScoreSummary(int mode, int gameType, String[] strings) {
 		try {
     	    FileOutputStream fos = context.openFileOutput(getPastScoreSummaryResource(mode, gameType), Context.MODE_PRIVATE);
     	    for (int i=0; i<strings.length; i++) {

@@ -1,12 +1,16 @@
 package com.MemoryLadder;
 
+import com.MemoryLadder.ListsChallenges.Lists_Review;
+import com.MemoryLadder.NumbersChallenges.Numbers_Review;
+import com.MemoryLadder.ShapesChallenges.Shapes_Review;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Utils {
 
-	static int[] shuffleIntArray(int[] array) {
+	public static int[] shuffleIntArray(int[] array) {
 		Integer[] temp = new Integer[array.length];
 		for (int i=0; i<array.length; i++) {
 			temp[i] = array[i];
@@ -18,7 +22,7 @@ public class Utils {
 		return array;
  	}
 	
-	static int[] shuffleIntArrayByRow(int[] array, int numRows, int numCols) {
+	public static int[] shuffleIntArrayByRow(int[] array, int numRows, int numCols) {
 		Integer[] temp = new Integer[numCols];
 		for (int row=0; row<numRows; row++) {			
 			for (int col=0; col<numCols; col++) {
@@ -33,7 +37,7 @@ public class Utils {
  	}
 	
 	
-	static String getTestString(int gameType) {
+	public static String getTestString(int gameType) {
 		switch (gameType) {
 			case Constants.NUMBERS_SPEED:   return "Speed Numbers";
 			case Constants.NUMBERS_BINARY:  return "Binary Numbers";
@@ -68,7 +72,7 @@ public class Utils {
 		return specs != null ? specs[specs.length - 1] : 0;
 	}
     
-    static Class<?> getReviewClass(int gameType) {
+    public static Class<?> getReviewClass(int gameType) {
     	switch (gameType) {
 	        case 1:  return Numbers_Review.class;
 	        case 2:  return Numbers_Review.class;
@@ -95,7 +99,7 @@ public class Utils {
 		 return strings;
 	}
 	
-	static String[] getNumberSuggestions(int num) {
+	public static String[] getNumberSuggestions(int num) {
 		switch (num) {
 			case 0:  return getStrings( "Seesaw*Sow*Saw*" );
 			case 1:  return getStrings( "Soot*Dye*Tea*Tie*Hat*" );
@@ -249,7 +253,7 @@ public class Utils {
 	
 	
 	
-	static String getMaxValue(String[] strings) {
+	public static String getMaxValue(String[] strings) {
     	int max = 0;
     	for (int i=0; i<strings.length; i++) {
     		if (Double.parseDouble(strings[i]) > Double.parseDouble(strings[max]))
@@ -258,7 +262,7 @@ public class Utils {
     	return strings[max];
     }
     
-    static String getMinValue(String[] strings) {
+    public static String getMinValue(String[] strings) {
     	int min = 0;
     	for (int i=0; i<strings.length; i++) {
     		if (Double.parseDouble(strings[i]) < Double.parseDouble(strings[min]))
@@ -278,7 +282,7 @@ public class Utils {
 			return (minutes < 10 ? "0"+minutes : minutes) + ":" + (seconds < 10 ? "0" : "") + seconds ;
     }
     
-    static String formatIntoHHMMSS(long secsIn) {
+    public static String formatIntoHHMMSS(long secsIn) {
     	int hours = (int) (secsIn / 3600),
 		remainder = (int) (secsIn % 3600),
 		minutes = remainder / 60,
@@ -298,7 +302,7 @@ public class Utils {
     	return Integer.parseInt(timestring.substring(6, 8));
     }
     
-    static int getTotalSeconds(String timestring) {
+    public static int getTotalSeconds(String timestring) {
     	return (getHours(timestring) * 3600) + (getMinutes(timestring) * 60) + (getSeconds(timestring));
     }
 }

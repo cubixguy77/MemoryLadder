@@ -11,23 +11,20 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBarChangeListener {
+
+	private Button CancelButton;
+	private Button SaveButton;
+	private TextView SeekBarValue;
+	private String oldValue;
+	private String newValue;
+	private int[] hashmarks;
 	
-	Context context;
-	Button CancelButton;
-	Button SaveButton;
-	TextView SeekBarValue;
-	String oldValue;
-	String newValue;
-	int[] hashmarks;
-	
-	OnMyDialogResult mDialogResult; // the callback
+	private OnMyDialogResult mDialogResult; // the callback
 	
 	public SettingsDialog(Context context, String oldValue, String LabelText, int[] hashmarks) {
 		super(context);
-		this.context = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.settingsdialog);
 		
@@ -50,15 +47,15 @@ public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBar
         mDialogResult = dialogResult;
     }
 	
-	public void initText(String labeltext) {
-		TextView Label = (TextView) findViewById(R.id.Label);
+	private void initText(String labeltext) {
+		TextView Label = findViewById(R.id.Label);
 		Label.setText(labeltext);
 		
-		SeekBarValue = (TextView) findViewById(R.id.SeekBarValue);
+		SeekBarValue = findViewById(R.id.SeekBarValue);
 	}
 	
-	public void initSeekBar() {
-		SeekBar seekbar = (SeekBar) findViewById(R.id.SeekBar);
+	private void initSeekBar() {
+		SeekBar seekbar = findViewById(R.id.SeekBar);
 		seekbar.setOnSeekBarChangeListener(this);
 		
 		seekbar.setMax(hashmarks.length - 1);
@@ -68,7 +65,7 @@ public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBar
 		SeekBarValue.setText(Integer.toString(hashmarks[i]));
 	}
 	
-	public int getStartingIndex() {
+	private int getStartingIndex() {
 		for (int i=0; i<hashmarks.length; i++) {
 			System.out.println(i + " " + hashmarks[i] + " " + oldValue);
 			if (hashmarks[i] == Integer.parseInt(oldValue))
@@ -78,10 +75,10 @@ public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBar
 	}
 	
 	public void initButtons() {
-		CancelButton = (Button) findViewById(R.id.CancelButton);
+		CancelButton = findViewById(R.id.CancelButton);
 		CancelButton.setOnClickListener(this);
 		
-		SaveButton = (Button) findViewById(R.id.SaveButton);
+		SaveButton = findViewById(R.id.SaveButton);
 		SaveButton.setOnClickListener(this);
 	}	
 		

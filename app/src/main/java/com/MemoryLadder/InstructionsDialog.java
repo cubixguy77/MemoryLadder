@@ -11,7 +11,7 @@ import com.mastersofmemory.memoryladder.R;
 
 public class InstructionsDialog extends Dialog {
 	
-	Context context;
+	private Context context;
 
 	public InstructionsDialog(Context context, int gameType) {
 		super(context);

@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.MemoryLadder.Cards.Mnemonics.FindingMnemo;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.ArrayList;

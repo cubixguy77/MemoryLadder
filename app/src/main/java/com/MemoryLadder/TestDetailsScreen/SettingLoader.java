@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.MemoryLadder.Constants;
-import com.MemoryLadder.DigitSpeed;
+import com.MemoryLadder.NumbersChallenges.DigitSpeed;
 import com.MemoryLadder.Utils;
 
 import java.util.ArrayList;
