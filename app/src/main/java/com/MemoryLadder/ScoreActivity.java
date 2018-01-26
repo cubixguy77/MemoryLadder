@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
 
 public class ScoreActivity extends Activity implements OnClickListener {
@@ -645,7 +646,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 		if (v == button1)
 			launchReviewActivity();
 		else if (v == button2) {
-			startActivity(new Intent(this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+			startActivity(new Intent(this, ChooseTest.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
 			finish();
 		}
 		else if (v == StepsButton && mode != STEPS)
@@ -667,7 +668,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	}
 	
 	public void launchTest() {
-		Intent i = new Intent(this, Utils.getPreClass(gameType));
+		Intent i = new Intent(this, TestDetailsActivity.class);
 		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

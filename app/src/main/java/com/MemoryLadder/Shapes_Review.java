@@ -19,8 +19,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Shapes_Review extends Activity implements OnClickListener {
 	
@@ -174,7 +174,7 @@ public class Shapes_Review extends Activity implements OnClickListener {
     }
     
     public void launchTest() {
-		Intent i = new Intent(this, Utils.getPreClass(gameType));
+		Intent i = new Intent(this, TestDetailsActivity.class);
 		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

@@ -30,6 +30,7 @@ import android.widget.GridView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
 
@@ -417,18 +418,17 @@ public class Lists_Recall extends Activity implements OnClickListener {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
-    	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	        	   Lists_Recall.this.startActivity(new Intent(Lists_Recall.this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-    	        	   userQuit = true;
-    	        	   timer.cancel();
-    	           }
-    	       })
-    	       .setNegativeButton("Continue Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	                dialog.cancel();
-    	           }
-    	       });
+    	       .setPositiveButton("Stop Game", (dialog, id) -> {
+                   userQuit = true;
+                   timer.cancel();
+
+                   Intent i = getIntent();
+                   i.setClass(Lists_Recall.this, TestDetailsActivity.class);
+                   i.putExtra("gameType", gameType);
+                   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                   startActivity(i);
+               })
+    	       .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
     	AlertDialog alert = builder.create();
     	alert.show();
     }

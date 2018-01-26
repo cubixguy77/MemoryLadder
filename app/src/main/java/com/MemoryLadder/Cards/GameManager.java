@@ -14,10 +14,10 @@ import android.widget.FrameLayout;
 
 import com.MemoryLadder.Cards.ScorePanel.Score;
 import com.MemoryLadder.Cards.ScorePanel.ScorePanel;
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.Timer.ITimer;
 import com.MemoryLadder.Timer.SimpleTimer;
 import com.MemoryLadder.Timer.TimerView;
-import com.MemoryLadder.Cards_PreGame;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.CountDownDialog;
 import com.MemoryLadder.Utils;
@@ -146,7 +146,7 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
                     Intent i = new Intent();
                     i.putExtra("gameType", data.getGameType());
                     i.putExtra("mode", data.getMode());
-                    i.setClass(context, Cards_PreGame.class);
+                    i.setClass(context, TestDetailsActivity.class);
                     i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(i);
                 });

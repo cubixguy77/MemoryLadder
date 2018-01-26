@@ -70,9 +70,6 @@
             android:name="com.MemoryLadder.Numbers_Settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.Numbers_PreGame"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.Shapes_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape" />
@@ -86,9 +83,6 @@
             android:screenOrientation="landscape" />
         <activity
             android:name="com.MemoryLadder.Shapes_Settings"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.MemoryLadder.Shapes_PreGame"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Lists_Mem"
@@ -106,13 +100,7 @@
             android:name="com.MemoryLadder.Lists_Settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.Lists_PreGame"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.Cards_Settings"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.MemoryLadder.Cards_PreGame"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Cards.CardPrototype"

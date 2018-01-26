@@ -11,15 +11,7 @@
     <dimen name="arrow.padding_right">25dp</dimen>
     <dimen name="arrow.text_size">16sp</dimen>
 
-    <dimen name="pregame.graphic.height">175dp</dimen>
 
-    <dimen name="pregame.settings.title.margin_left">40dp</dimen>
-    <dimen name="pregame.settings.title.margin_top">24dp</dimen>
-    <dimen name="pregame.settings.title_graphic.width">50dp</dimen>
-    <dimen name="pregame.settings.title_graphic.height">30dp</dimen>
-    <dimen name="pregame.settings.title_graphic.margin_left">5dp</dimen>
-
-    <dimen name="pregame.settings.title.text_size">28sp</dimen>
     <dimen name="pregame.settings.list.margin_top">16dp</dimen>
     <dimen name="pregame.settings.list.margin_between_rows">5dp</dimen>
     <dimen name="pregame.settings.list.margin_between_columns">20dp</dimen>

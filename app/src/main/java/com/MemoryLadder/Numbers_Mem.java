@@ -409,19 +409,14 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
-    	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	        	   Numbers_Mem.this.startActivity(new Intent(Numbers_Mem.this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-    	        	   userQuit = true;
-    	        	   if (gameType != NUMBERS_SPOKEN)
-    	        		   timer.cancel();
-    	           }
-    	       })
-    	       .setNegativeButton("Continue Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	                dialog.cancel();
-    	           }
-    	       });
+    	       .setPositiveButton("Stop Game", (dialog, id) -> {
+                   userQuit = true;
+                   if (gameType != NUMBERS_SPOKEN)
+                       timer.cancel();
+
+                   finish();
+               })
+    	       .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
     	AlertDialog alert = builder.create();
     	alert.show();
     }

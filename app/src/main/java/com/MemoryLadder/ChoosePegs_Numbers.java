@@ -146,18 +146,7 @@ public class ChoosePegs_Numbers extends Activity implements OnClickListener {
              
         editor.apply();
     }
-    
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)  {
-        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-        	Intent i = new Intent(this, Main.class);
-			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-			startActivity(i);
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-    
+
 	@Override
 	public void onClick(View v) {
 		if (v == open) {

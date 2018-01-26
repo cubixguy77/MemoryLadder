@@ -1,16 +1,13 @@
 package com.MemoryLadder;
 
-import java.util.HashMap;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.InputType;
@@ -33,9 +30,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
+
+import java.util.HashMap;
 
 public class Shapes_Recall extends Activity implements OnClickListener {
 	
@@ -403,18 +402,17 @@ public class Shapes_Recall extends Activity implements OnClickListener {
     	AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
     	builder.setMessage("Stop current game?")
     	       .setCancelable(false)
-    	       .setPositiveButton("Stop Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	        	   Shapes_Recall.this.startActivity(new Intent(Shapes_Recall.this, Main.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-    	        	   userQuit = true;
-    	        	   timer.cancel();
-    	           }
-    	       })
-    	       .setNegativeButton("Continue Game", new DialogInterface.OnClickListener() {
-    	           public void onClick(DialogInterface dialog, int id) {
-    	                dialog.cancel();
-    	           }
-    	       });
+    	       .setPositiveButton("Stop Game", (dialog, id) -> {
+                   userQuit = true;
+                   timer.cancel();
+
+				   Intent i = getIntent();
+				   i.setClass(Shapes_Recall.this, TestDetailsActivity.class);
+				   i.putExtra("gameType", gameType);
+				   i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				   startActivity(i);
+               })
+    	       .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
     	AlertDialog alert = builder.create();
     	alert.show();
     }

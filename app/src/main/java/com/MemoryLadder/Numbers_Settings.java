@@ -1,6 +1,7 @@
 package com.MemoryLadder;
 
 import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
 import com.mastersofmemory.memoryladder.R;
 
@@ -361,8 +362,9 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     
     public void onSettingsFinished() {
     	Intent i = getIntent();
-    	i.setClass(this, Numbers_PreGame.class);		
-		this.startActivity(i);
+		i.setClass(this, TestDetailsActivity.class);
+		i.putExtra("gameType", gameType);
+		startActivity(i);
 		finish();
     }
 }
