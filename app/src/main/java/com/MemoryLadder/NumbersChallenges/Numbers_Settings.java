@@ -105,14 +105,9 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     		row3.setVisibility(View.GONE);
     		row7.setVisibility(View.GONE);
     	}
-    	else if (showMnemo) {
-    		row4.setVisibility(View.GONE);
-    		row5.setVisibility(View.GONE);
-    	}
     	else {
     		row4.setVisibility(View.GONE);
     		row5.setVisibility(View.GONE);
-    		row7.setVisibility(View.GONE);
     	}
     }
         
@@ -154,23 +149,13 @@ public class Numbers_Settings extends Activity implements OnClickListener{
         	}
         		
     	}
-    	
-    	System.out.println("numrows: "      + WRITTEN_numRows);
-    	System.out.println("numcols: "      + WRITTEN_numCols);
-    	System.out.println("gametype: "     + gameType);
-    	System.out.println("memtime:  "     + WRITTEN_memTime);
-    	System.out.println("recalltime: "   + WRITTEN_recallTime);
-    	System.out.println("mnemo assist: " + WRITTEN_mnemo);
     }
     
     public void getExtras() {
     	Intent i = getIntent();
         gameType = i.getIntExtra("gameType",    -1);
         mode = i.getIntExtra("mode", -1);
-        if ((gameType == NUMBERS_SPEED || gameType == NUMBERS_BINARY) && mode == Constants.CUSTOM)
-        	showMnemo = true;
-        else
-        	showMnemo = false;
+        showMnemo = (gameType == NUMBERS_SPEED || gameType == NUMBERS_BINARY) && mode == Constants.CUSTOM;
     }
     
     public void getPreferences() {
