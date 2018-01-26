@@ -1,10 +1,5 @@
 package com.MemoryLadder;
 
-import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
-import com.mastersofmemory.memoryladder.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,15 +8,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.mastersofmemory.memoryladder.R;
 
 public class Numbers_Settings extends Activity implements OnClickListener{
 	
 	private Button CancelButton;
 	private Button SaveButton;
-	private Button wmcSettings;
 	private Button defaultSettings;
 	
 	private int gameType;
@@ -37,15 +33,11 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 	private int SPOKEN_numCols;
 	private int SPOKEN_recallTime;
 	private float SPOKEN_secondsPerDigit;	
-	
-	
-	
-	TableLayout table;
+
 	TextView tv_numlines;
 	TextView tv_digitsperline;
 	TextView tv_memtime;
 	TextView tv_numdigits;
-	TextView tv_digitsperminute;
 	TextView tv_recalltime;
 	TextView tv_mnemo;
 	Spinner spinner_digitspeed;
@@ -54,11 +46,6 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 //	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
 	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
 	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	
-	final static int SLOW   = 0;
-	final static int MEDIUM = 1;
-	final static int FAST   = 2;
-	final static int SUPER_FAST = 3;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,34 +60,31 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     }
     
     public void initButtons() {
-    	CancelButton = (Button) findViewById(R.id.CancelButton);
+    	CancelButton = findViewById(R.id.CancelButton);
     	CancelButton.setOnClickListener(this);
         
-    	SaveButton = (Button) findViewById(R.id.SaveButton);
+    	SaveButton = findViewById(R.id.SaveButton);
     	SaveButton.setOnClickListener(this);
-    	
-    	wmcSettings = (Button) findViewById(R.id.wmcSettings);
-    	wmcSettings.setOnClickListener(this);
-    	
-    	defaultSettings = (Button) findViewById(R.id.defaultSettings);
+
+    	defaultSettings = findViewById(R.id.defaultSettings);
     	defaultSettings.setOnClickListener(this);
     }   
     
     public void initTable() {
-    	TableRow row1 = (TableRow) findViewById(R.id.tablerow1);
-    	TableRow row2 = (TableRow) findViewById(R.id.tablerow2);
-    	TableRow row3 = (TableRow) findViewById(R.id.tablerow3);
-    	TableRow row4 = (TableRow) findViewById(R.id.tablerow4);
-    	TableRow row5 = (TableRow) findViewById(R.id.tablerow5);
-    	TableRow row7 = (TableRow) findViewById(R.id.tablerow7);
+    	TableRow row1 = findViewById(R.id.tablerow1);
+    	TableRow row2 = findViewById(R.id.tablerow2);
+    	TableRow row3 = findViewById(R.id.tablerow3);
+    	TableRow row4 = findViewById(R.id.tablerow4);
+    	TableRow row5 = findViewById(R.id.tablerow5);
+    	TableRow row7 = findViewById(R.id.tablerow7);
     	
-    	tv_numlines        = (TextView) findViewById(R.id.tv_numlines);
-    	tv_digitsperline   = (TextView) findViewById(R.id.tv_digitsperline);
-    	tv_memtime         = (TextView) findViewById(R.id.tv_memtime);
-    	tv_numdigits       = (TextView) findViewById(R.id.tv_numdigits);
-    	tv_recalltime      = (TextView) findViewById(R.id.tv_recalltime);
-    	tv_mnemo           = (TextView) findViewById(R.id.tv_mnemo);
-    	spinner_digitspeed = (Spinner) findViewById(R.id.spinner_digitSpeed);
+    	tv_numlines        = findViewById(R.id.tv_numlines);
+    	tv_digitsperline   = findViewById(R.id.tv_digitsperline);
+    	tv_memtime         = findViewById(R.id.tv_memtime);
+    	tv_numdigits       = findViewById(R.id.tv_numdigits);
+    	tv_recalltime      = findViewById(R.id.tv_recalltime);
+    	tv_mnemo           = findViewById(R.id.tv_mnemo);
+    	spinner_digitspeed = findViewById(R.id.spinner_digitSpeed);
     	
     	tv_numlines.setOnClickListener(this);
     	tv_digitsperline.setOnClickListener(this);
@@ -160,10 +144,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
         	WRITTEN_recallTime = Utils.getTotalSeconds( tv_recalltime.getText().toString() );
         	
         	if (showMnemo) {
-        		if (tv_mnemo.getText().toString().equals("On"))
-        			WRITTEN_mnemo = true;
-        		else
-        			WRITTEN_mnemo = false;
+				WRITTEN_mnemo = tv_mnemo.getText().toString().equals("On");
         	}
         		
     	}
@@ -266,21 +247,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
         }
         editor.commit();
     }
-    
-    public void setWMCsettings() {
-    	if (gameType != NUMBERS_SPOKEN) {
-    		tv_numlines.setText("15");
-        	tv_digitsperline.setText("40");
-        	tv_memtime.setText("00:05:00");
-        	tv_recalltime.setText("00:15:00");
-    	}
-    	else {
-        	tv_numdigits.setText("200");
-        	tv_recalltime.setText("00:10:00");
-        	spinner_digitspeed.setSelection(MEDIUM);
-    	}
-    }
-    
+
     public void setDefaultSettings() {
     	if (gameType != NUMBERS_SPOKEN) {
     		tv_numlines.setText(Integer.toString(Constants.default_written_numRows));
@@ -303,44 +270,32 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 		else if (view == SaveButton) {
 			onSaveSettings();
 		}
-		else if (view == wmcSettings)
-			setWMCsettings();
 		else if (view == defaultSettings)
 			setDefaultSettings();
 		else if (view == tv_numlines) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_numlines.getText().toString(), "Number of lines:", Constants.numbers_tv_numlines);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numlines.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numlines.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_digitsperline) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_digitsperline.getText().toString(), "Digits per line:", Constants.numbers_tv_digitsperline);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_digitsperline.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_digitsperline.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_numdigits) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_numdigits.getText().toString(), "Number of digits:", Constants.numbers_tv_numdigits);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numdigits.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numdigits.setText(result));
 			dialog.show();
 		}
 		
 		else if (view == tv_memtime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_memtime.getText().toString(), "Memorization Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_memtime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_memtime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_recalltime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_recalltime.getText().toString(), "Recall Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_recalltime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_recalltime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_mnemo) {
@@ -351,15 +306,12 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 		}
 	}
 
-    public void onSaveSettings() {    	
-    	
-    		updateSettings();
-    		commitPreferences();
-    		onSettingsFinished();
-    	
+    public void onSaveSettings() {
+		updateSettings();
+		commitPreferences();
+		onSettingsFinished();
     }
-    
-    
+
     public void onSettingsFinished() {
     	Intent i = getIntent();
 		i.setClass(this, TestDetailsActivity.class);

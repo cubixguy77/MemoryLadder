@@ -55,7 +55,7 @@ public class TestDetailsActivity extends AppCompatActivity {
         if (gameType == Constants.NUMBERS_SPEED) {
             menu.getItem(1).setVisible(false);
         }
-        else if (gameType == Constants.CARDS_SPEED) {
+        else if (gameType == Constants.CARDS_LONG) {
             menu.getItem(0).setVisible(false);
         }
         else {

@@ -242,9 +242,6 @@ public class Lists_Review extends Activity implements OnClickListener {
         
         getGuessArray(intent);
         getAnswerArray(intent);
-        Utils.print(guess);
-        Utils.print(answer);
-
     }
     
     public void getGuessArray(Intent intent) {

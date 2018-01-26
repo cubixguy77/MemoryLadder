@@ -14,23 +14,21 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.jjoe64.graphview.series.DataPoint;
-//import com.MemoryLadderFull.R;
 
 public class FileOps {
 	
 	final private static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
+	//final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
 	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
 	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
 	final private static int LISTS_WORDS     = Constants.LISTS_WORDS;
 	final private static int LISTS_EVENTS    = Constants.LISTS_EVENTS;	
 	final private static int SHAPES_FACES    = Constants.SHAPES_FACES;
 	final private static int SHAPES_ABSTRACT = Constants.SHAPES_ABSTRACT;
-	final private static int CARDS_SPEED     = Constants.CARDS_SPEED;
+	//final private static int CARDS_SPEED     = Constants.CARDS_SPEED;
     final private static int CARDS_LONG      = Constants.CARDS_LONG;
     
     final private static int STEPS  = Constants.STEPS;
-	final private static int WMC    = Constants.WMC;
 	final private static int CUSTOM = Constants.CUSTOM;
 
 	private Context context;
@@ -40,7 +38,7 @@ public class FileOps {
 	}
 	
 	
-	public static String loadPegsFromFileNumbers(String path, Context context) {
+	static String loadPegsFromFileNumbers(String path, Context context) {
 		
 		SharedPreferences settings = context.getSharedPreferences("Peg_Numbers", 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -52,7 +50,7 @@ public class FileOps {
 			
 			String line;                
     	    while ((line = in.readLine()) != null) {
-    	    	if (line != null && !line.equals("")) {
+    	    	if (!line.equals("")) {
     	    		String result = sanitizeStringNumber(line);
     	    		if (result.equals("Success")) {
     	    			int index = getIndexNUM(line);
@@ -72,7 +70,7 @@ public class FileOps {
 		return "Success";
 	}
 	
-	public static String loadPegsFromFileCards(String path, Context context) {
+	static String loadPegsFromFileCards(String path, Context context) {
 		
 		SharedPreferences settings = context.getSharedPreferences("Peg_Cards", 0);
         SharedPreferences.Editor editor = settings.edit();
@@ -84,7 +82,7 @@ public class FileOps {
 			
 			String line;                
     	    while ((line = in.readLine()) != null) {
-    	    	if (line != null && !line.equals("")) {
+    	    	if (!line.equals("")) {
     	    		String result = sanitizeStringCard(line);
     	    		System.out.println("******** result for line ***********" + result + "*****************");
     	    		if (result.equals("Success")) {
@@ -104,13 +102,13 @@ public class FileOps {
     	  return "Success";
 	}
 	
-	public static String sanitizeStringGeneral(String line) {
+	private static String sanitizeStringGeneral(String line) {
 		if (!line.contains(",") && !line.contains(" "))
 			return "Unable to work with the following line since it doesn't contain a comma or space:\n" + line;
 		return "Success";
 	}
 	
-	public static String sanitizeStringNumber(String line) {
+	private static String sanitizeStringNumber(String line) {
 		String GeneralResult = sanitizeStringGeneral(line);
 		if (!GeneralResult.equals("Success"))
 			return GeneralResult;
@@ -121,7 +119,7 @@ public class FileOps {
 		}
 	}
 	
-	public static String sanitizeStringCard(String line) {
+	private static String sanitizeStringCard(String line) {
 		String GeneralResult = sanitizeStringGeneral(line);
 		if (!GeneralResult.equals("Success"))
 			return GeneralResult;
@@ -132,7 +130,7 @@ public class FileOps {
 		}
 	}
 	
-	public static Boolean validCard(String line) {
+	private static Boolean validCard(String line) {
 		if (line.length() < 3 || !(line.charAt(2) == ',' || line.charAt(2) == ' ')) 
 			return false;
 		char suit = line.charAt(0);
@@ -144,7 +142,7 @@ public class FileOps {
 	}
 	
 	
-	public static int getIndexNUM(String string) {
+	private static int getIndexNUM(String string) {
 		try  {
 			int result = Integer.parseInt(string.substring(0, string.indexOf(","))); 
 			if (result < 0 || result > 99)
@@ -154,14 +152,15 @@ public class FileOps {
 		catch (NumberFormatException e) { return -1; }
 		catch (StringIndexOutOfBoundsException e) { return -1; }
 	}
-	public static String getStringNUM(String string) {
+
+	private static String getStringNUM(String string) {
 		if (string.contains(","))
 			return string.substring(string.indexOf(",") + 1, string.length());
 		else
 			return string.substring(string.indexOf(" ") + 1, string.length());
 	}
 	
-	public static int getIndexCARD(String string) {
+	private static int getIndexCARD(String string) {
 		try {
 			if (string.length() >= 2)
 				return (getSuitValue(Character.toString(string.charAt(0))) * 13) + getIntegerValue(string.charAt(1)) - 1;
@@ -169,7 +168,8 @@ public class FileOps {
 		}
 		catch (StringIndexOutOfBoundsException e) { return -1; }
 	}
-	public static String getStringCARD(String string) {
+
+	private static String getStringCARD(String string) {
 		if (string.contains(","))
 			return string.substring(string.indexOf(",") + 1, string.length());
 		else
@@ -188,7 +188,7 @@ public class FileOps {
 		return -1;
 	}
 	
-	public static Integer getIntegerValue(char value) {        
+	private static Integer getIntegerValue(char value) {
         switch (value) {
 	        case Card.TEN:          return 10;
 	        case Card.JACK:         return 11;
@@ -205,7 +205,7 @@ public class FileOps {
         }
 	}
 	
-	public static String getPastScoreResource(int mode, int gameType) {
+	private static String getPastScoreResource(int mode, int gameType) {
     	if (mode == STEPS) {
 	    	switch (gameType) {
 		    	case NUMBERS_SPEED:	  return "steps_numbersspeed";
@@ -215,25 +215,9 @@ public class FileOps {
 				case LISTS_EVENTS:    return "steps_listsevents";
 				case SHAPES_FACES:    return "steps_shapesfaces";
 				case SHAPES_ABSTRACT: return "steps_shapesabstract";
-				case CARDS_SPEED:     return "steps_cardsspeed";
 				case CARDS_LONG:     return  "steps_cardslong";
 				default:              return null;
 			}
-    	}
-    	else if (mode == WMC) {
-    		switch (gameType) {
-		    	case NUMBERS_SPEED:	  return "wmc_numbersspeed";
-				case NUMBERS_LONG:    return "wmc_numberslong";
-				case NUMBERS_BINARY:  return "wmc_numbersbinary";
-				case NUMBERS_SPOKEN:  return "wmc_numbersspoken";
-				case LISTS_WORDS:     return "wmc_listswords";
-				case LISTS_EVENTS:    return "wmc_listsevents";
-				case SHAPES_FACES:    return "wmc_shapesfaces";
-				case SHAPES_ABSTRACT: return "wmc_shapesabstract";
-				case CARDS_SPEED:     return "wmc_cardsspeed";
-				case CARDS_LONG:      return "wmc_cardslong";
-				default:              return null;
-    		}
     	}
     	else if (mode == CUSTOM) {
     		switch (gameType) {
@@ -244,7 +228,6 @@ public class FileOps {
 				case LISTS_EVENTS:    return "custom_listsevents";
 				case SHAPES_FACES:    return "custom_shapesfaces";
 				case SHAPES_ABSTRACT: return "custom_shapesabstract";
-				case CARDS_SPEED:     return "custom_cardsspeed";
 				case CARDS_LONG:     return "custom_cardslong";
 				default:              return null;
     		}
@@ -254,7 +237,7 @@ public class FileOps {
 	}
 	
 	
-	public static String getPastScoreSummaryResource(int mode, int gameType) {
+	private static String getPastScoreSummaryResource(int mode, int gameType) {
     	if (mode == STEPS) {
 	    	switch (gameType) {
 		    	case NUMBERS_SPEED:	  return "steps_numbersspeed_summary";
@@ -264,25 +247,9 @@ public class FileOps {
 				case LISTS_EVENTS:    return "steps_listsevents_summary";
 				case SHAPES_FACES:    return "steps_shapesfaces_summary";
 				case SHAPES_ABSTRACT: return "steps_shapesabstract_summary";
-				case CARDS_SPEED:     return "steps_cardsspeed_summary";
 				case CARDS_LONG:     return "steps_cardslong_summary";
 				default:              return null;
 			}
-    	}
-    	else if (mode == WMC) {
-    		switch (gameType) {
-		    	case NUMBERS_SPEED:	  return "wmc_numbersspeed_summary";
-				case NUMBERS_LONG:    return "wmc_numberslong_summary";
-				case NUMBERS_BINARY:  return "wmc_numbersbinary_summary";
-				case NUMBERS_SPOKEN:  return "wmc_numbersspoken_summary";
-				case LISTS_WORDS:     return "wmc_listswords_summary";
-				case LISTS_EVENTS:    return "wmc_listsevents_summary";
-				case SHAPES_FACES:    return "wmc_shapesfaces_summary";
-				case SHAPES_ABSTRACT: return "wmc_shapesabstract_summary";
-				case CARDS_SPEED:     return "wmc_cardsspeed_summary";
-				case CARDS_LONG:      return "wmc_cardslong_summary";
-				default:              return null;
-    		}
     	}
     	else if (mode == CUSTOM) {
     		switch (gameType) {
@@ -293,7 +260,6 @@ public class FileOps {
 				case LISTS_EVENTS:    return "custom_listsevents_summary";
 				case SHAPES_FACES:    return "custom_shapesfaces_summary";
 				case SHAPES_ABSTRACT: return "custom_shapesabstract_summary";
-				case CARDS_SPEED:     return "custom_cardsspeed_summary";
 				case CARDS_LONG:     return "custom_cardslong_summary";
 				default:              return null;
     		}
@@ -302,20 +268,19 @@ public class FileOps {
     		return null;
 	}
 
-	public String[] readPastScores(int mode, int gameType) {
-		List<String> scores = new ArrayList<String>();
+	String[] readPastScores(int mode, int gameType) {
+		List<String> scores = new ArrayList<>();
 		try {
 			BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreResource(mode, gameType))));
 			String score;
 			while ((score = inputReader.readLine()) != null) {
-				if (score != null && !score.equals(""))
+				if (!score.equals(""))
 					scores.add(score);
 			}
 		} catch (IOException e) {    e.printStackTrace();  	}
 		catch (NullPointerException e) {    e.printStackTrace();  	}
 
-		String[] strings = (String[]) scores.toArray(new String[scores.size()]);
-		return strings;
+        return scores.toArray(new String[scores.size()]);
 	}
 
     public DataPoint[] readPastScoresToDataPoints(int mode, int gameType) {
@@ -332,14 +297,13 @@ public class FileOps {
     	}
     	catch (IOException e) {    e.printStackTrace();  	}
     	catch (NullPointerException e) {    e.printStackTrace();  	}
-    	
-    	DataPoint[] dataPoints = scores.toArray(new DataPoint[scores.size()]);
-	    return dataPoints;
+
+        return scores.toArray(new DataPoint[scores.size()]);
     }
     
     public void updatePastScores(int mode, int gameType, String score) {
     	try {
-    	    FileOutputStream fos = context.openFileOutput(getPastScoreResource(mode, gameType), Context.MODE_PRIVATE | Context.MODE_APPEND);
+    	    FileOutputStream fos = context.openFileOutput(getPastScoreResource(mode, gameType), Context.MODE_APPEND);
     	    score += "\n";
     	    fos.write(score.getBytes());
     	    fos.close();
@@ -348,24 +312,23 @@ public class FileOps {
     	}
     }
 
-    public String[] readScoreSummary(int mode, int gameType) {
-    	List<String> scores = new ArrayList<String>();
+    String[] readScoreSummary(int mode, int gameType) {
+    	List<String> scores = new ArrayList<>();
     	try {
     	    BufferedReader inputReader = new BufferedReader(new InputStreamReader(context.openFileInput(getPastScoreSummaryResource(mode, gameType))));
     	    String line;                
     	    while ((line = inputReader.readLine()) != null) {
-    	        if (line != null && !line.equals(""))
+    	        if (!line.equals(""))
     	        	scores.add(line);
     	    }
     	} catch (IOException e) {
     	    e.printStackTrace();
     	}
-    	
-    	String[] strings = (String[]) scores.toArray(new String[scores.size()]);
-	    return strings;
+
+        return scores.toArray(new String[scores.size()]);
     }
     
-	public void updateScoreSummary(int mode, int gameType, String[] strings) {
+	void updateScoreSummary(int mode, int gameType, String[] strings) {
 		try {
     	    FileOutputStream fos = context.openFileOutput(getPastScoreSummaryResource(mode, gameType), Context.MODE_PRIVATE);
     	    for (int i=0; i<strings.length; i++) {

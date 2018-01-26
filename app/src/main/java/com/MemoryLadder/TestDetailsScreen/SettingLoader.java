@@ -19,7 +19,7 @@ class SettingLoader {
     static ArrayList<Setting> getSettings(Context context, int game, int gameMode) {
         ArrayList<Setting> settings = new ArrayList<>();
 
-        if (game == Constants.CARDS_SPEED) {
+        if (game == Constants.CARDS_LONG) {
             int numDecks;
             int deckSize;
             int cardsPerGroup;

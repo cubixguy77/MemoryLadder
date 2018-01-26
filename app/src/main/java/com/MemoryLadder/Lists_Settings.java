@@ -1,9 +1,6 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
-import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
 import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
 import com.mastersofmemory.memoryladder.R;
 
 import android.app.Activity;
@@ -20,7 +17,6 @@ public class Lists_Settings extends Activity implements OnClickListener{
 	
 	private Button CancelButton;
 	private Button SaveButton;
-	private Button wmcSettings;
 	private Button defaultSettings;
 	private int gameType;
 
@@ -56,29 +52,26 @@ public class Lists_Settings extends Activity implements OnClickListener{
     }
     
     public void initButtons() {
-    	CancelButton = (Button) findViewById(R.id.CancelButton);
+    	CancelButton = findViewById(R.id.CancelButton);
     	CancelButton.setOnClickListener(this);
         
-    	SaveButton = (Button) findViewById(R.id.SaveButton);
+    	SaveButton = findViewById(R.id.SaveButton);
     	SaveButton.setOnClickListener(this);
-    	
-    	wmcSettings = (Button) findViewById(R.id.wmcSettings);
-    	wmcSettings.setOnClickListener(this);
-    	
-    	defaultSettings = (Button) findViewById(R.id.defaultSettings);
+
+    	defaultSettings = findViewById(R.id.defaultSettings);
     	defaultSettings.setOnClickListener(this);
     }   
     
     public void initTable() {
-    	TableRow row1 = (TableRow) findViewById(R.id.lists_tablerow1);
-    	TableRow row2 = (TableRow) findViewById(R.id.lists_tablerow2);
-    	TableRow row3 = (TableRow) findViewById(R.id.lists_tablerow3);
+    	TableRow row1 = findViewById(R.id.lists_tablerow1);
+    	TableRow row2 = findViewById(R.id.lists_tablerow2);
+    	TableRow row3 = findViewById(R.id.lists_tablerow3);
     	
-    	tv_numcolumns     = (TextView) findViewById(R.id.tv_numcolumns);
-    	tv_wordspercolumn = (TextView) findViewById(R.id.tv_wordspercolumn);
-    	tv_numdates       = (TextView) findViewById(R.id.tv_numdates);
-    	tv_memtime        = (TextView) findViewById(R.id.tv_memtime);
-    	tv_recalltime     = (TextView) findViewById(R.id.tv_recalltime);
+    	tv_numcolumns     = findViewById(R.id.tv_numcolumns);
+    	tv_wordspercolumn = findViewById(R.id.tv_wordspercolumn);
+    	tv_numdates       = findViewById(R.id.tv_numdates);
+    	tv_memtime        = findViewById(R.id.tv_memtime);
+    	tv_recalltime     = findViewById(R.id.tv_recalltime);
     	
     	tv_numcolumns.setOnClickListener(this);
     	tv_wordspercolumn.setOnClickListener(this);
@@ -173,20 +166,6 @@ public class Lists_Settings extends Activity implements OnClickListener{
         editor.commit();
     }
     
-    public void setWMCsettings() {
-    	if (gameType == LISTS_WORDS) {
-    		tv_numcolumns.setText(Integer.toString(Constants.wmc_words_numCols));
-        	tv_wordspercolumn.setText(Integer.toString(Constants.wmc_words_numRows));
-        	tv_memtime.setText(Integer.toString(Constants.wmc_words_memTime));
-        	tv_recalltime.setText(Integer.toString(Constants.wmc_words_recallTime));  
-    	}
-    	else {
-        	tv_numdates.setText(Integer.toString(Constants.wmc_dates_numRows));
-        	tv_memtime.setText(Integer.toString(Constants.wmc_dates_memTime));
-        	tv_recalltime.setText(Integer.toString(Constants.wmc_dates_recallTime));  
-    	}
-    }
-    
     public void setDefaultSettings() {
     	if (gameType == LISTS_WORDS) {
     		tv_numcolumns.setText(Integer.toString(Constants.default_words_numCols));
@@ -208,44 +187,32 @@ public class Lists_Settings extends Activity implements OnClickListener{
 		else if (view == SaveButton) {
 			onSaveSettings();
 		}
-		else if (view == wmcSettings)
-			setWMCsettings();
 		else if (view == defaultSettings)
 			setDefaultSettings();
 		else if (view == tv_numcolumns) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_numcolumns.getText().toString(), "Number of columns:", Constants.lists_tv_numcolumns);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numcolumns.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numcolumns.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_wordspercolumn) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_wordspercolumn.getText().toString(), "Words per column:", Constants.lists_tv_wordspercolumn);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_wordspercolumn.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_wordspercolumn.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_numdates) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_numdates.getText().toString(), "Number of dates:", Constants.lists_tv_numdates);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numdates.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numdates.setText(result));
 			dialog.show();
 		}
 		
 		else if (view == tv_memtime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_memtime.getText().toString(), "Memorization Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_memtime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_memtime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_recalltime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_recalltime.getText().toString(), "Recall Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_recalltime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_recalltime.setText(result));
 			dialog.show();
 		}
 	}

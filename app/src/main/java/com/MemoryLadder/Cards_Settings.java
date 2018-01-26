@@ -1,11 +1,5 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
-import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
-import com.mastersofmemory.memoryladder.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,12 +10,13 @@ import android.widget.Button;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.mastersofmemory.memoryladder.R;
+
 public class Cards_Settings extends Activity implements OnClickListener{
 	
 	private Button CancelButton;
 	private Button SaveButton;
-	private Button wmc_CARDS_SPEED;
-	private Button wmc_CARDS_LONG;
 	private Button defaultSettings;
 	private  int gameType;
 	private  int cardsperdeck;
@@ -37,8 +32,6 @@ public class Cards_Settings extends Activity implements OnClickListener{
 	private TextView tv_recalltime;
 	private TextView tv_mnemo;
 	private TextView tv_cardspergroup;
-	private final int CARDS_SPEED  = Constants.CARDS_SPEED;
-	private final int CARDS_LONG   = Constants.CARDS_LONG;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,29 +46,23 @@ public class Cards_Settings extends Activity implements OnClickListener{
     }
     
     public void initButtons() {
-    	CancelButton = (Button) findViewById(R.id.CancelButton);
+    	CancelButton = findViewById(R.id.CancelButton);
     	CancelButton.setOnClickListener(this);
         
-    	SaveButton = (Button) findViewById(R.id.SaveButton);
+    	SaveButton = findViewById(R.id.SaveButton);
     	SaveButton.setOnClickListener(this);
-    	
-    	wmc_CARDS_SPEED = (Button) findViewById(R.id.wmc_CARDS_SPEED);
-    	wmc_CARDS_SPEED.setOnClickListener(this);
-    	
-    	wmc_CARDS_LONG = (Button) findViewById(R.id.wmc_CARDS_LONG);
-    	wmc_CARDS_LONG.setOnClickListener(this);
-    	
-    	defaultSettings = (Button) findViewById(R.id.defaultSettings);
+
+    	defaultSettings = findViewById(R.id.defaultSettings);
     	defaultSettings.setOnClickListener(this);
     }   
     
     public void initTable() {
-    	tv_cardsperdeck = (TextView) findViewById(R.id.tv_cardsperdeck);
-    	tv_numdecks     = (TextView) findViewById(R.id.tv_numdecks);
-    	tv_memtime      = (TextView) findViewById(R.id.tv_memtime);
-    	tv_recalltime   = (TextView) findViewById(R.id.tv_recalltime);
-    	tv_mnemo        = (TextView) findViewById(R.id.tv_mnemo);
-    	tv_cardspergroup        = (TextView) findViewById(R.id.tv_cardspergroup);
+    	tv_cardsperdeck = findViewById(R.id.tv_cardsperdeck);
+    	tv_numdecks     = findViewById(R.id.tv_numdecks);
+    	tv_memtime      = findViewById(R.id.tv_memtime);
+    	tv_recalltime   = findViewById(R.id.tv_recalltime);
+    	tv_mnemo        = findViewById(R.id.tv_mnemo);
+    	tv_cardspergroup        = findViewById(R.id.tv_cardspergroup);
 
     	tv_cardsperdeck.setOnClickListener(this);
     	tv_numdecks.setOnClickListener(this);
@@ -85,7 +72,7 @@ public class Cards_Settings extends Activity implements OnClickListener{
     	tv_cardspergroup.setOnClickListener(this);
 
     	if (!showMnemo) {
-    		TableRow row = (TableRow) findViewById(R.id.cards_tablerow5);
+    		TableRow row = findViewById(R.id.cards_tablerow5);
     		row.setVisibility(View.GONE);
     	}
     		
@@ -157,22 +144,6 @@ public class Cards_Settings extends Activity implements OnClickListener{
         editor.commit();
     }
     
-    public void setWMCsettings(int newGameType) {
-    	gameType = newGameType;
-    	if (gameType == CARDS_SPEED) {
-	    	tv_cardsperdeck.setText(Integer.toString(Constants.wmc_cards_speed_deckSize));
-	    	tv_numdecks.setText(Integer.toString(Constants.wmc_cards_speed_numDecks));
-	    	tv_memtime.setText(Integer.toString(Constants.wmc_cards_speed_memTime));
-	    	tv_recalltime.setText(Integer.toString(Constants.wmc_cards_speed_recallTime)); 
-	    }
-    	else {
-    		tv_cardsperdeck.setText(Integer.toString(Constants.wmc_cards_long_deckSize));
-	    	tv_numdecks.setText(Integer.toString(Constants.wmc_cards_long_numDecks));
-	    	tv_memtime.setText(Integer.toString(Constants.wmc_cards_long_memTime));
-	    	tv_recalltime.setText(Integer.toString(Constants.wmc_cards_long_recallTime));
-    	}
-    }
-    
     public void setDefaultSettings() {
     	tv_cardsperdeck.setText(Integer.toString(Constants.default_cards_deckSize));
     	tv_numdecks.setText(Integer.toString(Constants.default_cards_numDecks));
@@ -188,46 +159,32 @@ public class Cards_Settings extends Activity implements OnClickListener{
 		else if (view == SaveButton) {
 			onSaveSettings();
 		}
-		else if (view == wmc_CARDS_SPEED)
-			setWMCsettings(CARDS_SPEED);
-		else if (view == wmc_CARDS_LONG)
-			setWMCsettings(CARDS_LONG);
 		else if (view == defaultSettings)
 			setDefaultSettings();
 		
 		else if (view == tv_cardsperdeck) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_cardsperdeck.getText().toString(), "Cards per deck:", Constants.cards_tv_cardsperdeck);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_cardsperdeck.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_cardsperdeck.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_cardspergroup) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_cardspergroup.getText().toString(), "Cards per group:", Constants.cards_tv_cardspergroup);
-			dialog.setDialogResult(new OnMyDialogResult() {
-				public void finish(String result){  tv_cardspergroup.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_cardspergroup.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_numdecks) {
 			SettingsDialog dialog = new SettingsDialog(this, tv_numdecks.getText().toString(), "Number of decks:", Constants.cards_tv_numdecks);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numdecks.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numdecks.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_memtime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_memtime.getText().toString(), "Memorization Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_memtime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_memtime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_recalltime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_recalltime.getText().toString(), "Recall Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_recalltime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_recalltime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_mnemo) {

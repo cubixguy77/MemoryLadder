@@ -13,17 +13,6 @@ public class InstructionsDialog extends Dialog {
 	
 	Context context;
 
-	final private static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-//	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
-//	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
-	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	private static final int LISTS_WORDS  = Constants.LISTS_WORDS;
-	private static final int LISTS_EVENTS = Constants.LISTS_EVENTS;	
-	final private static int SHAPES_FACES    = Constants.SHAPES_FACES;
-	final private static int SHAPES_ABSTRACT = Constants.SHAPES_ABSTRACT;
-	final private static int CARDS_SPEED  = Constants.CARDS_SPEED;
-    final private static int CARDS_LONG   = Constants.CARDS_LONG;
-	
 	public InstructionsDialog(Context context, int gameType) {
 		super(context);
 		this.context = context;
@@ -34,13 +23,13 @@ public class InstructionsDialog extends Dialog {
 
         ((TextView) findViewById(R.id.InstructionsDialogTitleText)).setText(Constants.getGameDisplayName(gameType));
 		
-		if (gameType >= NUMBERS_SPEED && gameType <= NUMBERS_SPOKEN)
+		if (gameType >= Constants.NUMBERS_SPEED && gameType <= Constants.NUMBERS_SPOKEN)
 			initInstructions_Numbers(gameType);
-		else if (gameType == LISTS_WORDS || gameType == LISTS_EVENTS)
+		else if (gameType == Constants.LISTS_WORDS || gameType == Constants.LISTS_EVENTS)
 			initInstructions_Lists(gameType);
-		else if (gameType == SHAPES_FACES || gameType == SHAPES_ABSTRACT)
+		else if (gameType == Constants.SHAPES_FACES || gameType == Constants.SHAPES_ABSTRACT)
 			initInstructions_Shapes(gameType);
-		else if (gameType == CARDS_SPEED || gameType == CARDS_LONG)
+		else if (gameType == Constants.CARDS_LONG)
 			initInstructions_Cards();
 	}
 	
@@ -56,7 +45,7 @@ public class InstructionsDialog extends Dialog {
     	
     	Resources res = context.getResources();	    	
     	
-    	if (gameType != NUMBERS_SPOKEN) {    		    	        	       	
+    	if (gameType != Constants.NUMBERS_SPOKEN) {
         	about.setText(res.getText(R.string.numbers_written_about));
         	
         	TextView preface = findViewById(R.id.preface);
@@ -98,7 +87,7 @@ public class InstructionsDialog extends Dialog {
     	
     	Resources res = context.getResources();	    	
     	
-    	if (gameType == LISTS_WORDS) {    		    	        	       	
+    	if (gameType == Constants.LISTS_WORDS) {
         	about.setText(res.getText(R.string.lists_words_about));
         	
         	TextView preface = findViewById(R.id.preface);
@@ -136,7 +125,7 @@ public class InstructionsDialog extends Dialog {
     	
     	Resources res = context.getResources();	    	
     	
-    	if (gameType == SHAPES_FACES) {    		    	        	       	
+    	if (gameType == Constants.SHAPES_FACES) {
         	about.setText(res.getText(R.string.shapes_faces_about));
         	
 	    	Point1.setText(res.getText(R.string.shapes_faces_point1));

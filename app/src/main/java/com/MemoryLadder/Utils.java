@@ -1,28 +1,12 @@
 package com.MemoryLadder;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-
 public class Utils {
-	
-	final private static int NUMBERS_SPEED   = Constants.NUMBERS_SPEED;
-	final private static int NUMBERS_LONG    = Constants.NUMBERS_LONG;
-	final private static int NUMBERS_BINARY  = Constants.NUMBERS_BINARY;
-	final private static int NUMBERS_SPOKEN  = Constants.NUMBERS_SPOKEN;
-	private static final int LISTS_WORDS     = Constants.LISTS_WORDS;
-	private static final int LISTS_EVENTS    = Constants.LISTS_EVENTS;	
-	final private static int SHAPES_FACES    = Constants.SHAPES_FACES;
-	final private static int SHAPES_ABSTRACT = Constants.SHAPES_ABSTRACT;
-	final private static int CARDS_SPEED     = Constants.CARDS_SPEED;
-    final private static int CARDS_LONG      = Constants.CARDS_LONG;
 
-	public static int[] shuffleIntArray(int[] array) {
+	static int[] shuffleIntArray(int[] array) {
 		Integer[] temp = new Integer[array.length];
 		for (int i=0; i<array.length; i++) {
 			temp[i] = array[i];
@@ -34,7 +18,7 @@ public class Utils {
 		return array;
  	}
 	
-	public static int[] shuffleIntArrayByRow(int[] array, int numRows, int numCols) {
+	static int[] shuffleIntArrayByRow(int[] array, int numRows, int numCols) {
 		Integer[] temp = new Integer[numCols];
 		for (int row=0; row<numRows; row++) {			
 			for (int col=0; col<numCols; col++) {
@@ -49,24 +33,22 @@ public class Utils {
  	}
 	
 	
-	public static String getTestString(int gameType) {
+	static String getTestString(int gameType) {
 		switch (gameType) {
-			case NUMBERS_SPEED:   return "Speed Numbers";
-			case NUMBERS_LONG:    return "Long Numbers";
-			case NUMBERS_BINARY:  return "Binary Numbers";
-			case NUMBERS_SPOKEN:  return "Spoken Numbers";
-			case LISTS_WORDS:     return "Random Words";
-			case LISTS_EVENTS:    return "Historic Events";
-			case SHAPES_FACES:    return "Names & Faces";
-			case SHAPES_ABSTRACT: return "Abstract Images";
-			case CARDS_SPEED:     return "Speed Cards";
-			case CARDS_LONG:      return "Long Cards";
+			case Constants.NUMBERS_SPEED:   return "Speed Numbers";
+			case Constants.NUMBERS_BINARY:  return "Binary Numbers";
+			case Constants.NUMBERS_SPOKEN:  return "Spoken Numbers";
+			case Constants.LISTS_WORDS:     return "Random Words";
+			case Constants.LISTS_EVENTS:    return "Historic Events";
+			case Constants.SHAPES_FACES:    return "Names & Faces";
+			case Constants.SHAPES_ABSTRACT: return "Abstract Images";
+			case Constants.CARDS_LONG:      return "Speed Cards";
 			default:              return "I don't know";
 		}
 	}
 	
 		
-	public static int[] getSpecsSteps(int gameType, int step) {
+	private static int[] getSpecsSteps(int gameType, int step) {
 		switch (gameType) {
 	        case 1:  return Constants.getSpecs_STEPS_Numbers(step);
 	        case 3:  return Constants.getSpecs_STEPS_Binary(step);
@@ -83,26 +65,10 @@ public class Utils {
 	
 	public static double getTargetScore(int gameType, int step) {
 		int[] specs = getSpecsSteps(gameType, step);
-		return specs[specs.length - 1];
+		return specs != null ? specs[specs.length - 1] : 0;
 	}
-	
-	public static Class<?> getSettingsClass(int gameType) {
-    	switch (gameType) {
-	        case 1:  return Numbers_Settings.class;
-	        case 2:  return Numbers_Settings.class;
-	        case 3:  return Numbers_Settings.class;
-	        case 4:  return Numbers_Settings.class;
-	        case 5:  return Lists_Settings.class;
-	        case 6:  return Lists_Settings.class;
-	        case 7:  return Shapes_Settings.class;
-	        case 8:  return Shapes_Settings.class;
-	        case 9:  return Cards_Settings.class;
-	        case 10: return Cards_Settings.class;
-	        default: return null;
-    	}
-    }
     
-    public static Class<?> getReviewClass(int gameType) {
+    static Class<?> getReviewClass(int gameType) {
     	switch (gameType) {
 	        case 1:  return Numbers_Review.class;
 	        case 2:  return Numbers_Review.class;
@@ -112,46 +78,11 @@ public class Utils {
 	        case 6:  return Lists_Review.class;
 	        case 7:  return Shapes_Review.class;
 	        case 8:  return Shapes_Review.class;
-        default: return null;
+        	default: return null;
 		}
     }
     
-    
-    
-    
-    	
-		
-	public static void print(String[][] array) {
-    	for (int i=0; i<array.length; i++) {
-    		System.out.println("\n");
-    		for (int j=0; j<array[0].length; j++) {    			
-    				System.out.print(array[i][j] + "  ");    			    				
-    		}    			
-    		System.out.println("");
-    	}
-    	System.out.println("\n\n\n");
-    }
-	
-	public static void print(String[] array) {
-    	for (int i=0; i<array.length; i++) {
-    			System.out.println(array[i]);
-    	}
-    	System.out.println("\n\n\n	");
-    }
-	
-	public static void print(char[][] array) {
-    	for (int i=0; i<array.length; i++) {
-    		System.out.println("\n");
-    		for (int j=0; j<array[0].length; j++) {
-    			if (array[i][j] == 'x')
-    				System.out.print("Row " + (i+1) + " ");
-    			else
-    				System.out.print(array[i][j] + " ");    				
-    		}    			
-    	}
-    	System.out.println("\n\n\n");
-    }
-	
+
 	private static String[] getStrings(String string) {
 		StringTokenizer st = new StringTokenizer(string, "*");
 		String[] strings = new String[st.countTokens()];
@@ -164,7 +95,7 @@ public class Utils {
 		 return strings;
 	}
 	
-	public static String[] getNumberSuggestions(int num) {
+	static String[] getNumberSuggestions(int num) {
 		switch (num) {
 			case 0:  return getStrings( "Seesaw*Sow*Saw*" );
 			case 1:  return getStrings( "Soot*Dye*Tea*Tie*Hat*" );
@@ -272,9 +203,9 @@ public class Utils {
 	}
 
     
-	public static int getNumericEquiv(int index) {
+	private static int getNumericEquiv(int index) {
 	    return (10 * ((index+1) % 13)) + (index / 13) + 1;    
-	  }
+	}
     
     
 	public static String[] getCardSuggestions(int index) {
@@ -313,13 +244,12 @@ public class Utils {
 	        
 	        /* Two - Nine */
 	      default: return getNumberSuggestions(getNumericEquiv(index));
-	        
 	    }
 	}
 	
 	
 	
-	public static String getMaxValue(String[] strings) {
+	static String getMaxValue(String[] strings) {
     	int max = 0;
     	for (int i=0; i<strings.length; i++) {
     		if (Double.parseDouble(strings[i]) > Double.parseDouble(strings[max]))
@@ -328,7 +258,7 @@ public class Utils {
     	return strings[max];
     }
     
-    public static String getMinValue(String[] strings) {
+    static String getMinValue(String[] strings) {
     	int min = 0;
     	for (int i=0; i<strings.length; i++) {
     		if (Double.parseDouble(strings[i]) < Double.parseDouble(strings[min]))
@@ -348,7 +278,7 @@ public class Utils {
 			return (minutes < 10 ? "0"+minutes : minutes) + ":" + (seconds < 10 ? "0" : "") + seconds ;
     }
     
-    public static String formatIntoHHMMSS(long secsIn) {
+    static String formatIntoHHMMSS(long secsIn) {
     	int hours = (int) (secsIn / 3600),
 		remainder = (int) (secsIn % 3600),
 		minutes = remainder / 60,
@@ -356,26 +286,19 @@ public class Utils {
 		return  "0" + hours + ":" + (minutes < 10 ? "0"+minutes : minutes) + ":" + (seconds < 10 ? "0"+seconds : seconds);
     }
     
-    public static int getHours(String timestring) {
+    static int getHours(String timestring) {
     	return Character.getNumericValue(timestring.charAt(1));
     }
     
-    public static int getMinutes(String timestring) {
+    static int getMinutes(String timestring) {
     	return Integer.parseInt(timestring.substring(3, 5));
     }
     
-    public static int getSeconds(String timestring) {
+    static int getSeconds(String timestring) {
     	return Integer.parseInt(timestring.substring(6, 8));
     }
     
-    public static int getTotalSeconds(String timestring) { 
+    static int getTotalSeconds(String timestring) {
     	return (getHours(timestring) * 3600) + (getMinutes(timestring) * 60) + (getSeconds(timestring));
     }
-
-	public static int convertDpToPixel(float dp, Context context){
-		Resources resources = context.getResources();
-		DisplayMetrics metrics = resources.getDisplayMetrics();
-		float px = dp * ((float)metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-		return (int) px;
-	}
 }

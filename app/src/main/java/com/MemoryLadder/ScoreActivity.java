@@ -38,17 +38,16 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	private String[] scoreSummary;
 	private String[] pastScores;
 	private int step;
-	private int source = JUSTPLAYED;
+	private int source = JUST_PLAYED;
 	private Boolean reviewPossible = false;
 	private int origGameType;
 	private int origMode;
 	private Animation a;
 
 	final private static int STEPS  = Constants.STEPS;
-	final private static int WMC    = Constants.WMC;
 	final private static int CUSTOM = Constants.CUSTOM;
 	
-	final private static int JUSTPLAYED  = 0;
+	final private static int JUST_PLAYED = 0;
 	final private static int MAIN        = 1;
 	final private static int NAVIGATION  = 2;
 	
@@ -62,17 +61,14 @@ public class ScoreActivity extends Activity implements OnClickListener {
         getExtras();
         initButtons();  
         initText();
-        if (source == JUSTPLAYED) {
+        if (source == JUST_PLAYED) {
         	updatePastScoreSummary();
         	updatePastScores(getValue(scoreSummary[scoreSummary.length - 1]));
         }
         getPastScores();
         
         a = AnimationUtils.loadAnimation(this, R.anim.fade_in_fade_out);
-        refresh();      
-        
-        
-        
+        refresh();
     }
 
     @Override
@@ -134,10 +130,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
         	StepsButton.setBackgroundResource(selected);    StepsButton.setTextColor(Color.BLACK);
         	CustomButton.setBackgroundResource(unselected); CustomButton.setTextColor(Color.WHITE);
     	}
-    	else if (mode == WMC) {
-        	StepsButton.setBackgroundResource(unselected);  StepsButton.setTextColor(Color.WHITE);
-        	CustomButton.setBackgroundResource(unselected); CustomButton.setTextColor(Color.WHITE);
-    	}
     	else if (mode == CUSTOM) {
         	StepsButton.setBackgroundResource(unselected); StepsButton.setTextColor(Color.WHITE);
         	CustomButton.setBackgroundResource(selected);  CustomButton.setTextColor(Color.BLACK);
@@ -152,16 +144,14 @@ public class ScoreActivity extends Activity implements OnClickListener {
     		FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.GONE);    		
     	}
-    	else if (mode == WMC || mode == CUSTOM) {
+    	else if (mode == CUSTOM) {
 			FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.VISIBLE);
 			drawGraph();
-		//	graphVisible = true;
     	}
     	else if (mode == STEPS) {
 			FrameLayout GraphLayout = findViewById(R.id.GraphLayout);
 			GraphLayout.setVisibility(View.GONE);
-		//	graphVisible = false;
     	}
     }
     
@@ -180,7 +170,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 			else
 				NextStepButton.setText("Take Test");
     	}
-    	else if (mode == WMC || mode == CUSTOM) {
+    	else if (mode == CUSTOM) {
     		FrameLayout StepsLayout = findViewById(R.id.StepsLayout);
     		StepsLayout.setVisibility(View.GONE);
     	}
@@ -191,7 +181,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 			TextView SuccessText = findViewById(R.id.SuccessText);
 			ImageView SuccessGraphic = findViewById(R.id.SuccessGraphic);
 			
-			if (source == JUSTPLAYED) {
+			if (source == JUST_PLAYED) {
 				double score = Double.parseDouble(getValue(scoreSummary[scoreSummary.length - 1]));
 				double target = Utils.getTargetScore(gameType, step);
 				if (score >= target) {
@@ -281,7 +271,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
     
     public void initButtons() {
     	button1 = findViewById(R.id.button1);
-    	if (source == JUSTPLAYED) {
+    	if (source == JUST_PLAYED) {
     		button1.setOnClickListener(this);
         	button1.setText("Review");
     	}
@@ -337,8 +327,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
     }
 
 
-
-
     private void onNextGameClick() {
     	gameType = getNextGameType(gameType, true);
     	getLocalVariables(NAVIGATION);
@@ -354,11 +342,27 @@ public class ScoreActivity extends Activity implements OnClickListener {
     }
 
 	private int getNextGameType(int gameType, boolean forward) {
-		return Constants.gameTypes[(gameType + (forward ? 1 : -1)) % Constants.gameTypes.length];
+		switch (gameType) {
+			case Constants.NUMBERS_SPEED:
+				return forward ? Constants.NUMBERS_BINARY : Constants.SHAPES_ABSTRACT;
+			case Constants.NUMBERS_BINARY:
+				return forward ? Constants.NUMBERS_SPOKEN : Constants.NUMBERS_SPEED;
+			case Constants.NUMBERS_SPOKEN:
+				return forward ? Constants.CARDS_LONG : Constants.NUMBERS_BINARY;
+			case Constants.CARDS_LONG:
+				return forward ? Constants.LISTS_WORDS : Constants.NUMBERS_SPOKEN;
+			case Constants.LISTS_WORDS:
+				return forward ? Constants.LISTS_EVENTS : Constants.CARDS_LONG;
+			case Constants.LISTS_EVENTS:
+				return forward ? Constants.SHAPES_FACES : Constants.LISTS_WORDS;
+			case Constants.SHAPES_FACES:
+				return forward ? Constants.SHAPES_ABSTRACT : Constants.LISTS_EVENTS;
+			case Constants.SHAPES_ABSTRACT:
+				return forward ? Constants.NUMBERS_SPEED : Constants.SHAPES_FACES;
+			default:
+				return Constants.NUMBERS_SPEED;
+		}
 	}
-
-
-
 
     public void animateTextNextGame(final int gameType) {
     	final Animation to_left = AnimationUtils.loadAnimation(this, R.anim.to_left);
@@ -410,20 +414,9 @@ public class ScoreActivity extends Activity implements OnClickListener {
      * ScoreSummary is only needed if navigating or launched from Main
      * */
     public void getLocalVariables(int fromsource) {
-    	
-    	if (fromsource == JUSTPLAYED) {
+    	if (fromsource == JUST_PLAYED) {
     		getPastScores();
-    		source = JUSTPLAYED;
-    	}
-    	else if (fromsource == MAIN) {
-    		SharedPreferences prefs = getSharedPreferences("LastGameMode", 0);    		
-    		mode = prefs.getInt("mode", WMC);
-    		gameType = prefs.getInt("gameType", Constants.NUMBERS_SPEED);
-    		getPastScores();
-    		getPastScoreSummary();
-    		if (mode == STEPS)
-    			step = getStep(gameType);
-    		source = MAIN;
+    		source = JUST_PLAYED;
     	}
     	else if (fromsource == NAVIGATION) {
     		getPastScores();
@@ -432,7 +425,6 @@ public class ScoreActivity extends Activity implements OnClickListener {
     			step = getStep(gameType);
     		source = NAVIGATION;
     	}
-    	System.out.println(mode + " " + gameType + " " + step);
     }
     
     
@@ -458,7 +450,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
         if (gameType == -1) 
         	getLocalVariables(MAIN);
         else {
-        	source = JUSTPLAYED;
+        	source = JUST_PLAYED;
         	reviewPossible = true;
         	        	
             mode = i.getIntExtra("mode", -1);
@@ -474,15 +466,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 
         }  
     }
-    
-    public void checkLevelUp() {
-    	double score = Double.parseDouble(getValue(scoreSummary[scoreSummary.length - 1]));
-		double target = Utils.getTargetScore(gameType, step);
 
-		if (score >= target && step <= 4) 
-				LevelUp();
-    }
-    
     public void commitGameModePrefs() {
     	SharedPreferences settings = getSharedPreferences("LastGameMode", 0);
         SharedPreferences.Editor editor = settings.edit();

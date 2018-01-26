@@ -9,14 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class TimePickerDialog extends Dialog implements OnClickListener {
 	
 	Context context;
 	Button CancelButton;
 	Button SaveButton;
-	TextView SeekBarValue;
 	String oldValue;
 	String newValue;
 	
@@ -64,7 +62,7 @@ public class TimePickerDialog extends Dialog implements OnClickListener {
 		minutes = Utils.getMinutes(oldValue);
 		seconds = Utils.getSeconds(oldValue);
 	}
-	
+
 	public interface OnMyDialogResultTime{
 	       void finish(String result);
 	}

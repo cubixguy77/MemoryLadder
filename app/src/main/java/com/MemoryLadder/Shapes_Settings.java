@@ -1,11 +1,5 @@
 package com.MemoryLadder;
 
-//import com.MemoryLadderFull.R;
-import com.MemoryLadder.SettingsDialog.OnMyDialogResult;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TimePickerDialog.OnMyDialogResultTime;
-import com.mastersofmemory.memoryladder.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,23 +9,23 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.mastersofmemory.memoryladder.R;
+
 public class Shapes_Settings extends Activity implements OnClickListener{
 	
 	private Button CancelButton;
 	private Button SaveButton;
-	private Button wmcSettings;
 	private Button defaultSettings;
 	
 	private  int gameType;
 
-	
 	private  int FACES_numimages;
 	private  int FACES_numRows;
 	private  int FACES_numCols;
 	private  int FACES_memTime;
 	private  int FACES_recallTime;
-	
-	private  int ABSTRACT_numimages;
+
 	private  int ABSTRACT_numRows;
 	private  int ABSTRACT_numCols;
 	private  int ABSTRACT_memTime;
@@ -60,24 +54,21 @@ public class Shapes_Settings extends Activity implements OnClickListener{
     }
     
     public void initButtons() {
-    	CancelButton = (Button) findViewById(R.id.CancelButton);
+    	CancelButton = findViewById(R.id.CancelButton);
     	CancelButton.setOnClickListener(this);
         
-    	SaveButton = (Button) findViewById(R.id.SaveButton);
+    	SaveButton = findViewById(R.id.SaveButton);
     	SaveButton.setOnClickListener(this);
-    	
-    	wmcSettings = (Button) findViewById(R.id.wmcSettings);
-    	wmcSettings.setOnClickListener(this);
-    	
-    	defaultSettings = (Button) findViewById(R.id.defaultSettings);
+
+    	defaultSettings = findViewById(R.id.defaultSettings);
     	defaultSettings.setOnClickListener(this);
     }   
     
     public void initTable() {
-    	text_numimages =  (TextView) findViewById(R.id.text_numimages);
-    	tv_numimages    = (TextView) findViewById(R.id.tv_numimages);
-    	tv_memtime      = (TextView) findViewById(R.id.tv_memtime);
-    	tv_recalltime   = (TextView) findViewById(R.id.tv_recalltime);
+    	text_numimages = findViewById(R.id.text_numimages);
+    	tv_numimages    = findViewById(R.id.tv_numimages);
+    	tv_memtime      = findViewById(R.id.tv_memtime);
+    	tv_recalltime   = findViewById(R.id.tv_recalltime);
     	
     	tv_numimages.setOnClickListener(this);
     	tv_memtime.setOnClickListener(this);
@@ -110,9 +101,6 @@ public class Shapes_Settings extends Activity implements OnClickListener{
     }
     
     public void updateSettings() {
-    	
-    		        
-    	
     	if (gameType == SHAPES_FACES) { 
     		FACES_numCols = 3;
     		FACES_numimages    = Integer.parseInt( tv_numimages.getText().toString() );
@@ -125,7 +113,7 @@ public class Shapes_Settings extends Activity implements OnClickListener{
     	}
     	else {
     		ABSTRACT_numCols = 5;
-    		ABSTRACT_numimages    = Integer.parseInt( tv_numimages.getText().toString() );
+			int ABSTRACT_numimages = Integer.parseInt(tv_numimages.getText().toString());
     		ABSTRACT_memTime =      Utils.getTotalSeconds( tv_memtime.getText().toString() );    
     		ABSTRACT_recallTime =   Utils.getTotalSeconds( tv_recalltime.getText().toString() );	
     		
@@ -171,22 +159,10 @@ public class Shapes_Settings extends Activity implements OnClickListener{
 	        editor.putInt("ABSTRACT_memTime",     ABSTRACT_memTime);
 	        editor.putInt("ABSTRACT_recallTime",  ABSTRACT_recallTime);
         }
+
         editor.commit();
     }
-    
-    public void setWMCsettings() {
-    	if (gameType == SHAPES_FACES) {
-    		tv_numimages.setText(Integer.toString(Constants.wmc_faces_numImages));
-    		tv_memtime.setText(Integer.toString(Constants.wmc_faces_memTime));
-    		tv_recalltime.setText(Integer.toString(Constants.wmc_faces_recallTime));
-    	}
-    	else {
-    		tv_numimages.setText(Integer.toString(Constants.wmc_abstract_numImages));
-    		tv_memtime.setText(Integer.toString(Constants.wmc_abstract_memTime));
-    		tv_recalltime.setText(Integer.toString(Constants.wmc_abstract_recallTime)); 
-    	}
-    }
-    
+
     public void setDefaultSettings() {
     	if (gameType == SHAPES_FACES) {
     		tv_numimages.setText(Integer.toString(Constants.default_faces_numImages));
@@ -207,8 +183,6 @@ public class Shapes_Settings extends Activity implements OnClickListener{
 		else if (view == SaveButton) {
 			onSaveSettings();
 		}
-		else if (view == wmcSettings)
-			setWMCsettings();
 		else if (view == defaultSettings)
 			setDefaultSettings();
 		else if (view == tv_numimages) {
@@ -217,37 +191,28 @@ public class Shapes_Settings extends Activity implements OnClickListener{
 				dialog = new SettingsDialog(this, tv_numimages.getText().toString(), "Number of faces:", Constants.shapes_faces_tv_numimages);
 			else
 				dialog = new SettingsDialog(this, tv_numimages.getText().toString(), "Number of images:", Constants.shapes_abstract_tv_numimages);
-			dialog.setDialogResult(new OnMyDialogResult() {
-			    public void finish(String result){  tv_numimages.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_numimages.setText(result));
 			dialog.show();
 		}
 		
 		else if (view == tv_memtime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_memtime.getText().toString(), "Memorization Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_memtime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_memtime.setText(result));
 			dialog.show();
 		}
 		else if (view == tv_recalltime) {
 			TimePickerDialog dialog = new TimePickerDialog(this, tv_recalltime.getText().toString(), "Recall Time");
-			dialog.setDialogResult(new OnMyDialogResultTime() {
-			    public void finish(String result){  tv_recalltime.setText(result);   }
-			});
+			dialog.setDialogResult(result -> tv_recalltime.setText(result));
 			dialog.show();
 		}
 	}
 
-    public void onSaveSettings() {    	
-    	
-    		updateSettings();
-    		commitPreferences();
-    		onSettingsFinished();
-    	
+    public void onSaveSettings() {
+		updateSettings();
+		commitPreferences();
+		onSettingsFinished();
     }
-    
-    
+
     public void onSettingsFinished() {
     	Intent i = getIntent();
 		i.setClass(this, TestDetailsActivity.class);

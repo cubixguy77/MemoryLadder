@@ -1,6 +1,5 @@
 package com.MemoryLadder;
 
-import java.util.Random;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -10,7 +9,6 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
@@ -26,7 +24,8 @@ import android.widget.TextView;
 
 import com.MemoryLadder.Timer.CountDownTimerPausable;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
+
+import java.util.Random;
 
 public class Numbers_Mem extends Activity implements OnClickListener, android.content.DialogInterface.OnDismissListener {
 	
@@ -257,20 +256,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     	}
     	return array;
     }
-    
-    public char[][] getSpokenNumberArray() {
-    	char[][] array = new char[numRows][numCols];
-    	Random rand = new Random();
-    	int numDigits = 10;
-    	for (int i=0; i<numRows; i++) {
-    		for (int j=0; j<numCols; j++) {    			
-    			array[i][j] = (char) (rand.nextInt(numDigits) + 48);
-    		}
-    	}			
-    	Utils.print(array);
-    	return array;
-    }
-    
+
     public int getCol(int pos) {
     	return pos % (numCols+1);
     }
@@ -281,7 +267,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     public class NumberAdapter extends BaseAdapter {
 
         private Context context;                
-        public NumberAdapter(Context context) {  	 this.context = context;    }
+        NumberAdapter(Context context) {  	 this.context = context;    }
         public int getCount() {           			 return numItems;        }
         public Object getItem(int position) {        return position;        }
         public long getItemId(int position) {        return position;        }

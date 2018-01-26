@@ -50,7 +50,7 @@ public class ChooseTest extends AppCompatActivity {
         findViewById(R.id.HistoricDatesImage).setOnClickListener(v -> onChooseTestFinished(Constants.LISTS_EVENTS));
         findViewById(R.id.NamesFacesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_FACES));
         findViewById(R.id.AbstractImagesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_ABSTRACT));
-        findViewById(R.id.SpeedCardsImage).setOnClickListener(v -> onChooseTestFinished(Constants.CARDS_SPEED));
+        findViewById(R.id.SpeedCardsImage).setOnClickListener(v -> onChooseTestFinished(Constants.CARDS_LONG));
     }
 
 	private void onChooseTestFinished(int gameType) {
