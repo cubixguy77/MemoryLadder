@@ -27,6 +27,7 @@ public class TestDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test_details);
 
         gameType = getIntent().getIntExtra("gameType", Constants.NUMBERS_SPOKEN);
+        int mode = getIntent().getIntExtra("mode", Constants.STEPS);
 
         /* Toolbar stuff */
         Toolbar toolbar = findViewById(R.id.test_details_toolbar);
@@ -45,7 +46,7 @@ public class TestDetailsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.test_details_tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        //viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(mode == Constants.CUSTOM ? 1 : 0);
     }
 
     @Override

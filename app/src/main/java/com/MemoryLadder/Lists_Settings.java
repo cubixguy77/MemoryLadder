@@ -261,7 +261,8 @@ public class Lists_Settings extends Activity implements OnClickListener{
     public void onSettingsFinished() {
     	Intent i = getIntent();
     	i.setClass(this, TestDetailsActivity.class);
-    	i.putExtra("gameType", gameType);
+        i.putExtra("gameType", gameType);
+        i.putExtra("mode", Constants.CUSTOM);
 		this.startActivity(i);
 		finish();
     }

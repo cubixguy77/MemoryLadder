@@ -252,6 +252,7 @@ public class Shapes_Settings extends Activity implements OnClickListener{
     	Intent i = getIntent();
 		i.setClass(this, TestDetailsActivity.class);
 		i.putExtra("gameType", gameType);
+		i.putExtra("mode", Constants.CUSTOM);
 		startActivity(i);
 		finish();
     }
