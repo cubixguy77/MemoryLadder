@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FF000000"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/TopBar"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/graphic_titlebar">
+
+        <Button
+            android:id="@+id/CancelButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Cancel"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@+id/SaveButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Save"
+            android:textColor="#ffffffff" />
+    </FrameLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/digitSpeedOptionContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:text="Select Digit Speed:"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/digitSpeedOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Super Slow (1 digit / 4 sec)"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/digitSpeedOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Slow (1 digit / 2 sec)"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/digitSpeedOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Standard (1 digit / 1 sec)"
+            android:textSize="18sp"
+            android:background="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/digitSpeedOption4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Fast (4 digit / 3 sec)"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/digitSpeedOption5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Super Fast (2 digit / 1 sec)"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

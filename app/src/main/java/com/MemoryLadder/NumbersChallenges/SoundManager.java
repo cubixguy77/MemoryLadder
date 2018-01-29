@@ -9,14 +9,12 @@ class SoundManager {
 
     private TextToSpeech speaker;
 
-    SoundManager(Context mContext, final double secondsPerDigit) {
+    SoundManager(Context mContext, float speechRate) {
         this.speaker = new TextToSpeech(mContext, status -> {
             if(status != TextToSpeech.ERROR) {
                 speaker.setLanguage(Locale.UK);
                 speaker.setPitch(.8f);
-                if (secondsPerDigit < 1) {
-                    speaker.setSpeechRate(2.5f);
-                }
+                speaker.setSpeechRate(speechRate);
             }
         });
     }

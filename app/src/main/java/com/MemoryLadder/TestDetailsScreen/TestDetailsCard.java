@@ -1,12 +1,25 @@
 package com.MemoryLadder.TestDetailsScreen;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.MemoryLadder.Settings.DigitSpeedSetting;
+import com.MemoryLadder.Settings.DigitSpeedSettingDialog;
+import com.MemoryLadder.Settings.NumberSetting;
+import com.MemoryLadder.Settings.NumberSettingDialog;
+import com.MemoryLadder.Settings.Setting;
+import com.MemoryLadder.Settings.SwitchSetting;
+import com.MemoryLadder.Settings.TargetSetting;
+import com.MemoryLadder.Settings.TimeSetting;
+import com.MemoryLadder.Settings.TimeSettingDialog;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.List;
@@ -16,16 +29,18 @@ import butterknife.ButterKnife;
 
 public class TestDetailsCard extends android.support.v7.widget.CardView {
 
+    private final Context context;
+
     @BindView(R.id.testDetailsCardTitle) TextView titleText;
-    @BindView(R.id.testDetailsEditSettings) TextView editButton;
     @BindView(R.id.testDetailsPlayButton) Button playButton;
     @BindView(R.id.testDetailsUnlockButton) Button unlockButton;
+
     @BindView(R.id.testDetailsLabelLayout) LinearLayout testDetailsLabelLayout;
     @BindView(R.id.testDetailsValueLayout) LinearLayout testDetailsValueLayout;
 
-    public TestDetailsCard(Context context) {        super(context);    }
-    public TestDetailsCard(Context context, AttributeSet attrs) {        super(context, attrs);    }
-    public TestDetailsCard(Context context, AttributeSet attrs, int defStyleAttr) {        super(context, attrs, defStyleAttr);    }
+    public TestDetailsCard(Context context) {        super(context); this.context = context;    }
+    public TestDetailsCard(Context context, AttributeSet attrs) {        super(context, attrs); this.context = context;   }
+    public TestDetailsCard(Context context, AttributeSet attrs, int defStyleAttr) {        super(context, attrs, defStyleAttr); this.context = context;   }
 
     @Override
     public void onFinishInflate() {
@@ -37,44 +52,78 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
         titleText.setText(title);
     }
 
-    public void setEditableSettings(boolean editableSettings) {
-        editButton.setVisibility(editableSettings ? View.VISIBLE : View.GONE);
-    }
-
     public void setLocked(boolean locked) {
         playButton.setVisibility(locked ? View.GONE : View.VISIBLE);
         unlockButton.setVisibility(locked ? View.VISIBLE : View.GONE);
-        editButton.setEnabled(!locked);
     }
 
-    void setSettings(List<Setting> settings) {
-        int i = 0;
+    void setSettings(List<Setting> settings, boolean editable, String prefsName) {
+        LayoutInflater inflater = LayoutInflater.from(context); // or (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         for (Setting setting : settings) {
             if (!setting.display)
                 continue;
 
-            if (setting.key.equals("target")) {
-                ((TextView) findViewById(R.id.TargetTextLabel)).setText(setting.label);
-                ((TextView) findViewById(R.id.TargetTextValue)).setText(setting.displayValue);
-                findViewById(R.id.TargetTextLabel).setVisibility(View.VISIBLE);
-                findViewById(R.id.TargetTextValue).setVisibility(View.VISIBLE);
+            if (setting instanceof TargetSetting) {
+                addTextField(inflater, R.layout.test_details_card_setting_target, testDetailsLabelLayout, setting.label);
+                addTextField(inflater, R.layout.test_details_card_setting_target, testDetailsValueLayout, setting.getDisplayValue());
+                continue;
             }
-            else {
-                getTextLabelAt(i).setText(setting.label);
-                getTextValueAt(i).setText(setting.displayValue);
-                getTextLabelAt(i).setVisibility(View.VISIBLE);
-                getTextValueAt(i).setVisibility(View.VISIBLE);
-                i++;
+
+            /* Add Label */
+            addTextField(inflater, R.layout.test_details_card_setting_label, testDetailsLabelLayout, setting.label);
+
+            /* Add Value */
+            if (!editable) {
+                addTextField(inflater, R.layout.test_details_card_setting_label, testDetailsValueLayout, setting.getDisplayValue());
+            }
+            else if (setting instanceof NumberSetting) {
+                TextView editableField = addTextField(inflater, R.layout.test_details_card_setting_editable, testDetailsValueLayout, setting.getDisplayValue());
+                editableField.setOnClickListener(v -> {
+                    NumberSettingDialog dialog = new NumberSettingDialog(context, setting.label, setting.value, ((NumberSetting) setting).getMinValue(), ((NumberSetting) setting).getMaxValue());
+                    dialog.setValueChangedListener(newValue -> updateSetting(editableField, setting, newValue, prefsName));
+                    dialog.show();
+                });
+            }
+            else if (setting instanceof TimeSetting) {
+                TextView editableField = addTextField(inflater, R.layout.test_details_card_setting_editable, testDetailsValueLayout, setting.getDisplayValue());
+                editableField.setOnClickListener(v -> {
+                    TimeSettingDialog dialog = new TimeSettingDialog(context, setting.label, setting.value);
+                    dialog.setValueChangeListener(newValue -> updateSetting(editableField, setting, newValue, prefsName));
+                    dialog.show();
+                });
+            }
+            else if (setting instanceof SwitchSetting) {
+                TextView editableField = addTextField(inflater, R.layout.test_details_card_setting_editable, testDetailsValueLayout, setting.getDisplayValue());
+                editableField.setOnClickListener(v -> updateSetting(editableField, setting, setting.value == 1 ? 0 : 1, prefsName));
+            }
+            else if (setting instanceof DigitSpeedSetting) {
+                TextView editableField = addTextField(inflater, R.layout.test_details_card_setting_editable, testDetailsValueLayout, setting.getDisplayValue());
+                editableField.setOnClickListener(v -> {
+                    DigitSpeedSettingDialog dialog = new DigitSpeedSettingDialog(context, setting.value);
+                    dialog.setValueChangedListener(newValue -> updateSetting(editableField, setting, newValue, prefsName));
+                    dialog.show();
+                });
             }
         }
     }
 
-    private TextView getTextLabelAt(int pos) {
-        return (TextView) testDetailsLabelLayout.getChildAt(pos);
+    private void updateSetting(TextView editableField, Setting setting, int newValue, String prefsName) {
+        setting.value = newValue;
+        editableField.setText(setting.getDisplayValue());
+        SharedPreferences.Editor editor = context.getSharedPreferences(prefsName, 0).edit();
+        editor.putInt(setting.settingName, newValue);
+        editor.apply();
     }
 
-    private TextView getTextValueAt(int pos) {
-        return (TextView) testDetailsValueLayout.getChildAt(pos);
+    private TextView addTextField(LayoutInflater inflater, @LayoutRes int resource, ViewGroup root, String text) {
+        LinearLayout layout = (LinearLayout) inflater.inflate(resource, root);
+        TextView textView = getLastChild(layout);
+        textView.setText(text);
+        return textView;
+    }
+
+    private TextView getLastChild(ViewGroup layout) {
+        return (TextView) layout.getChildAt(layout.getChildCount() - 1);
     }
 }

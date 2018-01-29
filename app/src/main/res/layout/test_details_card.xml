@@ -30,16 +30,6 @@
                 android:textColor="#FFFFFF"
                 />
 
-            <TextView
-                android:id="@+id/testDetailsEditSettings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:padding="8dp"
-                android:text="Edit"
-                android:textColor="@color/enabled_disabled"
-                android:textSize="32sp" />
-
         </FrameLayout>
 
 
@@ -58,82 +48,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/Label0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Words Per Column:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
 
-                <TextView
-                    android:id="@+id/Label1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Number of Columns:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Label2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Memorization Time:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Label3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Recall Time:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Label4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Recall Time:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Label5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Recall Time:"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/TargetTextLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.summary.margin_top"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="Target Score:"
-                    android:textSize="@dimen/pregame.settings.list.summary.text_size"
-                    android:textColor="#ffe7f50c" />
             </LinearLayout>
 
             <LinearLayout
@@ -143,82 +58,7 @@
                 android:layout_marginLeft="@dimen/pregame.settings.list.margin_between_columns"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/Value0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="20"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
 
-                <TextView
-                    android:id="@+id/Value1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="10"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Value2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="05:00"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Value3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="10:00"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Value4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="10:00"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/Value5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.margin_between_rows"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="10:00"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/pregame.settings.list.text_size" />
-
-                <TextView
-                    android:id="@+id/TargetTextValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/pregame.settings.list.summary.margin_top"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    android:text="10"
-                    android:textSize="@dimen/pregame.settings.list.summary.text_size"
-                    android:textColor="#ffe7f50c" />
             </LinearLayout>
         </LinearLayout>
 

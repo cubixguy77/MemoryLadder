@@ -6,6 +6,7 @@ import com.MemoryLadder.Cards.CardPrototype;
 import com.MemoryLadder.Cards.Cards_Settings;
 import com.MemoryLadder.ListsChallenges.Lists_Mem;
 import com.MemoryLadder.ListsChallenges.Lists_Settings;
+import com.MemoryLadder.NumbersChallenges.DigitSpeed;
 import com.MemoryLadder.NumbersChallenges.Numbers_Mem;
 import com.MemoryLadder.NumbersChallenges.Numbers_Settings;
 import com.MemoryLadder.ShapesChallenges.Shapes_Mem;
@@ -24,10 +25,6 @@ public class Constants {
 	final public static int SHAPES_ABSTRACT = 8;
 	//final public static int CARDS_SPEED     = 9;
 	final public static int CARDS_LONG      = 10;
-	
-	final static int SLOW   = 0;
-	final static int MEDIUM = 1;
-	final static int FAST   = 2;	
 	
 	final public static int default_cards_deckSize = 10;
 	final public static int default_cards_numDecks = 1;
@@ -71,8 +68,7 @@ public class Constants {
 	final public static int default_spoken_numRows = 1;
 	public final static int default_spoken_numDigits = default_spoken_numCols * default_spoken_numRows;
 	final public static int default_spoken_recallTime = 600;
-	public final static int default_spoken_digitSpeed = MEDIUM;
-	final public static float default_spoken_secondsPerDigit = 1;
+	public final static int default_spoken_digitSpeed = DigitSpeed.DIGIT_SPEED_STANDARD;
 
 	final public static int STEPS  = 0;
 	//final public static int WMC    = 1;
@@ -92,17 +88,6 @@ public class Constants {
 	
 	public final static int[] shapes_faces_tv_numimages      = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120};
 	public final static int[] shapes_abstract_tv_numimages   = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175};
-
-	final static int[] gameTypes = {
-        NUMBERS_SPEED,
-        NUMBERS_BINARY,
-        NUMBERS_SPOKEN,
-        LISTS_WORDS,
-        LISTS_EVENTS,
-        SHAPES_FACES,
-        SHAPES_ABSTRACT,
-        CARDS_LONG
-    };
 
 	public static String getGameName(int gameType) {
 		switch (gameType) {
@@ -188,6 +173,20 @@ public class Constants {
         }
     }
 
+    public static String getPrefsName(int gameType) {
+        switch (gameType) {
+            case NUMBERS_SPEED: return "Number_Preferences";
+            case NUMBERS_BINARY: return "Number_Preferences";
+            case NUMBERS_SPOKEN: return "Number_Preferences";
+            case LISTS_WORDS: return "List_Preferences";
+            case LISTS_EVENTS: return "List_Preferences";
+            case SHAPES_FACES: return "Shape_Preferences";
+            case SHAPES_ABSTRACT: return "Shape_Preferences";
+            case CARDS_LONG: return "Card_Preferences";
+            default: return "";
+        }
+    }
+
 	public static int[] getSpecs_STEPS_Numbers(int level) {
     	int[] specs = new int[5];
     	switch (level) {
@@ -269,31 +268,31 @@ public class Constants {
     			specs[0] = 1;
     			specs[1] = 4;
     			specs[2] = 300;
-    			specs[3] = 1;
+    			specs[3] = DigitSpeed.DIGIT_SPEED_FAST;
     			specs[4] = 4; break;
     		case 2: 
     			specs[0] = 1;
     			specs[1] = 7;
     			specs[2] = 300;
-    			specs[3] = 1;
+    			specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
     			specs[4] = 7; break;
     		case 3: 
     			specs[0] = 1;
 				specs[1] = 10;
 				specs[2] = 300;
-				specs[3] = 1;
+				specs[3] = DigitSpeed.DIGIT_SPEED_SLOW;
 				specs[4] = 10; break;
     		case 4: 
     			specs[0] = 1;
 				specs[1] = 15;
 				specs[2] = 300;
-				specs[3] = 1;
+				specs[3] = DigitSpeed.DIGIT_SPEED_SLOW;
 				specs[4] = 15; break;
     		case 5: 
     			specs[0] = 1;
 				specs[1] = 25;
 				specs[2] = 300;
-				specs[3] = 1;
+				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 25; break;
     	}
     	return specs;

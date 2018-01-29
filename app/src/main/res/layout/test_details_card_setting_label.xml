@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    style="@style/SettingList_Text_Label"
+    tools:text="Words Per Column:"
+    xmlns:tools="http://schemas.android.com/tools"
+    />

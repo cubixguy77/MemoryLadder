@@ -51,7 +51,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
 	private int numItems;
 	private int gameType;
 	private int memTime;
-	private double secondsPerDigit;
+	private int digitSpeed;
 	private char[][] answer;
 	private Boolean timeExpired = false;
 	private Boolean userQuit = false;
@@ -211,8 +211,9 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     }
     
     public void initSounds() {
-    	if (gameType == NUMBERS_SPOKEN)
-    		soundManager = new SoundManager(this, secondsPerDigit);
+    	if (gameType == NUMBERS_SPOKEN) {
+			soundManager = new SoundManager(this, DigitSpeed.getSpeechRate(digitSpeed));
+		}
     }
     
     public void playSound(int digit) {
@@ -229,10 +230,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     	else if (!userQuit) {
     		char digit = answer[index / numCols][(index % numCols) + 1];
     		playSound(Character.getNumericValue(digit));
-    		new Handler().postDelayed(new Runnable(){ public void run()  { 
-        		nextSpokenDigit(index + 1);
-        	}
-        	} , (int) (secondsPerDigit * 1000));
+    		new Handler().postDelayed(() -> nextSpokenDigit(index + 1), DigitSpeed.getMillisPerSecond(digitSpeed));
     	}
     }
     
@@ -346,7 +344,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
         numRows         = i.getIntExtra("numRows",     -1);
         numCols         = i.getIntExtra("numCols",     -1);
         memTime         = i.getIntExtra("memTime",     -1);
-        secondsPerDigit = i.getFloatExtra("secondsPerDigit", 1.0f);
+        digitSpeed      = i.getIntExtra("digitSpeed", DigitSpeed.DIGIT_SPEED_STANDARD);
         
         getAnswerArray();
     }

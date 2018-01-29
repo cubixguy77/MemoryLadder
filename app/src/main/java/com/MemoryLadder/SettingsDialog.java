@@ -51,10 +51,11 @@ public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBar
 		TextView Label = findViewById(R.id.Label);
 		Label.setText(labeltext);
 		
-		SeekBarValue = findViewById(R.id.SeekBarValue);
+		//SeekBarValue = findViewById(R.id.SeekBarValue);
 	}
 	
 	private void initSeekBar() {
+		/*
 		SeekBar seekbar = findViewById(R.id.SeekBar);
 		seekbar.setOnSeekBarChangeListener(this);
 		
@@ -63,6 +64,7 @@ public class SettingsDialog extends Dialog implements OnClickListener, OnSeekBar
 		System.out.println("i: " + i + " " + hashmarks[i]);
 		seekbar.setProgress(i);
 		SeekBarValue.setText(Integer.toString(hashmarks[i]));
+		*/
 	}
 	
 	private int getStartingIndex() {

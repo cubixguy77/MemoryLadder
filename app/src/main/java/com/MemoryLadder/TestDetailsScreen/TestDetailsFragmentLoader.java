@@ -3,6 +3,8 @@ package com.MemoryLadder.TestDetailsScreen;
 import android.content.Context;
 
 import com.MemoryLadder.Constants;
+import com.MemoryLadder.Settings.Setting;
+import com.MemoryLadder.Settings.SettingLoader;
 
 import java.util.ArrayList;
 

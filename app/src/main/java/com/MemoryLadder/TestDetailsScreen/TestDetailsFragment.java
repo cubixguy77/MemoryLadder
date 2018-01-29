@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.MemoryLadder.Billing.BillingManager;
 import com.MemoryLadder.Constants;
+import com.MemoryLadder.Settings.Setting;
+import com.MemoryLadder.Settings.SettingLoader;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mastersofmemory.memoryladder.R;
 
@@ -58,8 +60,7 @@ public class TestDetailsFragment extends Fragment {
 
         card = view.findViewById(R.id.testDetailsCard);
         card.setTitle(title);
-        card.setSettings(settings);
-        card.setEditableSettings(editable);
+        card.setSettings(settings, editable, Constants.getPrefsName(gameType));
 
         if (lockable) {
             billingManager = new BillingManager(getActivity(), Constants.getGameSku(gameType), new BillingManager.BillingUpdatesListener() {
@@ -129,12 +130,7 @@ public class TestDetailsFragment extends Fragment {
         i.setClass(getActivity(), Constants.getClass(gameType));
 
         for (Setting setting : settings) {
-            if (setting.key.equals("secondsPerDigit")) {
-                i.putExtra(setting.key, setting.value);
-            }
-            else {
-                i.putExtra(setting.key, (int) setting.value);
-            }
+            i.putExtra(setting.key, setting.value);
         }
 
         i.putExtra("gameType", gameType);
@@ -152,14 +148,5 @@ public class TestDetailsFragment extends Fragment {
         if (billingManager != null) {
             billingManager.launchPurchaseDialog();
         }
-    }
-
-    @OnClick(R.id.testDetailsEditSettings) public void onEditSettings() {
-        Intent i = new Intent();
-        i.setClass(getActivity(), Constants.getSettingsClass(gameType));
-        i.putExtra("gameType", gameType);
-        i.putExtra("mode", Constants.CUSTOM);
-        startActivity(i);
-        getActivity().finish();
     }
 }

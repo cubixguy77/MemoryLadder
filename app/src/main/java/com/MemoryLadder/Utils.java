@@ -269,7 +269,7 @@ public class Utils {
     			min = i;
     	}
     	return strings[min];
-    }	
+    }
     
     public static String formatIntoHHMMSStruncated(long secsIn) {
     	int hours = (int) (secsIn / 3600),

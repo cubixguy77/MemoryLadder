@@ -188,7 +188,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
     	SharedPreferences settings = getSharedPreferences("Number_Preferences", 0);
         SharedPreferences.Editor editor = settings.edit();
         
-        /* EditText Strings */
+        /* Save Display Values */
         if (gameType == NUMBERS_SPEED) {
 	        editor.putString("WRITTEN_tv_numlines",      tv_numlines.getText().toString());
 	        editor.putString("WRITTEN_tv_digitsperline", tv_digitsperline.getText().toString());
@@ -216,7 +216,7 @@ public class Numbers_Settings extends Activity implements OnClickListener{
 	        editor.putInt("SPOKEN_spinner_digitspeed",  spinner_digitspeed.getSelectedItemPosition());
         }
         
-        /* In game variable values */
+        /* Save raw values */
         if (gameType == NUMBERS_SPEED) {
 	        editor.putInt("WRITTEN_numRows",    WRITTEN_numRows);
 	        editor.putInt("WRITTEN_numCols",    WRITTEN_numCols);

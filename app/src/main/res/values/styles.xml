@@ -93,4 +93,34 @@
         <item name="android:textColor">#ffffffff</item>
         <item name="android:textSize">@dimen/choose_test.text.size</item>
     </style>
+
+    <style name="SettingList_Text">
+        <item name="android:layout_height">@dimen/pregame.settings.list.row.height</item>
+        <item name="android:layout_marginTop">@dimen/pregame.settings.list.margin_between_rows</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:maxLines">1</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <style name="SettingList_Text_Label" parent="SettingList_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/pregame.settings.list.text_size</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="SettingList_Text_Editable" parent="SettingList_Text">
+        <item name="android:layout_width">@dimen/pregame.settings.list.value.width</item>
+        <item name="android:background">@drawable/selector_text</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="autoSizeMaxTextSize">@dimen/pregame.settings.list.text_size</item>
+
+    </style>
+
+    <style name="SettingList_Text_Target" parent="SettingList_Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/pregame.settings.list.summary.text_size</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
 </resources>

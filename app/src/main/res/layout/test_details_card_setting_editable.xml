@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    style="@style/SettingList_Text_Editable"
+    tools:text="Super Slow"
+    xmlns:tools="http://schemas.android.com/tools"
+    />

@@ -7,6 +7,7 @@
     <color name="orange">#aaff9900</color>
     <color name="yellow">#fffcff00</color>
     <color name="grey">#5c5c5c</color>
+    <color name="greyLight">#7a7f91</color>
     <color name="green">@color/colorPrimary</color>
 
     <color name="activity.background">@color/grey</color>

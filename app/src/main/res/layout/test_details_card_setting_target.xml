@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    style="@style/SettingList_Text_Target"
+    tools:text="Target:"
+    app:autoSizeTextType="uniform"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    />

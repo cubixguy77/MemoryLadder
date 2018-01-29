@@ -1,18 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" android:orientation="vertical" android:background="#FF000000">
- 
- 	<FrameLayout android:layout_width="fill_parent" android:background="@drawable/graphic_titlebar" android:layout_height="40dp" android:id="@+id/TopBar">
- 		<Button android:id="@+id/CancelButton" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_height="35dp" android:textColor="#ffffffff" android:text="Cancel" android:layout_gravity="center_vertical" android:layout_marginLeft="4dp"></Button>
- 		<Button android:id="@+id/SaveButton" android:background="@drawable/selector_graphic_buttons" android:layout_width="70dp" android:layout_height="35dp" android:textColor="#ffffffff" android:text="Save" android:layout_marginRight="4dp" android:layout_gravity="right|center_vertical"></Button>
- 	</FrameLayout>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:id="@+id/Label" android:layout_below="@+id/TopBar" android:layout_marginTop="20dp" android:text="Number of decks:" android:layout_marginLeft="20dp" android:textSize="20sp"></TextView>
-    <SeekBar android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_alignParentLeft="true" android:id="@+id/SeekBar" android:layout_below="@+id/Label" android:layout_margin="20dp"></SeekBar>
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@+id/SeekBar" android:text="10" android:id="@+id/SeekBarValue" android:layout_toRightOf="@+id/Label" android:layout_marginLeft="10dp" android:textSize="24sp"></TextView>   
- 	
- 
- 
- 
-</RelativeLayout>
+    android:layout_height="fill_parent"
+    android:background="#FF000000"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/TopBar"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/graphic_titlebar">
+
+        <Button
+            android:id="@+id/CancelButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Cancel"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@+id/SaveButton"
+            android:layout_width="70dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/selector_graphic_buttons"
+            android:text="Save"
+            android:textColor="#ffffffff" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/numberPickerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_gravity="center_horizontal"
+        tools:text="Number of decks:"
+        android:textSize="20sp" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:theme="@style/AppTheme.Picker"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/greyLight"
+        />
+
+</LinearLayout>
 
