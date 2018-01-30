@@ -507,11 +507,10 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	
 	public void launchTest() {
 		Intent i = new Intent(this, TestDetailsActivity.class);
-		i.putExtra("mode", mode);
 		i.putExtra("gameType", gameType);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		i.putExtra("mode", mode);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(i);
-		finish();
 	}
    
 }

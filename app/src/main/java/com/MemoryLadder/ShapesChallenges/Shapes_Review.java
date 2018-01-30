@@ -172,7 +172,7 @@ public class Shapes_Review extends Activity implements OnClickListener {
 		Intent i = new Intent(this, TestDetailsActivity.class);
 		i.putExtra("gameType", gameType);
         i.putExtra("mode", mode);
-		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(i);
 	}
     
