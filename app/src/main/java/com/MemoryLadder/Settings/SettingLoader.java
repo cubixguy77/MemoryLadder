@@ -76,7 +76,7 @@ public class SettingLoader {
             int numCols;
             int memTime;
             int recallTime;
-            boolean mnemo_enabled;
+            int mnemo_enabled;
             int target;
 
             if (gameMode == Constants.STEPS) {
@@ -102,11 +102,12 @@ public class SettingLoader {
                 numCols         = prefs.getInt("WRITTEN_numCols", Constants.default_written_numCols);
                 memTime         = prefs.getInt("WRITTEN_memTime", Constants.default_written_memTime);
                 recallTime      = prefs.getInt("WRITTEN_recallTime", Constants.default_written_recallTime);
-                mnemo_enabled   = prefs.getBoolean("WRITTEN_mnemo", false);
+                try { mnemo_enabled = prefs.getInt("WRITTEN_mnemo", 0); }
+                catch (ClassCastException e) { mnemo_enabled = prefs.getBoolean("WRITTEN_mnemo", false) ? 1 : 0; }
 
                 settings.add(new NumberSetting("numRows", "WRITTEN_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "WRITTEN_numCols", "Digits per Row:", numCols, 1, 40, true));
-                settings.add(new SwitchSetting("mnemo_enabled", "WRITTEN_mnemo", "Mnemo Hint:", mnemo_enabled ? 1 : 0, true));
+                settings.add(new SwitchSetting("mnemo_enabled", "WRITTEN_mnemo", "Mnemo Hint:", mnemo_enabled, true));
                 settings.add(new TimeSetting("memTime", "WRITTEN_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "WRITTEN_recallTime", "Recall Time:", recallTime));
             }
