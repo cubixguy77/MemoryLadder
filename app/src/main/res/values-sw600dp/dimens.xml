@@ -62,4 +62,10 @@
     <dimen name="choose_test.image.size">132dp</dimen>
     <dimen name="choose_test.image.margin.left">8dp</dimen>
     <dimen name="choose_test.text.size">22sp</dimen>
+
+    <dimen name="picker.digitSpeed.width">400dp</dimen>
+    <dimen name="picker.digitSpeed.height">460dp</dimen>
+    <dimen name="picker.digitSpeed.margin">32dp</dimen>
+    <dimen name="picker.digitSpeed.rows.margin">16dp</dimen>
+    <dimen name="picker.digitSpeed.rows.textSize">24sp</dimen>
 </resources>

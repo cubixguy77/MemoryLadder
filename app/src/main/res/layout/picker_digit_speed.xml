@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/picker.digitSpeed.width"
+    android:layout_height="@dimen/picker.digitSpeed.height"
     android:background="#FF000000"
     android:orientation="vertical">
 
@@ -38,15 +39,16 @@
         android:id="@+id/digitSpeedOptionContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="@dimen/picker.digitSpeed.margin"
+        android:layout_gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity=""
             android:text="Select Digit Speed:"
-            android:textSize="24sp"
+            android:textSize="@dimen/picker.titleText.size"
             android:textStyle="bold"
             />
 
@@ -54,46 +56,46 @@
             android:id="@+id/digitSpeedOption1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/picker.digitSpeed.rows.margin"
             android:text="Super Slow (1 digit / 4 sec)"
-            android:textSize="18sp"
+            android:textSize="@dimen/picker.digitSpeed.rows.textSize"
             />
 
         <TextView
             android:id="@+id/digitSpeedOption2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/picker.digitSpeed.rows.margin"
             android:text="Slow (1 digit / 2 sec)"
-            android:textSize="18sp"
+            android:textSize="@dimen/picker.digitSpeed.rows.textSize"
             />
 
         <TextView
             android:id="@+id/digitSpeedOption3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/picker.digitSpeed.rows.margin"
             android:text="Standard (1 digit / 1 sec)"
-            android:textSize="18sp"
-            android:background="@color/colorPrimary"
+            android:textSize="@dimen/picker.digitSpeed.rows.textSize"
+            tools:background="@color/colorPrimary"
             />
 
         <TextView
             android:id="@+id/digitSpeedOption4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/picker.digitSpeed.rows.margin"
             android:text="Fast (4 digit / 3 sec)"
-            android:textSize="18sp"
+            android:textSize="@dimen/picker.digitSpeed.rows.textSize"
             />
 
         <TextView
             android:id="@+id/digitSpeedOption5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/picker.digitSpeed.rows.margin"
             android:text="Super Fast (2 digit / 1 sec)"
-            android:textSize="18sp"
+            android:textSize="@dimen/picker.digitSpeed.rows.textSize"
             />
 
     </LinearLayout>

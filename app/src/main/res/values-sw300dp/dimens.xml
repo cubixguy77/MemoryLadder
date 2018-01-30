@@ -91,8 +91,18 @@
     <dimen name="instructions.section_text.size">20sp</dimen>
     <dimen name="instructions.general_text.size">16sp</dimen>
 
+    <dimen name="picker.titleText.size">24sp</dimen>
 
+    <dimen name="picker.time.layout.margin">20dp</dimen>
+    <dimen name="picker.time.numberPicker.width">60dp</dimen>
+    <dimen name="picker.time.numberPicker.height">200dp</dimen>
+    <dimen name="picker.time.labels.textSize">15sp</dimen>
 
+    <dimen name="picker.digitSpeed.width">300dp</dimen>
+    <dimen name="picker.digitSpeed.height">360dp</dimen>
+    <dimen name="picker.digitSpeed.margin">20dp</dimen>
+    <dimen name="picker.digitSpeed.rows.margin">12dp</dimen>
+    <dimen name="picker.digitSpeed.rows.textSize">18sp</dimen>
 
 
 </resources>

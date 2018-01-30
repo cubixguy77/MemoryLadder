@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#FF000000"
@@ -38,13 +39,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="Memorization Time:"
-        android:textSize="24sp" />
+        tools:text="Memorization Time:"
+        android:textSize="@dimen/picker.titleText.size" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="40dp"
+        android:layout_margin="@dimen/picker.time.layout.margin"
         android:layout_gravity="center_horizontal">
 
         <LinearLayout
@@ -55,8 +56,8 @@
             <NumberPicker
                 android:id="@+id/numberPickerHours"
                 android:theme="@style/AppTheme.Picker"
-                android:layout_width="70dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/picker.time.numberPicker.width"
+                android:layout_height="@dimen/picker.time.numberPicker.height"
                 android:background="@color/greyLight"
                 />
 
@@ -66,7 +67,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
-                android:text="Hours" />
+                android:text="Hours"
+                android:textSize="@dimen/picker.time.labels.textSize" />
         </LinearLayout>
 
         <TextView
@@ -86,8 +88,8 @@
             <NumberPicker
                 android:id="@+id/numberPickerMinutes"
                 android:theme="@style/AppTheme.Picker"
-                android:layout_width="70dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/picker.time.numberPicker.width"
+                android:layout_height="@dimen/picker.time.numberPicker.height"
                 android:background="@color/greyLight"
                 />
 
@@ -97,7 +99,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
-                android:text="Minutes" />
+                android:text="Minutes"
+                android:textSize="@dimen/picker.time.labels.textSize" />
         </LinearLayout>
 
         <TextView
@@ -117,8 +120,8 @@
             <NumberPicker
                 android:id="@+id/numberPickerSeconds"
                 android:theme="@style/AppTheme.Picker"
-                android:layout_width="70dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/picker.time.numberPicker.width"
+                android:layout_height="@dimen/picker.time.numberPicker.height"
                 android:background="@color/greyLight"
                 />
 
@@ -128,7 +131,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
-                android:text="Seconds" />
+                android:text="Seconds"
+                android:textSize="@dimen/picker.time.labels.textSize" />
         </LinearLayout>
     </LinearLayout>
 

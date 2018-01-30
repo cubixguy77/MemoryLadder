@@ -27,4 +27,6 @@
 
     <dimen name="choose_test.image.size">88dp</dimen>
     <dimen name="choose_test.image.margin.left">8dp</dimen>
+
+    <dimen name="picker.time.numberPicker.width">80dp</dimen>
 </resources>

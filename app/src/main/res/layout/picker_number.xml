@@ -17,21 +17,23 @@
             android:id="@+id/CancelButton"
             android:layout_width="70dp"
             android:layout_height="35dp"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="4dp"
             android:background="@drawable/selector_graphic_buttons"
             android:text="Cancel"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:layout_marginStart="4dp" />
 
         <Button
             android:id="@+id/SaveButton"
             android:layout_width="70dp"
             android:layout_height="35dp"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="end|center_vertical"
             android:layout_marginRight="4dp"
             android:background="@drawable/selector_graphic_buttons"
             android:text="Save"
-            android:textColor="#ffffffff" />
+            android:textColor="#ffffffff"
+            android:layout_marginEnd="4dp" />
     </FrameLayout>
 
     <TextView
@@ -45,7 +47,7 @@
         android:layout_marginEnd="40dp"
         android:layout_gravity="center_horizontal"
         tools:text="Number of decks:"
-        android:textSize="20sp" />
+        android:textSize="@dimen/picker.titleText.size" />
 
     <NumberPicker
         android:id="@+id/numberPicker"
@@ -53,8 +55,8 @@
         android:layout_width="100dp"
         android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
         android:background="@color/greyLight"
         />
 
