@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import com.MemoryLadder.Constants;
 import com.mastersofmemory.memoryladder.R;
 
 public class CardPrototype extends AppCompatActivity {
@@ -29,7 +28,7 @@ public class CardPrototype extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.cardsToolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(v -> launchExitDialog());
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
@@ -107,7 +106,12 @@ public class CardPrototype extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        launchExitDialog();
+        if (gameManager.getGamePhase() == GamePhase.MEMORIZATION || gameManager.getGamePhase() == GamePhase.RECALL) {
+            launchExitDialog();
+        }
+        else {
+            finish();
+        }
     }
 
     public void launchExitDialog() {

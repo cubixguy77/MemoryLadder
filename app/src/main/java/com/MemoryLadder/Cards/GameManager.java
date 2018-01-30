@@ -67,6 +67,10 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         selectedCardsView.setMnemonicsEnabled(settings.isMnemonicsEnabled());
     }
 
+    GamePhase getGamePhase() {
+        return data.getGamePhase();
+    }
+
     void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             data = new GameData(settings);
