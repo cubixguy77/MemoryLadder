@@ -35,22 +35,7 @@ public class Utils {
 		}
 		return array;
  	}
-	
-	
-	public static String getTestString(int gameType) {
-		switch (gameType) {
-			case Constants.NUMBERS_SPEED:   return "Speed Numbers";
-			case Constants.NUMBERS_BINARY:  return "Binary Numbers";
-			case Constants.NUMBERS_SPOKEN:  return "Spoken Numbers";
-			case Constants.LISTS_WORDS:     return "Random Words";
-			case Constants.LISTS_EVENTS:    return "Historic Events";
-			case Constants.SHAPES_FACES:    return "Names & Faces";
-			case Constants.SHAPES_ABSTRACT: return "Abstract Images";
-			case Constants.CARDS_LONG:      return "Speed Cards";
-			default:              return "I don't know";
-		}
-	}
-	
+
 		
 	private static int[] getSpecsSteps(int gameType, int step) {
 		switch (gameType) {
@@ -74,14 +59,13 @@ public class Utils {
     
     public static Class<?> getReviewClass(int gameType) {
     	switch (gameType) {
-	        case 1:  return Numbers_Review.class;
-	        case 2:  return Numbers_Review.class;
-	        case 3:  return Numbers_Review.class;
-	        case 4:  return Numbers_Review.class;
-	        case 5:  return Lists_Review.class;
-	        case 6:  return Lists_Review.class;
-	        case 7:  return Shapes_Review.class;
-	        case 8:  return Shapes_Review.class;
+	        case Constants.NUMBERS_SPEED:  return Numbers_Review.class;
+	        case Constants.NUMBERS_BINARY:  return Numbers_Review.class;
+	        case Constants.NUMBERS_SPOKEN:  return Numbers_Review.class;
+	        case Constants.LISTS_WORDS:  return Lists_Review.class;
+	        case Constants.LISTS_EVENTS:  return Lists_Review.class;
+	        case Constants.SHAPES_FACES:  return Shapes_Review.class;
+	        case Constants.SHAPES_ABSTRACT:  return Shapes_Review.class;
         	default: return null;
 		}
     }
@@ -280,29 +264,5 @@ public class Utils {
 			return  (hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds );
 		else
 			return (minutes < 10 ? "0"+minutes : minutes) + ":" + (seconds < 10 ? "0" : "") + seconds ;
-    }
-    
-    public static String formatIntoHHMMSS(long secsIn) {
-    	int hours = (int) (secsIn / 3600),
-		remainder = (int) (secsIn % 3600),
-		minutes = remainder / 60,
-		seconds = remainder % 60;			
-		return  "0" + hours + ":" + (minutes < 10 ? "0"+minutes : minutes) + ":" + (seconds < 10 ? "0"+seconds : seconds);
-    }
-    
-    static int getHours(String timestring) {
-    	return Character.getNumericValue(timestring.charAt(1));
-    }
-    
-    static int getMinutes(String timestring) {
-    	return Integer.parseInt(timestring.substring(3, 5));
-    }
-    
-    static int getSeconds(String timestring) {
-    	return Integer.parseInt(timestring.substring(6, 8));
-    }
-    
-    public static int getTotalSeconds(String timestring) {
-    	return (getHours(timestring) * 3600) + (getMinutes(timestring) * 60) + (getSeconds(timestring));
     }
 }

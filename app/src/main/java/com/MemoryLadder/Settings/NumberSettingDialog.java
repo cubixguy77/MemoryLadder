@@ -23,7 +23,7 @@ public class NumberSettingDialog extends Dialog implements OnClickListener {
 	public NumberSettingDialog(Context context, String label, int initValue, int min, int max) {
 		super(context);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.settingsdialog);
+		setContentView(R.layout.picker_number);
 		
 		this.initValue = initValue;
 		this.newValue = initValue;

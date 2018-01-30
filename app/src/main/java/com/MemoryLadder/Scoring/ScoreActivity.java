@@ -139,9 +139,9 @@ public class ScoreActivity extends Activity implements OnClickListener {
         	CustomButton.setBackgroundResource(selected);  CustomButton.setTextColor(Color.BLACK);
     	}    	
     	
-    	GameTypeText.setText(Utils.getTestString(gameType));
+    	GameTypeText.setText(Constants.getGameDisplayName(gameType));
     }
-    
+
     public void refreshGraphLayout() {
     	
     	if (pastScores.length == 0) {
@@ -379,7 +379,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 			public void onAnimationStart(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				GameTypeText.setText(Utils.getTestString(gameType));
+				GameTypeText.setText(Constants.getGameDisplayName(gameType));
 				GameTypeText.startAnimation(from_right_fast);
 			}
 			@Override
@@ -400,7 +400,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 			public void onAnimationStart(Animation animation) {}
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				GameTypeText.setText(Utils.getTestString(gameType));
+				GameTypeText.setText(Constants.getGameDisplayName(gameType));
 				GameTypeText.startAnimation(from_left_fast);
 			}
 			@Override

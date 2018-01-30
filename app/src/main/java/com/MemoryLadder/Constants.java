@@ -3,14 +3,10 @@ package com.MemoryLadder;
 import android.support.annotation.DrawableRes;
 
 import com.MemoryLadder.Cards.CardPrototype;
-import com.MemoryLadder.Cards.Cards_Settings;
 import com.MemoryLadder.ListsChallenges.Lists_Mem;
-import com.MemoryLadder.ListsChallenges.Lists_Settings;
 import com.MemoryLadder.NumbersChallenges.DigitSpeed;
 import com.MemoryLadder.NumbersChallenges.Numbers_Mem;
-import com.MemoryLadder.NumbersChallenges.Numbers_Settings;
 import com.MemoryLadder.ShapesChallenges.Shapes_Mem;
-import com.MemoryLadder.ShapesChallenges.Shapes_Settings;
 import com.mastersofmemory.memoryladder.R;
 
 public class Constants {
@@ -44,13 +40,11 @@ public class Constants {
 	
 	final public static int default_faces_numCols = 3;
 	final public static int default_faces_numRows = 5;
-	public final static int default_faces_numImages = default_faces_numCols * default_faces_numRows;
 	final public static int default_faces_memTime = 300;
 	final public static int default_faces_recallTime = 600;
 	
 	final public static int default_abstract_numCols = 5;
 	final public static int default_abstract_numRows = 5;
-	public final static int default_abstract_numImages = default_abstract_numCols * default_abstract_numRows;
 	final public static int default_abstract_memTime = 300;
 	final public static int default_abstract_recallTime = 600;
 	
@@ -66,28 +60,12 @@ public class Constants {
 	
 	final public static int default_spoken_numCols = 10;
 	final public static int default_spoken_numRows = 1;
-	public final static int default_spoken_numDigits = default_spoken_numCols * default_spoken_numRows;
 	final public static int default_spoken_recallTime = 600;
 	public final static int default_spoken_digitSpeed = DigitSpeed.DIGIT_SPEED_STANDARD;
 
 	final public static int STEPS  = 0;
 	//final public static int WMC    = 1;
 	final public static int CUSTOM = 2;
-
-	public final static int[] cards_tv_cardsperdeck    = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52};
-	public final static int[] cards_tv_cardspergroup   = {1, 2, 3};
-	public final static int[] cards_tv_numdecks        = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50};
-	
-	public final static int[] lists_tv_numcolumns      = {1,2,3,4,5, 10, 15, 20, 25, 30, 35, 40};
-	public final static int[] lists_tv_wordspercolumn  = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-	public final static int[] lists_tv_numdates        = {1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90, 100, 150, 200};
-	
-	public final static int[] numbers_tv_numlines      = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 55, 60, 65, 70, 75, 80, 90, 100, 125, 150, 175, 200};
-	public final static int[] numbers_tv_digitsperline = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40};
-	public final static int[] numbers_tv_numdigits     = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 50, 60, 70, 80, 90, 100, 120, 150, 200, 300, 400, 500, 600, 750, 1000, 2000, 5000};
-	
-	public final static int[] shapes_faces_tv_numimages      = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69, 72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 111, 114, 117, 120};
-	public final static int[] shapes_abstract_tv_numimages   = {5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145, 150, 155, 160, 165, 170, 175};
 
 	public static String getGameName(int gameType) {
 		switch (gameType) {
@@ -155,20 +133,6 @@ public class Constants {
             case SHAPES_FACES: return Shapes_Mem.class;
             case SHAPES_ABSTRACT: return Shapes_Mem.class;
             case CARDS_LONG: return CardPrototype.class;
-            default: return Numbers_Mem.class;
-        }
-    }
-
-    public static Class<?> getSettingsClass(int gameType) {
-        switch (gameType) {
-            case NUMBERS_SPEED: return Numbers_Settings.class;
-            case NUMBERS_BINARY: return Numbers_Settings.class;
-            case NUMBERS_SPOKEN: return Numbers_Settings.class;
-            case LISTS_WORDS: return Lists_Settings.class;
-            case LISTS_EVENTS: return Lists_Settings.class;
-            case SHAPES_FACES: return Shapes_Settings.class;
-            case SHAPES_ABSTRACT: return Shapes_Settings.class;
-            case CARDS_LONG: return Cards_Settings.class;
             default: return Numbers_Mem.class;
         }
     }

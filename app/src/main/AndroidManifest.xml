@@ -64,9 +64,6 @@
             android:name="com.MemoryLadder.NumbersChallenges.Numbers_Review"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.NumbersChallenges.Numbers_Settings"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.ShapesChallenges.Shapes_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape" />
@@ -79,9 +76,6 @@
             android:name="com.MemoryLadder.ShapesChallenges.Shapes_Review"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.MemoryLadder.ShapesChallenges.Shapes_Settings"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.MemoryLadder.ListsChallenges.Lists_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape" />
@@ -93,12 +87,6 @@
         <activity
             android:name="com.MemoryLadder.ListsChallenges.Lists_Review"
             android:screenOrientation="landscape" />
-        <activity
-            android:name="com.MemoryLadder.ListsChallenges.Lists_Settings"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.MemoryLadder.Cards.Cards_Settings"
-            android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.Cards.CardPrototype"
             android:label="@string/title_activity_card_prototype">
