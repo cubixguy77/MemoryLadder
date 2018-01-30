@@ -55,8 +55,7 @@ public class ChooseTest extends AppCompatActivity {
     }
 
 	private void onChooseTestFinished(int gameType) {
-		Intent i = getIntent();
-		i.setClass(this, TestDetailsActivity.class);
+		Intent i = new Intent(this, TestDetailsActivity.class);
 		i.putExtra("gameType", gameType);
 		this.startActivity(i);
 	}
