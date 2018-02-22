@@ -296,7 +296,7 @@ public class SettingLoader {
                 recallTime      = specs[3];
                 target          = specs[4];
 
-                settings.add(new NumberSetting("numRows", "Number of faces:", numRows * numCols));
+                settings.add(new NumberSetting("numRows", "Number of rows:", numRows));
                 settings.add(new NumberSetting("numCols", "", "Number of Columns:", numCols, 3, 3, false));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
@@ -309,7 +309,7 @@ public class SettingLoader {
                 memTime         = prefs.getInt("FACES_memTime", Constants.default_faces_memTime);
                 recallTime      = prefs.getInt("FACES_recallTime", Constants.default_faces_recallTime);
 
-                settings.add(new NumberSetting("numRows", "FACES_numRows", "Number of faces:", numRows, 3, 120, true));
+                settings.add(new NumberSetting("numRows", "FACES_numRows", "Number of rows:", numRows, 1, 40, true));
                 settings.add(new NumberSetting("numCols", "FACES_numCols", "Number of Columns:", numCols, 3, 3, false));
                 settings.add(new TimeSetting("memTime", "FACES_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "FACES_recallTime", "Recall Time:", recallTime));
