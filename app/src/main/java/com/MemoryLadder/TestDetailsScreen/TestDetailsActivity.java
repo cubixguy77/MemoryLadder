@@ -12,7 +12,6 @@ import android.view.WindowManager;
 
 import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Cards;
 import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Numbers;
-import com.MemoryLadder.ChooseTest.ChooseTest;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.InstructionsDialog;
 import com.mastersofmemory.memoryladder.R;
