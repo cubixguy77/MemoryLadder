@@ -146,7 +146,7 @@ public class Numbers_Mem extends Activity implements OnClickListener, android.co
     public void initMnemonics() {
     	if ((gameType == NUMBERS_SPEED || gameType == NUMBERS_BINARY) && 
     	    getIntent().getIntExtra("mode", -1) == Constants.CUSTOM &&
-    	    getIntent().getBooleanExtra("mnemo", false)) {
+    	    getIntent().getIntExtra("mnemo_enabled", 0) == 1) {
     			mnemo_enabled = true;
     			MnemoText.setText("\"\"");
     			if (gameType == NUMBERS_SPEED)
