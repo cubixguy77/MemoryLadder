@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.MemoryLadder.WhatsNewDialog;
 import com.mastersofmemory.memoryladder.R;
 
 public class ChooseTest extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class ChooseTest extends AppCompatActivity {
 
         initToolbar();
         initGraphics();
+        initChangeLog();
         initAnimation();
     }
 
@@ -52,6 +54,13 @@ public class ChooseTest extends AppCompatActivity {
         findViewById(R.id.NamesFacesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_FACES));
         findViewById(R.id.AbstractImagesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_ABSTRACT));
         findViewById(R.id.SpeedCardsImage).setOnClickListener(v -> onChooseTestFinished(Constants.CARDS_LONG));
+    }
+
+    private void initChangeLog() {
+        findViewById(R.id.textWhatsNew).setOnClickListener(v -> {
+            WhatsNewDialog dialog = new WhatsNewDialog(ChooseTest.this);
+            dialog.show();
+        });
     }
 
 	private void onChooseTestFinished(int gameType) {

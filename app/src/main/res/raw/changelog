@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelog bulletedList="true">
+
+    <changelogversion versionName="2.0" changeDate="Feb 22, 2018">
+        <changelogtext>[font color=black]Restructured the app's navigation to begin with test selection.[/font][/font]</changelogtext>
+        <changelogtext>[font color=black]Introduced in-app-purchase to unlock Custom training mode for each challenge (the existing Levels mode is free). As the lone creator of this app, the money will help me pour more resources into its development.[/font]</changelogtext>
+        <changelogtext>[font color=black]Removed Compete mode, you're welcome to set these test parameters in custom mode instead.[/font]</changelogtext>
+        <changelogtext>[font color=black]Fixed some display issues on the scores screen.[/font]</changelogtext>
+        <changelogtext>[font color=black]All tests are now pausable, you can navigate away from the app and come back without losing your place.[/font]</changelogtext>
+        <changelogtext>[font color=black]Completely redesigned the cards challenge. [b]It's kind of amazing.[/b][/font]</changelogtext>
+        <changelogtext>[font color=black]For written numbers, I added space between the rows and removed the gridlines.[/font]</changelogtext>
+        <changelogtext>[font color=black]For spoken numbers, I added more speed options, increased the max digits allowed, and resolved an issue where the pacing was inconsistent.[/font]</changelogtext>
+        <changelogtext>[font color=black]I changed the look of most of the setting dialogs, it should be easier to select a desired value now.[/font]</changelogtext>
+        <changelogtext>[font color=black]For the peg words, I fixed the upload feature.[/font]</changelogtext>
+    </changelogversion>
+
+</changelog>

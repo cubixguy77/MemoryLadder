@@ -125,5 +125,23 @@
             style="@style/ChooseTest_Text"
             android:text="Abstract Images" />
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textWhatsNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="16dp"
+            android:text="Whats New?"
+            android:textSize="16sp"
+            android:textColor="#eed1d1d1"
+            />
+
+    </FrameLayout>
 </LinearLayout>
 
