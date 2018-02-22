@@ -19,7 +19,7 @@ public class ChooseTest extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.choosetest);
+        setContentView(R.layout.activity_choose_test);
 
         initToolbar();
         initGraphics();
@@ -29,7 +29,7 @@ public class ChooseTest extends AppCompatActivity {
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.test_details_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.icon);
+        //toolbar.setNavigationIcon(R.drawable.icon);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Choose a Test");
         }
@@ -58,5 +58,6 @@ public class ChooseTest extends AppCompatActivity {
 		Intent i = new Intent(this, TestDetailsActivity.class);
 		i.putExtra("gameType", gameType);
 		this.startActivity(i);
+        overridePendingTransition(R.anim.slide_in_activity_right, R.anim.slide_out_activity_left);
 	}
 }

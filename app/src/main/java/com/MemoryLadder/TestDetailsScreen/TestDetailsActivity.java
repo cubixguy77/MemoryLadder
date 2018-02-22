@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Cards;
 import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Numbers;
+import com.MemoryLadder.ChooseTest.ChooseTest;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.InstructionsDialog;
 import com.mastersofmemory.memoryladder.R;
@@ -32,7 +33,7 @@ public class TestDetailsActivity extends AppCompatActivity {
         /* Toolbar stuff */
         Toolbar toolbar = findViewById(R.id.test_details_toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(Constants.getGameIcon(gameType));
+        //toolbar.setNavigationIcon(Constants.getGameIcon(gameType));
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(Constants.getGameDisplayName(gameType));
         }
@@ -86,5 +87,11 @@ public class TestDetailsActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_activity_left, R.anim.slide_out_activity_right);
     }
 }
