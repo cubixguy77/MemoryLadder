@@ -140,7 +140,7 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
     private void showLevelUpDialog() {
         int step = data.getStep();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
         builder.setTitle("You passed step " + step + "!");
         builder.setMessage("Would you like to continue to step " + (step + 1) + "?");
 
