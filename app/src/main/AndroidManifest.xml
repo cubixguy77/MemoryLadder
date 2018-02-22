@@ -18,6 +18,7 @@
 
         <activity
             android:name="com.MemoryLadder.ChooseTest.ChooseTest"
+            android:theme="@style/AppTheme.BrandedLaunch"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
