@@ -39,8 +39,8 @@ public class SettingLoader {
                 cardsPerGroup = 2;
 
                 settings.add(new NumberSetting("deckSize",  "Number of cards:", deckSize));
-                settings.add(new NumberSetting("numDecks", "Number of decks:", numDecks));
-                settings.add(new NumberSetting("numCardsPerGroup", "Cards per group:", cardsPerGroup));
+                settings.add(new NumberSetting("numDecks", "numDecks", "Number of decks:", numDecks, 1, 1, false));
+                settings.add(new NumberSetting("numCardsPerGroup", "numCardsPerGroup", "Cards per group:", cardsPerGroup, 2, 2, false));
                 settings.add(new SwitchSetting("mnemo_enabled", "Mnemo Hint:", 1));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
