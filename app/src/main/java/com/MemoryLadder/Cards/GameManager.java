@@ -133,7 +133,7 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
     private void doLevelUp() {
         SharedPreferences settings = context.getSharedPreferences("Steps", 0);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putInt("CARDS_LONG", data.getStep() + 1);
+        editor.putInt(Constants.getGameName(Constants.CARDS_LONG), data.getStep() + 1);
         editor.apply();
     }
 

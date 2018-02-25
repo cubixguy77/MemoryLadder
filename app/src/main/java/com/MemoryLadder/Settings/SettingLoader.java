@@ -28,7 +28,7 @@ public class SettingLoader {
 
             if (gameMode == Constants.STEPS) {
                 SharedPreferences prefs = context.getSharedPreferences("Steps", 0);
-                int step     = prefs.getInt("CARDS_SPEED", 1);
+                int step     = prefs.getInt(Constants.getGameName(game), 1);
                 int[] specs = Constants.getSpecs_STEPS_Cards(step);
 
                 deckSize     = specs[0];

@@ -415,29 +415,29 @@ public class Constants {
     	int[] specs = new int[5];
     	switch (level) {
     		case 1: 
-    			specs[0] = 5;
+    			specs[0] = 4;
     			specs[1] = 1;
     			specs[2] = 300;
     			specs[3] = 600;
-    			specs[4] = 5; break;
+    			specs[4] = 4; break;
     		case 2: 
-    			specs[0] = 8;
+    			specs[0] = 6;
     			specs[1] = 1;
     			specs[2] = 300;
     			specs[3] = 600;
-    			specs[4] = 8; break;
+    			specs[4] = 6; break;
     		case 3: 
-    			specs[0] = 16;
+    			specs[0] = 12;
 				specs[1] = 1;
 				specs[2] = 300;
     			specs[3] = 600;
-				specs[4] = 14; break;
+				specs[4] = 12; break;
     		case 4: 
-    			specs[0] = 26;
+    			specs[0] = 18;
 				specs[1] = 1;
 				specs[2] = 300;
     			specs[3] = 600;
-				specs[4] = 24; break;
+				specs[4] = 18; break;
     		case 5: 
     			specs[0] = 52;
 				specs[1] = 1;
