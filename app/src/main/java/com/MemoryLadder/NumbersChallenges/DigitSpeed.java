@@ -32,7 +32,7 @@ public class DigitSpeed {
 
     static float getSpeechRate(int digitSpeed) {
         switch (digitSpeed) {
-            case DIGIT_SPEED_SUPER_FAST: return 2.5f;
+            case DIGIT_SPEED_SUPER_FAST: return 2.7f;
             case DIGIT_SPEED_FAST:       return 2.0f;
             case DIGIT_SPEED_STANDARD:   return 1.0f;
             case DIGIT_SPEED_SLOW:       return 1.0f;

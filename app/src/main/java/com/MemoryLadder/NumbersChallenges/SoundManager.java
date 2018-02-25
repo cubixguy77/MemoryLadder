@@ -13,29 +13,25 @@ import java.util.Locale;
 class SoundManager {
 
     private final Context mContext;
-    private final float speechRate;
     private TextToSpeech speaker;
 
     /* Legacy fields only */
-    private boolean legacy = true;
+    private boolean legacy = false;
     private SoundPool mSoundPool;
     private SparseIntArray mSoundPoolMap;
     private AudioManager mAudioManager;
 
     SoundManager(Context mContext, float speechRate) {
         this.mContext = mContext;
-        this.speechRate = speechRate;
         this.speaker = new TextToSpeech(mContext, status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                if (speaker != null) {
-                    int result = speaker.setLanguage(Locale.UK);
-                    if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                        setupLegacySpeaker();
-                    }
-                    else {
-                        speaker.setPitch(.8f);
-                        speaker.setSpeechRate(speechRate);
-                    }
+            if (status == TextToSpeech.SUCCESS && speaker != null) {
+                int result = speaker.setLanguage(Locale.UK);
+                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    setupLegacySpeaker();
+                }
+                else {
+                    speaker.setPitch(.8f);
+                    speaker.setSpeechRate(speechRate);
                 }
             }
             else {
@@ -88,6 +84,6 @@ class SoundManager {
 
     private void playLegacySound(int index) {
         int streamVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, speechRate);
+        mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1.1f);
     }
 }
