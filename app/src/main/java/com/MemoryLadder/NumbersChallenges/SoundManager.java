@@ -12,7 +12,6 @@ import java.util.Locale;
 
 class SoundManager {
 
-    private final Context mContext;
     private TextToSpeech speaker;
 
     /* Legacy fields only */
@@ -21,13 +20,12 @@ class SoundManager {
     private SparseIntArray mSoundPoolMap;
     private AudioManager mAudioManager;
 
-    SoundManager(Context mContext, float speechRate) {
-        this.mContext = mContext;
-        this.speaker = new TextToSpeech(mContext, status -> {
+    SoundManager(Context context, float speechRate) {
+        this.speaker = new TextToSpeech(context, status -> {
             if (status == TextToSpeech.SUCCESS && speaker != null) {
                 int result = speaker.setLanguage(Locale.UK);
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    setupLegacySpeaker();
+                    setupLegacySpeaker(context);
                 }
                 else {
                     speaker.setPitch(.8f);
@@ -35,7 +33,7 @@ class SoundManager {
                 }
             }
             else {
-                setupLegacySpeaker();
+                setupLegacySpeaker(context);
             }
         });
     }
@@ -56,30 +54,30 @@ class SoundManager {
         }
     }
 
-    private void setupLegacySpeaker() {
-        initLegacySounds();
+    private void setupLegacySpeaker(Context context) {
+        initLegacySounds(context);
         legacy = true;
     }
 
-    private void initLegacySounds() {
+    private void initLegacySounds(Context context) {
         mSoundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
         mSoundPoolMap = new SparseIntArray();
-        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 
-        addLegacySound(0, R.raw.sound0);
-        addLegacySound(1, R.raw.sound1);
-        addLegacySound(2, R.raw.sound2);
-        addLegacySound(3, R.raw.sound3);
-        addLegacySound(4, R.raw.sound4);
-        addLegacySound(5, R.raw.sound5);
-        addLegacySound(6, R.raw.sound6);
-        addLegacySound(7, R.raw.sound7);
-        addLegacySound(8, R.raw.sound8);
-        addLegacySound(9, R.raw.sound9);
+        addLegacySound(0, R.raw.sound0, context);
+        addLegacySound(9, R.raw.sound9, context);
+        addLegacySound(2, R.raw.sound2, context);
+        addLegacySound(3, R.raw.sound3, context);
+        addLegacySound(4, R.raw.sound4, context);
+        addLegacySound(5, R.raw.sound5, context);
+        addLegacySound(6, R.raw.sound6, context);
+        addLegacySound(7, R.raw.sound7, context);
+        addLegacySound(8, R.raw.sound8, context);
+        addLegacySound(1, R.raw.sound1, context);
     }
 
-    private void addLegacySound(int Index, int SoundID) {
-        mSoundPoolMap.put(Index, mSoundPool.load(mContext, SoundID, 2));
+    private void addLegacySound(int Index, int SoundID, Context context) {
+        mSoundPoolMap.put(Index, mSoundPool.load(context, SoundID, 2));
     }
 
     private void playLegacySound(int index) {
