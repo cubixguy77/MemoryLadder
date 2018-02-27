@@ -38,32 +38,36 @@ public class DeckView extends GridLayout {
     public void renderCards(Deck deckMem, Deck deckRecall) {
         removeAllViews();
 
-        cardViews = new SmallCardView[deckMem.size() + deckRecall.size()];
+        int numRows = 2 * getRowCount(deckMem.size());
+        for (int row=0; row<numRows; row++) {
+            boolean isMemoryCell = row % 2 == 0;
 
-        for (int i = 0; i < cardViews.length; i++) {
-            boolean isMemoryCell = (i / getColumnCount() % 2 == 0);
+            int startIndex = getColumnCount() * (isMemoryCell ? row / 2 : (row - 1) / 2);
+            int endIndex = lesserOf(startIndex + getColumnCount(), deckMem.size());
+            for (int i = startIndex; i < endIndex; i++) {
+                SmallCardView cardView;
 
-            SmallCardView cardView = (SmallCardView) ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.partial_card_small, null, false);
-            FrameLayout.LayoutParams cardLayoutParameters = new FrameLayout.LayoutParams(getWidth() / getColumnCount(), (int) getResources().getDimension(R.dimen.small_card_height));
-            cardLayoutParameters.setMargins(0, 0, 0, isMemoryCell ? 0 : (int) getResources().getDimension(R.dimen.small_card_review_margin));
-            cardView.setLayoutParams(cardLayoutParameters);
-
-            if (isMemoryCell) {
-                cardView.setCard(deckMem.getCard(mapIndex(i)));
-            }
-            else {
-                int recCardIndex =  mapIndex(i);
-
-                if (deckMem.getCard(recCardIndex).equals(deckRecall.getCard(recCardIndex))) {
-                    cardView.setCard(PlayingCard.CORRECT);
+                if (isMemoryCell) {
+                    cardView = generateCardView(false, deckMem.getCard(i));
                 }
                 else {
-                    cardView.setCard(deckRecall.getCard(recCardIndex));
+                    if (deckMem.getCard(i).equals(deckRecall.getCard(i)))
+                        cardView = generateCardView(true, PlayingCard.CORRECT);
+                    else
+                        cardView = generateCardView(true, deckRecall.getCard(i));
                 }
+
+                addView(cardView);
             }
 
-            addView(cardView, i);
-            cardViews[i] = cardView;
+            /* Fills out the unfilled row with invisible views, creating a carriage return */
+            if (row + 2 == numRows) {
+                for (int i = 0; i < getColumnCount() - (endIndex - startIndex); i++) {
+                    SmallCardView cardView = generateCardView(false, null);
+                    cardView.setVisibility(View.INVISIBLE);
+                    addView(cardView);
+                }
+            }
         }
     }
 
@@ -71,16 +75,6 @@ public class DeckView extends GridLayout {
         if (cardViews != null) {
             removeAllViews();
             cardViews = null;
-        }
-    }
-
-    private int mapIndex(int i) {
-        int rowNum = i / getColumnCount();
-        if (rowNum % 2 == 0) {
-            return i - ((rowNum / 2) * getColumnCount());
-        }
-        else {
-            return i - (((rowNum+1) / 2) * getColumnCount());
         }
     }
 
@@ -108,10 +102,7 @@ public class DeckView extends GridLayout {
         cardViews = new SmallCardView[deck.size()];
 
         for (int i = 0; i < deck.size(); i++) {
-            SmallCardView cardView = (SmallCardView) ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.partial_card_small, null, false);
-            FrameLayout.LayoutParams cardLayoutParameters = new FrameLayout.LayoutParams(getWidth() / getColumnCount(), (int) getResources().getDimension(R.dimen.small_card_height));
-            cardView.setLayoutParams(cardLayoutParameters);
-            cardView.setCard(deck.getCard(i));
+            SmallCardView cardView = generateCardView(false, deck.getCard(i));
             addView(cardView, i);
             cardViews[i] = cardView;
         }
@@ -134,7 +125,24 @@ public class DeckView extends GridLayout {
         return (SmallCardView) getChildAt(index);
     }
 
-    void computeColumnCount(int deckSize) {
+    private int lesserOf(int a, int b) {
+        return a < b ? a : b;
+    }
+
+    private SmallCardView generateCardView(boolean withBottomMargin, PlayingCard card) {
+        SmallCardView cardView = (SmallCardView) ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.partial_card_small, null, false);
+        FrameLayout.LayoutParams cardLayoutParameters = new FrameLayout.LayoutParams(getWidth() / getColumnCount(), (int) getResources().getDimension(R.dimen.small_card_height));
+        cardLayoutParameters.setMargins(0, 0, 0, withBottomMargin ? (int) getResources().getDimension(R.dimen.small_card_review_margin) : 0);
+        cardView.setLayoutParams(cardLayoutParameters);
+        cardView.setCard(card);
+        return cardView;
+    }
+
+    private int getRowCount(int deckSize) {
+        return (deckSize / getColumnCount()) + (deckSize % getColumnCount() == 0 ? 0 : 1);
+    }
+
+    private void computeColumnCount(int deckSize) {
         int columnCount = 13;
 
         while (deckSize % columnCount != 0) {
@@ -143,6 +151,11 @@ public class DeckView extends GridLayout {
 
         /* Deck Size is a prime number */
         if (columnCount == 1) {
+            columnCount = 13;
+        }
+
+        /* Deck size is a multiple of two or three times a prime number */
+        if ((columnCount == 2 || columnCount == 3) && deckSize > 3) {
             columnCount = 13;
         }
 
