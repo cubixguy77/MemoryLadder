@@ -12,9 +12,6 @@ import java.util.List;
 class GameData {
 
     /* Settings */
-    private final int mode;
-    private final int gameType;
-    private final int step;
     private int numDecks;
     private int deckSize;
     private int numCardsPerGroup;
@@ -36,10 +33,6 @@ class GameData {
     private DataPoint[] pastScores;
 
     GameData(CardSettings settings) {
-        this.mode = settings.getMode();
-        this.gameType = settings.getGameType();
-        this.step = settings.getStep();
-
         this.numDecks = settings.getNumDecks();
         this.deckSize = settings.getDeckSize();
         this.numCardsPerGroup = settings.getNumCardsPerGroup();
@@ -138,6 +131,7 @@ class GameData {
         return this.score;
     }
 
+    /*
     Score saveScore(Score score, Context context) {
         new FileOps(context).updatePastScores(mode, gameType, Integer.toString(score.score));
         return this.score;
@@ -158,20 +152,9 @@ class GameData {
 
         return pastScores;
     }
+    */
 
-    public int getStep() {
-        return step;
-    }
-
-    public int getGameType() {
-        return gameType;
-    }
-
-    public int getMode() {
-        return mode;
-    }
-
-    public void setSecondsElapsedRecall(float secondsElapsedRecall) {
+    void setSecondsElapsedRecall(float secondsElapsedRecall) {
         this.secondsElapsedRecall = secondsElapsedRecall;
     }
 }

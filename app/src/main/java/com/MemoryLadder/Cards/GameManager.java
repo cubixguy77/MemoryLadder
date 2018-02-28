@@ -1,63 +1,59 @@
 package com.MemoryLadder.Cards;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Handler;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageButton;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.MemoryLadder.Cards.ScorePanel.Score;
-import com.MemoryLadder.Cards.ScorePanel.ScorePanel;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.Timer.ITimer;
-import com.MemoryLadder.Timer.SimpleTimer;
 import com.MemoryLadder.Timer.TimerView;
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.CountDownDialog;
-import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class GameManager implements DeckSelector.Presenter, SuitSelectionListener, CardSelectionListener, CardClickListener {
+public class GameManager extends Fragment implements DeckSelector.Presenter, SuitSelectionListener, CardSelectionListener, CardClickListener {
 
-    private Context context;
+    private GameData data;
     private CardSettings settings;
+    private GameManagerActivity activity;
 
+    @BindView(R.id.text_timer) TimerView timerView;
     @BindView(R.id.deck_view) DeckView deckView;
     @BindView(R.id.selected_cards_view) SelectedCardsView selectedCardsView;
     @BindView(R.id.layout_suit_selector) SuitSelectorView suitSelectorView;
     @BindView(R.id.card_selector_view) CardSelectionView cardSelectorView;
     @BindView(R.id.layout_deck_selector) DeckSelectorView deckSelectorView;
-    @BindView(R.id.text_timer) TimerView timerView;
+
     @BindView(R.id.layout_bottom_navigator_buttons) FrameLayout navigatorButtons;
     @BindView(R.id.button_prev_group_alt) AppCompatImageButton prevGroupButton;
     @BindView(R.id.button_next_group_alt) AppCompatImageButton nextGroupButton;
     @BindView(R.id.layout_button_start) FrameLayout startButtonLayout;
-    @BindView(R.id.cards_score_panel) ScorePanel scorePanel;
 
-    private GameData data;
-    private SimpleTimer timer;
+    public static GameManager newInstance(CardSettings settings) {
+        GameManager gameManager = new GameManager();
 
-    private ActionBar toolbar;
-    private MenuItem finishMem;
-    private MenuItem finishRecall;
-    private MenuItem playAgain;
+        Bundle args = new Bundle();
+        args.putParcelable("settings", settings);
+        gameManager.setArguments(args);
 
-    GameManager(Activity activity, ActionBar toolbar, CardSettings settings) {
-        this.toolbar = toolbar;
-        this.context = activity;
-        this.settings = settings;
+        return gameManager;
+    }
 
-        ButterKnife.bind(this, activity);
+    public GameManager() {}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.viewgroup_card_arena, container, false);
+        ButterKnife.bind(this, view);
+
+        settings = getArguments().getParcelable("settings");
 
         deckView.setListener(this);
         deckSelectorView.setDeckSelectionListener(this);
@@ -65,6 +61,19 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         cardSelectorView.setCardSelectionListener(this);
 
         selectedCardsView.setMnemonicsEnabled(settings.isMnemonicsEnabled());
+
+        return view;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.activity = (GameManagerActivity) context;
+        try {
+            this.activity = (GameManagerActivity) context;
+        } catch (final ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement GameManagerActivity");
+        }
     }
 
     GamePhase getGamePhase() {
@@ -74,49 +83,28 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
     void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             data = new GameData(settings);
-            timer = new SimpleTimer(settings.getTimeLimitInSeconds(), new ITimer.TimerUpdateListener() {
-                @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
-                    data.setSecondsElapsedMem(secondsElapsed);
-                    timerView.displayTime((int) secondsRemaining);
-                }
-                @Override
-                public void onTimeCountdownComplete() {
-                    setGamePhase(GamePhase.RECALL);
-                }
-            });
         }
         if (phase == GamePhase.MEMORIZATION) {
-            timer.start();
         }
         else if (phase == GamePhase.RECALL) {
-            timer.cancel();
-            timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), new ITimer.TimerUpdateListener() {
-                @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
-                    data.setSecondsElapsedRecall(secondsElapsed);
-                    timerView.displayTime((int) secondsRemaining);
-                }
-                @Override
-                public void onTimeCountdownComplete() {
-                    setGamePhase(GamePhase.REVIEW);
-                }
-            });
-
             data.setNumCardsPerGroup(1);
-            timer.start();
         }
         else if (phase == GamePhase.REVIEW) {
-            timer.cancel();
-            float memTime = data.getSecondsElapsedMem();
+            //float memTime = data.getSecondsElapsedMem();
+
+
             Score score = data.getScore();
-            data.saveScore(score, context);
+
+            //data.saveScore(score, context);
+
+            /*
             scorePanel.show(score, memTime, data.getPastScores(context));
 
             if (data.getMode() == Constants.STEPS && isLevelUp()) {
                 doLevelUp();
                 showLevelUpDialog();
             }
+            */
         }
 
         data.setGamePhase(phase);
@@ -124,6 +112,7 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         displayDeck(0);
     }
 
+    /*
     private boolean isLevelUp() {
         int score = data.getScore().score;
         double target = Utils.getTargetScore(data.getGameType(), data.getStep());
@@ -161,18 +150,12 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+    */
 
 
     /* Start Game */
     @OnClick(R.id.button_start) void startGame() {
-        final Handler handler = new Handler();
-        handler.postDelayed(() -> {
-            CountDownDialog count = new CountDownDialog(context);
-            count.setOnDismissListener(dialog -> setGamePhase(GamePhase.MEMORIZATION));
-            count.show();
-        }, 500);
-
-        refreshVisibleComponentsForPhase(GamePhase.MEMORIZATION);
+        activity.onStartClicked();
     }
 
     /* Highlight position adjustment */
@@ -264,7 +247,7 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
 
         if (data.getGamePhase() == GamePhase.PRE_MEMORIZATION) {
             deckView.clear();
-            deckView.renderCards(data.getRecallDeck(0));
+            deckView.post(() -> deckView.renderCards(data.getRecallDeck(0)));
         }
         if (data.getGamePhase() == GamePhase.MEMORIZATION) {
             deckView.renderCards(data.getMemoryDeck(deckNum));
@@ -273,7 +256,8 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         else if (data.getGamePhase() == GamePhase.RECALL) {
             deckView.renderCards(data.getRecallDeck(deckNum));
             suitSelectorView.renderSuits(PlayingCard.HEART);
-            cardSelectorView.renderCards(data.getRecallEntryDeck(PlayingCard.HEART, deckNum));
+            cardSelectorView.post(() -> cardSelectorView.renderCards(data.getRecallEntryDeck(PlayingCard.HEART, deckNum)));
+
             setFocusAt(0);
         }
         else if (data.getGamePhase() == GamePhase.REVIEW) {
@@ -302,16 +286,15 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
         return a < b ? a : b;
     }
 
-    private void refreshVisibleComponentsForPhase(GamePhase phase) {
+    public void refreshVisibleComponentsForPhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             suitSelectorView.setVisibility(View.GONE);
             cardSelectorView.setVisibility(View.GONE);
-            deckView.renderCards(data.getRecallDeck(0));
+            deckView.setVisibility(View.VISIBLE);
             selectedCardsView.setVisibility(View.GONE);
             selectedCardsView.setCardDisplayCount(0);
             navigatorButtons.setVisibility(View.GONE);
             startButtonLayout.setVisibility(View.VISIBLE);
-            scorePanel.hide();
             timerView.show();
         }
         else if (phase == GamePhase.MEMORIZATION) {
@@ -322,7 +305,6 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
             selectedCardsView.setVisibility(View.VISIBLE);
             navigatorButtons.setVisibility(View.VISIBLE);
             startButtonLayout.setVisibility(View.GONE);
-            scorePanel.hide();
         }
         else if (phase == GamePhase.RECALL) {
             navigatorButtons.setVisibility(View.GONE);
@@ -330,7 +312,6 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
             nextGroupButton.setVisibility(View.VISIBLE);
             suitSelectorView.setVisibility(View.VISIBLE);
             cardSelectorView.setVisibility(View.VISIBLE);
-            scorePanel.hide();
         }
         else if (phase == GamePhase.REVIEW) {
             suitSelectorView.setVisibility(View.GONE);
@@ -339,52 +320,9 @@ public class GameManager implements DeckSelector.Presenter, SuitSelectionListene
             selectedCardsView.setVisibility(View.GONE);
             timerView.hide();
         }
-
-        displayMenuItemsForPhase(phase);
     }
 
-    void setMenuItems(MenuItem finishMem, MenuItem finishRecall, MenuItem playAgain) {
-        this.finishMem = finishMem;
-        this.finishRecall = finishRecall;
-        this.playAgain = playAgain;
-    }
-
-    private void displayMenuItemsForPhase(GamePhase phase) {
-        if (phase == GamePhase.PRE_MEMORIZATION) {
-            toolbar.setTitle("Click Start to Begin");
-            finishMem.setVisible(false);
-            finishRecall.setVisible(false);
-            playAgain.setVisible(false);
-        }
-        else if (phase == GamePhase.MEMORIZATION) {
-            toolbar.setTitle("Memorization");
-            finishMem.setVisible(true);
-            finishRecall.setVisible(false);
-            playAgain.setVisible(false);
-        }
-        else if (phase == GamePhase.RECALL) {
-            toolbar.setTitle("Recall");
-            finishMem.setVisible(false);
-            finishRecall.setVisible(true);
-            playAgain.setVisible(false);
-        }
-        else if (phase == GamePhase.REVIEW) {
-            toolbar.setTitle("Review");
-            finishMem.setVisible(false);
-            finishRecall.setVisible(false);
-            playAgain.setVisible(true);
-        }
-    }
-
-    void resume() {
-        if (timer != null && data.getGamePhase() == GamePhase.MEMORIZATION || data.getGamePhase() == GamePhase.MEMORIZATION) {
-            timer.start();
-        }
-    }
-
-    void pause() {
-        if (timer != null && data.getGamePhase() == GamePhase.MEMORIZATION || data.getGamePhase() == GamePhase.MEMORIZATION) {
-            timer.pause();
-        }
+    public void displayTime(int secondsRemaining) {
+        timerView.displayTime(secondsRemaining);
     }
 }

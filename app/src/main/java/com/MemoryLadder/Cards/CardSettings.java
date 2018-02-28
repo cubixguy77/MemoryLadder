@@ -1,23 +1,22 @@
 package com.MemoryLadder.Cards;
 
-class CardSettings extends GeneralSettings {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+class CardSettings implements Parcelable {
 
     private int numDecks;
     private int deckSize;
     private int numCardsPerGroup;
     private boolean shuffle;
-    private int timeLimitInSeconds;
-    private int timeLimitInSecondsForRecall;
+
     private boolean mnemonicsEnabled;
 
-    CardSettings(int mode, int gameType, int step, int numDecks, int deckSize, int numCardsPerGroup, boolean shuffle, int timeLimitInSeconds, int timeLimitInSecondsForRecall, boolean isMnemonicsEnabled) {
-        super(mode, gameType, step);
+    CardSettings(int numDecks, int deckSize, int numCardsPerGroup, boolean shuffle, boolean isMnemonicsEnabled) {
         this.numDecks = numDecks;
         this.deckSize = deckSize;
         this.numCardsPerGroup = numCardsPerGroup;
         this.shuffle = shuffle;
-        this.timeLimitInSeconds = timeLimitInSeconds;
-        this.timeLimitInSecondsForRecall = timeLimitInSecondsForRecall;
         this.mnemonicsEnabled = isMnemonicsEnabled;
     }
 
@@ -37,15 +36,40 @@ class CardSettings extends GeneralSettings {
         return shuffle;
     }
 
-    int getTimeLimitInSeconds() {
-        return timeLimitInSeconds;
-    }
-
-    int getTimeLimitInSecondsForRecall() {
-        return timeLimitInSecondsForRecall;
-    }
-
     boolean isMnemonicsEnabled() {
         return mnemonicsEnabled;
     }
+
+    private CardSettings(Parcel in) {
+        numDecks = in.readInt();
+        deckSize = in.readInt();
+        numCardsPerGroup = in.readInt();
+        shuffle = in.readByte() != 0x00;
+        mnemonicsEnabled = in.readByte() != 0x00;
+    }
+
+    @Override
+    public int describeContents() { return 0; }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(numDecks);
+        dest.writeInt(deckSize);
+        dest.writeInt(numCardsPerGroup);
+        dest.writeByte((byte) (shuffle ? 0x01 : 0x00));
+        dest.writeByte((byte) (mnemonicsEnabled ? 0x01 : 0x00));
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<CardSettings> CREATOR = new Parcelable.Creator<CardSettings>() {
+        @Override
+        public CardSettings createFromParcel(Parcel in) {
+            return new CardSettings(in);
+        }
+
+        @Override
+        public CardSettings[] newArray(int size) {
+            return new CardSettings[size];
+        }
+    };
 }

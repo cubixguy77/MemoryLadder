@@ -12,9 +12,7 @@ public class TimerView extends android.support.v7.widget.AppCompatTextView imple
     public TimerView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-    public TimerView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
+    public TimerView(Context context, AttributeSet attrs, int defStyle) { super(context, attrs, defStyle); }
 
     @Override
     public void show() {

@@ -86,10 +86,10 @@ public abstract class CountDownTimerPausable {
      * Pauses the CountDownTimerPausable, so it could be resumed(start)
      * later from the same point where it was paused.
      */
-    public void pause() throws IllegalStateException{
+    public void pause() throws IllegalStateException {
         if(!isPaused){
             countDownTimer.cancel();
-        } else{
+        } else {
             throw new IllegalStateException("CountDownTimerPausable is already in pause state, start counter before pausing it.");
         }
         isPaused = true;
