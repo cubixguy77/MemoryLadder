@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -51,7 +52,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_card_prototype);
 
@@ -70,7 +71,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.gameContainer, gameManager);
+        fragmentTransaction.add(R.id.gameContainer, (Fragment) gameManager);
         fragmentTransaction.commit();
     }
 
@@ -121,7 +122,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
 
     public void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
-        displayToolbar(gamePhase);
+        renderToolbarFor(gamePhase);
 
         if (gamePhase == GamePhase.PRE_MEMORIZATION) {
             gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
@@ -142,6 +143,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
         }
         if (gamePhase == GamePhase.MEMORIZATION) {
             gameManager.setGamePhase(GamePhase.MEMORIZATION);
+            timer.start();
         }
         if (gamePhase == GamePhase.RECALL) {
             timer.cancel();
@@ -149,10 +151,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
 
             timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), new ITimer.TimerUpdateListener() {
                 @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
-                    gameManager.displayTime((int) secondsRemaining);
-                }
-
+                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) { gameManager.displayTime((int) secondsRemaining); }
                 @Override
                 public void onTimeCountdownComplete() {
                     setGamePhase(GamePhase.REVIEW);
@@ -240,7 +239,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
         finishRecall = menu.getItem(1);
         playAgain = menu.getItem(2);
 
-        displayToolbar(this.gamePhase);
+        renderToolbarFor(this.gamePhase);
         return true;
     }
 
@@ -261,7 +260,7 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
         }
     }
 
-    private void displayToolbar(GamePhase phase) {
+    private void renderToolbarFor(GamePhase phase) {
 
         if (toolbar == null || finishMem == null)
             return;
@@ -315,15 +314,12 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
     @Override
     public void onStartClicked() {
         gameManager.refreshVisibleComponentsForPhase(GamePhase.MEMORIZATION);
-        displayToolbar(GamePhase.MEMORIZATION);
+        renderToolbarFor(GamePhase.MEMORIZATION);
 
         final Handler handler = new Handler();
         handler.postDelayed(() -> {
             CountDownDialog count = new CountDownDialog(this);
-            count.setOnDismissListener(dialog -> {
-                setGamePhase(GamePhase.MEMORIZATION);
-                timer.start();
-            });
+            count.setOnDismissListener(dialog -> setGamePhase(GamePhase.MEMORIZATION));
             count.show();
         }, 500);
     }
