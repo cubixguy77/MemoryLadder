@@ -69,42 +69,22 @@ public class GameManager extends Fragment implements DeckSelector.Presenter, Sui
     public void onAttach(Context context) {
         super.onAttach(context);
         this.activity = (GameManagerActivity) context;
-        try {
-            this.activity = (GameManagerActivity) context;
-        } catch (final ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement GameManagerActivity");
-        }
-    }
-
-    GamePhase getGamePhase() {
-        return data.getGamePhase();
+        try { this.activity = (GameManagerActivity) context; }
+        catch (final ClassCastException e) { throw new ClassCastException(activity.toString() + " must implement GameManagerActivity"); }
     }
 
     void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             data = new GameData(settings);
         }
-        if (phase == GamePhase.MEMORIZATION) {
+        else if (phase == GamePhase.MEMORIZATION) {
+
         }
         else if (phase == GamePhase.RECALL) {
             data.setNumCardsPerGroup(1);
         }
         else if (phase == GamePhase.REVIEW) {
-            //float memTime = data.getSecondsElapsedMem();
 
-
-            Score score = data.getScore();
-
-            //data.saveScore(score, context);
-
-            /*
-            scorePanel.show(score, memTime, data.getPastScores(context));
-
-            if (data.getMode() == Constants.STEPS && isLevelUp()) {
-                doLevelUp();
-                showLevelUpDialog();
-            }
-            */
         }
 
         data.setGamePhase(phase);
@@ -112,46 +92,9 @@ public class GameManager extends Fragment implements DeckSelector.Presenter, Sui
         displayDeck(0);
     }
 
-    /*
-    private boolean isLevelUp() {
-        int score = data.getScore().score;
-        double target = Utils.getTargetScore(data.getGameType(), data.getStep());
-        return score >= target && data.getStep() <= 4;
+    public Score getScore() {
+        return data.getScore();
     }
-
-    private void doLevelUp() {
-        SharedPreferences settings = context.getSharedPreferences("Steps", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putInt(Constants.getGameName(Constants.CARDS_LONG), data.getStep() + 1);
-        editor.apply();
-    }
-
-    private void showLevelUpDialog() {
-        int step = data.getStep();
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.AlertDialogStyle);
-        builder.setTitle("You passed step " + step + "!");
-        builder.setMessage("Would you like to continue to step " + (step + 1) + "?");
-
-        String positiveText = "Step " + (step + 1);
-        builder.setPositiveButton(positiveText,
-                (dialog, which) -> {
-                    Intent i = new Intent();
-                    i.putExtra("gameType", data.getGameType());
-                    i.putExtra("mode", data.getMode());
-                    i.setClass(context, TestDetailsActivity.class);
-                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    context.startActivity(i);
-                });
-
-        String negativeText = "Cancel";
-        builder.setNegativeButton(negativeText, (dialog, which) -> dialog.dismiss());
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-    */
-
 
     /* Start Game */
     @OnClick(R.id.button_start) void startGame() {
@@ -282,10 +225,6 @@ public class GameManager extends Fragment implements DeckSelector.Presenter, Sui
         }
     }
 
-    private int lesserOf(int a, int b) {
-        return a < b ? a : b;
-    }
-
     public void refreshVisibleComponentsForPhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             suitSelectorView.setVisibility(View.GONE);
@@ -324,5 +263,9 @@ public class GameManager extends Fragment implements DeckSelector.Presenter, Sui
 
     public void displayTime(int secondsRemaining) {
         timerView.displayTime(secondsRemaining);
+    }
+
+    private int lesserOf(int a, int b) {
+        return a < b ? a : b;
     }
 }

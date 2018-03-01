@@ -1,6 +1,8 @@
 package com.MemoryLadder.Cards;
 
 import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentManager;
@@ -9,12 +11,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 
+import com.MemoryLadder.Cards.ScorePanel.Score;
 import com.MemoryLadder.Cards.ScorePanel.ScorePanel;
+import com.MemoryLadder.Constants;
 import com.MemoryLadder.CountDownDialog;
+import com.MemoryLadder.FileOps;
+import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.Timer.ITimer;
 import com.MemoryLadder.Timer.SimpleTimer;
+import com.MemoryLadder.Utils;
+import com.jjoe64.graphview.series.DataPoint;
 import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;
@@ -31,7 +40,6 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
 
     private SimpleTimer timer;
     private float secondsElapsedMem;
-    private float secondsElapsedRecall;
 
     private MenuItem finishMem;
     private MenuItem finishRecall;
@@ -66,73 +74,10 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
         fragmentTransaction.commit();
     }
 
-    public void setGamePhase(GamePhase gamePhase) {
-        this.gamePhase = gamePhase;
-        displayToolbar(gamePhase);
-
-        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
-            secondsElapsedMem = 0;
-            secondsElapsedRecall = 0;
-
-            timer = new SimpleTimer(settings.getTimeLimitInSeconds(), new ITimer.TimerUpdateListener() {
-                @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
-                    secondsElapsedMem = secondsElapsed;
-                    gameManager.displayTime((int) secondsRemaining);
-                }
-                @Override
-                public void onTimeCountdownComplete() {
-                    gameManager.setGamePhase(GamePhase.RECALL);
-                }
-            });
-
-            gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
-        }
-        if (gamePhase == GamePhase.MEMORIZATION) {
-            gameManager.setGamePhase(GamePhase.MEMORIZATION);
-        }
-        if (gamePhase == GamePhase.RECALL) {
-            timer.cancel();
-
-            gameManager.setGamePhase(gamePhase);
-
-            timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), new ITimer.TimerUpdateListener() {
-                @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
-                    secondsElapsedRecall = secondsElapsed;
-                    gameManager.displayTime((int) secondsRemaining);
-                }
-
-                @Override
-                public void onTimeCountdownComplete() {
-                    setGamePhase(GamePhase.REVIEW);
-                }
-            });
-
-            timer.start();
-        }
-        else if (gamePhase == GamePhase.REVIEW) {
-            timer.cancel();
-            gameManager.setGamePhase(GamePhase.REVIEW);
-        }
-    }
-
     @Override
-    public void onStartClicked() {
-        gameManager.refreshVisibleComponentsForPhase(GamePhase.MEMORIZATION);
-        displayToolbar(GamePhase.MEMORIZATION);
-
-        final Handler handler = new Handler();
-        handler.postDelayed(() -> {
-            CountDownDialog count = new CountDownDialog(this);
-            count.setOnDismissListener(dialog -> {
-                setGamePhase(GamePhase.MEMORIZATION);
-                timer.start();
-            });
-            count.show();
-        }, 500);
+    protected void onStart() {
+        super.onStart();
     }
-
 
     @Override
     protected void onResume() {
@@ -152,10 +97,141 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
     protected void onPause() {
         super.onPause();
 
-        if (timer != null && this.gamePhase == GamePhase.MEMORIZATION || this.gamePhase == GamePhase.MEMORIZATION) {
+        if (timer != null && !timer.isPaused()) {
             timer.pause();
         }
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+
+
+
+
+
+
+
+    public void setGamePhase(GamePhase gamePhase) {
+        this.gamePhase = gamePhase;
+        displayToolbar(gamePhase);
+
+        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
+            gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
+            secondsElapsedMem = 0;
+            scorePanel.setVisibility(View.GONE);
+
+            timer = new SimpleTimer(settings.getTimeLimitInSeconds(), new ITimer.TimerUpdateListener() {
+                @Override
+                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
+                    secondsElapsedMem = secondsElapsed;
+                    gameManager.displayTime((int) secondsRemaining);
+                }
+                @Override
+                public void onTimeCountdownComplete() {
+                    gameManager.setGamePhase(GamePhase.RECALL);
+                }
+            });
+        }
+        if (gamePhase == GamePhase.MEMORIZATION) {
+            gameManager.setGamePhase(GamePhase.MEMORIZATION);
+        }
+        if (gamePhase == GamePhase.RECALL) {
+            timer.cancel();
+            gameManager.setGamePhase(gamePhase);
+
+            timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), new ITimer.TimerUpdateListener() {
+                @Override
+                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
+                    gameManager.displayTime((int) secondsRemaining);
+                }
+
+                @Override
+                public void onTimeCountdownComplete() {
+                    setGamePhase(GamePhase.REVIEW);
+                }
+            });
+
+            timer.start();
+        }
+        else if (gamePhase == GamePhase.REVIEW) {
+            timer.cancel();
+            gameManager.setGamePhase(GamePhase.REVIEW);
+
+            Score score = gameManager.getScore();
+            saveScore(score);
+            scorePanel.show(score, secondsElapsedMem, getPastScores());
+
+            if (settings.getMode() == Constants.STEPS && isLevelUp(score.score)) {
+                doLevelUp();
+                showLevelUpDialog();
+            }
+        }
+    }
+
+
+    void saveScore(Score score) {
+        new FileOps(this).updatePastScores(settings.getMode(), settings.getGameType(), Integer.toString(score.score));
+    }
+
+    DataPoint[] getPastScores() {
+        return new FileOps(this).readPastScoresToDataPoints(settings.getMode(), settings.getGameType());
+    }
+
+    private boolean isLevelUp(int scoreValue) {
+        double target = Utils.getTargetScore(settings.getGameType(), settings.getStep());
+        return scoreValue >= target && settings.getStep() < 5;
+    }
+
+    private void doLevelUp() {
+        SharedPreferences prefs = getSharedPreferences("Steps", 0);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt(Constants.getGameName(settings.getGameType()), settings.getStep() + 1);
+        editor.apply();
+    }
+
+    private void showLevelUpDialog() {
+        int step = settings.getStep();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+        builder.setTitle("You passed step " + step + "!");
+        builder.setMessage("Would you like to continue to step " + (step + 1) + "?");
+
+        String positiveText = "Step " + (step + 1);
+        builder.setPositiveButton(positiveText,
+                (dialog, which) -> {
+                    Intent i = new Intent();
+                    i.putExtra("gameType", settings.getGameType());
+                    i.putExtra("mode", settings.getMode());
+                    i.setClass(this, TestDetailsActivity.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(i);
+                });
+
+        String negativeText = "Cancel";
+        builder.setNegativeButton(negativeText, (dialog, which) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -234,5 +310,21 @@ public class CardPrototype extends AppCompatActivity implements GameManagerActiv
                .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    @Override
+    public void onStartClicked() {
+        gameManager.refreshVisibleComponentsForPhase(GamePhase.MEMORIZATION);
+        displayToolbar(GamePhase.MEMORIZATION);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(() -> {
+            CountDownDialog count = new CountDownDialog(this);
+            count.setOnDismissListener(dialog -> {
+                setGamePhase(GamePhase.MEMORIZATION);
+                timer.start();
+            });
+            count.show();
+        }, 500);
     }
 }

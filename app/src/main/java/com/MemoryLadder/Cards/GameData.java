@@ -1,11 +1,7 @@
 package com.MemoryLadder.Cards;
 
-import android.content.Context;
-
 import com.MemoryLadder.Cards.ScorePanel.Score;
 import com.MemoryLadder.Cards.ScorePanel.ScoreCalculation;
-import com.MemoryLadder.FileOps;
-import com.jjoe64.graphview.series.DataPoint;
 
 import java.util.List;
 
@@ -21,16 +17,11 @@ class GameData {
     private int deckNum;
     private int highlightPosition;
     private GamePhase gamePhase;
-    private float secondsElapsedMem;
-    private float secondsElapsedRecall;
 
     /* Data Structures */
     private Deck[] memoryDecks;
     private Deck[] recalledDecks;
     private Deck[][] recallEntryDecks;
-
-    private Score score;
-    private DataPoint[] pastScores;
 
     GameData(CardSettings settings) {
         this.numDecks = settings.getNumDecks();
@@ -74,7 +65,7 @@ class GameData {
         return recallEntryDecks[deckNum][suit];
     }
 
-    public int getDeckSize() {
+    int getDeckSize() {
         return deckSize;
     }
 
@@ -124,37 +115,6 @@ class GameData {
     }
 
     public Score getScore() {
-        if (this.score == null) {
-            this.score = ScoreCalculation.getScore(recalledDecks, memoryDecks);
-        }
-
-        return this.score;
-    }
-
-    /*
-    Score saveScore(Score score, Context context) {
-        new FileOps(context).updatePastScores(mode, gameType, Integer.toString(score.score));
-        return this.score;
-    }
-
-    void setSecondsElapsedMem(float secondsElapsedMem) {
-        this.secondsElapsedMem = secondsElapsedMem;
-    }
-
-    float getSecondsElapsedMem() {
-        return secondsElapsedMem;
-    }
-
-    DataPoint[] getPastScores(Context context) {
-        if (pastScores == null) {
-            pastScores = new FileOps(context).readPastScoresToDataPoints(mode, gameType);
-        }
-
-        return pastScores;
-    }
-    */
-
-    void setSecondsElapsedRecall(float secondsElapsedRecall) {
-        this.secondsElapsedRecall = secondsElapsedRecall;
+        return ScoreCalculation.getScore(recalledDecks, memoryDecks);
     }
 }
