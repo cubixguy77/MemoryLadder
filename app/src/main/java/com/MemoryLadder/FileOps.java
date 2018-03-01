@@ -1,5 +1,11 @@
 package com.MemoryLadder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.MemoryLadder.TakeTest.Cards.PlayingCard;
+import com.jjoe64.graphview.series.DataPoint;
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
@@ -9,12 +15,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.MemoryLadder.Cards.Card;
-import com.jjoe64.graphview.series.DataPoint;
 
 public class FileOps {
 	
@@ -191,18 +191,16 @@ public class FileOps {
 	
 	private static Integer getIntegerValue(char value) {
         switch (value) {
-	        case Card.TEN:          return 10;
-	        case Card.JACK:         return 11;
-	        case Card.QUEEN:        return 12;
-	        case Card.KING:         return 13;
-	        case Card.TENc:         return 10;
-	        case Card.JACKc:        return 11;
-	        case Card.QUEENc:       return 12;
-	        case Card.KINGc:        return 13;
-	        case Card.ACE:        	return 1;
-	        case 'a':               return 1;
-	        case 'A':				return 1;
-	        default:                return Character.getNumericValue(value);
+	        case PlayingCard.TEN:          return 10;
+	        case PlayingCard.JACK:         return 11;
+	        case PlayingCard.QUEEN:        return 12;
+	        case PlayingCard.KING:         return 13;
+	        case PlayingCard.TENc:         return 10;
+	        case PlayingCard.JACKc:        return 11;
+	        case PlayingCard.QUEENc:       return 12;
+	        case PlayingCard.KINGc:        return 13;
+	        case PlayingCard.ACE:          return 1;
+	        default:                       return Character.getNumericValue(value);
         }
 	}
 	
@@ -229,7 +227,7 @@ public class FileOps {
 				case LISTS_EVENTS:    return "custom_listsevents";
 				case SHAPES_FACES:    return "custom_shapesfaces";
 				case SHAPES_ABSTRACT: return "custom_shapesabstract";
-				case CARDS_LONG:     return "custom_cardslong";
+				case CARDS_LONG:      return "custom_cardslong";
 				default:              return null;
     		}
     	}

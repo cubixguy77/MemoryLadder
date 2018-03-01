@@ -2,7 +2,7 @@ package com.MemoryLadder;
 
 import android.support.annotation.DrawableRes;
 
-import com.MemoryLadder.Cards.CardPrototype;
+import com.MemoryLadder.TakeTest.GameActivity;
 import com.MemoryLadder.ListsChallenges.Lists_Mem;
 import com.MemoryLadder.NumbersChallenges.DigitSpeed;
 import com.MemoryLadder.NumbersChallenges.Numbers_Mem;
@@ -132,7 +132,7 @@ public class Constants {
             case LISTS_EVENTS: return Lists_Mem.class;
             case SHAPES_FACES: return Shapes_Mem.class;
             case SHAPES_ABSTRACT: return Shapes_Mem.class;
-            case CARDS_LONG: return CardPrototype.class;
+            case CARDS_LONG: return GameActivity.class;
             default: return Numbers_Mem.class;
         }
     }

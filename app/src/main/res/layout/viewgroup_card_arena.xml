@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/activity.background"
+    tools:context="com.MemoryLadder.TakeTest.GameActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/deck_selector.size"
+            android:layout_marginBottom="@dimen/deck_selector.margin"
+            android:layout_marginTop="@dimen/deck_selector.margin">
+
+            <com.MemoryLadder.TakeTest.Cards.DeckSelectorView
+                android:id="@+id/layout_deck_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp">
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/button_prev_deck"
+                    style="@style/DeckSelectorButton"
+                    app:srcCompat="@drawable/ic_arrow_left_small" />
+
+                <TextView
+                    android:id="@+id/text_deck_number"
+                    tools:text="Deck 1/5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textColor="#ffffffff"
+                    android:textSize="@dimen/deck_selector.text.size" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/button_next_deck"
+                    style="@style/DeckSelectorButton"
+                    app:srcCompat="@drawable/ic_arrow_right_small" />
+
+            </com.MemoryLadder.TakeTest.Cards.DeckSelectorView>
+
+            <com.MemoryLadder.TakeTest.Timer.TimerView
+                android:id="@+id/text_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="5:00"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/timer.text.size" />
+
+        </FrameLayout>
+
+        <com.MemoryLadder.TakeTest.Cards.DeckView
+            android:id="@+id/deck_view"
+            tools:layout_height="192dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="horizontal" />
+
+        <com.MemoryLadder.TakeTest.Cards.SelectedCardsView
+            android:id="@+id/selected_cards_view"
+            tools:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@color/green"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/button_prev_group_alt"
+                style="@style/NextGroupButton"
+                app:srcCompat="@drawable/ic_arrow_left"
+                android:layout_marginLeft="@dimen/cards.navigation_button.margin"
+                android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                android:contentDescription="Last Group" />
+
+            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+                android:id="@+id/card_large_one"
+                style="@style/LargeCardLayoutStyle">
+
+                <android.support.v7.widget.AppCompatImageView
+                    style="@style/LargeCardStyle"
+                    tools:src="@drawable/card_h1" />
+
+                <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+
+            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+                android:id="@+id/card_large_two"
+                style="@style/LargeCardLayoutStyle">
+
+                <android.support.v7.widget.AppCompatImageView
+                    style="@style/LargeCardStyle"
+                    tools:src="@drawable/card_h1" />
+
+                <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+
+            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+                android:id="@+id/card_large_three"
+                style="@style/LargeCardLayoutStyle">
+
+                <android.support.v7.widget.AppCompatImageView
+                    style="@style/LargeCardStyle"
+                    tools:src="@drawable/card_h1" />
+
+                <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
+            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/button_next_group_alt"
+                style="@style/NextGroupButton"
+                app:srcCompat="@drawable/ic_arrow_right"
+                android:layout_marginLeft="@dimen/cards.navigation_button.margin"
+                android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                android:contentDescription="Last Group" />
+
+        </com.MemoryLadder.TakeTest.Cards.SelectedCardsView>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/layout_bottom_navigator_buttons"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/NextGroupButton"
+            android:contentDescription="Last Group"
+            android:id="@+id/button_prev_group"
+            android:layout_marginRight="@dimen/cards.navigation_button.margin_from_center"
+            app:srcCompat="@drawable/ic_arrow_left" />
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/NextGroupButton"
+            android:contentDescription="Next Group"
+            android:id="@+id/button_next_group"
+            android:layout_marginLeft="@dimen/cards.navigation_button.margin_from_center"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </FrameLayout>
+
+    <com.MemoryLadder.TakeTest.Cards.SuitSelectorView
+        android:id="@+id/layout_suit_selector"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/SuitSelectorCell"
+            android:id="@+id/image_suit_selector_heart"
+            app:srcCompat="@drawable/icon_suit_heart" />
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/SuitSelectorCell"
+            android:id="@+id/image_suit_selector_diamond"
+            app:srcCompat="@drawable/icon_suit_diamond" />
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/SuitSelectorCell"
+            android:id="@+id/image_suit_selector_club"
+            app:srcCompat="@drawable/icon_suit_club" />
+
+        <android.support.v7.widget.AppCompatImageButton
+            style="@style/SuitSelectorCell"
+            android:id="@+id/image_suit_selector_spade"
+            app:srcCompat="@drawable/icon_suit_spade" />
+
+    </com.MemoryLadder.TakeTest.Cards.SuitSelectorView>
+
+    <com.MemoryLadder.TakeTest.Cards.CardSelectionView
+        android:animateLayoutChanges="true"
+        android:columnCount="7"
+        android:id="@+id/card_selector_view"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        tools:layout_height="96dp"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/layout_button_start"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        tools:visibility="gone">
+
+        <Button
+            android:background="@drawable/selector_startbutton"
+            android:id="@+id/button_start"
+            android:layout_gravity="center"
+            android:layout_height="180dp"
+            android:layout_width="180dp" />
+    </FrameLayout>
+</LinearLayout>

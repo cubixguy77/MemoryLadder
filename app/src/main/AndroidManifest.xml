@@ -46,7 +46,7 @@
             android:name="com.MemoryLadder.NumbersChallenges.HowItWorks_Numbers"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.Cards.HowItWorks_Cards"
+            android:name="com.MemoryLadder.TakeTest.Cards.HowItWorks_Cards"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.MemoryLadder.ChoosePegsScreens.Help_LoadPegs"
@@ -89,7 +89,7 @@
             android:name="com.MemoryLadder.ListsChallenges.Lists_Review"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.MemoryLadder.Cards.CardPrototype"
+            android:name="com.MemoryLadder.TakeTest.GameActivity"
             android:label="@string/title_activity_card_prototype">
         </activity>
     </application>
