@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.Scoring.ScoreActivity;
 import com.MemoryLadder.Scoring.Scoring;
-import com.MemoryLadder.Timer.CountDownTimerPausable;
+import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
 import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 

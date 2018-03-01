@@ -1,12 +1,5 @@
 package com.MemoryLadder.ChoosePegsScreens;
 
-import com.MemoryLadder.Cards.Card;
-import com.MemoryLadder.FileOps;
-import com.MemoryLadder.Cards.HowItWorks_Cards;
-import com.MemoryLadder.Utils;
-import com.aditya.filebrowser.*;
-import com.mastersofmemory.memoryladder.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -16,13 +9,20 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
+
+import com.MemoryLadder.FileOps;
+import com.MemoryLadder.TakeTest.Cards.HowItWorks_Cards;
+import com.MemoryLadder.TakeTest.Cards.PlayingCard;
+import com.MemoryLadder.Utils;
+import com.aditya.filebrowser.FileChooser;
+import com.mastersofmemory.memoryladder.R;
 
 import static com.aditya.filebrowser.Constants.SELECTION_MODE;
 
@@ -41,8 +41,7 @@ public class ChoosePegs_Cards extends Activity implements OnClickListener {
 	private int numRows = 13;
 	private int numCols = 4;
 	private int numItems = numRows * numCols;
-	
-//	private final int NUMBER = 0;
+
 	private final int CARD = 1;
 	
 	private String[] pegs;
@@ -202,7 +201,7 @@ public class ChoosePegs_Cards extends Activity implements OnClickListener {
           
             int index = getTranspose(position);
             
-            String indexString = Card.getCharacter(getRow(position) + 1);
+            String indexString = PlayingCard.getCharacter(getRow(position) + 1);
             String pegString = pegs[index];
             
             numtext.setText(indexString);
