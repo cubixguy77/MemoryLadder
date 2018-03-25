@@ -25,4 +25,8 @@
         <item name="android:textColorPrimary">@color/yellow</item>
         <item name="android:textSize">24sp</item>
     </style>
+
+    <declare-styleable name="MaxHeightScrollView">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
 </resources>

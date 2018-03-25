@@ -48,10 +48,10 @@ public class SuitSelectorView extends LinearLayout {
     void renderSuits(int selectedSuit) {
         this.selectedSuit = selectedSuit;
 
-        heart.setBackgroundResource(selectedSuit == PlayingCard.HEART ? R.drawable.border_highlight : R.drawable.border);
-        diamond.setBackgroundResource(selectedSuit == PlayingCard.DIAMOND ? R.drawable.border_highlight : R.drawable.border);
-        club.setBackgroundResource(selectedSuit == PlayingCard.CLUB ? R.drawable.border_highlight : R.drawable.border);
-        spade.setBackgroundResource(selectedSuit == PlayingCard.SPADE ? R.drawable.border_highlight : R.drawable.border);
+        heart.setBackgroundResource(selectedSuit == PlayingCard.HEART ? R.drawable.border_highlight_yellow : R.drawable.border);
+        diamond.setBackgroundResource(selectedSuit == PlayingCard.DIAMOND ? R.drawable.border_highlight_yellow : R.drawable.border);
+        club.setBackgroundResource(selectedSuit == PlayingCard.CLUB ? R.drawable.border_highlight_yellow : R.drawable.border);
+        spade.setBackgroundResource(selectedSuit == PlayingCard.SPADE ? R.drawable.border_highlight_yellow : R.drawable.border);
     }
 
     public int getSelectedSuit() {

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_weight="1"
+    android:background="@color/colorPrimary"
+    tools:showIn="@layout/viewgroup_written_numbers_arena">
+
+    <TextView
+        android:id="@+id/prevGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left|center_vertical"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        tools:text="123"
+        />
+
+    <TextView
+        android:id="@+id/curGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="120sp"
+        tools:text="456"
+        />
+
+    <TextView
+        android:id="@+id/nextGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        tools:text="789"
+        />
+
+    <TextView
+        android:id="@+id/extraGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="20dp"
+        android:textSize="20sp"
+        tools:text="012"
+        android:visibility="gone"
+        />
+</com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel>

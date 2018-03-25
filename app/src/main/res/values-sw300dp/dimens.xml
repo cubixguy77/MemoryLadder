@@ -105,4 +105,12 @@
     <dimen name="picker.digitSpeed.rows.textSize">18sp</dimen>
 
 
+    <dimen name="animated_text_carousel_text_size">20sp</dimen>
+    <dimen name="animated_text_carousel_view_pager_padding_horizontal">40dp</dimen>
+    <item name="animated_text_carousel_deselected_text_alpha" type="dimen" format="float">0.3</item>
+    <item name="animated_text_carousel_scale_factor" type="dimen" format="float">1</item>
+
+    <dimen name="numeric_keyboard.layout_height">300dp</dimen>
+    <dimen name="numeric_keyboard.textSize">22sp</dimen>
+    <dimen name="numeric_keyboard.iconSize">24dp</dimen>
 </resources>

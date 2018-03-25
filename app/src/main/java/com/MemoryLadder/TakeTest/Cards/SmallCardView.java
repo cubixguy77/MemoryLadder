@@ -59,7 +59,7 @@ public class SmallCardView extends FrameLayout {
     }
 
     public void highlightCard() {
-        setBackgroundResource(R.drawable.border_highlight);
+        setBackgroundResource(R.drawable.border_highlight_yellow);
     }
 
     public void removeHighlight() {

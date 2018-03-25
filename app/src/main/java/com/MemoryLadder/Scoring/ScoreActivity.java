@@ -369,7 +369,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 	}
 
     public void animateTextNextGame(final int gameType) {
-    	final Animation to_left = AnimationUtils.loadAnimation(this, R.anim.to_left);
+    	final Animation to_left = AnimationUtils.loadAnimation(this, R.anim.to_left_fast);
     	to_left.reset();
 		final Animation from_right_fast = AnimationUtils.loadAnimation(this, R.anim.from_right_fast);
 		from_right_fast.reset();
@@ -390,7 +390,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
     }
     
     public void animateTextLastGame(final int gameType) {
-    	final Animation to_right = AnimationUtils.loadAnimation(this, R.anim.to_right);
+    	final Animation to_right = AnimationUtils.loadAnimation(this, R.anim.to_right_fast);
     	to_right.reset();
 		final Animation from_left_fast = AnimationUtils.loadAnimation(this, R.anim.from_left_fast);
 		from_left_fast.reset();

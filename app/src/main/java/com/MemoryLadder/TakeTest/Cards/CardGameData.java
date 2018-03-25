@@ -1,7 +1,6 @@
 package com.MemoryLadder.TakeTest.Cards;
 
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.ScorePanel.ScoreCalculation;
 import com.MemoryLadder.TakeTest.GamePhase;
 
 import java.util.List;

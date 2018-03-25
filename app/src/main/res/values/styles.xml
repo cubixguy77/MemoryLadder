@@ -8,7 +8,7 @@
     </style>
 
     <style name="SmallCardHighlightedStyle" parent="SmallCardStyle">
-        <item name="android:background">@drawable/border_highlight</item>
+        <item name="android:background">@drawable/border_highlight_yellow</item>
     </style>
 
     <style name="SmallCardSuitStyle">

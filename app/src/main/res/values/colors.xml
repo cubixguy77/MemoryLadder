@@ -14,4 +14,6 @@
 
     <color name="score_panel.top_label">#ffffff</color>
     <color name="score_panel.value">#ffffff</color>
+
+    <color name="keyboard.highlightRecallDigits">#efefef</color>
 </resources>

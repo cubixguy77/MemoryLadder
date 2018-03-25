@@ -3,6 +3,7 @@ package com.MemoryLadder.TakeTest;
 import android.content.Intent;
 
 import com.MemoryLadder.TakeTest.Cards.CardSettings;
+import com.MemoryLadder.TakeTest.WrittenNumbers.WrittenNumbersSettings;
 
 class SettingsProvider {
 
@@ -23,5 +24,14 @@ class SettingsProvider {
         boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
 
         return new CardSettings(numDecks, deckSize, numCardsPerGroup, true, mnemonicsEnabled);
+    }
+
+    static WrittenNumbersSettings getWrittenNumbersSettings(Intent i) {
+        int numRows         = i.getIntExtra("numRows",     -1);
+        int numCols         = i.getIntExtra("numCols",     -1);
+        int digitsPerGroup  = i.getIntExtra("digitsPerGroup",     -1);
+        boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
+
+        return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled);
     }
 }

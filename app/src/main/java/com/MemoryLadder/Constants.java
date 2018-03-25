@@ -125,7 +125,7 @@ public class Constants {
 
     public static Class getClass(int gameType) {
         switch (gameType) {
-            case NUMBERS_SPEED: return Numbers_Mem.class;
+            case NUMBERS_SPEED: return GameActivity.class;
             case NUMBERS_BINARY: return Numbers_Mem.class;
             case NUMBERS_SPOKEN: return Numbers_Mem.class;
             case LISTS_WORDS: return Lists_Mem.class;

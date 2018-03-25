@@ -111,7 +111,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
         for(int i = 0; i < griditem.getChildCount(); i++) {
             if(griditem.getChildAt(i) instanceof EditText) {
                 griditem.getChildAt(i).requestFocus();
-				showKeyboard();
+				show();
                 return;
             }
         }        
@@ -119,7 +119,7 @@ public class Numbers_Recall extends Activity implements OnClickListener {
 	*/
 
     /*
-    private void showKeyboard() {
+    private void show() {
 		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 		imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
 	}
