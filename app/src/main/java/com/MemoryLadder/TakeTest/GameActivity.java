@@ -304,7 +304,7 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
     public void launchExitDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
         builder.setMessage("Stop current game?")
-               .setCancelable(false)
+               .setCancelable(true)
                .setPositiveButton("Stop Game", (dialog, id) -> finish())
                .setNegativeButton("Continue Game", (dialog, id) -> dialog.cancel());
         AlertDialog alert = builder.create();
