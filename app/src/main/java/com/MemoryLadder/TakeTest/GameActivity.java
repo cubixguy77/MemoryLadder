@@ -137,7 +137,7 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
                 }
                 @Override
                 public void onTimeCountdownComplete() {
-                    gameManager.setGamePhase(GamePhase.RECALL);
+                    setGamePhase(GamePhase.RECALL);
                 }
             });
         }
