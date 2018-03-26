@@ -50,11 +50,13 @@ public class Constants {
 	
 	final public static int default_written_numCols = 10;
 	final public static int default_written_numRows = 5;
+	final public static int default_written_digitsPerGroup = 2;
 	final public static int default_written_memTime = 300;
 	final public static int default_written_recallTime = 600;
 	
 	final public static int default_binary_numCols = 10;
 	final public static int default_binary_numRows = 5;
+	final public static int default_binary_digitsPerGroup = 2;
 	final public static int default_binary_memTime = 300;
 	final public static int default_binary_recallTime = 600;
 	

@@ -149,8 +149,8 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     }
 
     /* Highlight position adjustment */
-    @OnClick({R.id.button_prev_group, R.id.button_prev_group_alt}) void prevGroup() { setFocusAt(data.getHighlightPosition() - data.getNumCardsPerGroup()); }
-    @OnClick({R.id.button_next_group, R.id.button_next_group_alt}) void nextGroup() { setFocusAt(data.getHighlightPosition() + data.getNumCardsPerGroup()); }
+    @OnClick({R.id.prevButton, R.id.button_prev_group_alt}) void prevGroup() { setFocusAt(data.getHighlightPosition() - data.getNumCardsPerGroup()); }
+    @OnClick({R.id.nextButton, R.id.button_next_group_alt}) void nextGroup() { setFocusAt(data.getHighlightPosition() + data.getNumCardsPerGroup()); }
 
     @Override
     public void onCardClick(int index, PlayingCard card) {

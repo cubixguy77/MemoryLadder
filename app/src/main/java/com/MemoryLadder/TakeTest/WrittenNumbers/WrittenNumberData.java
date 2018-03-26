@@ -2,7 +2,6 @@ package com.MemoryLadder.TakeTest.WrittenNumbers;
 
 import com.MemoryLadder.TakeTest.GamePhase;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;
 import com.MemoryLadder.TakeTest.WrittenNumbers.Scoring.ScoreCalculation;
 
 import java.util.Arrays;
@@ -21,7 +20,9 @@ public class WrittenNumberData {
     private final int digitsPerGroup;
     private GamePhase gamePhase;
 
-    public static final char EMPTY_CHAR = '-';
+    public static final char EMPTY_CHAR = '‒';
+    public static final char EMPTY_SPACE = ' ';
+    private static final String EMPTY_STRING = "";
 
     WrittenNumberData(WrittenNumbersSettings settings) {
         this.digitsPerGroup = settings.getDigitsPerGroup();
@@ -32,7 +33,7 @@ public class WrittenNumberData {
 
         memoryData = new char[numDigits];
         recallData = new char[numDigits];
-        Arrays.fill(recallData, '-');
+        Arrays.fill(recallData, EMPTY_CHAR);
 
         /* Fill memory data sequentially */
         for (int i=0; i<numDigits; i++) {
@@ -41,27 +42,24 @@ public class WrittenNumberData {
     }
 
     void resetHighlight() {
-        this.highlightPos = 0;
-        this.textEntryPos = 0;
+        this.setHighlightPos(0);
     }
 
     void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
     }
 
-    void setRecallDigit(char digit) {
+    void registerRecall(char digit) {
         recallData[textEntryPos] = digit;
-    }
-
-    void highlightNextGroup() {
-        this.highlightPos += digitsPerGroup;
-        this.textEntryPos = this.highlightPos;
     }
 
     /* Returns true when the current group has been filled */
     boolean highlightNextCell() {
-        this.textEntryPos++;
-        return this.textEntryPos % this.digitsPerGroup == 0;
+        if (textEntryPos + 1 < this.numDigits) {
+            this.textEntryPos++;
+        }
+
+        return this.allowNext() && this.textEntryPos % this.digitsPerGroup == 0;
     }
 
     public String getMemoryText(int pos) {
@@ -82,12 +80,12 @@ public class WrittenNumberData {
 
     String getGroupText(int pos) {
         if (pos < 0 || pos >= numDigits)
-            return CustomNumberCarousel.EMPTY_STRING;
+            return EMPTY_STRING;
 
         int stringLen = lesserOf(digitsPerGroup, numDigits - pos);
 
         switch (stringLen) {
-            case 1: return getText(pos);
+            case 1: return new String(new char[] { getCharAt(pos)});//, EMPTY_SPACE,          EMPTY_SPACE });
             case 2: return new String(new char[] { getCharAt(pos), getCharAt(pos+1) });
             case 3: return new String(new char[] { getCharAt(pos), getCharAt(pos+1), getCharAt(pos+2) });
             default: return "x";
@@ -114,6 +112,10 @@ public class WrittenNumberData {
 
     int getHighlightPos() {
         return this.highlightPos;
+    }
+
+    int getTextEntryPos() {
+        return this.textEntryPos;
     }
 
     int getDigitsPerGroup() {
@@ -154,5 +156,26 @@ public class WrittenNumberData {
 
     private int lesserOf(int a, int b) {
         return a < b ? a : b;
+    }
+
+    boolean allowNext() {
+        return this.highlightPos + this.digitsPerGroup < this.numDigits;
+    }
+
+    boolean allowPrev() {
+        return this.highlightPos > 0;
+    }
+
+    private void setHighlightPos(int pos) {
+        this.highlightPos = pos;
+        this.textEntryPos = pos;
+    }
+
+    void highlightNextGroup() {
+        setHighlightPos(this.highlightPos + digitsPerGroup);
+    }
+
+    void highlightPrevGroup() {
+        setHighlightPos(this.highlightPos - digitsPerGroup);
     }
 }

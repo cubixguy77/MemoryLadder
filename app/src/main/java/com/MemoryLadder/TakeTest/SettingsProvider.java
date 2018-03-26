@@ -29,7 +29,7 @@ class SettingsProvider {
     static WrittenNumbersSettings getWrittenNumbersSettings(Intent i) {
         int numRows         = i.getIntExtra("numRows",     -1);
         int numCols         = i.getIntExtra("numCols",     -1);
-        int digitsPerGroup  = i.getIntExtra("digitsPerGroup",     -1);
+        int digitsPerGroup  = i.getIntExtra("digitsPerGroup",     2);
         boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
 
         return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled);

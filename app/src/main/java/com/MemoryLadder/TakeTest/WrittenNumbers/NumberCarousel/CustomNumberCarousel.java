@@ -19,11 +19,10 @@ public class CustomNumberCarousel extends FrameLayout {
     private TextView curText;
     private TextView nextText;
     private TextView extraText;
+    private TextView centerHiddenGroup;
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
-
-    public static final String EMPTY_STRING = "-";
 
     public CustomNumberCarousel(Context context) {        super(context);    }
     public CustomNumberCarousel(Context context, AttributeSet attrs) {        super(context, attrs);    }
@@ -36,11 +35,14 @@ public class CustomNumberCarousel extends FrameLayout {
         curText = findViewById(R.id.curGroup);
         nextText = findViewById(R.id.nextGroup);
         extraText = findViewById(R.id.extraGroup);
+        centerHiddenGroup = findViewById(R.id.centerHiddenGroup);
     }
 
     public void display(String prev, String cur, String next) {
         prevText.setText(prev);
         curText.setText(cur);
+        //centerHiddenGroup.setText(cur);
+        //curText.setX(centerHiddenGroup.getX());
         nextText.setText(next);
     }
 
@@ -49,15 +51,25 @@ public class CustomNumberCarousel extends FrameLayout {
     }
 
     public void transitionForward(String next) {
+        display(curText.getText().toString(), nextText.getText().toString(), next);
+
+        /*
+        animationsInProgress = true;
+
+        //System.out.println("Hidden x before: " + centerHiddenGroup.getX());
+        //centerHiddenGroup.setText(nextText.getText());
+        //centerHiddenGroup.invalidate();
+        //System.out.println("Hidden x after: " + centerHiddenGroup.getX());
+
         float prevPos = prevText.getX();
+        //float curPos = centerHiddenGroup.getX();
         float curPos = curText.getX();
         float nextPos = nextText.getX();
 
         float smallTextSize = prevText.getTextSize();
         float largeTextSize = curText.getTextSize();
 
-        final int duration = 200;
-        animationsInProgress = true;
+        final int duration = 50;
 
         prevText.animate().x(-prevText.getWidth()).setDuration(duration);
 
@@ -89,6 +101,7 @@ public class CustomNumberCarousel extends FrameLayout {
         extraText.setText(next);
         extraText.setVisibility(View.VISIBLE);
         extraText.animate().x(nextPos).setDuration(duration);
+        */
     }
 
     public void show() {

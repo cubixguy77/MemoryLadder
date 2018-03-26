@@ -74,6 +74,7 @@ public class SettingLoader {
         else if (game == Constants.NUMBERS_SPEED) {
             int numRows;
             int numCols;
+            int digitsPerGroup;
             int memTime;
             int recallTime;
             int mnemo_enabled;
@@ -100,6 +101,7 @@ public class SettingLoader {
                 SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
                 numRows         = prefs.getInt("WRITTEN_numRows", Constants.default_written_numRows);
                 numCols         = prefs.getInt("WRITTEN_numCols", Constants.default_written_numCols);
+                digitsPerGroup  = prefs.getInt("WRITTEN_digitsPerGroup", Constants.default_written_digitsPerGroup);
                 memTime         = prefs.getInt("WRITTEN_memTime", Constants.default_written_memTime);
                 recallTime      = prefs.getInt("WRITTEN_recallTime", Constants.default_written_recallTime);
                 try { mnemo_enabled = prefs.getInt("WRITTEN_mnemo", 0); }
@@ -107,6 +109,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "WRITTEN_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "WRITTEN_numCols", "Digits per Row:", numCols, 1, 40, true));
+                settings.add(new NumberSetting("digitsPerGroup", "WRITTEN_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
                 settings.add(new SwitchSetting("mnemo_enabled", "WRITTEN_mnemo", "Mnemo Hint:", mnemo_enabled, true));
                 settings.add(new TimeSetting("memTime", "WRITTEN_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "WRITTEN_recallTime", "Recall Time:", recallTime));
@@ -118,6 +121,7 @@ public class SettingLoader {
         else if (game == Constants.NUMBERS_BINARY) {
             int numRows;
             int numCols;
+            int digitsPerGroup;
             int memTime;
             int recallTime;
             int target;
@@ -143,11 +147,13 @@ public class SettingLoader {
                 SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
                 numRows         = prefs.getInt("BINARY_numRows", Constants.default_binary_numRows);
                 numCols         = prefs.getInt("BINARY_numCols", Constants.default_binary_numCols);
+                digitsPerGroup  = prefs.getInt("BINARY_digitsPerGroup", Constants.default_binary_digitsPerGroup);
                 memTime         = prefs.getInt("BINARY_memTime", Constants.default_binary_memTime);
                 recallTime      = prefs.getInt("BINARY_recallTime", Constants.default_binary_recallTime);
 
                 settings.add(new NumberSetting("numRows", "BINARY_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "BINARY_numCols", "Digits per Row:", numCols, 1, 40, true));
+                settings.add(new NumberSetting("digitsPerGroup", "BINARY_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
                 settings.add(new TimeSetting("memTime", "BINARY_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "BINARY_recallTime", "Recall Time:", recallTime));
             }

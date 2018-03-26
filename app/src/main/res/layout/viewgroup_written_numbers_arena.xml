@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/numbersFragmentContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/activity.background"
@@ -14,21 +15,26 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:padding="4dp"
         android:text="5:00"
         android:textColor="#ffffffff"
         android:textSize="@dimen/timer.text.size" />
 
     <com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView
+        android:id="@+id/numberGridContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fadeScrollbars="false"
-        app:maxHeight="200dp">
+        android:minHeight="@dimen/numbers.grid.row.height"
+        android:animateLayoutChanges="true">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/numberGrid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="fill_horizontal" />
+            android:minHeight="@dimen/numbers.grid.row.height"
+            android:layout_gravity="fill_horizontal"
+            />
 
     </com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView>
 
@@ -59,12 +65,10 @@
             android:layout_width="180dp" />
     </FrameLayout>
 
-    <Button
-        android:id="@+id/nextButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        tools:visibility="gone"
+    <include
+        android:id="@+id/navigatorLayout"
+        layout="@layout/viewgroup_navigator_buttons"
+        tools:visibility="visible"
         />
 
 </LinearLayout>

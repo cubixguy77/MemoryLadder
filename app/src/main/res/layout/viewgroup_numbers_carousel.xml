@@ -6,8 +6,9 @@
     android:layout_height="0dp"
     android:orientation="horizontal"
     android:layout_gravity="center_horizontal"
-    android:layout_weight="1"
+    android:layout_weight=".75"
     android:background="@color/colorPrimary"
+    android:animateLayoutChanges="true"
     tools:showIn="@layout/viewgroup_written_numbers_arena">
 
     <TextView
@@ -16,7 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
         android:layout_marginLeft="20dp"
-        android:textSize="20sp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:textSize="@dimen/numbers.carousel.small.textSize"
         tools:text="123"
         />
 
@@ -26,8 +29,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:includeFontPadding="false"
-        android:textSize="120sp"
+        android:gravity="center"
+        android:textSize="@dimen/numbers.carousel.large.textSize"
         tools:text="456"
+        />
+
+    <TextView
+        android:id="@+id/centerHiddenGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:textSize="@dimen/numbers.carousel.large.textSize"
+        android:visibility="invisible"
+        tools:text="123"
         />
 
     <TextView
@@ -36,7 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|center_vertical"
         android:layout_marginRight="20dp"
-        android:textSize="20sp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:textSize="@dimen/numbers.carousel.small.textSize"
         tools:text="789"
         />
 
@@ -46,7 +64,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|center_vertical"
         android:layout_marginRight="20dp"
-        android:textSize="20sp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:textSize="@dimen/numbers.carousel.small.textSize"
         tools:text="012"
         android:visibility="gone"
         />

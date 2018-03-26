@@ -134,28 +134,12 @@
 
     </LinearLayout>
 
-    <FrameLayout
+    <include
         android:id="@+id/layout_bottom_navigator_buttons"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        layout="@layout/viewgroup_navigator_buttons"
         android:visibility="gone"
-        tools:visibility="visible">
-
-        <android.support.v7.widget.AppCompatImageButton
-            style="@style/NextGroupButton"
-            android:contentDescription="Last Group"
-            android:id="@+id/button_prev_group"
-            android:layout_marginRight="@dimen/cards.navigation_button.margin_from_center"
-            app:srcCompat="@drawable/ic_arrow_left" />
-
-        <android.support.v7.widget.AppCompatImageButton
-            style="@style/NextGroupButton"
-            android:contentDescription="Next Group"
-            android:id="@+id/button_next_group"
-            android:layout_marginLeft="@dimen/cards.navigation_button.margin_from_center"
-            app:srcCompat="@drawable/ic_arrow_right" />
-
-    </FrameLayout>
+        tools:visibility="visible"
+        />
 
     <com.MemoryLadder.TakeTest.Cards.SuitSelectorView
         android:id="@+id/layout_suit_selector"

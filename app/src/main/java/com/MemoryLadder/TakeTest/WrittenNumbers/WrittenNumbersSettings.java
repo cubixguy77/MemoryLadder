@@ -13,7 +13,7 @@ public class WrittenNumbersSettings implements Parcelable {
     public WrittenNumbersSettings(int numRows, int numCols, int digitsPerGroup, boolean isMnemonicsEnabled) {
         this.numRows = numRows;
         this.numCols = numCols;
-        this.digitsPerGroup = digitsPerGroup < 0 ? 2 : digitsPerGroup;
+        this.digitsPerGroup = digitsPerGroup;
         this.mnemonicsEnabled = isMnemonicsEnabled;
     }
 

@@ -2,13 +2,13 @@ package com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.TextView;
 
 import com.MemoryLadder.TakeTest.GamePhase;
@@ -41,9 +41,11 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
             holder.myTextView.setBackgroundResource(R.drawable.border);
             holder.myTextView.setLines(2);
 
-            System.out.println(holder.myTextView.getMeasuredWidth() + " " + holder.myTextView.getMeasuredHeight());
-            //holder.myTextView.setLayoutParams(new AbsListView.LayoutParams(holder.myTextView.getWidth(), holder.myTextView.getHeight()));
-            //holder.myTextView.setVisibility(View.VISIBLE);
+            /* Double height of cells for review phase */
+            GridLayoutManager.LayoutParams params = (GridLayoutManager.LayoutParams) holder.myTextView.getLayoutParams();
+            //Resources.getSystem().getDimensionPixelSize(R.dimen.numbers_grid_row_height_large);
+            params.height = 180;
+            holder.myTextView.setLayoutParams(params);
 
             int answerResult = mData.checkAnswerAt(position);
 
@@ -60,9 +62,9 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
             ssb.append(System.getProperty("line.separator"));
 
             switch (answerResult) {
-                case -1: ssb.append(memoryText); break;
+                case -1: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
                 case  0: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
-                case  1: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK));    break;
+                case  1: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
             }
 
             holder.myTextView.setText(ssb.build());
