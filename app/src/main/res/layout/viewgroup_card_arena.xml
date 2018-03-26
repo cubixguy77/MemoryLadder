@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:animateLayoutChanges="true"
     android:background="@color/activity.background"
     tools:context="com.MemoryLadder.TakeTest.GameActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -52,14 +53,9 @@
 
             </com.MemoryLadder.TakeTest.Cards.DeckSelectorView>
 
-            <com.MemoryLadder.TakeTest.Timer.TimerView
-                android:id="@+id/text_timer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="5:00"
-                android:textColor="#ffffffff"
-                android:textSize="@dimen/timer.text.size" />
+            <include
+                layout="@layout/viewgroup_timer">
+            </include>
 
         </FrameLayout>
 
@@ -181,18 +177,9 @@
         tools:layout_height="96dp"
         tools:visibility="visible" />
 
-    <FrameLayout
+    <include
         android:id="@+id/layout_button_start"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        tools:visibility="gone">
-
-        <Button
-            android:background="@drawable/selector_startbutton"
-            android:id="@+id/button_start"
-            android:layout_gravity="center"
-            android:layout_height="180dp"
-            android:layout_width="180dp" />
-    </FrameLayout>
+        layout="@layout/viewgroup_start_button"
+        tools:visibility="visible"
+        />
 </LinearLayout>
