@@ -1,6 +1,7 @@
 package com.MemoryLadder.TakeTest.WrittenNumbers;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageButton;
@@ -17,10 +18,12 @@ import com.MemoryLadder.TakeTest.GameManagerActivity;
 import com.MemoryLadder.TakeTest.GamePhase;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.Timer.TimerView;
+import com.MemoryLadder.TakeTest.WrittenNumbers.Keyboard.KeyListener;
 import com.MemoryLadder.TakeTest.WrittenNumbers.Keyboard.NumericKeyboardView;
 import com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;
 import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView;
 import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.NumberGridAdapter;
+import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;
@@ -94,29 +97,84 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
         }
         else if (phase == GamePhase.RECALL) {
             refreshCarousel();
-            keyboardView.setKeyListener(key -> {
-                data.registerRecall(key);
-                adapter.notifyItemRangeChanged(data.getTextEntryPos(), 1);
-                refreshCarousel();
+            keyboardView.setKeyListener(new KeyListener() {
+                @Override
+                public void onDigit(char key) {
+                    data.registerRecall(key);
+                    onForward();
+                    refreshCarousel();
+                }
 
-                boolean advanceGroup = data.highlightNextCell();
+                @Override
+                public void onBack() {
+                    retreatTextEntryPos();
+                }
 
-                if (advanceGroup) {
-                    onNextClick();
+                @Override
+                public void onForward() {
+                    advanceTextEntryPos();
+                }
+
+                @Override
+                public void onBackspace() {
+                    data.registerRecall(WrittenNumberData.EMPTY_CHAR);
+                    onBack();
+                    refreshCarousel();
                 }
             });
+
+            keyboardView.show();
+            navigatorLayout.setVisibility(View.GONE);
+
+            if (textCarousel.isExpanded()) {
+                setGridHeightSmall();
+            }
+            else {
+                setGridHeightLarge();
+            }
         }
         else if (phase == GamePhase.REVIEW) {
-            setGridHeightLarge();
             keyboardView.setKeyListener(null);
+            keyboardView.hide();
+            textCarousel.hide();
+            setGridHeightLarge();
         }
 
         render(phase);
     }
 
+    private void retreatTextEntryPos() {
+        boolean decrementGroup = data.highlightPrevCell();
+        int textEntryPos = data.getTextEntryPos();
+
+        if (decrementGroup) {
+            onPrevClick();
+            data.setTextEntryPos(textEntryPos);
+            adapter.notifyItemRangeChanged(data.getTextEntryPos(), 1);
+        }
+        else {
+            adapter.notifyItemRangeChanged(data.getTextEntryPos(), 2);
+        }
+    }
+
+    private void advanceTextEntryPos() {
+        boolean advanceGroup = data.highlightNextCell();
+        adapter.notifyItemRangeChanged(data.getTextEntryPos()-1, 2);
+
+        if (advanceGroup) {
+            onNextClick();
+        }
+    }
+
     private void setGridHeightLarge() {
-        int largeHeight = root.getHeight() - (getResources().getDimensionPixelSize(R.dimen.score_panel_height)) - (timerView.getHeight());
+        int largeHeight = root.getHeight() -
+                (data.getGamePhase() == GamePhase.REVIEW ? (getResources().getDimensionPixelSize(R.dimen.score_panel_height)) : 0) -
+                (timerView.getHeight()) -
+                (textCarousel.getVisibleHeight()) -
+                (keyboardView.getVisibility() == View.VISIBLE ? keyboardView.getHeight() : 0) -
+                (navigatorLayout.getVisibility() == View.VISIBLE ? navigatorLayout.getHeight() : 0);
         numberGridContainer.setMaxHeight(largeHeight);
+        adapter.notifyDataSetChanged();
     }
 
     private void setGridHeightSmall() {
@@ -124,6 +182,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
         int rowHeight = getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height);
         int smallHeight = lesserOf(settings.getNumRows(), maxLines) * rowHeight;
         numberGridContainer.setMaxHeight(smallHeight);
+        adapter.notifyDataSetChanged();
     }
 
     private int lesserOf(int a, int b) {
@@ -131,7 +190,21 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
     }
 
     private void refreshCarousel() {
-        textCarousel.display(data.getPreviousGroupText(), data.getGroupText(data.getHighlightPos()), data.getNextGroupText());
+        String currentText = data.getGroupText(data.getHighlightPos());
+        textCarousel.display(data.getPreviousGroupText(), currentText, data.getNextGroupText());
+        textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
+
+        if (settings.isMnemonicsEnabled() && data.getGamePhase() == GamePhase.MEMORIZATION && data.getDigitsPerGroup() == 2) {
+            textCarousel.setMnemo(getMnemo(currentText));
+        } else {
+            textCarousel.hideMnemo();
+        }
+    }
+
+    private String getMnemo(String text) {
+        SharedPreferences prefs = getContext().getSharedPreferences("Peg_Numbers", 0);
+        int sanitizedNumber = Integer.parseInt(text);
+        return prefs.getString("peg_numbers_" + sanitizedNumber, Utils.getNumberSuggestions(sanitizedNumber)[0]);
     }
 
     @Override
@@ -154,10 +227,12 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
             navigatorLayout.setVisibility(View.VISIBLE);
         }
         else if (phase == GamePhase.RECALL) {
+            numberGrid.smoothScrollToPosition(0);
             navigatorLayout.setVisibility(View.GONE);
             keyboardView.show();
         }
         else if (phase == GamePhase.REVIEW) {
+            numberGrid.smoothScrollToPosition(0);
             textCarousel.hide();
             keyboardView.hide();
             timerView.hide();
@@ -174,6 +249,18 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
         activity.onStartClicked();
     }
 
+    /* Expands or collapses the carousel */
+    @OnClick(R.id.closeButton) void toggleCarousel() {
+        if (textCarousel.isExpanded()) {
+            textCarousel.toggle();
+            setGridHeightLarge();
+        }
+        else {
+            setGridHeightSmall();
+            textCarousel.toggle();
+        }
+    }
+
     @OnClick(R.id.prevButton) void onPrevClick() {
         if (!textCarousel.animationsInProgress() && data.allowPrev()) {
             data.highlightPrevGroup();
@@ -187,7 +274,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager {
         if (!textCarousel.animationsInProgress() && data.allowNext()) {
             data.highlightNextGroup();
             adapter.notifyItemRangeChanged(data.getHighlightPos() - data.getDigitsPerGroup(), data.getDigitsPerGroup() * 2);
-            textCarousel.transitionForward(data.getNextGroupText());
+            refreshCarousel();
+            numberGrid.smoothScrollToPosition(lesserOf(data.getHighlightPos() + settings.getNumCols(), adapter.getItemCount()-1));
+            //adapter.scrollToPositionWithOffset(data.getHighlightPos(), 0);
+
+            //textCarousel.transitionForward(data.getNextGroupText());
         }
     }
 }

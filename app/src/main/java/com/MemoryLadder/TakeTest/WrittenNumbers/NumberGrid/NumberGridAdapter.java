@@ -69,6 +69,11 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
             holder.myTextView.setText(ssb.build());
         }
+        else if (mData.getGamePhase() == GamePhase.RECALL && mData.isTextHighlighted(position)) {
+            holder.myTextView.setBackgroundResource(R.drawable.border_highlight_yellow);
+            holder.myTextView.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.myTextView.setText(mData.getText(position));
+        }
         else if ((mData.getGamePhase() == GamePhase.MEMORIZATION || mData.getGamePhase() == GamePhase.RECALL) && mData.isHighlighted(position)) {
             holder.myTextView.setBackgroundResource(R.drawable.border_highlight_green);
             holder.myTextView.setTextColor(Color.parseColor("#FFFFFF"));

@@ -4,70 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:orientation="horizontal"
-    android:layout_gravity="center_horizontal"
-    android:layout_weight=".75"
+    android:layout_weight="1"
+    android:orientation="vertical"
     android:background="@color/colorPrimary"
     android:animateLayoutChanges="true"
     tools:showIn="@layout/viewgroup_written_numbers_arena">
 
-    <TextView
-        android:id="@+id/prevGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:layout_marginLeft="20dp"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:textSize="@dimen/numbers.carousel.small.textSize"
-        tools:text="123"
-        />
+    <FrameLayout
+        android:id="@+id/closeButtonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/curGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:textSize="@dimen/numbers.carousel.large.textSize"
-        tools:text="456"
-        />
+        <TextView
+            android:id="@+id/rowIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:textSize="16sp"
+            android:text="Row 2 / 5"
+            />
 
-    <TextView
-        android:id="@+id/centerHiddenGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:textSize="@dimen/numbers.carousel.large.textSize"
-        android:visibility="invisible"
-        tools:text="123"
-        />
+        <TextView
+            android:id="@+id/closeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="16sp"
+            android:text="—Hide"
+            />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/nextGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
-        android:layout_marginRight="20dp"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:textSize="@dimen/numbers.carousel.small.textSize"
-        tools:text="789"
-        />
 
-    <TextView
-        android:id="@+id/extraGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical"
-        android:layout_marginRight="20dp"
-        android:includeFontPadding="false"
-        android:gravity="center"
-        android:textSize="@dimen/numbers.carousel.small.textSize"
-        tools:text="012"
-        android:visibility="gone"
-        />
+    <FrameLayout
+        android:id="@+id/carouselContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/prevGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.small.textSize"
+            tools:text="123"
+            />
+
+        <TextView
+            android:id="@+id/curGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.large.textSize"
+            tools:text="456"
+            />
+
+        <TextView
+            android:id="@+id/centerHiddenGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.large.textSize"
+            android:visibility="invisible"
+            tools:text="123"
+            />
+
+        <TextView
+            android:id="@+id/nextGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.small.textSize"
+            tools:text="789"
+            />
+
+        <TextView
+            android:id="@+id/extraGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="20dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.small.textSize"
+            tools:text="012"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/mnemoText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:textSize="@dimen/numbers.carousel.mnemo.textSize"
+            android:visibility="invisible"
+            tools:text="'Fish'"
+            />
+    </FrameLayout>
+
 </com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel>

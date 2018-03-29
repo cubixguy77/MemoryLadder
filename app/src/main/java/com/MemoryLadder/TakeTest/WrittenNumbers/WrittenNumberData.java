@@ -62,6 +62,15 @@ public class WrittenNumberData {
         return this.allowNext() && this.textEntryPos % this.digitsPerGroup == 0;
     }
 
+    /* Returns true when the current group has been filled */
+    boolean highlightPrevCell() {
+        if (textEntryPos - 1 >= 0) {
+            this.textEntryPos--;
+        }
+
+        return this.textEntryPos < this.highlightPos;
+    }
+
     public String getMemoryText(int pos) {
         return Character.toString(memoryData[pos]);
     }
@@ -110,9 +119,25 @@ public class WrittenNumberData {
     }
     */
 
+    private int getRow(int pos) {
+        return pos / numCols;
+    }
+
+    int getHighlightRowNumBegin() {
+        return getRow(this.highlightPos);
+    }
+
+    int getHighlightRowNumEnd() {
+        return getRow(lesserOf(this.highlightPos + this.digitsPerGroup - 1, this.numDigits));
+    }
+
     int getHighlightPos() {
         return this.highlightPos;
     }
+
+    //int getHighlightPosEnd() {
+    //    return this.highlightPos + lesserOf(this.digitsPerGroup, this.numDigits - this.highlightPos) - 1;
+    //}
 
     int getTextEntryPos() {
         return this.textEntryPos;
@@ -177,5 +202,13 @@ public class WrittenNumberData {
 
     void highlightPrevGroup() {
         setHighlightPos(this.highlightPos - digitsPerGroup);
+    }
+
+    public boolean isTextHighlighted(int position) {
+        return position == this.textEntryPos;
+    }
+
+    void setTextEntryPos(int textEntryPos) {
+        this.textEntryPos = textEntryPos;
     }
 }

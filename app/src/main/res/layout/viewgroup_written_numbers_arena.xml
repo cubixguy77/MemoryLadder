@@ -38,13 +38,13 @@
         android:id="@+id/keyboard"
         layout="@layout/viewgroup_numeric_keyboard"
         android:visibility="visible"
-        tools:visibility="visible"
+        tools:visibility="gone"
         />
 
     <include
         android:id="@+id/layout_button_start"
         layout="@layout/viewgroup_start_button"
-        tools:visibility="visible"
+        tools:visibility="gone"
         />
 
     <include

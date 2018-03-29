@@ -9,20 +9,27 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
 
-public class CustomNumberCarousel extends FrameLayout {
+public class CustomNumberCarousel extends LinearLayout {
 
     private TextView prevText;
     private TextView curText;
     private TextView nextText;
     private TextView extraText;
     private TextView centerHiddenGroup;
+    private TextView mnemoText;
+    private TextView rowIndicator;
+    private TextView closeButton;
+    private FrameLayout closeButtonContainer;
+    private FrameLayout carouselContainer;
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
+    private int visibleHeight;
 
     public CustomNumberCarousel(Context context) {        super(context);    }
     public CustomNumberCarousel(Context context, AttributeSet attrs) {        super(context, attrs);    }
@@ -35,7 +42,12 @@ public class CustomNumberCarousel extends FrameLayout {
         curText = findViewById(R.id.curGroup);
         nextText = findViewById(R.id.nextGroup);
         extraText = findViewById(R.id.extraGroup);
+        mnemoText = findViewById(R.id.mnemoText);
         centerHiddenGroup = findViewById(R.id.centerHiddenGroup);
+        rowIndicator = findViewById(R.id.rowIndicator);
+        closeButton = findViewById(R.id.closeButton);
+        closeButtonContainer = findViewById(R.id.closeButtonContainer);
+        carouselContainer = findViewById(R.id.carouselContainer);
     }
 
     public void display(String prev, String cur, String next) {
@@ -110,5 +122,49 @@ public class CustomNumberCarousel extends FrameLayout {
 
     public void hide() {
         setVisibility(View.GONE);
+    }
+
+    public void toggle() {
+        if (isExpanded())
+            collapse();
+        else
+            expand();
+    }
+
+    public boolean isExpanded() {
+        return carouselContainer.getVisibility() == View.VISIBLE;
+    }
+
+    private void collapse() {
+        carouselContainer.setVisibility(View.GONE);
+        closeButton.setText("+Expand");
+
+        LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
+        setLayoutParams(collapseParams);
+    }
+
+    private void expand() {
+        carouselContainer.setVisibility(View.VISIBLE);
+        closeButton.setText("—Hide");
+
+        LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0, 1.0f);
+        setLayoutParams(expandParams);
+    }
+
+    public void setRowNum(int begin, int end, int numRows) {
+        rowIndicator.setText("Row " + (begin+1) + (begin == end ? "" : "-" + (end+1)) + "/" + numRows);
+    }
+
+    public int getVisibleHeight() {
+        return getVisibility() == View.VISIBLE ? closeButtonContainer.getHeight() + (isExpanded() ? carouselContainer.getHeight() : 0) : 0;
+    }
+
+    public void setMnemo(String mnemo) {
+        mnemoText.setText("\"" + mnemo + "\"");
+        mnemoText.setVisibility(View.VISIBLE);
+    }
+
+    public void hideMnemo() {
+        mnemoText.setVisibility(View.GONE);
     }
 }
