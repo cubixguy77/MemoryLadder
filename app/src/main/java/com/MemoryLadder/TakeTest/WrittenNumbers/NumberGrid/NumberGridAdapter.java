@@ -2,6 +2,7 @@ package com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.style.ForegroundColorSpan;
@@ -20,6 +21,8 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
     private WrittenNumberData mData;
     private LayoutInflater mInflater;
+    private boolean nightMode = false;
+    private boolean drawGridLines = true;
 
     // data is passed into the constructor
     public NumberGridAdapter(Context context, WrittenNumberData data) {
@@ -27,24 +30,44 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
         this.mData = data;
     }
 
+    public boolean isNightMode() {
+        return this.nightMode;
+    }
+
+    public boolean isDrawGridLines() {
+        return this.drawGridLines;
+    }
+
+    public void toggleNightMode() {
+        this.nightMode = !nightMode;
+        notifyDataSetChanged();
+    }
+
+    public void toggleDrawGridLines() {
+        this.drawGridLines = !drawGridLines;
+        notifyDataSetChanged();
+    }
+
     // inflates the cell layout from xml when needed
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.viewgroup_numbers_grid_cell, parent, false);
         return new ViewHolder(view);
     }
 
     // binds the data to the textview in each cell
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
+
         if (mData.getGamePhase() == GamePhase.REVIEW) {
-            holder.myTextView.setBackgroundResource(R.drawable.border);
+            holder.myTextView.setBackgroundResource(R.drawable.border_black_on_white);
             holder.myTextView.setLines(2);
 
             /* Double height of cells for review phase */
             GridLayoutManager.LayoutParams params = (GridLayoutManager.LayoutParams) holder.myTextView.getLayoutParams();
-            //Resources.getSystem().getDimensionPixelSize(R.dimen.numbers_grid_row_height_large);
-            params.height = 180;
+            params.height = holder.myTextView.getContext().getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height_large);
             holder.myTextView.setLayoutParams(params);
 
             int answerResult = mData.checkAnswerAt(position);
@@ -62,26 +85,31 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
             ssb.append(System.getProperty("line.separator"));
 
             switch (answerResult) {
-                case -1: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
-                case  0: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
-                case  1: ssb.append(memoryText, new ForegroundColorSpan(Color.BLACK)); break;
+                case -1: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
+                case  0: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
+                case  1: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
             }
 
             holder.myTextView.setText(ssb.build());
         }
         else if (mData.getGamePhase() == GamePhase.RECALL && mData.isTextHighlighted(position)) {
             holder.myTextView.setBackgroundResource(R.drawable.border_highlight_yellow);
-            holder.myTextView.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.myTextView.setTextColor(Color.BLACK);
             holder.myTextView.setText(mData.getText(position));
         }
         else if ((mData.getGamePhase() == GamePhase.MEMORIZATION || mData.getGamePhase() == GamePhase.RECALL) && mData.isHighlighted(position)) {
             holder.myTextView.setBackgroundResource(R.drawable.border_highlight_green);
-            holder.myTextView.setTextColor(Color.parseColor("#FFFFFF"));
+            holder.myTextView.setTextColor(Color.WHITE);
             holder.myTextView.setText(mData.getText(position));
         }
         else {
-            holder.myTextView.setBackgroundResource(R.drawable.border);
-            holder.myTextView.setTextColor(Color.parseColor("#000000"));
+            if (this.drawGridLines) {
+                holder.myTextView.setBackgroundResource(nightMode ? R.drawable.border_white_on_black : R.drawable.border_black_on_white);
+            } else {
+                holder.myTextView.setBackgroundColor(nightMode ? Color.BLACK : Color.WHITE);
+            }
+
+            holder.myTextView.setTextColor(standardTextColor);
             holder.myTextView.setText(mData.getText(position));
         }
     }

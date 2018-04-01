@@ -1,5 +1,5 @@
 package com.MemoryLadder.TakeTest;
 
 public interface GameManagerActivity {
-    void onStartClicked();
+
 }

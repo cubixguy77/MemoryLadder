@@ -10,9 +10,9 @@ import android.os.CountDownTimer;
  * then use it in your projects.
  */
 public abstract class CountDownTimerPausable {
-    private long countDownInterval = 0;
-    private long millisRemaining =  0;
-    private long originalTimeLimitInMillis = 0;
+    private long countDownInterval;
+    private long millisRemaining;
+    private long originalTimeLimitInMillis;
 
     private CountDownTimer countDownTimer = null;
 

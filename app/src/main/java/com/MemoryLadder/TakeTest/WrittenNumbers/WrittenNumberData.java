@@ -1,18 +1,23 @@
 package com.MemoryLadder.TakeTest.WrittenNumbers;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.MemoryLadder.TakeTest.GamePhase;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.WrittenNumbers.Scoring.ScoreCalculation;
+import com.MemoryLadder.Utils;
 
 import java.util.Arrays;
 
-public class WrittenNumberData {
+public class WrittenNumberData implements Parcelable {
 
     private char[] memoryData;
     private char[] recallData;
 
     private int highlightPos;
     private int textEntryPos;
+    private boolean keepHighlightPos = false;
 
     private int numDigits;
     private int numRows;
@@ -21,7 +26,6 @@ public class WrittenNumberData {
     private GamePhase gamePhase;
 
     public static final char EMPTY_CHAR = '‒';
-    public static final char EMPTY_SPACE = ' ';
     private static final String EMPTY_STRING = "";
 
     WrittenNumberData(WrittenNumbersSettings settings) {
@@ -91,7 +95,7 @@ public class WrittenNumberData {
         if (pos < 0 || pos >= numDigits)
             return EMPTY_STRING;
 
-        int stringLen = lesserOf(digitsPerGroup, numDigits - pos);
+        int stringLen = Utils.lesserOf(digitsPerGroup, numDigits - pos);
 
         switch (stringLen) {
             case 1: return new String(new char[] { getCharAt(pos)});//, EMPTY_SPACE,          EMPTY_SPACE });
@@ -128,16 +132,16 @@ public class WrittenNumberData {
     }
 
     int getHighlightRowNumEnd() {
-        return getRow(lesserOf(this.highlightPos + this.digitsPerGroup - 1, this.numDigits));
+        return getRow(Utils.lesserOf(this.highlightPos + this.digitsPerGroup - 1, this.numDigits));
     }
 
     int getHighlightPos() {
         return this.highlightPos;
     }
 
-    //int getHighlightPosEnd() {
-    //    return this.highlightPos + lesserOf(this.digitsPerGroup, this.numDigits - this.highlightPos) - 1;
-    //}
+    int getHighlightPosEnd() {
+        return this.highlightPos + Utils.lesserOf(this.digitsPerGroup, this.numDigits - this.highlightPos) - 1;
+    }
 
     int getTextEntryPos() {
         return this.textEntryPos;
@@ -179,10 +183,6 @@ public class WrittenNumberData {
         return this.gamePhase;
     }
 
-    private int lesserOf(int a, int b) {
-        return a < b ? a : b;
-    }
-
     boolean allowNext() {
         return this.highlightPos + this.digitsPerGroup < this.numDigits;
     }
@@ -210,5 +210,56 @@ public class WrittenNumberData {
 
     void setTextEntryPos(int textEntryPos) {
         this.textEntryPos = textEntryPos;
+    }
+
+    private WrittenNumberData(Parcel in) {
+        in.readCharArray(memoryData);
+        in.readCharArray(recallData);
+        highlightPos = in.readInt();
+        textEntryPos = in.readInt();
+        numDigits = in.readInt();
+        numRows = in.readInt();
+        numCols = in.readInt();
+        digitsPerGroup = in.readInt();
+        gamePhase = (GamePhase) in.readSerializable();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeCharArray(memoryData);
+        dest.writeCharArray(recallData);
+        dest.writeInt(highlightPos);
+        dest.writeInt(textEntryPos);
+        dest.writeInt(numDigits);
+        dest.writeInt(numRows);
+        dest.writeInt(numCols);
+        dest.writeInt(digitsPerGroup);
+        dest.writeSerializable(gamePhase);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<WrittenNumberData> CREATOR = new Parcelable.Creator<WrittenNumberData>() {
+        @Override
+        public WrittenNumberData createFromParcel(Parcel in) {
+            return new WrittenNumberData(in);
+        }
+
+        @Override
+        public WrittenNumberData[] newArray(int size) {
+            return new WrittenNumberData[size];
+        }
+    };
+
+    public void setKeepHighlightPos(boolean keepHighlightPos) {
+        this.keepHighlightPos = keepHighlightPos;
+    }
+
+    public boolean isKeepHighlightPos() {
+        return keepHighlightPos;
     }
 }

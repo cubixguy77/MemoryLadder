@@ -1,10 +1,10 @@
 package com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid;
 
 import android.content.Context;
+import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
-import android.widget.ScrollView;
 
-public class MaxHeightScrollView extends ScrollView {
+public class MaxHeightScrollView extends NestedScrollView {
 
     private int maxHeight;
 
@@ -16,7 +16,7 @@ public class MaxHeightScrollView extends ScrollView {
 
     public void setMaxHeight(int maxHeight) {
         this.maxHeight = maxHeight;
-        this.invalidate();
+        invalidate();
     }
 
     @Override

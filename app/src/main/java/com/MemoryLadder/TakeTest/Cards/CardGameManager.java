@@ -1,7 +1,7 @@
 package com.MemoryLadder.TakeTest.Cards;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageButton;
 import android.view.LayoutInflater;
@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.GameManager;
-import com.MemoryLadder.TakeTest.GameManagerActivity;
 import com.MemoryLadder.TakeTest.GamePhase;
+import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.Timer.TimerView;
+import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;
@@ -24,7 +24,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
 
     private CardGameData data;
     private CardSettings settings;
-    private GameManagerActivity activity;
 
     @BindView(R.id.text_timer) TimerView timerView;
     @BindView(R.id.deck_view) DeckView deckView;
@@ -36,7 +35,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     @BindView(R.id.layout_bottom_navigator_buttons) FrameLayout navigatorButtons;
     @BindView(R.id.button_prev_group_alt) AppCompatImageButton prevGroupButton;
     @BindView(R.id.button_next_group_alt) AppCompatImageButton nextGroupButton;
-    @BindView(R.id.layout_button_start) FrameLayout startButtonLayout;
 
     public static CardGameManager newInstance(CardSettings settings) {
         CardGameManager cardGameManager = new CardGameManager();
@@ -51,7 +49,7 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     public CardGameManager() {}
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.viewgroup_card_arena, container, false);
         ButterKnife.bind(this, view);
@@ -66,14 +64,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
         selectedCardsView.setMnemonicsEnabled(settings.isMnemonicsEnabled());
 
         return view;
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        this.activity = (GameManagerActivity) context;
-        try { this.activity = (GameManagerActivity) context; }
-        catch (final ClassCastException e) { throw new ClassCastException(activity.toString() + " must implement GameManagerActivity"); }
     }
 
     @Override
@@ -110,7 +100,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             selectedCardsView.setVisibility(View.GONE);
             selectedCardsView.setCardDisplayCount(0);
             navigatorButtons.setVisibility(View.GONE);
-            startButtonLayout.setVisibility(View.VISIBLE);
             timerView.show();
         }
         else if (phase == GamePhase.MEMORIZATION) {
@@ -120,7 +109,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             cardSelectorView.setVisibility(View.GONE);
             selectedCardsView.setVisibility(View.VISIBLE);
             navigatorButtons.setVisibility(View.VISIBLE);
-            startButtonLayout.setVisibility(View.GONE);
         }
         else if (phase == GamePhase.RECALL) {
             navigatorButtons.setVisibility(View.GONE);
@@ -141,11 +129,6 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     @Override
     public Score getScore() {
         return data.getScore();
-    }
-
-    /* Start Game */
-    @OnClick(R.id.button_start) void startGame() {
-        activity.onStartClicked();
     }
 
     /* Highlight position adjustment */
@@ -260,7 +243,7 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             index = data.getHighlightPosition();
 
         data.setHighlightPosition(index);
-        int endIndex = lesserOf(index + data.getNumCardsPerGroup(), data.getDeckSize());
+        int endIndex = Utils.lesserOf(index + data.getNumCardsPerGroup(), data.getDeckSize());
 
         deckView.highlightCards(index, endIndex);
 
@@ -270,9 +253,5 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
         else if (data.getGamePhase() == GamePhase.RECALL) {
             selectedCardsView.renderCards(data.getRecallDeckSubset(index, endIndex));
         }
-    }
-
-    private int lesserOf(int a, int b) {
-        return a < b ? a : b;
     }
 }

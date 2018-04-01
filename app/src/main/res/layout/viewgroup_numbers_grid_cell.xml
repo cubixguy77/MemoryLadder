@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/numbers.grid.row.height"
     android:padding="2dp"
-    android:background="@drawable/border"
+    android:background="@drawable/border_black_on_white"
     android:gravity="center"
     android:textColor="#000000"
     tools:text="1"

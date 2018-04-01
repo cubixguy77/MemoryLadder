@@ -3,17 +3,15 @@ package com.MemoryLadder.TakeTest.Timer;
 public class SimpleTimer extends CountDownTimerPausable {
     private final ITimer.TimerUpdateListener timerUpdateListener;
 
-    private int timeLimitInSeconds = 0;
-    private float secondsElapsed = 0;
-    private float secondsRemaining = 0;
+    private int timeLimitInSeconds;
+    private float secondsElapsed;
 
-    public SimpleTimer(int timeLimitInSeconds, ITimer.TimerUpdateListener timerUpdateListener) {
-        super(timeLimitInSeconds * 1000, 100);
+    public SimpleTimer(int timeLimitInSeconds, float secondsElapsed, ITimer.TimerUpdateListener timerUpdateListener) {
+        super((long) (timeLimitInSeconds - secondsElapsed) * 1000, 100);
         this.timerUpdateListener = timerUpdateListener;
 
         this.timeLimitInSeconds = timeLimitInSeconds;
-        secondsElapsed = 0;
-        secondsRemaining = timeLimitInSeconds;
+        this.secondsElapsed = secondsElapsed;
 
         refreshTimer();
     }
@@ -27,12 +25,14 @@ public class SimpleTimer extends CountDownTimerPausable {
     @Override
     public void onTick(long millisUntilFinished) {
         secondsElapsed = (timeLimitInSeconds - ((float) millisUntilFinished / 1000));
-        secondsRemaining = timeLimitInSeconds - secondsElapsed;
-
         refreshTimer();
     }
 
     private void refreshTimer() {
-        timerUpdateListener.onTimeUpdate(secondsRemaining, secondsElapsed);
+        timerUpdateListener.onTimeUpdate(getSecondsRemaining(), secondsElapsed);
+    }
+
+    private float getSecondsRemaining() {
+        return timeLimitInSeconds - secondsElapsed;
     }
 }

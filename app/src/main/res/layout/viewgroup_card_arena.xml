@@ -19,9 +19,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/deck_selector.size"
-            android:layout_marginBottom="@dimen/deck_selector.margin"
-            android:layout_marginTop="@dimen/deck_selector.margin">
+            android:layout_height="wrap_content">
 
             <com.MemoryLadder.TakeTest.Cards.DeckSelectorView
                 android:id="@+id/layout_deck_selector"
@@ -177,9 +175,4 @@
         tools:layout_height="96dp"
         tools:visibility="visible" />
 
-    <include
-        android:id="@+id/layout_button_start"
-        layout="@layout/viewgroup_start_button"
-        tools:visibility="visible"
-        />
 </LinearLayout>

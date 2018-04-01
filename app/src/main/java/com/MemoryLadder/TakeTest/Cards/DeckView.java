@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
+import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 public class DeckView extends GridLayout {
@@ -43,7 +44,7 @@ public class DeckView extends GridLayout {
             boolean isMemoryCell = row % 2 == 0;
 
             int startIndex = getColumnCount() * (isMemoryCell ? row / 2 : (row - 1) / 2);
-            int endIndex = lesserOf(startIndex + getColumnCount(), deckMem.size());
+            int endIndex = Utils.lesserOf(startIndex + getColumnCount(), deckMem.size());
             for (int i = startIndex; i < endIndex; i++) {
                 SmallCardView cardView;
 
@@ -123,10 +124,6 @@ public class DeckView extends GridLayout {
 
     private SmallCardView getCardAt(int index) {
         return (SmallCardView) getChildAt(index);
-    }
-
-    private int lesserOf(int a, int b) {
-        return a < b ? a : b;
     }
 
     private SmallCardView generateCardView(boolean withBottomMargin, PlayingCard card) {

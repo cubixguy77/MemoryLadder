@@ -9,9 +9,34 @@
     android:orientation="vertical"
     tools:context="com.MemoryLadder.TakeTest.GameActivity">
 
-    <include
-        layout="@layout/viewgroup_timer">
-    </include>
+    <FrameLayout
+        android:id="@+id/timerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            layout="@layout/viewgroup_timer">
+        </include>
+
+        <Button
+            android:id="@+id/buttonToggleNightMode"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="48dp"
+            android:background="@drawable/icon_night_mode_off"
+            />
+
+        <Button
+            android:id="@+id/buttonToggleGridLines"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/icon_gridlines_on"
+            />
+    </FrameLayout>
+
 
     <com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView
         android:id="@+id/numberGridContainer"
@@ -25,6 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minHeight="@dimen/numbers.grid.row.height"
+            android:nestedScrollingEnabled="false"
             android:layout_gravity="fill_horizontal"
             />
     </com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView>
@@ -37,14 +63,8 @@
     <include
         android:id="@+id/keyboard"
         layout="@layout/viewgroup_numeric_keyboard"
-        android:visibility="visible"
-        tools:visibility="gone"
-        />
-
-    <include
-        android:id="@+id/layout_button_start"
-        layout="@layout/viewgroup_start_button"
-        tools:visibility="gone"
+        android:visibility="gone"
+        tools:visibility="visible"
         />
 
     <include

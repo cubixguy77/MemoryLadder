@@ -26,6 +26,7 @@ public class CustomNumberCarousel extends LinearLayout {
     private TextView closeButton;
     private FrameLayout closeButtonContainer;
     private FrameLayout carouselContainer;
+    private FrameLayout mnemoTextContainer;
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
@@ -48,6 +49,7 @@ public class CustomNumberCarousel extends LinearLayout {
         closeButton = findViewById(R.id.closeButton);
         closeButtonContainer = findViewById(R.id.closeButtonContainer);
         carouselContainer = findViewById(R.id.carouselContainer);
+        mnemoTextContainer = findViewById(R.id.mnemoTextContainer);
     }
 
     public void display(String prev, String cur, String next) {
@@ -122,6 +124,7 @@ public class CustomNumberCarousel extends LinearLayout {
 
     public void hide() {
         setVisibility(View.GONE);
+        mnemoText.setText("");
     }
 
     public void toggle() {
@@ -132,11 +135,12 @@ public class CustomNumberCarousel extends LinearLayout {
     }
 
     public boolean isExpanded() {
-        return carouselContainer.getVisibility() == View.VISIBLE;
+        return getVisibility() == View.VISIBLE && carouselContainer.getVisibility() == View.VISIBLE;
     }
 
     private void collapse() {
         carouselContainer.setVisibility(View.GONE);
+        mnemoTextContainer.setVisibility(View.GONE);
         closeButton.setText("+Expand");
 
         LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
@@ -145,6 +149,7 @@ public class CustomNumberCarousel extends LinearLayout {
 
     private void expand() {
         carouselContainer.setVisibility(View.VISIBLE);
+        mnemoTextContainer.setVisibility(View.VISIBLE);
         closeButton.setText("—Hide");
 
         LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0, 1.0f);
@@ -156,15 +161,15 @@ public class CustomNumberCarousel extends LinearLayout {
     }
 
     public int getVisibleHeight() {
-        return getVisibility() == View.VISIBLE ? closeButtonContainer.getHeight() + (isExpanded() ? carouselContainer.getHeight() : 0) : 0;
+        return getVisibility() == View.VISIBLE ? closeButtonContainer.getHeight() + (isExpanded() ? carouselContainer.getHeight() + mnemoTextContainer.getHeight() : 0) : 0;
     }
 
     public void setMnemo(String mnemo) {
         mnemoText.setText("\"" + mnemo + "\"");
-        mnemoText.setVisibility(View.VISIBLE);
+        mnemoTextContainer.setVisibility(View.VISIBLE);
     }
 
     public void hideMnemo() {
-        mnemoText.setVisibility(View.GONE);
+        mnemoTextContainer.setVisibility(View.GONE);
     }
 }

@@ -10,6 +10,10 @@ import java.util.StringTokenizer;
 
 public class Utils {
 
+	public static int lesserOf(int a, int b) {
+		return a < b ? a : b;
+	}
+
 	public static int[] shuffleIntArray(int[] array) {
 		Integer[] temp = new Integer[array.length];
 		for (int i=0; i<array.length; i++) {

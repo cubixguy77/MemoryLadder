@@ -39,7 +39,9 @@
 
     <dimen name="deck_selector.size">26dp</dimen>
     <dimen name="deck_selector.margin">6dp</dimen>
-    <dimen name="deck_selector.text.size">14sp</dimen>
+    <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
+
+    <dimen name="timer.text.size">14sp</dimen>
 
     <dimen name="choose_test.image.size">80dp</dimen>
     <dimen name="choose_test.image.margin.left">8dp</dimen>

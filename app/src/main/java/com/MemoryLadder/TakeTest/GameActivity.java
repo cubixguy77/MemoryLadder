@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.ScorePanel.ScorePanel;
@@ -29,11 +30,13 @@ import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class GameActivity extends AppCompatActivity implements GameManagerActivity {
+public class GameActivity extends AppCompatActivity {
 
     @BindView(R.id.score_panel) ScorePanel scorePanel;
     @BindView(R.id.generalToolbar) Toolbar toolbar;
+    @BindView(R.id.button_start) Button startButton;
 
     GameSettings settings;
 
@@ -41,6 +44,9 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
 
     private SimpleTimer timer;
     private float secondsElapsedMem;
+    private float secondsElapsedRecall;
+
+    private boolean saveScore;
 
     private MenuItem finishMem;
     private MenuItem finishRecall;
@@ -67,12 +73,24 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
         }
 
         settings = SettingsProvider.getGeneralSettings(getIntent());
-        gameManager = GameManagerProvider.getGameManager(settings.getGameType(), getIntent());
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.gameContainer, (Fragment) gameManager);
-        fragmentTransaction.commit();
+        if (savedInstanceState != null) {
+            gameManager = (GameManager) getSupportFragmentManager().getFragment(savedInstanceState, "gameManager");
+            this.gamePhase = (GamePhase) savedInstanceState.getSerializable("gamePhase");
+            this.secondsElapsedMem = savedInstanceState.getFloat("secondsElapsedMem");
+            this.secondsElapsedRecall = savedInstanceState.getFloat("secondsElapsedRecall");
+            if (this.gamePhase == GamePhase.REVIEW) {
+                saveScore = false;
+            }
+
+        } else {
+            this.gamePhase = GamePhase.PRE_MEMORIZATION;
+            gameManager = GameManagerProvider.getGameManager(settings.getGameType(), getIntent());
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.gameContainer, (Fragment) gameManager);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
@@ -84,14 +102,21 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
     protected void onResume() {
         super.onResume();
 
-        if (timer == null) {
+        if (this.gamePhase == GamePhase.PRE_MEMORIZATION) {
             setGamePhase(GamePhase.PRE_MEMORIZATION);
         }
-        else {
-            if (this.gamePhase == GamePhase.MEMORIZATION || this.gamePhase == GamePhase.RECALL) {
-                timer.start();
-            }
+
+        /* From this point on, we know we're restoring previous state */
+        else if (this.gamePhase == GamePhase.MEMORIZATION) {
+            setGamePhase(GamePhase.MEMORIZATION);
         }
+        else if (this.gamePhase == GamePhase.RECALL) {
+            setGamePhase(GamePhase.RECALL);
+        }
+        else if (this.gamePhase == GamePhase.REVIEW) {
+            setGamePhase(GamePhase.REVIEW);
+        }
+
     }
 
     @Override
@@ -101,6 +126,15 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
         if (timer != null && !timer.isPaused()) {
             timer.pause();
         }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSupportFragmentManager().putFragment(outState, "gameManager", (Fragment) gameManager);
+        outState.putSerializable("gamePhase", this.gamePhase);
+        outState.putFloat("secondsElapsedMem", this.secondsElapsedMem);
+        outState.putFloat("secondsElapsedRecall", this.secondsElapsedRecall);
     }
 
     @Override
@@ -114,22 +148,9 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
     }
 
 
-
-
-
-
-
-
-    public void setGamePhase(GamePhase gamePhase) {
-        this.gamePhase = gamePhase;
-        renderToolbarFor(gamePhase);
-
-        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
-            gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
-            secondsElapsedMem = 0;
-            scorePanel.setVisibility(View.GONE);
-
-            timer = new SimpleTimer(settings.getTimeLimitInSeconds(), new ITimer.TimerUpdateListener() {
+    private SimpleTimer getMemTimer() {
+        if (timer == null) {
+            timer = new SimpleTimer(settings.getTimeLimitInSeconds(), this.secondsElapsedMem, new ITimer.TimerUpdateListener() {
                 @Override
                 public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
                     secondsElapsedMem = secondsElapsed;
@@ -141,34 +162,79 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
                 }
             });
         }
-        if (gamePhase == GamePhase.MEMORIZATION) {
-            gameManager.setGamePhase(GamePhase.MEMORIZATION);
-            timer.start();
-        }
-        if (gamePhase == GamePhase.RECALL) {
-            timer.cancel();
-            gameManager.setGamePhase(gamePhase);
 
-            timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), new ITimer.TimerUpdateListener() {
+        return timer;
+    }
+
+    private SimpleTimer getRecallTimer() {
+        if (timer == null) {
+            timer = new SimpleTimer(settings.getTimeLimitInSecondsForRecall(), this.secondsElapsedRecall, new ITimer.TimerUpdateListener() {
                 @Override
-                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) { gameManager.displayTime((int) secondsRemaining); }
+                public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
+                    secondsElapsedRecall = secondsElapsed;
+                    gameManager.displayTime((int) secondsRemaining);
+                }
                 @Override
                 public void onTimeCountdownComplete() {
                     setGamePhase(GamePhase.REVIEW);
                 }
             });
+        }
 
-            timer.start();
+        return timer;
+    }
+
+
+
+    public void setGamePhase(GamePhase gamePhase) {
+        this.gamePhase = gamePhase;
+        renderToolbarFor(gamePhase);
+
+        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
+            startButton.setVisibility(View.VISIBLE);
+        } else {
+            startButton.setVisibility(View.GONE);
+        }
+
+        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
+            gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
+            scorePanel.setVisibility(View.GONE);
+            secondsElapsedMem = 0;
+            secondsElapsedRecall = 0;
+            saveScore = true;
+            getMemTimer();
+        }
+        if (gamePhase == GamePhase.MEMORIZATION) {
+            gameManager.setGamePhase(GamePhase.MEMORIZATION);
+            getMemTimer().start();
+        }
+        if (gamePhase == GamePhase.RECALL) {
+            if (timer != null) {
+                timer.cancel();
+                timer = null;
+            }
+
+            gameManager.setGamePhase(gamePhase);
+            getRecallTimer().start();
         }
         else if (gamePhase == GamePhase.REVIEW) {
-            timer.cancel();
+            if (timer != null) {
+                timer.cancel();
+                timer = null;
+            }
+
             gameManager.setGamePhase(GamePhase.REVIEW);
 
             Score score = gameManager.getScore();
-            saveScore(score);
+
+            /* This prevents re-submitting the same score when rotating device in Review mode */
+            if (saveScore) {
+                saveScore(score);
+            }
+
             scorePanel.show(score, secondsElapsedMem, getPastScores());
 
-            if (settings.getMode() == Constants.STEPS && isLevelUp(score.score)) {
+            if (saveScore && settings.getMode() == Constants.STEPS && isLevelUp(score.score)) {
                 doLevelUp();
                 showLevelUpDialog();
             }
@@ -311,8 +377,10 @@ public class GameActivity extends AppCompatActivity implements GameManagerActivi
         alert.show();
     }
 
-    @Override
-    public void onStartClicked() {
+    /* Start Game */
+    @OnClick(R.id.button_start) void startGame() {
+        startButton.setVisibility(View.GONE);
+
         gameManager.render(GamePhase.MEMORIZATION);
         renderToolbarFor(GamePhase.MEMORIZATION);
 

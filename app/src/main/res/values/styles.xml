@@ -4,7 +4,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/small_card.height</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/border</item>
+        <item name="android:background">@drawable/border_black_on_white</item>
     </style>
 
     <style name="SmallCardHighlightedStyle" parent="SmallCardStyle">
@@ -48,7 +48,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">@dimen/suit_selector.height</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:background">@drawable/border</item>
+        <item name="android:background">@drawable/border_black_on_white</item>
     </style>
 
     <style name="MnemonicTextStyle">
@@ -56,7 +56,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">@dimen/mnemonic_hint.text.size</item>
+        <item name="android:textSize">@dimen/cards.mnemonic_hint.text.size</item>
         <item name="android:visibility">gone</item>
     </style>
 
