@@ -51,6 +51,7 @@
             android:layout_height="match_parent"
             android:minHeight="@dimen/numbers.grid.row.height"
             android:nestedScrollingEnabled="false"
+            android:descendantFocusability="blocksDescendants"
             android:layout_gravity="fill_horizontal"
             />
     </com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView>

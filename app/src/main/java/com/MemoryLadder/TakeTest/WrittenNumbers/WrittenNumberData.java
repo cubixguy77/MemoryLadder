@@ -45,6 +45,14 @@ public class WrittenNumberData implements Parcelable {
         }
     }
 
+    public int getNumRows() {
+        return this.numRows;
+    }
+
+    public int getNumCols() {
+        return this.numCols;
+    }
+
     void resetHighlight() {
         this.setHighlightPos(0);
     }
@@ -123,7 +131,7 @@ public class WrittenNumberData implements Parcelable {
     }
     */
 
-    private int getRow(int pos) {
+    public int getRow(int pos) {
         return pos / numCols;
     }
 
@@ -132,7 +140,7 @@ public class WrittenNumberData implements Parcelable {
     }
 
     int getHighlightRowNumEnd() {
-        return getRow(Utils.lesserOf(this.highlightPos + this.digitsPerGroup - 1, this.numDigits));
+        return getRow(Utils.lesserOf(this.highlightPos + this.digitsPerGroup - 1, this.numDigits - 1));
     }
 
     int getHighlightPos() {
@@ -213,13 +221,15 @@ public class WrittenNumberData implements Parcelable {
     }
 
     private WrittenNumberData(Parcel in) {
-        in.readCharArray(memoryData);
-        in.readCharArray(recallData);
         highlightPos = in.readInt();
         textEntryPos = in.readInt();
         numDigits = in.readInt();
         numRows = in.readInt();
         numCols = in.readInt();
+        memoryData = new char[numDigits];
+        recallData = new char[numDigits];
+        in.readCharArray(memoryData);
+        in.readCharArray(recallData);
         digitsPerGroup = in.readInt();
         gamePhase = (GamePhase) in.readSerializable();
     }
@@ -231,13 +241,13 @@ public class WrittenNumberData implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeCharArray(memoryData);
-        dest.writeCharArray(recallData);
         dest.writeInt(highlightPos);
         dest.writeInt(textEntryPos);
         dest.writeInt(numDigits);
         dest.writeInt(numRows);
         dest.writeInt(numCols);
+        dest.writeCharArray(memoryData);
+        dest.writeCharArray(recallData);
         dest.writeInt(digitsPerGroup);
         dest.writeSerializable(gamePhase);
     }

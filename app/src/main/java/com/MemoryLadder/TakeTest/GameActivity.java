@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 
@@ -85,7 +86,7 @@ public class GameActivity extends AppCompatActivity {
 
         } else {
             this.gamePhase = GamePhase.PRE_MEMORIZATION;
-            gameManager = GameManagerProvider.getGameManager(settings.getGameType(), getIntent());
+            gameManager = GameManagerProvider.getGameManager(settings.getGameType(), getIntent(), this);
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.gameContainer, (Fragment) gameManager);
@@ -101,6 +102,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        System.out.println("onResume()");
 
         if (this.gamePhase == GamePhase.PRE_MEMORIZATION) {
             setGamePhase(GamePhase.PRE_MEMORIZATION);
@@ -196,49 +198,60 @@ public class GameActivity extends AppCompatActivity {
             startButton.setVisibility(View.GONE);
         }
 
-        if (gamePhase == GamePhase.PRE_MEMORIZATION) {
-            gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
-            scorePanel.setVisibility(View.GONE);
-            secondsElapsedMem = 0;
-            secondsElapsedRecall = 0;
-            saveScore = true;
-            getMemTimer();
-        }
-        if (gamePhase == GamePhase.MEMORIZATION) {
-            gameManager.setGamePhase(GamePhase.MEMORIZATION);
-            getMemTimer().start();
-        }
-        if (gamePhase == GamePhase.RECALL) {
-            if (timer != null) {
-                timer.cancel();
-                timer = null;
+        ((Fragment) gameManager).getView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    ((Fragment) gameManager).getView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    ((Fragment) gameManager).getView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+
+                if (gamePhase == GamePhase.PRE_MEMORIZATION) {
+                    gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
+                    scorePanel.setVisibility(View.GONE);
+                    secondsElapsedMem = 0;
+                    secondsElapsedRecall = 0;
+                    saveScore = true;
+                    getMemTimer();
+                }
+                if (gamePhase == GamePhase.MEMORIZATION) {
+                    gameManager.setGamePhase(GamePhase.MEMORIZATION);
+                    getMemTimer().start();
+                }
+                if (gamePhase == GamePhase.RECALL) {
+                    if (timer != null) {
+                        timer.cancel();
+                        timer = null;
+                    }
+
+                    gameManager.setGamePhase(gamePhase);
+                    getRecallTimer().start();
+                }
+                else if (gamePhase == GamePhase.REVIEW) {
+                    if (timer != null) {
+                        timer.cancel();
+                        timer = null;
+                    }
+
+                    gameManager.setGamePhase(GamePhase.REVIEW);
+
+                    Score score = gameManager.getScore();
+
+                    /* This prevents re-submitting the same score when rotating device in Review mode */
+                    if (saveScore) {
+                        saveScore(score);
+                    }
+
+                    scorePanel.show(score, secondsElapsedMem, getPastScores());
+
+                    if (saveScore && settings.getMode() == Constants.STEPS && isLevelUp(score.score)) {
+                        doLevelUp();
+                        showLevelUpDialog();
+                    }
+                }
             }
-
-            gameManager.setGamePhase(gamePhase);
-            getRecallTimer().start();
-        }
-        else if (gamePhase == GamePhase.REVIEW) {
-            if (timer != null) {
-                timer.cancel();
-                timer = null;
-            }
-
-            gameManager.setGamePhase(GamePhase.REVIEW);
-
-            Score score = gameManager.getScore();
-
-            /* This prevents re-submitting the same score when rotating device in Review mode */
-            if (saveScore) {
-                saveScore(score);
-            }
-
-            scorePanel.show(score, secondsElapsedMem, getPastScores());
-
-            if (saveScore && settings.getMode() == Constants.STEPS && isLevelUp(score.score)) {
-                doLevelUp();
-                showLevelUpDialog();
-            }
-        }
+        });
     }
 
 

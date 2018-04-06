@@ -1,7 +1,7 @@
 package com.MemoryLadder.TakeTest;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 
 import com.MemoryLadder.TakeTest.Cards.CardGameManager;
 import com.MemoryLadder.TakeTest.WrittenNumbers.WrittenNumbersGameManager;
@@ -17,10 +17,10 @@ import static com.MemoryLadder.Constants.SHAPES_FACES;
 
 class GameManagerProvider {
 
-    static GameManager getGameManager(int gameType, Intent intent) {
+    static GameManager getGameManager(int gameType, Intent intent, Context context) {
         switch (gameType) {
-            case NUMBERS_SPEED: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent));
-            case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent));
+            case NUMBERS_SPEED: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
+            case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_SPOKEN: return null;
             case LISTS_WORDS: return null;
             case LISTS_EVENTS: return null;

@@ -26,6 +26,8 @@ import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.NumberGridAdapter;
 import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,6 +36,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     private WrittenNumberData data;
     private WrittenNumbersSettings settings;
+    private int rowHeight = 0;
 
     private NumberGridAdapter adapter;
 
@@ -69,6 +72,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        System.out.println("onCreateView()");
         View view = inflater.inflate(R.layout.viewgroup_written_numbers_arena, container, false);
         ButterKnife.bind(this, view);
 
@@ -86,19 +90,23 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
         if (savedInstanceState != null) {
             this.data = savedInstanceState.getParcelable("gameData");
-            this.data.setKeepHighlightPos(true);
+            if (this.data != null) {
+                this.data.setKeepHighlightPos(true);
+            }
             resetGrid();
         }
     }
 
     private void resetGrid() {
-        adapter = new NumberGridAdapter(getActivity(), data);
+        adapter = new NumberGridAdapter(getActivity(), data, settings.isNightMode(), settings.isDrawGridLines());
         numberGrid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
         numberGrid.setAdapter(adapter);
     }
 
     @Override
     public void setGamePhase(GamePhase phase) {
+        System.out.println("setGamePhase(" + phase.toString() + ")");
+
         if (phase == GamePhase.PRE_MEMORIZATION) {
             data = new WrittenNumberData(settings);
             resetGrid();
@@ -127,10 +135,15 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         else if (phase == GamePhase.REVIEW) {
             keyboardView.setKeyListener(null);
         }
+
+        scrollToRow(data.getRow(data.getHighlightPosEnd()) - 1); // Restores scroll to highlighted digits on rotation
     }
 
     @Override
     public void render(GamePhase phase) {
+        refreshNightModeIcon();
+        refreshGridLinesIcon();
+
         if (phase == GamePhase.PRE_MEMORIZATION) {
             textCarousel.hide();
             keyboardView.hide();
@@ -155,7 +168,12 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             numberGrid.smoothScrollToPosition(0);
             navigatorLayout.setVisibility(View.GONE);
             keyboardView.show();
-            //textCarousel.hide(); // TODO: only hide in landscape phones
+
+            if (getResources().getBoolean(R.bool.numbers_carousel_recall_display)) {
+                textCarousel.show();
+            } else {
+                textCarousel.hide();
+            }
 
             if (textCarousel.isExpanded()) {
                 setGridHeightSmall();
@@ -176,7 +194,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void setGridHeightLarge() {
-        int largeHeight = root.getHeight() -
+        int largeHeight = root.getMeasuredHeight() -
                 (data.getGamePhase() == GamePhase.REVIEW ? (getResources().getDimensionPixelSize(R.dimen.score_panel_height)) : 0) -
                 (timerContainer.getHeight()) -
                 (textCarousel.getVisibleHeight()) -
@@ -184,6 +202,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
                 (navigatorLayout.getVisibility() == View.VISIBLE ? navigatorLayout.getHeight() : 0);
         numberGridContainer.setMaxHeight(largeHeight);
         adapter.notifyDataSetChanged();
+        scrollToTop();
     }
 
     private void setGridHeightSmall() {
@@ -192,6 +211,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         int smallHeight = Utils.lesserOf(settings.getNumRows(), maxLines) * rowHeight;
         numberGridContainer.setMaxHeight(smallHeight);
         adapter.notifyDataSetChanged();
+        scrollToTop();
     }
 
 
@@ -209,9 +229,9 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private String getMnemo(String text) {
-        SharedPreferences prefs = getContext().getSharedPreferences("Peg_Numbers", 0);
+        SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("Peg_Numbers", 0);
         int sanitizedNumber = Integer.parseInt(text);
-        return prefs.getString("peg_numbers_" + sanitizedNumber, Utils.getNumberSuggestions(sanitizedNumber)[0]);
+        return prefs.getString("peg_numbers_" + sanitizedNumber, Objects.requireNonNull(Utils.getNumberSuggestions(sanitizedNumber))[0]);
     }
 
     @Override
@@ -238,23 +258,86 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     @OnClick(R.id.prevButton) void onPrevClick() {
         if (!textCarousel.animationsInProgress() && data.allowPrev()) {
+            int curRow = data.getRow(data.getHighlightPosEnd());
             data.highlightPrevGroup();
+            int nextRow = data.getRow(data.getHighlightPos());
+
             adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup() * 2);
             refreshCarousel();
+
+            if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPos()), false)) {
+                scroll(false);
+            }
+
             //textCarousel.transitionBackward(data.getNextGroupText());
         }
     }
 
     @OnClick(R.id.nextButton) void onNextClick() {
         if (!textCarousel.animationsInProgress() && data.allowNext()) {
+
+            int curRow = data.getRow(data.getHighlightPosEnd());
             data.highlightNextGroup();
+            int nextRow = data.getRow(data.getHighlightPosEnd());
+
             adapter.notifyItemRangeChanged(data.getHighlightPos() - data.getDigitsPerGroup(), data.getDigitsPerGroup() * 2);
             refreshCarousel();
-            numberGrid.smoothScrollToPosition(Utils.lesserOf(data.getHighlightPos() + settings.getNumCols(), adapter.getItemCount()-1));
-            //numberGrid.smoothScrollToPosition(data.getHighlightPosEnd());
-            //numberGrid.smoothScrollToPosition(adapter.getItemCount() - 1);
-            //numberGrid.smoothScrollBy(0, getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height));
-            //textCarousel.transitionForward(data.getNextGroupText());
+
+            if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPosEnd()), true)) {
+                scroll(true);
+            }
+        }
+    }
+
+    private void scrollToTop() {
+        numberGridContainer.post(() -> {
+            numberGridContainer.fling(0);
+            numberGridContainer.fullScroll(View.FOCUS_UP);
+        });
+    }
+
+    private void scroll(boolean down) {
+        int rowHeight = getRowHeight();
+
+        /* Resolves scrolling bug, see https://stackoverflow.com/questions/46156882/nestedscrollviews-fullscrollview-focus-up-not-working-properly */
+        numberGridContainer.fling(0);
+        numberGridContainer.smoothScrollBy(0, down ? rowHeight : -rowHeight);
+    }
+
+    private void scrollToRow(int row) {
+        numberGridContainer.post(() -> {
+            numberGridContainer.fling(0);
+            numberGridContainer.scrollTo(0, getRowHeight() * row);
+        });
+    }
+
+    private int getRowHeight() {
+        if (rowHeight > 0)
+            return rowHeight;
+
+        return rowHeight = getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height);
+    }
+
+    private int getFirstVisibleRowNum() {
+        return numberGridContainer.getScrollY() / getRowHeight();
+    }
+
+    private int getLastVisibleRowNum() {
+        return getFirstVisibleRowNum() + getNumVisibleRows() - 1;
+    }
+
+    private int getNumVisibleRows() {
+        return numberGridContainer.getHeight() / getRowHeight();
+    }
+
+    private boolean shouldScroll(int toRow, boolean scrollDown) {
+        int numVisibleRows = getNumVisibleRows();
+        boolean scrollToRevealNextRow = numVisibleRows > 2;
+
+        if (scrollDown) {
+            return toRow + (scrollToRevealNextRow ? 1 : 0) > (getLastVisibleRowNum());
+        } else {
+            return toRow + (scrollToRevealNextRow ? -1 : 0) < (getFirstVisibleRowNum());
         }
     }
 
@@ -268,11 +351,23 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     @OnClick(R.id.buttonToggleNightMode) void onToggleNightMode() {
         adapter.toggleNightMode();
+        settings.setNightMode(adapter.isNightMode());
+
+        SharedPreferences.Editor editor = Objects.requireNonNull(getContext()).getSharedPreferences("Number_Preferences", 0).edit();
+        editor.putBoolean("WRITTEN_nightMode", adapter.isNightMode());
+        editor.apply();
+
         refreshNightModeIcon();
     }
 
     @OnClick(R.id.buttonToggleGridLines) void onToggleDrawGridLines() {
         adapter.toggleDrawGridLines();
+        settings.setDrawGridLines(adapter.isDrawGridLines());
+
+        SharedPreferences.Editor editor = Objects.requireNonNull(getContext()).getSharedPreferences("Number_Preferences", 0).edit();
+        editor.putBoolean("WRITTEN_drawGridLines", adapter.isDrawGridLines());
+        editor.apply();
+
         refreshGridLinesIcon();
     }
 

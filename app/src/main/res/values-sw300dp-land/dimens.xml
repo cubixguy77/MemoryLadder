@@ -3,5 +3,5 @@
     <dimen name="numbers.carousel.large.textSize">80sp</dimen>
     <dimen name="numbers.carousel.small.textSize">20sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">20sp</dimen>
-
+    <bool name="numbers.carousel.recall.display">false</bool>
 </resources>

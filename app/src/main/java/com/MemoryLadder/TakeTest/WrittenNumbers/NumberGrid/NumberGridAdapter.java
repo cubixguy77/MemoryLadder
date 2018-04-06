@@ -21,13 +21,15 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
     private WrittenNumberData mData;
     private LayoutInflater mInflater;
-    private boolean nightMode = false;
-    private boolean drawGridLines = true;
+    private boolean nightMode;
+    private boolean drawGridLines;
 
     // data is passed into the constructor
-    public NumberGridAdapter(Context context, WrittenNumberData data) {
+    public NumberGridAdapter(Context context, WrittenNumberData data, boolean nightMode, boolean drawGridLines) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
+        this.nightMode = nightMode;
+        this.drawGridLines = drawGridLines;
     }
 
     public boolean isNightMode() {
@@ -62,7 +64,12 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
         int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
 
         if (mData.getGamePhase() == GamePhase.REVIEW) {
-            holder.myTextView.setBackgroundResource(R.drawable.border_black_on_white);
+            if (this.drawGridLines) {
+                holder.myTextView.setBackgroundResource(nightMode ? R.drawable.border_white_on_black : R.drawable.border_black_on_white);
+            } else {
+                holder.myTextView.setBackgroundColor(nightMode ? Color.BLACK : Color.WHITE);
+            }
+
             holder.myTextView.setLines(2);
 
             /* Double height of cells for review phase */

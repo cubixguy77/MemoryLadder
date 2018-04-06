@@ -166,7 +166,6 @@ public class CustomNumberCarousel extends LinearLayout {
 
     public void setMnemo(String mnemo) {
         mnemoText.setText("\"" + mnemo + "\"");
-        mnemoTextContainer.setVisibility(View.VISIBLE);
     }
 
     public void hideMnemo() {
