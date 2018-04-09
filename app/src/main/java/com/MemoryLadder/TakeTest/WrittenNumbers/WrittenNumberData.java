@@ -27,6 +27,7 @@ public class WrittenNumberData implements Parcelable {
 
     public static final char EMPTY_CHAR = '‒';
     private static final String EMPTY_STRING = "";
+    private static String[] digits;
 
     WrittenNumberData(WrittenNumbersSettings settings) {
         this.digitsPerGroup = settings.getDigitsPerGroup();
@@ -38,6 +39,7 @@ public class WrittenNumberData implements Parcelable {
         memoryData = new char[numDigits];
         recallData = new char[numDigits];
         Arrays.fill(recallData, EMPTY_CHAR);
+        digits = new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "‒"};
 
         /* Fill memory data sequentially */
         for (int i=0; i<numDigits; i++) {
@@ -84,11 +86,27 @@ public class WrittenNumberData implements Parcelable {
     }
 
     public String getMemoryText(int pos) {
-        return Character.toString(memoryData[pos]);
+        return getDigitString(memoryData[pos]);
+    }
+
+    private String getDigitString(char digit) {
+        switch (digit) {
+            case '0': return digits[0];
+            case '1': return digits[1];
+            case '2': return digits[2];
+            case '3': return digits[3];
+            case '4': return digits[4];
+            case '5': return digits[5];
+            case '6': return digits[6];
+            case '7': return digits[7];
+            case '8': return digits[8];
+            case '9': return digits[9];
+            default: return digits[10];
+        }
     }
 
     public String getRecallText(int pos) {
-        return Character.toString(recallData[pos]);
+        return getDigitString(recallData[pos]);
     }
 
     private char getCharAt(int pos) {
@@ -96,7 +114,7 @@ public class WrittenNumberData implements Parcelable {
     }
 
     public String getText(int pos) {
-        return Character.toString(getCharAt(pos));
+        return getDigitString(getCharAt(pos));
     }
 
     String getGroupText(int pos) {

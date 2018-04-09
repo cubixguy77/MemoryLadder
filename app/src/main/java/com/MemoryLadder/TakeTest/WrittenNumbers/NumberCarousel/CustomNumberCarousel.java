@@ -31,6 +31,7 @@ public class CustomNumberCarousel extends LinearLayout {
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
     private int visibleHeight;
+    private boolean isDisplayMnemo = false;
 
     public CustomNumberCarousel(Context context) {        super(context);    }
     public CustomNumberCarousel(Context context, AttributeSet attrs) {        super(context, attrs);    }
@@ -143,17 +144,17 @@ public class CustomNumberCarousel extends LinearLayout {
         mnemoTextContainer.setVisibility(View.GONE);
         closeButton.setText("+Expand");
 
-        LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
-        setLayoutParams(collapseParams);
+        //LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
+        //setLayoutParams(collapseParams);
     }
 
     private void expand() {
         carouselContainer.setVisibility(View.VISIBLE);
-        mnemoTextContainer.setVisibility(View.VISIBLE);
+        mnemoTextContainer.setVisibility(this.isDisplayMnemo ? View.VISIBLE : View.GONE);
         closeButton.setText("—Hide");
 
-        LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0, 1.0f);
-        setLayoutParams(expandParams);
+        //LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0, 1.0f);
+        //setLayoutParams(expandParams);
     }
 
     public void setRowNum(int begin, int end, int numRows) {
@@ -164,11 +165,17 @@ public class CustomNumberCarousel extends LinearLayout {
         return getVisibility() == View.VISIBLE ? closeButtonContainer.getHeight() + (isExpanded() ? carouselContainer.getHeight() + mnemoTextContainer.getHeight() : 0) : 0;
     }
 
-    public void setMnemo(String mnemo) {
-        mnemoText.setText("\"" + mnemo + "\"");
+    public void showMnemo() {
+        this.isDisplayMnemo = true;
+        mnemoTextContainer.setVisibility(isExpanded() ? View.VISIBLE : View.GONE);
+    }
+
+    public void setMnemoText(String text) {
+        mnemoText.setText("\"" + text + "\"");
     }
 
     public void hideMnemo() {
+        this.isDisplayMnemo = false;
         mnemoTextContainer.setVisibility(View.GONE);
     }
 }

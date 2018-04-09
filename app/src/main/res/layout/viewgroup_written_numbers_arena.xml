@@ -37,24 +37,17 @@
             />
     </FrameLayout>
 
-
-    <com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView
-        android:id="@+id/numberGridContainer"
+    <com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.ResizableRecyclerView
+        android:id="@+id/numberGrid"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:minHeight="@dimen/numbers.grid.row.height">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/numberGrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:minHeight="@dimen/numbers.grid.row.height"
-            android:nestedScrollingEnabled="false"
-            android:descendantFocusability="blocksDescendants"
-            android:layout_gravity="fill_horizontal"
-            />
-    </com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.MaxHeightScrollView>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="@dimen/numbers.grid.row.height"
+        tools:listitem="@layout/viewgroup_numbers_grid_cell"
+        tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+        tools:spanCount="5"
+        tools:itemCount="15"
+        />
 
     <include
         android:id="@+id/carousel"
@@ -65,13 +58,20 @@
         android:id="@+id/keyboard"
         layout="@layout/viewgroup_numeric_keyboard"
         android:visibility="gone"
-        tools:visibility="visible"
+        tools:visibility="gone"
         />
 
     <include
         android:id="@+id/navigatorLayout"
         layout="@layout/viewgroup_navigator_buttons"
         tools:visibility="visible"
+        />
+
+    <Space
+        android:id="@+id/bottomSpacer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/score_panel.height"
+        android:visibility="gone"
         />
 
 </LinearLayout>

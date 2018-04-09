@@ -63,6 +63,8 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
 
+        //System.out.println("onBindViewHolder: " + position);
+
         if (mData.getGamePhase() == GamePhase.REVIEW) {
             if (this.drawGridLines) {
                 holder.myTextView.setBackgroundResource(nightMode ? R.drawable.border_white_on_black : R.drawable.border_black_on_white);
