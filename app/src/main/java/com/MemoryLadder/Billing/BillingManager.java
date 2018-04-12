@@ -17,7 +17,7 @@ public class BillingManager implements PurchasesUpdatedListener {
 
     private BillingClient billingClient;
     private String sku;
-    private final Activity activity;
+    private Activity activity;
     private final BillingUpdatesListener updatesListener;
 
     public interface BillingUpdatesListener {
@@ -68,6 +68,7 @@ public class BillingManager implements PurchasesUpdatedListener {
         return false;
     }
 
+    /* Used for debugging only
     public void clearAllPurchases() {
         Purchase.PurchasesResult purchases = billingClient.queryPurchases(BillingClient.SkuType.INAPP);
         if (purchases == null || purchases.getResponseCode() != BillingClient.BillingResponse.OK || purchases.getPurchasesList() == null || purchases.getPurchasesList().size() == 0) {
@@ -78,6 +79,7 @@ public class BillingManager implements PurchasesUpdatedListener {
             billingClient.consumeAsync(purchase.getPurchaseToken(), null);
         }
     }
+    */
 
     public void launchPurchaseDialog() {
         BillingFlowParams flowParams = BillingFlowParams.newBuilder().setSku(sku).setType(BillingClient.SkuType.INAPP).build();
@@ -88,6 +90,7 @@ public class BillingManager implements PurchasesUpdatedListener {
         if (billingClient != null && billingClient.isReady()) {
             billingClient.endConnection();
             billingClient = null;
+            activity = null;
         }
     }
 
