@@ -6,6 +6,7 @@
     app:cardCornerRadius="0dp"
     app:cardElevation="2dp"
     app:cardUseCompatPadding="true"
+    tools:context="com.MemoryLadder.TestDetailsScreen.TestDetailsActivity"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -15,72 +16,63 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <FrameLayout
+        <Button
+            android:id="@+id/testDetailsCardTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary">
+            android:layout_height="@dimen/pregame.card.button.height"
+            android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/pregame.card.button.textSize"
+            tools:text="LEVEL 3"
+            />
 
-            <TextView
-                android:id="@+id/testDetailsCardTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_gravity="center_horizontal"
-                tools:text="LEVEL 3"
-                android:textSize="32sp"
-                android:textColor="#FFFFFF"
-                />
-
-        </FrameLayout>
-
-
-        <LinearLayout
-            android:id="@+id/GameSpecsLayout"
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/pregame.settings.list.margin_top"
-            android:layout_gravity="center"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="8dp">
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/pregame.settings.list.margin_top"
+            android:padding="0dp">
 
             <LinearLayout
-                android:id="@+id/testDetailsLabelLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:id="@+id/GameSpecsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <LinearLayout
+                    android:id="@+id/testDetailsLabelLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/testDetailsValueLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pregame.settings.list.margin_between_columns"
+                    android:orientation="vertical">
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/testDetailsValueLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/pregame.settings.list.margin_between_columns"
-                android:orientation="vertical">
-
-
-            </LinearLayout>
-        </LinearLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/testDetailsPlayButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/pregame.card.button.height"
             android:background="@color/colorPrimary"
             android:text="Play"
-            android:textSize="32sp"
+            android:textSize="@dimen/pregame.card.button.textSize"
             />
 
         <Button
             android:id="@+id/testDetailsUnlockButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/pregame.card.button.height"
             android:background="@color/colorPrimaryDark"
             android:text="UNLOCK"
-            android:textSize="32sp"
+            android:textSize="@dimen/pregame.card.button.textSize"
             />
-
     </LinearLayout>
-
 </com.MemoryLadder.TestDetailsScreen.TestDetailsCard>

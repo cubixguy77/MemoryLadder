@@ -16,7 +16,8 @@
     <dimen name="pregame.settings.list.margin_top">40dp</dimen>
     <dimen name="pregame.settings.list.text_size">32sp</dimen>
     <dimen name="pregame.settings.list.summary.text_size">42sp</dimen>
-
+    <dimen name="pregame.card.button.textSize">32sp</dimen>
+    <dimen name="pregame.card.button.height">60dp</dimen>
 
 
 

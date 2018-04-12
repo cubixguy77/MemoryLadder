@@ -1,9 +1,13 @@
 <resources>
 
     <dimen name="pregame.settings.list.margin_top">90dp</dimen>
-    <dimen name="pregame.settings.list.text_size">42sp</dimen>
-    <dimen name="pregame.settings.list.summary.text_size">62sp</dimen>
-
+    <dimen name="pregame.settings.list.text_size">56sp</dimen>
+    <dimen name="pregame.settings.list.summary.text_size">64sp</dimen>
+    <dimen name="pregame.settings.list.margin_between_rows">8dp</dimen>
+    <dimen name="pregame.settings.list.value.width">140dp</dimen>
+    <dimen name="pregame.settings.list.row.height">60dp</dimen>
+    <dimen name="pregame.card.button.textSize">52sp</dimen>
+    <dimen name="pregame.card.button.height">100dp</dimen>
 
     <dimen name="scores.arrow_button.size">80dp</dimen>
     <dimen name="scores.game_selector_panel.height">100dp</dimen>

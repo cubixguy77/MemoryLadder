@@ -1,15 +1,20 @@
 <resources>
 
-    <dimen name="numbers.carousel.large.textSize">70sp</dimen>
-
-    <dimen name="navigation_button.size">48dp</dimen>
-    <dimen name="navigation_button.margin">8dp</dimen>
-
-    <dimen name="numeric_keyboard.layout_height">160dp</dimen>
-
-
-
+    <!-- Choose Test -->
     <dimen name="choose_test.margin.top">12dp</dimen>
     <dimen name="choose_test.image.size">70dp</dimen>
     <dimen name="choose_test.text.size">14sp</dimen>
+
+    <!-- Test Details -->
+    <dimen name="pregame.settings.list.margin_top">4dp</dimen>
+    <dimen name="pregame.settings.list.margin_between_rows">4dp</dimen>
+
+    <!-- Generic Game -->
+    <dimen name="navigation_button.size">48dp</dimen>
+    <dimen name="navigation_button.margin">8dp</dimen>
+    <dimen name="numeric_keyboard.layout_height">160dp</dimen>
+
+    <!-- Numbers -->
+    <dimen name="numbers.carousel.large.textSize">70sp</dimen>
+
 </resources>

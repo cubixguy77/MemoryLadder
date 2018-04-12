@@ -1,7 +1,18 @@
 <resources>
-    <dimen name="numbers.carousel.large.textSize">90sp</dimen>
 
+    <!-- Choose Test -->
     <dimen name="choose_test.margin.top">16dp</dimen>
     <dimen name="choose_test.image.size">80dp</dimen>
     <dimen name="choose_test.text.size">16sp</dimen>
+
+    <!-- Test Details -->
+    <dimen name="pregame.settings.list.margin_top">6dp</dimen>
+    <dimen name="pregame.settings.list.margin_between_rows">4dp</dimen>
+    <dimen name="pregame.settings.list.row.height">28dp</dimen>
+    <dimen name="pregame.card.button.textSize">26sp</dimen>
+    <dimen name="pregame.card.button.height">42dp</dimen>
+
+    <!-- Numbers -->
+    <dimen name="numbers.carousel.large.textSize">90sp</dimen>
+
 </resources>

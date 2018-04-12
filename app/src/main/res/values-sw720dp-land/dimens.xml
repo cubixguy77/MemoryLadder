@@ -1,5 +1,17 @@
 <resources>
+
+    <!-- Choose Test -->
+
+    <!-- Test Details -->
+    <dimen name="pregame.settings.list.margin_top">16dp</dimen>
+    <dimen name="pregame.settings.list.row.height">52dp</dimen>
+    <dimen name="pregame.card.button.height">88dp</dimen>
+
+    <!-- Generic Game -->
+
+    <!-- Numbers -->
     <bool name="numbers.carousel.recall.display">true</bool>
     <dimen name="numbers.carousel.large.textSize">160sp</dimen>
     <dimen name="numeric_keyboard.layout_height">260dp</dimen>
+
 </resources>

@@ -31,7 +31,7 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
 
     private final Context context;
 
-    @BindView(R.id.testDetailsCardTitle) TextView titleText;
+    @BindView(R.id.testDetailsCardTitle) Button titleText;
     @BindView(R.id.testDetailsPlayButton) Button playButton;
     @BindView(R.id.testDetailsUnlockButton) Button unlockButton;
 
