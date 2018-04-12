@@ -6,4 +6,10 @@
     <dimen name="navigation_button.margin">8dp</dimen>
 
     <dimen name="numeric_keyboard.layout_height">160dp</dimen>
+
+
+
+    <dimen name="choose_test.margin.top">12dp</dimen>
+    <dimen name="choose_test.image.size">70dp</dimen>
+    <dimen name="choose_test.text.size">14sp</dimen>
 </resources>

@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="@dimen/choose_test.margin.top">
 
         <ImageView
             android:id="@+id/SpeedNumbersImage"
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="@dimen/choose_test.margin.top">
 
         <ImageView
             android:id="@+id/RandomWordsImage"
@@ -141,7 +141,6 @@
             android:textSize="16sp"
             android:textColor="#eed1d1d1"
             />
-
     </FrameLayout>
 </LinearLayout>
 
