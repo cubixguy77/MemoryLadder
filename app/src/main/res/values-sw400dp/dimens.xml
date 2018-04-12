@@ -36,4 +36,6 @@
     <dimen name="numbers.carousel.large.textSize">150sp</dimen>
 
     <dimen name="numbers.grid.row.height">44dp</dimen>
+
+    <dimen name="startButton.size">240dp</dimen>
 </resources>

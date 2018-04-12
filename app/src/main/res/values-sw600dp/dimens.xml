@@ -80,4 +80,7 @@
     <dimen name="numeric_keyboard.layout_height">300dp</dimen>
     <dimen name="numeric_keyboard.textSize">28sp</dimen>
     <dimen name="numeric_keyboard.iconSize">32dp</dimen>
+
+
+    <dimen name="startButton.size">300dp</dimen>
 </resources>

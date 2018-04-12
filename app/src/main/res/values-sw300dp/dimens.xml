@@ -120,5 +120,6 @@
     <dimen name="numbers.grid.row.height">30dp</dimen>
 
 
+    <dimen name="startButton.size">180dp</dimen>
 
 </resources>
