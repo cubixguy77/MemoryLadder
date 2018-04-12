@@ -17,6 +17,7 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.MemoryLadder.InstructionsDialog;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.ScorePanel.ScorePanel;
 import com.MemoryLadder.Constants;
@@ -52,6 +53,7 @@ public class GameActivity extends AppCompatActivity {
     private MenuItem finishMem;
     private MenuItem finishRecall;
     private MenuItem playAgain;
+    private MenuItem help;
 
     private GamePhase gamePhase;
 
@@ -317,6 +319,7 @@ public class GameActivity extends AppCompatActivity {
         finishMem = menu.getItem(0);
         finishRecall = menu.getItem(1);
         playAgain = menu.getItem(2);
+        help = menu.getItem(3);
 
         renderToolbarFor(this.gamePhase);
         return true;
@@ -334,6 +337,10 @@ public class GameActivity extends AppCompatActivity {
             case R.id.menu_play_again:
                 setGamePhase(GamePhase.PRE_MEMORIZATION);
                 return true;
+            case R.id.menu_help:
+                InstructionsDialog dialog = new InstructionsDialog(this, settings.getGameType());
+                dialog.show();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -349,24 +356,28 @@ public class GameActivity extends AppCompatActivity {
             finishMem.setVisible(false);
             finishRecall.setVisible(false);
             playAgain.setVisible(false);
+            help.setVisible(true);
         }
         else if (phase == GamePhase.MEMORIZATION) {
             toolbar.setTitle("Memorization");
             finishMem.setVisible(true);
             finishRecall.setVisible(false);
             playAgain.setVisible(false);
+            help.setVisible(false);
         }
         else if (phase == GamePhase.RECALL) {
             toolbar.setTitle("Recall");
             finishMem.setVisible(false);
             finishRecall.setVisible(true);
             playAgain.setVisible(false);
+            help.setVisible(false);
         }
         else if (phase == GamePhase.REVIEW) {
             toolbar.setTitle("Review");
             finishMem.setVisible(false);
             finishRecall.setVisible(false);
             playAgain.setVisible(true);
+            help.setVisible(false);
         }
     }
 
