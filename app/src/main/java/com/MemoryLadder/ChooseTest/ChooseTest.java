@@ -1,9 +1,13 @@
 package com.MemoryLadder.ChooseTest;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -69,4 +73,41 @@ public class ChooseTest extends AppCompatActivity {
 		this.startActivity(i);
         overridePendingTransition(R.anim.slide_in_activity_right, R.anim.slide_out_activity_left);
 	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_choose_test, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.action_send_feedback:
+                getUserFeedback();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void getUserFeedback() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "mastersofmemorycontact@gmail.com" });
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_EmailSubjectText));
+        intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(getString(R.string.feedback_EmailMessageBodyText)));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+        else {
+            Intent Email = new Intent(Intent.ACTION_SEND);
+            Email.setType("text/email");
+            Email.putExtra(Intent.EXTRA_EMAIL, new String[] { "mastersofmemorycontact@gmail.com" });
+            Email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_EmailSubjectText));
+            Email.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(getString(R.string.feedback_EmailMessageBodyText)));
+            startActivity(Intent.createChooser(Email, getString(R.string.send_feedback)));
+        }
+    }
 }

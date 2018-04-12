@@ -3,7 +3,11 @@
     <string name="hello">Hello World, TesterActivity!</string>
     <string name="app_name">Memory Ladder</string>
     <string name="instructions">Instructions</string>
-    
+
+	<string name="send_feedback">Send Feedback</string>
+	<string name="feedback.EmailSubjectText">Feedback for Memory Ladder</string>
+	<string name="feedback.EmailMessageBodyText">I would like to provide some feedback: </string>
+
     <string name="numbers_written_about">In this test, you will be presented with several rows of digits. Your job is to memorize as many rows of digits as possible in the time allotted.</string>
     <string name="numbers_written_preface">For each row of digits, you will earn:</string>
     <string name="numbers_written_point1">1 point for each digit if there are 0 mistakes in the row.</string>
@@ -60,8 +64,9 @@
     <string name="accuracy">Accuracy</string>
 	<string name="scoreList.Score">Score</string>
 	<string name="mem_time">Mem Time</string>
+    <string name="feedback">Feedback</string>
 
-	<string-array name="Settings_NumberTypes">
+    <string-array name="Settings_NumberTypes">
 	    <item>Binary</item>
 	    <item >Decimal</item>    
 	    </string-array>
