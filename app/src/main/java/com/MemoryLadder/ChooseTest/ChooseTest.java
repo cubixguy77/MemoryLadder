@@ -3,6 +3,7 @@ package com.MemoryLadder.ChooseTest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -109,5 +110,20 @@ public class ChooseTest extends AppCompatActivity {
             Email.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(getString(R.string.feedback_EmailMessageBodyText)));
             startActivity(Intent.createChooser(Email, getString(R.string.send_feedback)));
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        launchExitDialog();
+    }
+
+    public void launchExitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+        builder.setMessage("Are you sure you want to close Memory Ladder?")
+                .setCancelable(true)
+                .setPositiveButton("Yes", (dialog, id) -> finish())
+                .setNegativeButton("No", (dialog, id) -> dialog.cancel());
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
