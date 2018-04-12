@@ -24,13 +24,16 @@
     <dimen name="small_card.suit.size">38dp</dimen>
     <dimen name="small_card.rank.size">38sp</dimen>
 
-    <dimen name="cards.navigation_button.size">140dp</dimen>
-    <dimen name="cards.navigation_button.margin">32dp</dimen>
-    <dimen name="cards.navigation_button.margin_from_center">84dp</dimen>
+    <dimen name="navigation_button.size">100dp</dimen>
+    <dimen name="navigation_button.margin">24dp</dimen>
+    <dimen name="navigation_button.margin_from_center">84dp</dimen>
 
     <dimen name="cards.mnemonic_hint.text.size">32sp</dimen>
 
     <dimen name="choose_test.image.size">160dp</dimen>
     <dimen name="choose_test.image.margin.left">8dp</dimen>
     <dimen name="choose_test.text.size">26sp</dimen>
+
+    <dimen name="numbers.carousel.large.textSize">220sp</dimen>
+    <dimen name="numeric_keyboard.layout_height">360dp</dimen>
 </resources>

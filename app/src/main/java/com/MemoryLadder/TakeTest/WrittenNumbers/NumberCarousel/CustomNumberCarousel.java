@@ -25,7 +25,7 @@ public class CustomNumberCarousel extends LinearLayout {
     private TextView rowIndicator;
     private TextView closeButton;
     private FrameLayout closeButtonContainer;
-    private FrameLayout carouselContainer;
+    public FrameLayout carouselContainer;
     private FrameLayout mnemoTextContainer;
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
@@ -178,4 +178,6 @@ public class CustomNumberCarousel extends LinearLayout {
         this.isDisplayMnemo = false;
         mnemoTextContainer.setVisibility(View.GONE);
     }
+
+
 }

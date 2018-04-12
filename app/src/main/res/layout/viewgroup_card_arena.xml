@@ -80,8 +80,8 @@
                 android:id="@+id/button_prev_group_alt"
                 style="@style/NextGroupButton"
                 app:srcCompat="@drawable/ic_arrow_left"
-                android:layout_marginLeft="@dimen/cards.navigation_button.margin"
-                android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                android:layout_marginLeft="@dimen/navigation_button.margin"
+                android:layout_marginRight="@dimen/navigation_button.margin"
                 android:contentDescription="Last Group" />
 
             <com.MemoryLadder.TakeTest.Cards.LargeCardView
@@ -121,8 +121,8 @@
                 android:id="@+id/button_next_group_alt"
                 style="@style/NextGroupButton"
                 app:srcCompat="@drawable/ic_arrow_right"
-                android:layout_marginLeft="@dimen/cards.navigation_button.margin"
-                android:layout_marginRight="@dimen/cards.navigation_button.margin"
+                android:layout_marginLeft="@dimen/navigation_button.margin"
+                android:layout_marginRight="@dimen/navigation_button.margin"
                 android:contentDescription="Last Group" />
 
         </com.MemoryLadder.TakeTest.Cards.SelectedCardsView>

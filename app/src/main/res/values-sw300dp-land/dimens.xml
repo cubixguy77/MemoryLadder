@@ -1,7 +1,11 @@
 <resources>
 
-    <dimen name="numbers.carousel.large.textSize">80sp</dimen>
+    <dimen name="numbers.carousel.large.textSize">60sp</dimen>
     <dimen name="numbers.carousel.small.textSize">20sp</dimen>
-    <dimen name="numbers.carousel.mnemo.textSize">20sp</dimen>
+    <dimen name="numbers.carousel.mnemo.textSize">16sp</dimen>
     <bool name="numbers.carousel.recall.display">false</bool>
+
+    <dimen name="navigation_button.size">48dp</dimen>
+
+    <dimen name="numeric_keyboard.layout_height">140dp</dimen>
 </resources>

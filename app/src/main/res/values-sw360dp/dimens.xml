@@ -33,9 +33,9 @@
 
     <dimen name="suit_selector.height">52dp</dimen>
 
-    <dimen name="cards.navigation_button.size">80dp</dimen>
-    <dimen name="cards.navigation_button.margin">16dp</dimen>
-    <dimen name="cards.navigation_button.margin_from_center">56dp</dimen>
+    <dimen name="navigation_button.size">80dp</dimen>
+    <dimen name="navigation_button.margin">16dp</dimen>
+    <dimen name="navigation_button.margin_from_center">56dp</dimen>
 
     <dimen name="deck_selector.size">26dp</dimen>
     <dimen name="deck_selector.margin">6dp</dimen>
@@ -50,4 +50,6 @@
     <dimen name="picker.time.labels.textSize">17sp</dimen>
 
     <dimen name="picker.digitSpeed.margin">28dp</dimen>
+
+    <dimen name="numbers.grid.row.height">36dp</dimen>
 </resources>

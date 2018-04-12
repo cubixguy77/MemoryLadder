@@ -2,10 +2,10 @@
 <resources>
 
     <style name="NextGroupButton">
-        <item name="android:layout_width">@dimen/cards.navigation_button.size</item>
-        <item name="android:layout_height">@dimen/cards.navigation_button.size</item>
-        <item name="android:layout_marginTop">@dimen/cards.navigation_button.margin</item>
-        <item name="android:layout_marginBottom">@dimen/cards.navigation_button.margin</item>
+        <item name="android:layout_width">@dimen/navigation_button.size</item>
+        <item name="android:layout_height">@dimen/navigation_button.size</item>
+        <item name="android:layout_marginTop">@dimen/navigation_button.margin</item>
+        <item name="android:layout_marginBottom">@dimen/navigation_button.margin</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:elevation">2dp</item>
         <item name="android:background">@drawable/shape_rounded_corners</item>

@@ -1,0 +1,5 @@
+<resources>
+    <bool name="numbers.carousel.recall.display">true</bool>
+    <dimen name="numbers.carousel.large.textSize">160sp</dimen>
+    <dimen name="numeric_keyboard.layout_height">260dp</dimen>
+</resources>

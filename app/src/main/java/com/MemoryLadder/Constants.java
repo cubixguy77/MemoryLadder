@@ -163,8 +163,8 @@ public class Constants {
     			specs[3] = 600;
     			specs[4] = 5; break;
     		case 2: 
-    			specs[0] = 1;
-    			specs[1] = 10;
+    			specs[0] = 2;
+    			specs[1] = 5;
     			specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 10; break;
@@ -175,14 +175,14 @@ public class Constants {
     			specs[3] = 600;
     			specs[4] = 25; break;
     		case 4: 
-    			specs[0] = 3;
-				specs[1] = 20;
+    			specs[0] = 6;
+				specs[1] = 10;
 				specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 50; break;
     		case 5: 
-    			specs[0] = 5;
-				specs[1] = 20;
+    			specs[0] = 10;
+				specs[1] = 10;
 				specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 80; break;

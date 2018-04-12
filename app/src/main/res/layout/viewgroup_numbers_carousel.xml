@@ -41,7 +41,7 @@
     <FrameLayout
         android:id="@+id/carouselContainer"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="wrap_content"
         tools:visibility="visible">
 
         <TextView

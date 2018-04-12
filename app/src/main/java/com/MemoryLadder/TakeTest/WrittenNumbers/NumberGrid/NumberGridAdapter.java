@@ -76,7 +76,7 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
             /* Double height of cells for review phase */
             GridLayoutManager.LayoutParams params = (GridLayoutManager.LayoutParams) holder.myTextView.getLayoutParams();
-            params.height = holder.myTextView.getContext().getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height_large);
+            params.height = 2 * holder.myTextView.getContext().getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height);
             holder.myTextView.setLayoutParams(params);
 
             int answerResult = mData.checkAnswerAt(position);

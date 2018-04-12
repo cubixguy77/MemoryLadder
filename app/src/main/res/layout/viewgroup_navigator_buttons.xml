@@ -11,14 +11,14 @@
         android:id="@+id/prevButton"
         style="@style/NextGroupButton"
         app:srcCompat="@drawable/ic_arrow_left"
-        android:layout_marginRight="@dimen/cards.navigation_button.margin_from_center"
+        android:layout_marginRight="@dimen/navigation_button.margin_from_center"
         android:contentDescription="Last Group" />
 
     <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/nextButton"
         style="@style/NextGroupButton"
         app:srcCompat="@drawable/ic_arrow_right"
-        android:layout_marginLeft="@dimen/cards.navigation_button.margin_from_center"
+        android:layout_marginLeft="@dimen/navigation_button.margin_from_center"
         android:contentDescription="Next Group" />
 
 </FrameLayout>

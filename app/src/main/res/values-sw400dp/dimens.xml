@@ -31,4 +31,8 @@
     <dimen name="choose_test.image.margin.left">8dp</dimen>
 
     <dimen name="picker.time.numberPicker.width">80dp</dimen>
+
+    <dimen name="numbers.carousel.large.textSize">150sp</dimen>
+
+    <dimen name="numbers.grid.row.height">44dp</dimen>
 </resources>

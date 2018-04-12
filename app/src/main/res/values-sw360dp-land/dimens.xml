@@ -1,0 +1,9 @@
+<resources>
+
+    <dimen name="numbers.carousel.large.textSize">70sp</dimen>
+
+    <dimen name="navigation_button.size">48dp</dimen>
+    <dimen name="navigation_button.margin">8dp</dimen>
+
+    <dimen name="numeric_keyboard.layout_height">160dp</dimen>
+</resources>

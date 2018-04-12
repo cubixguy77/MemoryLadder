@@ -152,6 +152,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             nightModeIcon.setVisibility(View.VISIBLE);
             gridLinesIcon.setVisibility(View.VISIBLE);
             bottomSpacer.setVisibility(View.GONE);
+            timerContainer.setVisibility(View.VISIBLE);
         }
         else if (phase == GamePhase.MEMORIZATION) {
             textCarousel.show();
@@ -183,6 +184,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             gridLinesIcon.setVisibility(View.INVISIBLE);
             navigatorLayout.setVisibility(View.GONE);
             bottomSpacer.setVisibility(View.VISIBLE);
+            timerContainer.setVisibility(View.GONE);
         }
     }
 
