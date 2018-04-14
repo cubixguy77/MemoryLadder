@@ -49,12 +49,22 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     public CardGameManager() {}
 
     @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        this.data.setKeepHighlightPos(true);
+        this.data.setKeepDeckNum(true);
+        outState.putParcelable("gameData", this.data);
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.viewgroup_card_arena, container, false);
         ButterKnife.bind(this, view);
 
-        settings = getArguments().getParcelable("settings");
+        if (getArguments() != null) {
+            settings = getArguments().getParcelable("settings");
+        }
 
         deckView.setListener(this);
         deckSelectorView.setDeckSelectionListener(this);
@@ -67,23 +77,31 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     }
 
     @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        System.out.println("onActivityCreated()");
+
+        if (savedInstanceState != null) {
+            this.data = savedInstanceState.getParcelable("gameData");
+        }
+    }
+
+    @Override
     public void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
             data = new CardGameData(settings);
         }
-        else if (phase == GamePhase.MEMORIZATION) {
-
-        }
         else if (phase == GamePhase.RECALL) {
             data.setNumCardsPerGroup(1);
-        }
-        else if (phase == GamePhase.REVIEW) {
-
         }
 
         data.setGamePhase(phase);
         render(phase);
-        displayDeck(0);
+
+        /* Restore previously selected deck following config change (e.g. rotation) */
+        displayDeck(data.isKeepDeckNum() ? data.getDeckNum() : 0, data.isKeepHighlightPos() ? data.getHighlightPosition() : 0);
+        data.setKeepDeckNum(false);
+        data.setKeepHighlightPos(false);
     }
 
     @Override
@@ -96,19 +114,32 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
         if (phase == GamePhase.PRE_MEMORIZATION) {
             suitSelectorView.setVisibility(View.GONE);
             cardSelectorView.setVisibility(View.GONE);
-            deckView.setVisibility(View.VISIBLE);
-            selectedCardsView.setVisibility(View.GONE);
-            selectedCardsView.setCardDisplayCount(0);
-            navigatorButtons.setVisibility(View.GONE);
+
+            if (getResources().getBoolean(R.bool.cards_bottom_navigation_buttons_display)) {
+                navigatorButtons.setVisibility(View.VISIBLE);
+                prevGroupButton.setVisibility(View.GONE);
+                nextGroupButton.setVisibility(View.GONE);
+            } else {
+                navigatorButtons.setVisibility(View.GONE);
+                prevGroupButton.setVisibility(View.VISIBLE);
+                nextGroupButton.setVisibility(View.VISIBLE);
+            }
+
             timerView.show();
         }
         else if (phase == GamePhase.MEMORIZATION) {
-            prevGroupButton.setVisibility(View.GONE);
-            nextGroupButton.setVisibility(View.GONE);
             suitSelectorView.setVisibility(View.GONE);
             cardSelectorView.setVisibility(View.GONE);
-            selectedCardsView.setVisibility(View.VISIBLE);
-            navigatorButtons.setVisibility(View.VISIBLE);
+
+            if (getResources().getBoolean(R.bool.cards_bottom_navigation_buttons_display)) {
+                navigatorButtons.setVisibility(View.VISIBLE);
+                prevGroupButton.setVisibility(View.GONE);
+                nextGroupButton.setVisibility(View.GONE);
+            } else {
+                navigatorButtons.setVisibility(View.GONE);
+                prevGroupButton.setVisibility(View.VISIBLE);
+                nextGroupButton.setVisibility(View.VISIBLE);
+            }
         }
         else if (phase == GamePhase.RECALL) {
             navigatorButtons.setVisibility(View.GONE);
@@ -116,6 +147,8 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             nextGroupButton.setVisibility(View.VISIBLE);
             suitSelectorView.setVisibility(View.VISIBLE);
             cardSelectorView.setVisibility(View.VISIBLE);
+
+            selectedCardsView.setVisibility(getResources().getBoolean(R.bool.cards_selected_view_display_in_recall) ? View.VISIBLE : View.GONE);
         }
         else if (phase == GamePhase.REVIEW) {
             suitSelectorView.setVisibility(View.GONE);
@@ -124,6 +157,8 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             selectedCardsView.setVisibility(View.GONE);
             timerView.hide();
         }
+
+        deckSelectorView.setVisibility(data.getNumDecks() <= 1 ? View.GONE : View.VISIBLE);
     }
 
     @Override
@@ -159,7 +194,7 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
         if (newDeckNum < 0 || newDeckNum >= data.getNumDecks()) return;
 
         data.setDeckNum(newDeckNum);
-        displayDeck(newDeckNum);
+        displayDeck(newDeckNum, 0);
     }
 
     /* Selection of Suit */
@@ -208,33 +243,33 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
         }
     }
 
-    private void displayDeck(int deckNum) {
+    private void displayDeck(int deckNum, int highlightPos) {
         data.setDeckNum(deckNum);
-
-        if (data.getNumDecks() == 1) {
-            deckSelectorView.setVisibility(View.GONE);
-        }
-        else {
-            deckSelectorView.displayDeckNumber(deckNum + 1, data.getNumDecks());
-        }
+        deckSelectorView.displayDeckNumber(deckNum + 1, data.getNumDecks());
 
         if (data.getGamePhase() == GamePhase.PRE_MEMORIZATION) {
             deckView.clear();
-            deckView.post(() -> deckView.renderCards(data.getRecallDeck(0)));
+            deckView.post(() -> {
+                deckView.renderCards(data.getRecallDeck(0));
+                selectedCardsView.setCardDisplayCount(settings.getNumCardsPerGroup());
+                selectedCardsView.setVisibility(View.VISIBLE);
+                setFocusAt(highlightPos);
+            });
         }
         if (data.getGamePhase() == GamePhase.MEMORIZATION) {
             deckView.renderCards(data.getMemoryDeck(deckNum));
-            setFocusAt(0);
+            setFocusAt(highlightPos);
         }
         else if (data.getGamePhase() == GamePhase.RECALL) {
             deckView.renderCards(data.getRecallDeck(deckNum));
             suitSelectorView.renderSuits(PlayingCard.HEART);
             cardSelectorView.post(() -> cardSelectorView.renderCards(data.getRecallEntryDeck(PlayingCard.HEART, deckNum)));
 
-            setFocusAt(0);
+            setFocusAt(highlightPos);
         }
         else if (data.getGamePhase() == GamePhase.REVIEW) {
             deckView.renderCards(data.getMemoryDeck(deckNum), data.getRecallDeck(deckNum));
+            selectedCardsView.presentBlankCards(); // Resolves display issue where returning to Pre_Mem briefly shows the cards previously contained in the view
         }
     }
 
@@ -247,6 +282,9 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
 
         deckView.highlightCards(index, endIndex);
 
+        if (data.getGamePhase() == GamePhase.PRE_MEMORIZATION) {
+            selectedCardsView.presentBlankCards();
+        }
         if (data.getGamePhase() == GamePhase.MEMORIZATION) {
             selectedCardsView.renderCards(data.getMemoryDeckSubset(index, endIndex));
         }

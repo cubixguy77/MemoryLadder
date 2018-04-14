@@ -1,24 +1,27 @@
 package com.MemoryLadder.TakeTest.Cards;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Deck {
+public class Deck implements Parcelable {
 
     private List<PlayingCard> cards;
 
     /* Generates a deck of size deckSize with optional shuffling */
-    public Deck(int deckSize, boolean shuffle) {
+    Deck(int deckSize, boolean shuffle) {
         cards = PlayingCardFactory.generateShuffledDeck(deckSize, shuffle);
     }
 
     /* Generates a deck from an already given list of cards */
-    public Deck(List<PlayingCard> cards) {
+    Deck(List<PlayingCard> cards) {
         this.cards = cards;
     }
 
     /* Generates a deck of 13 cards, all of the given suit, ordered by Rank (Ace, 2, 3...) */
-    public Deck(int suit) {
+    Deck(int suit) {
         List<PlayingCard> cards = new ArrayList<>(13);
         for (int rank=0; rank<13; rank++) {
             cards.add(new PlayingCard(13 * suit + rank));
@@ -63,4 +66,41 @@ public class Deck {
     List<PlayingCard> subList(int start, int end) {
         return cards.subList(start, end);
     }
+
+    private Deck(Parcel in) {
+        if (in.readByte() == 0x01) {
+            cards = new ArrayList<>();
+            in.readList(cards, PlayingCard.class.getClassLoader());
+        } else {
+            cards = null;
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (cards == null) {
+            dest.writeByte((byte) (0x00));
+        } else {
+            dest.writeByte((byte) (0x01));
+            dest.writeList(cards);
+        }
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Deck> CREATOR = new Parcelable.Creator<Deck>() {
+        @Override
+        public Deck createFromParcel(Parcel in) {
+            return new Deck(in);
+        }
+
+        @Override
+        public Deck[] newArray(int size) {
+            return new Deck[size];
+        }
+    };
 }

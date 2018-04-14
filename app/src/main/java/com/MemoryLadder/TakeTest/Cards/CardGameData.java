@@ -1,11 +1,14 @@
 package com.MemoryLadder.TakeTest.Cards;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.GamePhase;
 
 import java.util.List;
 
-class CardGameData {
+class CardGameData implements Parcelable {
 
     /* Settings */
     private int numDecks;
@@ -22,6 +25,8 @@ class CardGameData {
     private Deck[] memoryDecks;
     private Deck[] recalledDecks;
     private Deck[][] recallEntryDecks;
+    private boolean keepHighlightPos;
+    private boolean keepDeckNum;
 
     CardGameData(CardSettings settings) {
         this.numDecks = settings.getNumDecks();
@@ -79,6 +84,12 @@ class CardGameData {
 
     void setNumCardsPerGroup(int numCardsPerGroup) { this.numCardsPerGroup = numCardsPerGroup; }
 
+    public void setKeepHighlightPos(boolean keepHighlightPos) {        this.keepHighlightPos = keepHighlightPos;    }
+    public boolean isKeepHighlightPos() {        return keepHighlightPos;    }
+
+    public void setKeepDeckNum(boolean keepDeckNum) {        this.keepDeckNum = keepDeckNum;    }
+    public boolean isKeepDeckNum() {        return keepDeckNum;    }
+
     List<PlayingCard> getMemoryDeckSubset(int index, int endIndex) {
         return memoryDecks[deckNum].subList(index, endIndex);
     }
@@ -117,4 +128,58 @@ class CardGameData {
     public Score getScore() {
         return ScoreCalculation.getScore(recalledDecks, memoryDecks);
     }
+
+    private CardGameData(Parcel in) {
+        numDecks = in.readInt();
+        deckSize = in.readInt();
+        numCardsPerGroup = in.readInt();
+        shuffle = in.readByte() != 0x00;
+        deckNum = in.readInt();
+        highlightPosition = in.readInt();
+        gamePhase = (GamePhase) in.readValue(GamePhase.class.getClassLoader());
+
+        memoryDecks = in.createTypedArray(Deck.CREATOR);
+        recalledDecks = in.createTypedArray(Deck.CREATOR);
+
+        recallEntryDecks = new Deck[numDecks][4];
+        for (int deckNum=0; deckNum<numDecks; deckNum++) {
+            recallEntryDecks[deckNum] = in.createTypedArray(Deck.CREATOR);
+        }
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(numDecks);
+        dest.writeInt(deckSize);
+        dest.writeInt(numCardsPerGroup);
+        dest.writeByte((byte) (shuffle ? 0x01 : 0x00));
+        dest.writeInt(deckNum);
+        dest.writeInt(highlightPosition);
+        dest.writeValue(gamePhase);
+
+        dest.writeTypedArray(memoryDecks, 0);
+        dest.writeTypedArray(recalledDecks, 0);
+
+        for (int deckNum=0; deckNum<numDecks; deckNum++) {
+            dest.writeTypedArray(recallEntryDecks[deckNum], 0);
+        }
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<CardGameData> CREATOR = new Parcelable.Creator<CardGameData>() {
+        @Override
+        public CardGameData createFromParcel(Parcel in) {
+            return new CardGameData(in);
+        }
+
+        @Override
+        public CardGameData[] newArray(int size) {
+            return new CardGameData[size];
+        }
+    };
 }

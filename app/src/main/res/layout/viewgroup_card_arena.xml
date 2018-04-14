@@ -60,21 +60,22 @@
 
         <com.MemoryLadder.TakeTest.Cards.DeckView
             android:id="@+id/deck_view"
-            tools:layout_height="192dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            tools:layout_height="72dp"
+            />
 
         <com.MemoryLadder.TakeTest.Cards.SelectedCardsView
             android:id="@+id/selected_cards_view"
             tools:visibility="visible"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             android:layout_weight="1"
             android:background="@color/green"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <android.support.v7.widget.AppCompatImageButton
                 android:id="@+id/button_prev_group_alt"

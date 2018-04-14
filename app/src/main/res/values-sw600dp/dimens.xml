@@ -41,10 +41,10 @@
 
 
 
-    <dimen name="small_card.height">70dp</dimen>
+    <dimen name="small_card.height">68dp</dimen>
     <dimen name="small_card.review.margin">16dp</dimen>
-    <dimen name="small_card.suit.size">34dp</dimen>
-    <dimen name="small_card.rank.size">34sp</dimen>
+    <dimen name="small_card.suit.size">32dp</dimen>
+    <dimen name="small_card.rank.size">32sp</dimen>
 
     <dimen name="suit_selector.height">80dp</dimen>
     <dimen name="suit_selector.icon.size">40dp</dimen>
@@ -58,6 +58,7 @@
     <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
     <dimen name="deck_selector.arrow.size">32dp</dimen>
 
+    <dimen name="timer.height">52dp</dimen>
     <dimen name="timer.text.size">20sp</dimen>
 
     <dimen name="cards.mnemonic_hint.text.size">30sp</dimen>

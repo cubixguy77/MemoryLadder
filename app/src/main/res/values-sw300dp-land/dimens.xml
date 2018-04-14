@@ -20,6 +20,7 @@
     <!-- Generic Game -->
     <dimen name="navigation_button.size">48dp</dimen>
     <dimen name="numeric_keyboard.layout_height">140dp</dimen>
+    <dimen name="score_panel.height">60dp</dimen>
 
     <!-- Numbers -->
     <dimen name="numbers.carousel.large.textSize">60sp</dimen>
@@ -27,4 +28,8 @@
     <dimen name="numbers.carousel.mnemo.textSize">16sp</dimen>
     <bool name="numbers.carousel.recall.display">false</bool>
 
+
+    <!-- Cards -->
+    <dimen name="small_card.suit.size">17dp</dimen>
+    <dimen name="small_card.rank.size">15sp</dimen>
 </resources>

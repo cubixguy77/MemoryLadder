@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <integer name="numbers.grid.maxLines">2</integer>
 
+    <integer name="cards.deckView.maxCardsPerRow">26</integer>
 </resources>

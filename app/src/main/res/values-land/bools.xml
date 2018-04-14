@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="cards_bottom_navigation_buttons_display">false</bool>
+    <bool name="cards_selected_view_display_in_recall">false</bool>
+</resources>

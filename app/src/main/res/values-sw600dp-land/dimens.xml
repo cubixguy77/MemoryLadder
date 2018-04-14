@@ -18,4 +18,7 @@
     <dimen name="numbers.carousel.small.textSize">32sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">36sp</dimen>
 
+    <!-- Cards -->
+    <dimen name="suit_selector.height">56dp</dimen>
+    <dimen name="small_card.rank.size">28sp</dimen>
 </resources>

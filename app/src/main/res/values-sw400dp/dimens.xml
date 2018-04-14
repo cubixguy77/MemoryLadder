@@ -6,6 +6,8 @@
     <dimen name="pregame.card.button.textSize">28sp</dimen>
     <dimen name="pregame.card.button.height">52dp</dimen>
 
+    <dimen name="small_card.height">48dp</dimen>
+
 
     <dimen name="scores.arrow_button.size">40dp</dimen>
     <dimen name="scores.game_selector_panel.height">60dp</dimen>
@@ -24,6 +26,7 @@
     <dimen name="deck_selector.margin">8dp</dimen>
     <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
 
+    <dimen name="timer.height">40dp</dimen>
     <dimen name="timer.text.size">16sp</dimen>
 
     <dimen name="cards.mnemonic_hint.text.size">24sp</dimen>

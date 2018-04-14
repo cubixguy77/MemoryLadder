@@ -65,12 +65,12 @@
     <dimen name="navigation_button.margin_from_center">44dp</dimen>
 
 
-    <dimen name="deck_selector.size">20dp</dimen>
+    <dimen name="deck_selector.size">24dp</dimen>
     <dimen name="deck_selector.margin">4dp</dimen>
     <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
     <dimen name="deck_selector.arrow.size">24dp</dimen>
 
-    <dimen name="timer.height">48dp</dimen>
+    <dimen name="timer.height">36dp</dimen>
     <dimen name="timer.text.size">12sp</dimen>
 
     <dimen name="cards.mnemonic_hint.text.size">20sp</dimen>

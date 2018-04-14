@@ -27,12 +27,11 @@ public class CardSelectionView extends GridLayout {
         /* First pass through, views need to be inflated */
         if (cardViews == null) {
             setColumnCount(7);
-            initViews(deck);
-            setupListeners();
+            initViews();
         }
-        else {
-            displayDeck(deck);
-        }
+
+        displayDeck(deck);
+        setupListeners();
     }
 
     public void setupListeners() {
@@ -54,14 +53,14 @@ public class CardSelectionView extends GridLayout {
         cCard.setVisibility(View.INVISIBLE);
     }
 
-    private void initViews(Deck deck) {
-        cardViews = new SmallCardView[deck.size()];
+    /* Initializes the 13 card views comprising a given suit */
+    private void initViews() {
+        cardViews = new SmallCardView[13];
 
-        for (int i = 0; i < deck.size(); i++) {
+        for (int i = 0; i < 13; i++) {
             SmallCardView cardView = (SmallCardView) ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.partial_card_small, null, false);
             FrameLayout.LayoutParams cardLayoutParameters = new FrameLayout.LayoutParams(getWidth() / getColumnCount(), (int) getResources().getDimension(R.dimen.small_card_height));
             cardView.setLayoutParams(cardLayoutParameters);
-            cardView.setCard(deck.getCard(i));
             addView(cardView, i);
             cardViews[i] = cardView;
         }

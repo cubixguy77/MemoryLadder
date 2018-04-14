@@ -12,7 +12,13 @@
     <dimen name="pregame.card.button.textSize">26sp</dimen>
     <dimen name="pregame.card.button.height">42dp</dimen>
 
+    <!-- Generic Game -->
+    <dimen name="score_panel.top_label.padding.bottom">8dp</dimen>
+    <dimen name="score_panel.top_label.text.size">20sp</dimen>
+    <dimen name="score_panel.value.margin.top">-18dp</dimen>
+
     <!-- Numbers -->
+    <dimen name="small_card.height">44dp</dimen>
     <dimen name="numbers.carousel.large.textSize">90sp</dimen>
 
 </resources>

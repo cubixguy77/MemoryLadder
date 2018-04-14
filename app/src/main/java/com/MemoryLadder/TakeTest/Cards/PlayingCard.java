@@ -1,6 +1,9 @@
 package com.MemoryLadder.TakeTest.Cards;
 
-public class PlayingCard {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PlayingCard implements Parcelable {
 
     /* Index of the card, ranges from 0 - 51 */
     public int cardNum;
@@ -66,4 +69,35 @@ public class PlayingCard {
             default: return null;
         }
     }
+
+    protected PlayingCard(Parcel in) {
+        cardNum = in.readInt();
+        suit = in.readInt();
+        rank = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(cardNum);
+        dest.writeInt(suit);
+        dest.writeInt(rank);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<PlayingCard> CREATOR = new Parcelable.Creator<PlayingCard>() {
+        @Override
+        public PlayingCard createFromParcel(Parcel in) {
+            return new PlayingCard(in);
+        }
+
+        @Override
+        public PlayingCard[] newArray(int size) {
+            return new PlayingCard[size];
+        }
+    };
 }

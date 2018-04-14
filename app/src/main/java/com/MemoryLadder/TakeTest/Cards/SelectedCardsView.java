@@ -39,6 +39,12 @@ public class SelectedCardsView extends LinearLayout {
         initAnimations();
     }
 
+    void presentBlankCards() {
+        myCards[0].setCard(null);
+        myCards[1].setCard(null);
+        myCards[2].setCard(null);
+    }
+
     void renderCards(final List<PlayingCard> cards) {
         setFadeOut.removeAllListeners();
         setFadeOut.cancel();

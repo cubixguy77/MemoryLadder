@@ -37,6 +37,10 @@ public class DeckView extends GridLayout {
 
     /* Renders the Review stage - Memory Data on top, Recall on bottom */
     public void renderCards(Deck deckMem, Deck deckRecall) {
+        if (getColumnCount() <= 0) {
+            computeColumnCount(deckMem.size()); // Column count is wiped out if user rotates device during review
+        }
+
         removeAllViews();
 
         int numRows = 2 * getRowCount(deckMem.size());
@@ -73,10 +77,8 @@ public class DeckView extends GridLayout {
     }
 
     void clear() {
-        if (cardViews != null) {
-            removeAllViews();
-            cardViews = null;
-        }
+        removeAllViews();
+        cardViews = null;
     }
 
     protected void setupListeners() {
@@ -140,7 +142,8 @@ public class DeckView extends GridLayout {
     }
 
     private void computeColumnCount(int deckSize) {
-        int columnCount = 13;
+        int maxColumnCount = getResources().getInteger(R.integer.cards_deckView_maxCardsPerRow);
+        int columnCount = maxColumnCount;
 
         while (deckSize % columnCount != 0) {
             columnCount--;
@@ -148,12 +151,12 @@ public class DeckView extends GridLayout {
 
         /* Deck Size is a prime number */
         if (columnCount == 1) {
-            columnCount = 13;
+            columnCount = maxColumnCount;
         }
 
         /* Deck size is a multiple of two or three times a prime number */
         if ((columnCount == 2 || columnCount == 3) && deckSize > 3) {
-            columnCount = 13;
+            columnCount = maxColumnCount;
         }
 
         setColumnCount(columnCount);

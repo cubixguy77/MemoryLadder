@@ -23,6 +23,7 @@
     <dimen name="scores.settings.list.text_size">36sp</dimen>
     <dimen name="scores.settings.list.summary.text_size">52sp</dimen>
 
+    <dimen name="timer.height">60dp</dimen>
 
     <dimen name="small_card.height">80dp</dimen>
     <dimen name="small_card.suit.size">38dp</dimen>

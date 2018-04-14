@@ -13,8 +13,18 @@
     <dimen name="navigation_button.size">48dp</dimen>
     <dimen name="navigation_button.margin">8dp</dimen>
     <dimen name="numeric_keyboard.layout_height">160dp</dimen>
+    <dimen name="score_panel.height">72dp</dimen>
+    <dimen name="score_panel.top_label.text.size">18sp</dimen>
+    <dimen name="score_panel.top_label.padding.bottom">8dp</dimen>
+    <dimen name="score_panel.value.text.size">40sp</dimen>
+    <dimen name="score_panel.value.margin.top">-20dp</dimen>
 
     <!-- Numbers -->
     <dimen name="numbers.carousel.large.textSize">70sp</dimen>
+
+    <!-- Cards -->
+    <dimen name="small_card.height">44dp</dimen>
+    <dimen name="small_card.rank.size">19sp</dimen>
+    <dimen name="small_card.suit.size">20dp</dimen>
 
 </resources>
