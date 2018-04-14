@@ -23,8 +23,17 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     private LayoutInflater mInflater;
     private boolean nightMode;
     private boolean drawGridLines;
+
+    /* Cached values to boost performance */
     private static final int fadedBlack = Color.parseColor("#77000000");
     private static final int fadedWhite = Color.parseColor("#ddFFFFFF");
+    private static final ForegroundColorSpan redColorSpan = new ForegroundColorSpan(Color.RED);
+    private static final ForegroundColorSpan greenColorSpan = new ForegroundColorSpan(Color.GREEN);
+    private static final ForegroundColorSpan whiteColorSpan = new ForegroundColorSpan(Color.WHITE);
+    private static final ForegroundColorSpan blackColorSpan = new ForegroundColorSpan(Color.BLACK);
+    private static final StrikethroughSpan strikeThroughSpan = new StrikethroughSpan();
+    private static final String lineSeparator = System.getProperty("line.separator");
+    private static final String dash = "—";
 
     // data is passed into the constructor
     public NumberGridAdapter(Context context, WrittenNumberData data, boolean nightMode, boolean drawGridLines) {
@@ -64,7 +73,6 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
         if (mData.getGamePhase() == GamePhase.REVIEW) {
             if (this.drawGridLines) {
                 holder.myTextView.setBackgroundResource(nightMode ? R.drawable.border_white_on_black : R.drawable.border_black_on_white);
@@ -86,18 +94,18 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
             SimpleSpanBuilder ssb = new SimpleSpanBuilder();
             switch (answerResult) {
-                case -1: ssb.append("—",  new ForegroundColorSpan(Color.RED)); break;
-                case  0: ssb.append(recallText,new ForegroundColorSpan(Color.RED), new StrikethroughSpan()); break;
-                case  1: ssb.append(recallText,new ForegroundColorSpan(Color.GREEN)); break;
+                case -1: ssb.append(dash,   redColorSpan); break;
+                case  0: ssb.append(recallText, redColorSpan, strikeThroughSpan); break;
+                case  1: ssb.append(recallText, greenColorSpan); break;
             }
 
-            ssb.append(System.getProperty("line.separator"));
+            ssb.append(lineSeparator);
 
-            int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
+            ForegroundColorSpan standardTextColor = nightMode ? whiteColorSpan : blackColorSpan;
             switch (answerResult) {
-                case -1: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
-                case  0: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
-                case  1: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
+                case -1: ssb.append(memoryText, standardTextColor); break;
+                case  0: ssb.append(memoryText, standardTextColor); break;
+                case  1: ssb.append(memoryText, standardTextColor); break;
             }
 
             holder.myTextView.setText(ssb.build());
