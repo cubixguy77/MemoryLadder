@@ -118,6 +118,7 @@
 
 
     <dimen name="numbers.grid.row.height">30dp</dimen>
+    <dimen name="numbers.grid.row.spacing">8dp</dimen>
 
 
     <dimen name="startButton.size">180dp</dimen>

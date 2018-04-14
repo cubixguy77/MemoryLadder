@@ -282,7 +282,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         if (rowHeight > 0)
             return rowHeight;
 
-        return rowHeight = getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height);
+        return rowHeight = getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_height) + getResources().getDimensionPixelSize(R.dimen.numbers_grid_row_spacing);
     }
 
     private int getFirstVisibleRowNum() {

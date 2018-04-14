@@ -23,6 +23,8 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     private LayoutInflater mInflater;
     private boolean nightMode;
     private boolean drawGridLines;
+    private static final int fadedBlack = Color.parseColor("#77000000");
+    private static final int fadedWhite = Color.parseColor("#ddFFFFFF");
 
     // data is passed into the constructor
     public NumberGridAdapter(Context context, WrittenNumberData data, boolean nightMode, boolean drawGridLines) {
@@ -61,9 +63,7 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     // binds the data to the textview in each cell
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
 
-        //System.out.println("onBindViewHolder: " + position);
 
         if (mData.getGamePhase() == GamePhase.REVIEW) {
             if (this.drawGridLines) {
@@ -93,6 +93,7 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
 
             ssb.append(System.getProperty("line.separator"));
 
+            int standardTextColor = nightMode ? Color.WHITE : Color.BLACK;
             switch (answerResult) {
                 case -1: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
                 case  0: ssb.append(memoryText, new ForegroundColorSpan(standardTextColor)); break;
@@ -102,8 +103,8 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
             holder.myTextView.setText(ssb.build());
         }
         else if (mData.getGamePhase() == GamePhase.RECALL && mData.isTextHighlighted(position)) {
-            holder.myTextView.setBackgroundResource(R.drawable.border_highlight_yellow);
-            holder.myTextView.setTextColor(Color.BLACK);
+            holder.myTextView.setBackgroundResource(R.drawable.border_highlight_green_red_outline);
+            holder.myTextView.setTextColor(Color.WHITE);
             holder.myTextView.setText(mData.getText(position));
         }
         else if ((mData.getGamePhase() == GamePhase.MEMORIZATION || mData.getGamePhase() == GamePhase.RECALL) && mData.isHighlighted(position)) {
@@ -118,6 +119,7 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
                 holder.myTextView.setBackgroundColor(nightMode ? Color.BLACK : Color.WHITE);
             }
 
+            int standardTextColor = nightMode ? fadedWhite : fadedBlack;
             holder.myTextView.setTextColor(standardTextColor);
             holder.myTextView.setText(mData.getText(position));
         }

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/numbers.grid.row.height"
     android:padding="3dp"
+    android:layout_marginBottom="@dimen/numbers.grid.row.spacing"
     android:background="@drawable/border_black_on_white"
     android:gravity="center"
     android:textColor="#000000"
