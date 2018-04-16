@@ -2,15 +2,11 @@ package com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
+import android.animation.TimeInterpolator;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,13 +18,13 @@ public class CustomNumberCarousel extends LinearLayout {
     private TextView prevText;
     private TextView curText;
     private TextView nextText;
-    //private TextView extraText;
-    //private TextView centerHiddenGroup;
     private TextView mnemoText;
     private TextView rowIndicator;
     private TextView closeButton;
     public FrameLayout carouselContainer;
     private FrameLayout mnemoTextContainer;
+    private static final int duration = 100;
+    private static TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
@@ -44,9 +40,7 @@ public class CustomNumberCarousel extends LinearLayout {
         prevText = findViewById(R.id.prevGroup);
         curText = findViewById(R.id.curGroup);
         nextText = findViewById(R.id.nextGroup);
-        //extraText = findViewById(R.id.extraGroup);
         mnemoText = findViewById(R.id.mnemoText);
-        //centerHiddenGroup = findViewById(R.id.centerHiddenGroup);
         rowIndicator = findViewById(R.id.rowIndicator);
         closeButton = findViewById(R.id.closeButton);
         carouselContainer = findViewById(R.id.carouselContainer);
@@ -56,8 +50,6 @@ public class CustomNumberCarousel extends LinearLayout {
     public void display(String prev, String cur, String next) {
         prevText.setText(prev);
         curText.setText(cur);
-        //centerHiddenGroup.setText(cur);
-        //curText.setX(centerHiddenGroup.getX());
         nextText.setText(next);
     }
 
@@ -65,58 +57,39 @@ public class CustomNumberCarousel extends LinearLayout {
         return this.animationsInProgress;
     }
 
-    public void transitionForward(String next) {
-        display(curText.getText().toString(), nextText.getText().toString(), next);
+    public void transitionForward(String prev, String cur, String next) {
+        if (animationsInProgress()) {
+            display(prev, cur, next);
+            animationsInProgress = false;
+            return;
+        }
 
-        /*
         animationsInProgress = true;
 
-        //System.out.println("Hidden x before: " + centerHiddenGroup.getX());
-        //centerHiddenGroup.setText(nextText.getText());
-        //centerHiddenGroup.invalidate();
-        //System.out.println("Hidden x after: " + centerHiddenGroup.getX());
-
-        float prevPos = prevText.getX();
-        //float curPos = centerHiddenGroup.getX();
-        float curPos = curText.getX();
-        float nextPos = nextText.getX();
-
-        float smallTextSize = prevText.getTextSize();
-        float largeTextSize = curText.getTextSize();
-
-        final int duration = 50;
-
-        prevText.animate().x(-prevText.getWidth()).setDuration(duration);
-
-        curText.animate().x(prevPos).setDuration(duration);
-        ValueAnimator curTextSizeAnim = ObjectAnimator.ofFloat(largeTextSize, smallTextSize);
-        curTextSizeAnim.addUpdateListener(animation -> curText.setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) animation.getAnimatedValue()));
-        curTextSizeAnim.setDuration(duration);
-        curTextSizeAnim.start();
-
-        nextText.animate().x(curPos).setDuration(duration);
-        ValueAnimator nextTextSizeAnim = ObjectAnimator.ofFloat(smallTextSize, largeTextSize);
-        nextTextSizeAnim.addUpdateListener(animation -> nextText.setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) animation.getAnimatedValue()));
-        nextTextSizeAnim.setDuration(duration);
-        nextTextSizeAnim.start();
-        nextTextSizeAnim.addListener(new AnimatorListenerAdapter() {
+        prevText.animate().alpha(0).setDuration(duration).setInterpolator(interpolator).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                TextView temp = prevText;
-                prevText = curText;
-                curText = nextText;
-                nextText = extraText;
-                extraText = temp;
-                extraText.setX(getWidth());
+                prevText.setText(prev);
+                prevText.animate().alpha(1).setDuration(duration).setInterpolator(interpolator).setListener(null).start();
+            }
+        }).start();
+
+        curText.animate().alpha(0).scaleX(0.5f).scaleY(0.5f).setDuration(duration).setInterpolator(interpolator).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                curText.setText(cur);
+                curText.animate().alpha(1).scaleX(1).scaleY(1).setDuration(duration).setInterpolator(interpolator).setListener(null).start();
+            }
+        }).start();
+
+        nextText.animate().alpha(0).setDuration(duration).setInterpolator(interpolator).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                nextText.setText(next);
+                nextText.animate().alpha(1).setDuration(duration).setInterpolator(interpolator).setListener(null).start();
                 animationsInProgress = false;
             }
-        });
-
-        extraText.setX(getWidth());
-        extraText.setText(next);
-        extraText.setVisibility(View.VISIBLE);
-        extraText.animate().x(nextPos).setDuration(duration);
-        */
+        }).start();
     }
 
     public void show() {

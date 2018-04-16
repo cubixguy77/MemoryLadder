@@ -251,14 +251,17 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             data.highlightPrevGroup();
             int nextRow = data.getRow(data.getHighlightPos());
 
+            String curGroupText = data.getGroupText(data.getHighlightPos());
+
             adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup() * 2);
-            refreshCarousel();
+            textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
+            if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
+                textCarousel.setMnemoText(getMnemo(curGroupText));
+            }
 
             if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPos()), false)) {
                 scroll(false);
             }
-
-            //textCarousel.transitionBackward(data.getNextGroupText());
         }
     }
 
@@ -269,8 +272,13 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             data.highlightNextGroup();
             int nextRow = data.getRow(data.getHighlightPosEnd());
 
+            String curGroupText = data.getGroupText(data.getHighlightPos());
+
             adapter.notifyItemRangeChanged(data.getHighlightPos() - data.getDigitsPerGroup(), data.getDigitsPerGroup() * 2);
-            refreshCarousel();
+            textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
+            if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
+                textCarousel.setMnemoText(getMnemo(curGroupText));
+            }
 
             if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPosEnd()), true)) {
                 scroll(true);
