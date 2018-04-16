@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     private WrittenNumberData data;
     private WrittenNumbersSettings settings;
     private int rowHeight = 0;
+    private static final String TAG = "WrittenNumbersFrag";
 
     private NumberGridAdapter adapter;
 
@@ -73,7 +75,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("onCreateView()");
+        Log.d(TAG, "onCreateView()");
         View view = inflater.inflate(R.layout.viewgroup_written_numbers_arena, container, false);
         ButterKnife.bind(this, view);
 
@@ -87,7 +89,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        System.out.println("onActivityCreated()");
+        Log.d(TAG, "onActivityCreated()");
 
         if (savedInstanceState != null) {
             this.data = savedInstanceState.getParcelable("gameData");
@@ -116,7 +118,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     @Override
     public void setGamePhase(GamePhase phase) {
-        System.out.println("setGamePhase(" + phase.toString() + ")");
+        Log.d(TAG, "setGamePhase()");
 
         if (phase == GamePhase.PRE_MEMORIZATION) {
             generateDataModel();

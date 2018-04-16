@@ -40,9 +40,9 @@ public class GameActivity extends AppCompatActivity {
     @BindView(R.id.generalToolbar) Toolbar toolbar;
     @BindView(R.id.button_start) Button startButton;
 
-    GameSettings settings;
-
+    private GameSettings settings;
     private GameManager gameManager;
+    private GamePhase gamePhase;
 
     private SimpleTimer timer;
     private float secondsElapsedMem;
@@ -54,9 +54,7 @@ public class GameActivity extends AppCompatActivity {
     private MenuItem finishRecall;
     private MenuItem playAgain;
     private MenuItem help;
-
-    private GamePhase gamePhase;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,7 +102,6 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("onResume()");
 
         if (this.gamePhase == GamePhase.PRE_MEMORIZATION) {
             setGamePhase(GamePhase.PRE_MEMORIZATION);
