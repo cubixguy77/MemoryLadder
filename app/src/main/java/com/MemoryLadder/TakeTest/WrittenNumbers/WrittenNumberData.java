@@ -7,6 +7,7 @@ import com.MemoryLadder.TakeTest.GamePhase;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.WrittenNumbers.Scoring.ScoreCalculation;
 import com.MemoryLadder.Utils;
+import com.mastersofmemory.memoryladder.BuildConfig;
 
 import java.util.Arrays;
 
@@ -29,22 +30,17 @@ public class WrittenNumberData implements Parcelable {
     private static final String EMPTY_STRING = "";
     private static String[] digits;
 
-    WrittenNumberData(WrittenNumbersSettings settings) {
+    WrittenNumberData(WrittenNumbersSettings settings, char[] memoryData) {
         this.digitsPerGroup = settings.getDigitsPerGroup();
         this.numDigits = settings.getNumRows() * settings.getNumCols();
         this.numRows = settings.getNumRows();
         this.numCols = settings.getNumCols();
         resetHighlight();
 
-        memoryData = new char[numDigits];
+        this.memoryData = memoryData;
         recallData = new char[numDigits];
         Arrays.fill(recallData, EMPTY_CHAR);
         digits = new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "‒"};
-
-        /* Fill memory data sequentially */
-        for (int i=0; i<numDigits; i++) {
-            memoryData[i] = (char) ('0' + (i % 10));
-        }
     }
 
     public int getNumRows() {

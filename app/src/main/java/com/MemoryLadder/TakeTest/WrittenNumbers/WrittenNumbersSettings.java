@@ -29,6 +29,8 @@ public class WrittenNumbersSettings implements Parcelable {
         return numCols;
     }
 
+    int getNumDigits() { return getNumRows() * getNumCols(); }
+
     int getDigitsPerGroup() {
         return digitsPerGroup;
     }

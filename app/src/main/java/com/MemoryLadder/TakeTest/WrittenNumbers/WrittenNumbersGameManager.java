@@ -24,6 +24,7 @@ import com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarou
 import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.NumberGridAdapter;
 import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.ResizableRecyclerView;
 import com.MemoryLadder.Utils;
+import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.Objects;
@@ -90,9 +91,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
         if (savedInstanceState != null) {
             this.data = savedInstanceState.getParcelable("gameData");
+
             if (this.data != null) {
                 this.data.setKeepHighlightPos(true);
             }
+
             resetGrid();
         }
     }
@@ -103,12 +106,20 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         numberGrid.setAdapter(adapter);
     }
 
+    private void generateDataModel() {
+        data = new WrittenNumberData(
+                settings,
+                BuildConfig.DEBUG ?
+                        MemoryDataSetFactory.getOrderedDecimalNumberSet(settings.getNumDigits()) :
+                        MemoryDataSetFactory.getRandomizedDecimalNumberSet(settings.getNumDigits()));
+    }
+
     @Override
     public void setGamePhase(GamePhase phase) {
         System.out.println("setGamePhase(" + phase.toString() + ")");
 
         if (phase == GamePhase.PRE_MEMORIZATION) {
-            data = new WrittenNumberData(settings);
+            generateDataModel();
             resetGrid();
             refreshCarousel();
         } else {
@@ -267,7 +278,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         int rowHeight = getRowHeight();
 
         /* Resolves scrolling bug, see https://stackoverflow.com/questions/46156882/nestedscrollviews-fullscrollview-focus-up-not-working-properly */
-        numberGrid.fling(0, 0);
+        //numberGrid.fling(0, 0);
         numberGrid.smoothScrollBy(0, down ? rowHeight : -rowHeight);
     }
 
@@ -277,6 +288,27 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             numberGrid.scrollTo(0, getRowHeight() * row);
         });
     }
+
+
+    /*
+    private void setGridHeightLarge() {
+        int largeHeight = root.getMeasuredHeight() -
+            (data.getGamePhase() == GamePhase.REVIEW ? (getResources().getDimensionPixelSize(R.dimen.score_panel_height)) : 0) -
+            (timerContainer.getHeight()) -
+            (textCarousel.getVisibleHeight()) -
+            (navigatorLayout.getVisibility() == View.VISIBLE ? navigatorLayout.getHeight() : 0);
+        numberGridContainer.setMaxHeight(largeHeight);
+        adapter.notifyDataSetChanged();
+        scrollToTop();
+    }
+
+    private void setGridHeightSmall() {
+        int smallHeight = Utils.lesserOf(settings.getNumRows(), maxLines) * rowHeight;
+        numberGridContainer.setMaxHeight(smallHeight);
+        adapter.notifyDataSetChanged();
+        scrollToTop();
+    }
+    */
 
     private int getRowHeight() {
         if (rowHeight > 0)
