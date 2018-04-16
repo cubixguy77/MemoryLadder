@@ -106,8 +106,6 @@
     <dimen name="picker.digitSpeed.rows.textSize">18sp</dimen>
 
 
-    <dimen name="numbers.carousel.height">200dp</dimen>
-    <dimen name="numbers.carousel.large.textSize">120sp</dimen>
     <dimen name="numbers.carousel.small.textSize">18sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">30sp</dimen>
     <bool name="numbers.carousel.recall.display">true</bool>

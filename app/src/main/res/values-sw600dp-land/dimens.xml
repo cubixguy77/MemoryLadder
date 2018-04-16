@@ -14,7 +14,6 @@
 
     <!-- Numbers -->
     <bool name="numbers.carousel.recall.display">true</bool>
-    <dimen name="numbers.carousel.large.textSize">120sp</dimen>
     <dimen name="numbers.carousel.small.textSize">32sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">36sp</dimen>
 

@@ -46,7 +46,7 @@
         tools:listitem="@layout/viewgroup_numbers_grid_cell"
         tools:layoutManager="android.support.v7.widget.GridLayoutManager"
         tools:spanCount="5"
-        tools:itemCount="15"
+        tools:itemCount="25"
         />
 
     <include

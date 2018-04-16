@@ -23,7 +23,6 @@
     <dimen name="score_panel.height">60dp</dimen>
 
     <!-- Numbers -->
-    <dimen name="numbers.carousel.large.textSize">60sp</dimen>
     <dimen name="numbers.carousel.small.textSize">20sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">16sp</dimen>
     <bool name="numbers.carousel.recall.display">false</bool>

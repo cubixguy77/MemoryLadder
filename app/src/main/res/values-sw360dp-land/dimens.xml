@@ -20,7 +20,6 @@
     <dimen name="score_panel.value.margin.top">-20dp</dimen>
 
     <!-- Numbers -->
-    <dimen name="numbers.carousel.large.textSize">70sp</dimen>
 
     <!-- Cards -->
     <dimen name="small_card.height">44dp</dimen>

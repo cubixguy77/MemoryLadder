@@ -121,7 +121,6 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         if (phase == GamePhase.PRE_MEMORIZATION) {
             generateDataModel();
             resetGrid();
-            refreshCarousel();
         } else {
             data.setGamePhase(phase);
 
@@ -135,12 +134,12 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         }
 
         render(phase);
+        refreshCarousel();
 
         if (phase == GamePhase.MEMORIZATION) {
             refreshCarousel();
         }
         else if (phase == GamePhase.RECALL) {
-            refreshCarousel();
             keyboardView.setKeyListener(this);
         }
         else if (phase == GamePhase.REVIEW) {
@@ -180,9 +179,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             navigatorLayout.setVisibility(View.GONE);
             keyboardView.show();
 
-            if (getResources().getBoolean(R.bool.numbers_carousel_recall_display)) {
-                textCarousel.show();
-            } else {
+            if (!getResources().getBoolean(R.bool.numbers_carousel_recall_display)) {
                 textCarousel.hide();
             }
         }
@@ -213,6 +210,10 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         } else {
             textCarousel.hideMnemo();
         }
+
+        if (textCarousel.isExpanded()) {
+            textCarousel.setHeight(getLargeCarouselHeight());
+        }
     }
 
     private String getMnemo(String text) {
@@ -234,10 +235,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     /* Expands or collapses the carousel */
     @OnClick(R.id.closeButton) void toggleCarousel() {
         if (textCarousel.isExpanded()) {
-            textCarousel.toggle();
+            textCarousel.collapse();
         }
         else {
-            textCarousel.toggle();
+            textCarousel.expand();
+            textCarousel.setHeight(getLargeCarouselHeight());
         }
     }
 
@@ -278,7 +280,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         int rowHeight = getRowHeight();
 
         /* Resolves scrolling bug, see https://stackoverflow.com/questions/46156882/nestedscrollviews-fullscrollview-focus-up-not-working-properly */
-        //numberGrid.fling(0, 0);
+        numberGrid.fling(0, 0);
         numberGrid.smoothScrollBy(0, down ? rowHeight : -rowHeight);
     }
 
@@ -289,26 +291,17 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         });
     }
 
-
-    /*
-    private void setGridHeightLarge() {
-        int largeHeight = root.getMeasuredHeight() -
-            (data.getGamePhase() == GamePhase.REVIEW ? (getResources().getDimensionPixelSize(R.dimen.score_panel_height)) : 0) -
-            (timerContainer.getHeight()) -
-            (textCarousel.getVisibleHeight()) -
-            (navigatorLayout.getVisibility() == View.VISIBLE ? navigatorLayout.getHeight() : 0);
-        numberGridContainer.setMaxHeight(largeHeight);
-        adapter.notifyDataSetChanged();
-        scrollToTop();
+    private int getNumRowsVisibleCondensedGrid() {
+        return getResources().getInteger(R.integer.numbers_grid_maxLines);
     }
 
-    private void setGridHeightSmall() {
-        int smallHeight = Utils.lesserOf(settings.getNumRows(), maxLines) * rowHeight;
-        numberGridContainer.setMaxHeight(smallHeight);
-        adapter.notifyDataSetChanged();
-        scrollToTop();
+    private int getLargeCarouselHeight() {
+        return root.getMeasuredHeight() -
+                (timerContainer.getHeight()) -
+                (Utils.lesserOf(settings.getNumRows(), getNumRowsVisibleCondensedGrid()) * getRowHeight()) -
+                (keyboardView.getVisibility() == View.VISIBLE ? (getResources().getDimensionPixelSize(R.dimen.numeric_keyboard_layout_height)) : 0) -
+                (navigatorLayout.getVisibility() == View.VISIBLE ? navigatorLayout.getHeight() : 0);
     }
-    */
 
     private int getRowHeight() {
         if (rowHeight > 0)
@@ -395,9 +388,6 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         refreshCarousel();
     }
 
-
-
-
     private void retreatTextEntryPos() {
         boolean decrementGroup = data.highlightPrevCell();
         int textEntryPos = data.getTextEntryPos();
@@ -420,6 +410,4 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             onNextClick();
         }
     }
-
-
 }

@@ -19,6 +19,5 @@
 
     <!-- Numbers -->
     <dimen name="small_card.height">44dp</dimen>
-    <dimen name="numbers.carousel.large.textSize">90sp</dimen>
 
 </resources>

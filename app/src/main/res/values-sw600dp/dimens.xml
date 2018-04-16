@@ -73,7 +73,6 @@
     <dimen name="picker.digitSpeed.rows.margin">16dp</dimen>
     <dimen name="picker.digitSpeed.rows.textSize">24sp</dimen>
 
-    <dimen name="numbers.carousel.large.textSize">200sp</dimen>
     <dimen name="numbers.carousel.small.textSize">36sp</dimen>
     <dimen name="numbers.carousel.mnemo.textSize">40sp</dimen>
     <dimen name="numbers.grid.row.height">60dp</dimen>

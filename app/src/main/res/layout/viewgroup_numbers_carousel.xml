@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="420dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     android:animateLayoutChanges="true"
@@ -18,8 +18,9 @@
             android:id="@+id/rowIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:textSize="16sp"
             tools:text="Row 2 / 5"
             />
@@ -28,8 +29,9 @@
             android:id="@+id/closeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="end|center_vertical"
             android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:textSize="16sp"
@@ -41,15 +43,18 @@
     <FrameLayout
         android:id="@+id/carouselContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="visible"
         tools:visibility="visible">
 
         <TextView
             android:id="@+id/prevGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center_vertical"
+            android:layout_gravity="start|center_vertical"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:includeFontPadding="false"
             android:gravity="center"
             android:textSize="@dimen/numbers.carousel.small.textSize"
@@ -58,50 +63,33 @@
 
         <TextView
             android:id="@+id/curGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
             android:layout_gravity="center"
             android:includeFontPadding="false"
             android:gravity="center"
-            android:textSize="@dimen/numbers.carousel.large.textSize"
+            android:maxLines="1"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMaxTextSize="260sp"
+            app:autoSizeStepGranularity="5sp"
             tools:text="456"
-            />
-
-        <TextView
-            android:id="@+id/centerHiddenGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:includeFontPadding="false"
-            android:gravity="center"
-            android:textSize="@dimen/numbers.carousel.large.textSize"
-            android:visibility="invisible"
-            tools:text="123"
             />
 
         <TextView
             android:id="@+id/nextGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
+            android:layout_gravity="end|center_vertical"
             android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
             android:includeFontPadding="false"
             android:gravity="center"
             android:textSize="@dimen/numbers.carousel.small.textSize"
             tools:text="789"
-            />
-
-        <TextView
-            android:id="@+id/extraGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:layout_marginRight="16dp"
-            android:includeFontPadding="false"
-            android:gravity="center"
-            android:textSize="@dimen/numbers.carousel.small.textSize"
-            tools:text="012"
-            android:visibility="gone"
             />
     </FrameLayout>
 

@@ -5,6 +5,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -19,18 +22,16 @@ public class CustomNumberCarousel extends LinearLayout {
     private TextView prevText;
     private TextView curText;
     private TextView nextText;
-    private TextView extraText;
-    private TextView centerHiddenGroup;
+    //private TextView extraText;
+    //private TextView centerHiddenGroup;
     private TextView mnemoText;
     private TextView rowIndicator;
     private TextView closeButton;
-    private FrameLayout closeButtonContainer;
     public FrameLayout carouselContainer;
     private FrameLayout mnemoTextContainer;
 
     /* If the animations are kicked off while they're already in progress, the views get all jumbled */
     private boolean animationsInProgress = false;
-    private int visibleHeight;
     private boolean isDisplayMnemo = false;
 
     public CustomNumberCarousel(Context context) {        super(context);    }
@@ -43,12 +44,11 @@ public class CustomNumberCarousel extends LinearLayout {
         prevText = findViewById(R.id.prevGroup);
         curText = findViewById(R.id.curGroup);
         nextText = findViewById(R.id.nextGroup);
-        extraText = findViewById(R.id.extraGroup);
+        //extraText = findViewById(R.id.extraGroup);
         mnemoText = findViewById(R.id.mnemoText);
-        centerHiddenGroup = findViewById(R.id.centerHiddenGroup);
+        //centerHiddenGroup = findViewById(R.id.centerHiddenGroup);
         rowIndicator = findViewById(R.id.rowIndicator);
         closeButton = findViewById(R.id.closeButton);
-        closeButtonContainer = findViewById(R.id.closeButtonContainer);
         carouselContainer = findViewById(R.id.carouselContainer);
         mnemoTextContainer = findViewById(R.id.mnemoTextContainer);
     }
@@ -128,41 +128,38 @@ public class CustomNumberCarousel extends LinearLayout {
         mnemoText.setText("");
     }
 
-    public void toggle() {
-        if (isExpanded())
-            collapse();
-        else
-            expand();
-    }
-
     public boolean isExpanded() {
         return getVisibility() == View.VISIBLE && carouselContainer.getVisibility() == View.VISIBLE;
     }
 
-    private void collapse() {
+    public void collapse() {
         carouselContainer.setVisibility(View.GONE);
         mnemoTextContainer.setVisibility(View.GONE);
         closeButton.setText("+Expand");
-
-        //LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
-        //setLayoutParams(collapseParams);
+        setHeight(0);
     }
 
-    private void expand() {
+    public void setHeight(int height) {
+        if (height <= 0) {
+            LayoutParams collapseParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, 0.0f);
+            setLayoutParams(collapseParams);
+        } else {
+            LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, height, 0.0f);
+            setLayoutParams(expandParams);
+        }
+    }
+
+    public void expand() {
+        if (isExpanded())
+            return;
+
         carouselContainer.setVisibility(View.VISIBLE);
         mnemoTextContainer.setVisibility(this.isDisplayMnemo ? View.VISIBLE : View.GONE);
         closeButton.setText("—Hide");
-
-        //LayoutParams expandParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0, 1.0f);
-        //setLayoutParams(expandParams);
     }
 
     public void setRowNum(int begin, int end, int numRows) {
         rowIndicator.setText("Row " + (begin+1) + (begin == end ? "" : "-" + (end+1)) + "/" + numRows);
-    }
-
-    public int getVisibleHeight() {
-        return getVisibility() == View.VISIBLE ? closeButtonContainer.getHeight() + (isExpanded() ? carouselContainer.getHeight() + mnemoTextContainer.getHeight() : 0) : 0;
     }
 
     public void showMnemo() {

@@ -7,7 +7,6 @@ import com.MemoryLadder.TakeTest.GamePhase;
 import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.WrittenNumbers.Scoring.ScoreCalculation;
 import com.MemoryLadder.Utils;
-import com.mastersofmemory.memoryladder.BuildConfig;
 
 import java.util.Arrays;
 
