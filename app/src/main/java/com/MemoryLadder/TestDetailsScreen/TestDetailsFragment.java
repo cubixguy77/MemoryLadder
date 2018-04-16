@@ -13,6 +13,7 @@ import com.MemoryLadder.Constants;
 import com.MemoryLadder.Settings.Setting;
 import com.MemoryLadder.Settings.SettingLoader;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class TestDetailsFragment extends Fragment {
         settings = args.getParcelableArrayList("settings");
         gameType = getArguments().getInt("gameType");
         mode = getArguments().getInt("mode");
-        boolean lockable = getArguments().getBoolean("lockable");
+        boolean lockable = getArguments().getBoolean("lockable") && !BuildConfig.DEBUG;
         boolean editable = getArguments().getBoolean("editable");
 
         card = view.findViewById(R.id.testDetailsCard);
