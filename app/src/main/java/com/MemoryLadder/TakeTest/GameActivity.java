@@ -30,6 +30,8 @@ import com.MemoryLadder.Utils;
 import com.jjoe64.graphview.series.DataPoint;
 import com.mastersofmemory.memoryladder.R;
 
+import java.util.Objects;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,7 +56,7 @@ public class GameActivity extends AppCompatActivity {
     private MenuItem finishRecall;
     private MenuItem playAgain;
     private MenuItem help;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,8 +187,6 @@ public class GameActivity extends AppCompatActivity {
         return timer;
     }
 
-
-
     public void setGamePhase(GamePhase gamePhase) {
         this.gamePhase = gamePhase;
         renderToolbarFor(gamePhase);
@@ -197,13 +197,18 @@ public class GameActivity extends AppCompatActivity {
             startButton.setVisibility(View.GONE);
         }
 
-        ((Fragment) gameManager).getView().getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        View gameRootView = ((Fragment) gameManager).getView();
+        ViewTreeObserver viewTreeObserver = Objects.requireNonNull(gameRootView).getViewTreeObserver();
+        if (viewTreeObserver == null)
+            return;
+
+        viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                    ((Fragment) gameManager).getView().getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    gameRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 } else {
-                    ((Fragment) gameManager).getView().getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                    gameRootView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 }
 
                 if (gamePhase == GamePhase.PRE_MEMORIZATION) {
@@ -298,12 +303,6 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
-
-
-
-
-
-
 
 
 
