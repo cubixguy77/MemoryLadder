@@ -1,20 +1,16 @@
 apply plugin: 'com.android.application'
 android {
     signingConfigs {
-        config {
-            keyAlias 'release_key'
-            keyPassword 'QuantumRelease77'
-            storeFile file('C:/Users/Rob/Dropbox/App - Memory/keystore.jks')
-            storePassword 'QuantumMemory77'
-        }
+        release
     }
+
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.mastersofmemory.memoryladder"
         minSdkVersion 15
         targetSdkVersion 27
         multiDexEnabled true
-        versionCode 9
+        versionCode 10
         versionName "2.0.1"
         vectorDrawables.useSupportLibrary true
     }
@@ -24,8 +20,7 @@ android {
             versionNameSuffix "-dev"
         }
 
-        prod {
-        }
+        prod {}
 
         buildTypes {
             debug {
@@ -35,6 +30,7 @@ android {
             release {
                 debuggable false
                 minifyEnabled true
+                signingConfig signingConfigs.release
                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             }
         }
@@ -47,7 +43,7 @@ android {
         implementation 'com.android.billingclient:billing:1.0'
         implementation 'com.jjoe64:graphview:4.2.1'
         implementation 'com.adityak:browsemyfiles:1.7'
-        implementation 'com.google.firebase:firebase-core:12.0.1'
+        implementation 'com.google.firebase:firebase-core:15.0.0'
         implementation 'com.android.support:appcompat-v7:27.1.1'
         implementation 'com.android.support:design:27.1.1'
         implementation 'com.android.support:cardview-v7:27.1.1'
@@ -60,11 +56,11 @@ android {
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     }
     apply plugin: 'com.google.gms.google-services'
-    buildTypes {
-        release {
-            signingConfig signingConfigs.config
-        }
-    }
 }
-dependencies {
-}
+
+def props = new Properties()
+props.load(new FileInputStream(rootProject.file("release.properties")))
+android.signingConfigs.release.storeFile rootProject.file(props.keyStore)
+android.signingConfigs.release.storePassword props.keyStorePassword
+android.signingConfigs.release.keyAlias props.keyAlias
+android.signingConfigs.release.keyPassword props.keyAliasPassword
