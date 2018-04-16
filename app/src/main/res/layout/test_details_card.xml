@@ -22,6 +22,7 @@
             android:layout_height="@dimen/pregame.card.button.height"
             android:gravity="center"
             android:background="@color/colorPrimary"
+            android:clickable="false"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/pregame.card.button.textSize"
             tools:text="LEVEL 3"
@@ -57,16 +58,19 @@
             </LinearLayout>
         </ScrollView>
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/testDetailsPlayButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pregame.card.button.height"
             android:background="@color/colorPrimary"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
             android:text="Play"
             android:textSize="@dimen/pregame.card.button.textSize"
             />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:id="@+id/testDetailsUnlockButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pregame.card.button.height"

@@ -3,6 +3,7 @@ package com.MemoryLadder.TestDetailsScreen;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.LayoutRes;
+import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +33,8 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
     private final Context context;
 
     @BindView(R.id.testDetailsCardTitle) Button titleText;
-    @BindView(R.id.testDetailsPlayButton) Button playButton;
-    @BindView(R.id.testDetailsUnlockButton) Button unlockButton;
+    @BindView(R.id.testDetailsPlayButton) AppCompatButton playButton;
+    @BindView(R.id.testDetailsUnlockButton) AppCompatButton unlockButton;
 
     @BindView(R.id.testDetailsLabelLayout) LinearLayout testDetailsLabelLayout;
     @BindView(R.id.testDetailsValueLayout) LinearLayout testDetailsValueLayout;

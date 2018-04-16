@@ -20,6 +20,9 @@
         android:layout_height="@dimen/score_panel.height"
         android:orientation="horizontal"
         android:background="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:baselineAligned="false">
 
         <LinearLayout
