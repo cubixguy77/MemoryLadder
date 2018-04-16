@@ -135,7 +135,7 @@ public class CustomNumberCarousel extends LinearLayout {
     public void collapse() {
         carouselContainer.setVisibility(View.GONE);
         mnemoTextContainer.setVisibility(View.GONE);
-        closeButton.setText("+Expand");
+        closeButton.setText(R.string.expand);
         setHeight(0);
     }
 
@@ -155,11 +155,11 @@ public class CustomNumberCarousel extends LinearLayout {
 
         carouselContainer.setVisibility(View.VISIBLE);
         mnemoTextContainer.setVisibility(this.isDisplayMnemo ? View.VISIBLE : View.GONE);
-        closeButton.setText("—Hide");
+        closeButton.setText(R.string.hide);
     }
 
     public void setRowNum(int begin, int end, int numRows) {
-        rowIndicator.setText("Row " + (begin+1) + (begin == end ? "" : "-" + (end+1)) + "/" + numRows);
+        rowIndicator.setText(String.format(getContext().getString(R.string.Row_Num_Indicator), begin + 1, begin == end ? "" : "-" + (end + 1), numRows));
     }
 
     public void showMnemo() {
@@ -168,7 +168,7 @@ public class CustomNumberCarousel extends LinearLayout {
     }
 
     public void setMnemoText(String text) {
-        mnemoText.setText("\"" + text + "\"");
+        mnemoText.setText(String.format("\"%s\"", text));
     }
 
     public void hideMnemo() {
