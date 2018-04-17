@@ -21,7 +21,7 @@ public class CustomNumberCarousel extends LinearLayout {
     private TextView mnemoText;
     private TextView rowIndicator;
     private TextView closeButton;
-    public FrameLayout carouselContainer;
+    public LinearLayout carouselContainer;
     private FrameLayout mnemoTextContainer;
     private static final int duration = 100;
     private static TimeInterpolator interpolator = new AccelerateDecelerateInterpolator();

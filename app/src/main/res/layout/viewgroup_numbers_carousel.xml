@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel xmlns:android="http://schemas.android.com/apk/res/android"
+<com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="420dp"
+    android:layout_height="400dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
@@ -40,11 +41,12 @@
     </FrameLayout>
 
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/carouselContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:orientation="horizontal"
         android:visibility="visible"
         tools:visibility="visible">
 
@@ -56,25 +58,23 @@
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
             android:includeFontPadding="false"
-            android:gravity="center"
+            android:gravity="left"
             android:textSize="@dimen/numbers.carousel.small.textSize"
             tools:text="123"
             />
 
         <TextView
             android:id="@+id/curGroup"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:paddingLeft="40dp"
-            android:paddingRight="40dp"
-            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:includeFontPadding="false"
             android:gravity="center"
             android:maxLines="1"
             app:autoSizeTextType="uniform"
-            app:autoSizeMaxTextSize="260sp"
+            app:autoSizeMaxTextSize="300sp"
             app:autoSizeStepGranularity="5sp"
             tools:text="456"
             tools:ignore="MissingPrefix" />
@@ -87,11 +87,11 @@
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp"
             android:includeFontPadding="false"
-            android:gravity="center"
+            android:gravity="right"
             android:textSize="@dimen/numbers.carousel.small.textSize"
             tools:text="789"
             />
-    </FrameLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:id="@+id/mnemoTextContainer"

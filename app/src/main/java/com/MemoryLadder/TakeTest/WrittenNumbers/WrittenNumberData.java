@@ -26,7 +26,7 @@ public class WrittenNumberData implements Parcelable {
     private GamePhase gamePhase;
 
     public static final char EMPTY_CHAR = '‒';
-    private static final String EMPTY_STRING = "";
+    private static final String EMPTY_STRING = "  ";
     private static String[] digits;
 
     WrittenNumberData(WrittenNumbersSettings settings, char[] memoryData) {
