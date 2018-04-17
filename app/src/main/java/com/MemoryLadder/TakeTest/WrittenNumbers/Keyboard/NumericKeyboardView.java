@@ -31,7 +31,21 @@ public class NumericKeyboardView extends TableLayout {
         this.listener = listener;
     }
     
-    public void show() {
+    public void show(int base) {
+
+        /* Binary mode, only show 0 and 1 keys */
+        if (base == 2) {
+            findViewById(R.id.keyboardBottomRow).setVisibility(View.GONE);
+            findViewById(R.id.key_2).setVisibility(View.GONE);
+            findViewById(R.id.key_3).setVisibility(View.GONE);
+            findViewById(R.id.key_4).setVisibility(View.GONE);
+            findViewById(R.id.key_5).setVisibility(View.GONE);
+            findViewById(R.id.key_6).setVisibility(View.GONE);
+            findViewById(R.id.key_7).setVisibility(View.GONE);
+            findViewById(R.id.key_8).setVisibility(View.GONE);
+            findViewById(R.id.key_9).setVisibility(View.GONE);
+        }
+
         setVisibility(View.VISIBLE);
     }
 

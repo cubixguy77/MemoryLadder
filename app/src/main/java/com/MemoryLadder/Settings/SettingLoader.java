@@ -93,6 +93,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "Number of Rows:", numRows));
                 settings.add(new NumberSetting("numCols", "Digits per Row:", numCols));
+                settings.add(new NumberSetting("base", "WRITTEN_base", "Base:", 10, 10, 10, false));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));
@@ -110,6 +111,7 @@ public class SettingLoader {
                 settings.add(new NumberSetting("numRows", "WRITTEN_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "WRITTEN_numCols", "Digits per Row:", numCols, 1, 40, true));
                 settings.add(new NumberSetting("digitsPerGroup", "WRITTEN_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
+                settings.add(new NumberSetting("base", "WRITTEN_base", "Base:", 10, 10, 10, false));
                 settings.add(new SwitchSetting("mnemo_enabled", "WRITTEN_mnemo", "Mnemo Hint:", mnemo_enabled, true));
                 settings.add(new TimeSetting("memTime", "WRITTEN_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "WRITTEN_recallTime", "Recall Time:", recallTime));
@@ -139,6 +141,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "Number of Rows:", numRows));
                 settings.add(new NumberSetting("numCols", "Digits per Row:", numCols));
+                settings.add(new NumberSetting("base", "BINARY_base", "Base:", 2, 2, 2, false));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));
@@ -154,6 +157,7 @@ public class SettingLoader {
                 settings.add(new NumberSetting("numRows", "BINARY_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "BINARY_numCols", "Digits per Row:", numCols, 1, 40, true));
                 settings.add(new NumberSetting("digitsPerGroup", "BINARY_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
+                settings.add(new NumberSetting("base", "BINARY_base", "Base:", 2, 2, 2, false));
                 settings.add(new TimeSetting("memTime", "BINARY_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "BINARY_recallTime", "Recall Time:", recallTime));
             }

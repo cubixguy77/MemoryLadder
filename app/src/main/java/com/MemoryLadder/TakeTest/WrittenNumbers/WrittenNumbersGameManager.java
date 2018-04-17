@@ -109,11 +109,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void generateDataModel() {
-        data = new WrittenNumberData(
-                settings,
-                BuildConfig.DEBUG ?
-                        MemoryDataSetFactory.getOrderedDecimalNumberSet(settings.getNumDigits()) :
-                        MemoryDataSetFactory.getRandomizedDecimalNumberSet(settings.getNumDigits()));
+        data = new WrittenNumberData(settings, MemoryDataSetFactory.getNumberDataSet(settings.getNumDigits(), settings.getBase(), BuildConfig.DEBUG));
     }
 
     @Override
@@ -179,7 +175,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         else if (phase == GamePhase.RECALL) {
             numberGrid.smoothScrollToPosition(0);
             navigatorLayout.setVisibility(View.GONE);
-            keyboardView.show();
+            keyboardView.show(settings.getBase());
 
             if (!getResources().getBoolean(R.bool.numbers_carousel_recall_display)) {
                 textCarousel.hide();

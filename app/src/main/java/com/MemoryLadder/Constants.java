@@ -111,24 +111,10 @@ public class Constants {
         }
     }
 
-    public static @DrawableRes int getGameIcon(int gameType) {
-        switch (gameType) {
-            case NUMBERS_SPEED: return R.drawable.icon_numbers;
-            case NUMBERS_BINARY: return R.drawable.icon_binary;
-            case NUMBERS_SPOKEN: return R.drawable.icon_numbers_spoken;
-            case LISTS_WORDS: return R.drawable.icon_randomwords;
-            case LISTS_EVENTS: return R.drawable.icon_historicdates;
-            case SHAPES_FACES: return R.drawable.icon_namesandfaces;
-            case SHAPES_ABSTRACT: return R.drawable.icon_abstract_images;
-            case CARDS_LONG: return R.drawable.icon_cards;
-            default: return R.drawable.icon_numbers;
-        }
-    }
-
     public static Class getClass(int gameType) {
         switch (gameType) {
             case NUMBERS_SPEED: return GameActivity.class;
-            case NUMBERS_BINARY: return Numbers_Mem.class;
+            case NUMBERS_BINARY: return GameActivity.class;
             case NUMBERS_SPOKEN: return Numbers_Mem.class;
             case LISTS_WORDS: return Lists_Mem.class;
             case LISTS_EVENTS: return Lists_Mem.class;

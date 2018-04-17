@@ -9,14 +9,16 @@ public class WrittenNumbersSettings implements Parcelable {
     private int numCols;
     private int digitsPerGroup;
     private boolean mnemonicsEnabled;
+    private int base;
     private boolean nightMode;
     private boolean drawGridLines;
 
-    public WrittenNumbersSettings(int numRows, int numCols, int digitsPerGroup, boolean isMnemonicsEnabled, boolean nightMode, boolean drawGridLines) {
+    public WrittenNumbersSettings(int numRows, int numCols, int digitsPerGroup, boolean isMnemonicsEnabled, int base, boolean nightMode, boolean drawGridLines) {
         this.numRows = numRows;
         this.numCols = numCols;
         this.digitsPerGroup = digitsPerGroup;
         this.mnemonicsEnabled = isMnemonicsEnabled;
+        this.base = base;
         this.nightMode = nightMode;
         this.drawGridLines = drawGridLines;
     }
@@ -39,6 +41,10 @@ public class WrittenNumbersSettings implements Parcelable {
         return mnemonicsEnabled;
     }
 
+    int getBase() {
+        return this.base;
+    }
+
     public void setNightMode(boolean nightMode) {        this.nightMode = nightMode;    }
     boolean isNightMode() {
         return this.nightMode;
@@ -54,6 +60,7 @@ public class WrittenNumbersSettings implements Parcelable {
         numCols = in.readInt();
         digitsPerGroup = in.readInt();
         mnemonicsEnabled = in.readByte() != 0x00;
+        base = in.readInt();
         nightMode = in.readByte() != 0x00;
         drawGridLines = in.readByte() != 0x00;
     }
@@ -67,6 +74,7 @@ public class WrittenNumbersSettings implements Parcelable {
         dest.writeInt(numCols);
         dest.writeInt(digitsPerGroup);
         dest.writeByte((byte) (mnemonicsEnabled ? 0x01 : 0x00));
+        dest.writeInt(base);
         dest.writeByte((byte) (nightMode ? 0x01 : 0x00));
         dest.writeByte((byte) (drawGridLines ? 0x01 : 0x00));
     }

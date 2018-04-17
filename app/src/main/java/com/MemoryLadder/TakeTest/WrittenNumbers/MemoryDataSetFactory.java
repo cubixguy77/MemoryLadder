@@ -4,19 +4,33 @@ import java.util.Random;
 
 class MemoryDataSetFactory {
 
-    static char[] getRandomizedDecimalNumberSet(int numDigits) {
+    static char[] getNumberDataSet(int numDigits, int base, boolean ordered) {
+        if (base == 2 && ordered) {
+            return getOrderedBinaryNumberSet(numDigits);
+        } else if (base == 2) {
+            return getRandomizedBinaryNumberSet(numDigits);
+        } else if (base == 10 && ordered) {
+            return getOrderedDecimalNumberSet(numDigits);
+        } else if (base == 10) {
+            return getRandomizedDecimalNumberSet(numDigits);
+        }
+
+        return null;
+    }
+
+    private static char[] getRandomizedDecimalNumberSet(int numDigits) {
         return getRandomizedNumberData(numDigits, 10);
     }
 
-    static char[] getOrderedDecimalNumberSet(int numDigits) {
+    private static char[] getOrderedDecimalNumberSet(int numDigits) {
         return getOrderedNumberData(numDigits, 10);
     }
 
-    static char[] getRandomizedBinaryNumberSet(int numDigits) {
+    private static char[] getRandomizedBinaryNumberSet(int numDigits) {
         return getRandomizedNumberData(numDigits, 2);
     }
 
-    static char[] getOrderedBinaryNumberSet(int numDigits) {
+    private static char[] getOrderedBinaryNumberSet(int numDigits) {
         return getOrderedNumberData(numDigits, 2);
     }
 

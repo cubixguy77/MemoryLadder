@@ -29,15 +29,16 @@ class SettingsProvider {
     }
 
     static WrittenNumbersSettings getWrittenNumbersSettings(Intent i, Context context) {
-        int numRows         = i.getIntExtra("numRows",     -1);
-        int numCols         = i.getIntExtra("numCols",     -1);
-        int digitsPerGroup  = i.getIntExtra("digitsPerGroup",     2);
+        int numRows               = i.getIntExtra("numRows",     -1);
+        int numCols               = i.getIntExtra("numCols",     -1);
+        int digitsPerGroup        = i.getIntExtra("digitsPerGroup",     2);
         boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
+        int base                  = i.getIntExtra("base",     10);
 
         SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
         boolean nightMode = prefs.getBoolean("WRITTEN_nightMode", false);
         boolean drawGridLines = prefs.getBoolean("WRITTEN_drawGridLines", true);
 
-        return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled, nightMode, drawGridLines);
+        return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled, base, nightMode, drawGridLines);
     }
 }
