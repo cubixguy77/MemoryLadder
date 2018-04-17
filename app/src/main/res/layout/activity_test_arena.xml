@@ -26,6 +26,8 @@
         android:layout_height="@dimen/startButton.size"
         android:layout_gravity="center"
         android:background="@drawable/selector_startbutton"
+        android:visibility="gone"
+        tools:visibility="visible"
         />
 
     <include

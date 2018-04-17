@@ -192,7 +192,7 @@ public class GameActivity extends AppCompatActivity {
         renderToolbarFor(gamePhase);
 
         if (gamePhase == GamePhase.PRE_MEMORIZATION) {
-            startButton.setVisibility(View.VISIBLE);
+            new Handler().postDelayed(() -> startButton.setVisibility(View.VISIBLE), 400);
         } else {
             startButton.setVisibility(View.GONE);
         }
