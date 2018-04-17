@@ -1,8 +1,10 @@
 package com.MemoryLadder.TestDetailsScreen;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +48,7 @@ public class TestDetailsFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_details_card, container, false);
         ButterKnife.bind(this, view);
         analytics = FirebaseAnalytics.getInstance(getActivity());
@@ -91,14 +93,20 @@ public class TestDetailsFragment extends Fragment {
     }
 
     private void savePurchase() {
-        SharedPreferences purchases = getActivity().getSharedPreferences("Purchases", 0);
+        if (getContext() == null)
+            return;
+
+        SharedPreferences purchases = getContext().getSharedPreferences("Purchases", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = purchases.edit();
         editor.putBoolean(Constants.getGameSku(gameType), true);
         editor.apply();
     }
 
     private boolean isPurchased() {
-        SharedPreferences purchases = getActivity().getSharedPreferences("Purchases", 0);
+        if (getContext() == null)
+            return false;
+
+        SharedPreferences purchases = getContext().getSharedPreferences("Purchases", Context.MODE_PRIVATE);
         return purchases.getBoolean(Constants.getGameSku(gameType), false);
     }
 
