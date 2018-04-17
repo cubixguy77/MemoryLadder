@@ -251,6 +251,8 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
             adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup() * 2);
             textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
+            textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
+
             if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
                 textCarousel.setMnemoText(getMnemo(curGroupText));
             }
@@ -272,6 +274,8 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
             adapter.notifyItemRangeChanged(data.getHighlightPos() - data.getDigitsPerGroup(), data.getDigitsPerGroup() * 2);
             textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
+            textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
+
             if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
                 textCarousel.setMnemoText(getMnemo(curGroupText));
             }
