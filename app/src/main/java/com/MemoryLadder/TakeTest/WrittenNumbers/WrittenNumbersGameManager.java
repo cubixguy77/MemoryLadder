@@ -144,7 +144,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             keyboardView.setKeyListener(null);
         }
 
-        scrollToRow(data.getRow(data.getHighlightPosEnd()) - 1); // Restores scroll to highlighted digits on rotation, and scrolls back to top after phase changes
+        restoreScrollPosition(data.getHighlightPos());
     }
 
     @Override
@@ -287,18 +287,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void scroll(boolean down) {
-        int rowHeight = getRowHeight();
-
-        /* Resolves scrolling bug, see https://stackoverflow.com/questions/46156882/nestedscrollviews-fullscrollview-focus-up-not-working-properly */
-        numberGrid.fling(0, 0);
-        numberGrid.smoothScrollBy(0, down ? rowHeight : -rowHeight);
+        numberGrid.smoothScrollBy(0, down ? getRowHeight() : -getRowHeight());
     }
 
-    private void scrollToRow(int row) {
-        numberGrid.post(() -> {
-            numberGrid.fling(0, 0);
-            numberGrid.scrollTo(0, getRowHeight() * row);
-        });
+    private void restoreScrollPosition(int pos) {
+        numberGrid.scrollToPosition(pos);
     }
 
     private int getNumRowsVisibleCondensedGrid() {
