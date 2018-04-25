@@ -126,3 +126,4 @@ captures/
 >>>>>>> 53de40e71bd29b93e25e6d3c7fc7c446883febae
 keystore
 release.properties
+app/prod/release/output.json
