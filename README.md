@@ -1,7 +1,12 @@
 # MemoryLadder
 
-Keep your mind active by training your memory.
+Keep your mind active by training your memory.<br />
 Train your memory in all of the events of the World Memory Championship.
+
+
+![Numbers](https://github.com/cubixguy77/MemoryLadder/blob/master/gifs/Numbers.gif)
+![Cards](https://github.com/cubixguy77/MemoryLadder/blob/master/gifs/Cards.gif)
+
 
 * Numbers
 * Words
