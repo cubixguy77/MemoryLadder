@@ -35,6 +35,7 @@ android {
         amazon {
             dimension "store"
             buildConfigField "boolean", "lockable", "false"
+            applicationId "com.Tester"
         }
     }
 
