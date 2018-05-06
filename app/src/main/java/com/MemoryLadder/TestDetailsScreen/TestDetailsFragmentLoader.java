@@ -5,6 +5,7 @@ import android.content.Context;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.Settings.Setting;
 import com.MemoryLadder.Settings.SettingLoader;
+import com.mastersofmemory.memoryladder.BuildConfig;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,6 @@ class TestDetailsFragmentLoader {
         String title = "CUSTOM";
         ArrayList<Setting> settings = SettingLoader.getSettings(context, game, Constants.CUSTOM);
 
-        return TestDetailsFragment.newInstance(title, settings, game, Constants.CUSTOM, true, true);
+        return TestDetailsFragment.newInstance(title, settings, game, Constants.CUSTOM, BuildConfig.lockable, true);
     }
 }

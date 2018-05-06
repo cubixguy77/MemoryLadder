@@ -10,7 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.MemoryLadder.Billing.BillingManager;
+import com.MemoryLadder.Billing.BillingUpdatesListener;
+import com.MemoryLadder.Billing.google.BillingManager;
 import com.MemoryLadder.Constants;
 import com.MemoryLadder.Settings.Setting;
 import com.MemoryLadder.Settings.SettingLoader;
@@ -66,7 +67,7 @@ public class TestDetailsFragment extends Fragment {
         card.setSettings(settings, editable, Constants.getPrefsName(gameType));
 
         if (lockable) {
-            billingManager = new BillingManager(getActivity(), Constants.getGameSku(gameType), new BillingManager.BillingUpdatesListener() {
+            billingManager = new BillingManager(getActivity(), Constants.getGameSku(gameType), new BillingUpdatesListener() {
                 @Override
                 public void onBillingSetupSuccess() {
                     card.setLocked(!billingManager.isPurchased());

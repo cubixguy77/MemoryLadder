@@ -5,6 +5,7 @@ android {
     }
 
     compileSdkVersion 27
+
     defaultConfig {
         applicationId "com.mastersofmemory.memoryladder"
         minSdkVersion 15
@@ -14,31 +15,47 @@ android {
         versionName "2.0.1"
         vectorDrawables.useSupportLibrary true
     }
-    flavorDimensions "general"
+
+    flavorDimensions "devProd","store"
     productFlavors {
         dev {
+            dimension "devProd"
             versionNameSuffix "-dev"
         }
 
-        prod {}
-
-        buildTypes {
-            debug {
-                debuggable true
-                minifyEnabled false
-            }
-            release {
-                debuggable false
-                minifyEnabled true
-                signingConfig signingConfigs.release
-                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            }
+        prod {
+            dimension "devProd"
         }
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+
+        google {
+            dimension "store"
+            buildConfigField "boolean", "lockable", "true"
+        }
+
+        amazon {
+            dimension "store"
+            buildConfigField "boolean", "lockable", "false"
         }
     }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     dependencies {
         implementation 'com.android.billingclient:billing:1.0'
         implementation 'com.jjoe64:graphview:4.2.1'
