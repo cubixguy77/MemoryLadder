@@ -1,9 +1,10 @@
-package com.MemoryLadder.Billing;
+package com.MemoryLadder.Billing.google;
 
 import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.MemoryLadder.Billing.BillingUpdatesListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -19,12 +20,6 @@ public class BillingManager implements PurchasesUpdatedListener {
     private String sku;
     private Activity activity;
     private final BillingUpdatesListener updatesListener;
-
-    public interface BillingUpdatesListener {
-        void onBillingSetupSuccess();
-        void onBillingSetupFailed();
-        void onUnlockChallenge();
-    }
 
     public BillingManager(Activity activity, String sku, final BillingUpdatesListener updatesListener) {
         this.activity = activity;
