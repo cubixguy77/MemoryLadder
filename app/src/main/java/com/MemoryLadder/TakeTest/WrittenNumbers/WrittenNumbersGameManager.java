@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
 
@@ -51,8 +52,8 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     @BindView(R.id.numberGrid) RecyclerView numberGrid;
     @BindView(R.id.navigatorLayout) FrameLayout navigatorLayout;
     @BindView(R.id.nextButton) AppCompatImageButton nextButton;
-    @BindView(R.id.buttonToggleNightMode) Button nightModeIcon;
-    @BindView(R.id.buttonToggleGridLines) Button gridLinesIcon;
+    @BindView(R.id.buttonToggleNightMode) ImageView nightModeIcon;
+    @BindView(R.id.buttonToggleGridLines) ImageView gridLinesIcon;
     @BindView(R.id.bottomSpacer) Space bottomSpacer;
 
     public static WrittenNumbersGameManager newInstance(WrittenNumbersSettings settings) {
@@ -337,11 +338,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void refreshNightModeIcon() {
-        nightModeIcon.setBackgroundResource(adapter.isNightMode() ? R.drawable.icon_night_mode_on : R.drawable.icon_night_mode_off);
+        nightModeIcon.setImageResource(adapter.isNightMode() ? R.drawable.icon_night_mode_on : R.drawable.icon_night_mode_off);
     }
 
     private void refreshGridLinesIcon() {
-        gridLinesIcon.setBackgroundResource(adapter.isDrawGridLines() ? R.drawable.icon_gridlines_on : R.drawable.icon_gridlines_off);
+        gridLinesIcon.setImageResource(adapter.isDrawGridLines() ? R.drawable.icon_gridlines_on : R.drawable.icon_gridlines_off);
     }
 
     @OnClick(R.id.buttonToggleNightMode) void onToggleNightMode() {
