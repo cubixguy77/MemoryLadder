@@ -27,7 +27,7 @@ public class WrittenNumberData implements Parcelable {
 
     public static final char EMPTY_CHAR = '‒';
     private static final String EMPTY_STRING = "  ";
-    private static String[] digits;
+    private static String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "‒"};
 
     WrittenNumberData(WrittenNumbersSettings settings, char[] memoryData) {
         this.digitsPerGroup = settings.getDigitsPerGroup();
@@ -39,7 +39,6 @@ public class WrittenNumberData implements Parcelable {
         this.memoryData = memoryData;
         recallData = new char[numDigits];
         Arrays.fill(recallData, EMPTY_CHAR);
-        digits = new String[] {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "‒"};
     }
 
     public int getNumRows() {
