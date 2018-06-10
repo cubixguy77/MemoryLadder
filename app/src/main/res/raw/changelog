@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
 
-    <changelogversion versionName="2.0.2" changeDate="June 6, 2018">
-        <changelogtext>[font color=black]Resolved a bug where devices running old version of Android crashed on the written numbers challenge.[/font]</changelogtext>
-        <changelogtext>[font color=black]Added some animation polish.[/font]</changelogtext>
-    </changelogversion>
-
-    <changelogversion versionName="2.0.1" changeDate="Mar 17, 2018">
+    <changelogversion versionName="2.1" changeDate="Mar 17, 2018">
         <changelogtext>[font color=black]Redesigned the written numbers challenge. Please send feedback on it![/font]</changelogtext>
         <changelogtext>[font color=black]Enabled landscape mode for cards challenge.[/font]</changelogtext>
         <changelogtext>[font color=black]Choose Test and Test Details screens can now be in landscape too.[/font]</changelogtext>
@@ -14,7 +9,7 @@
         <changelogtext>[font color=black]Minor style changes throughout app.[/font]</changelogtext>
     </changelogversion>
 
-    <changelogversion versionName="2.0.0" changeDate="Feb 22, 2018">
+    <changelogversion versionName="2.0" changeDate="Feb 22, 2018">
         <changelogtext>[font color=black]Restructured the app's navigation to begin with test selection.[/font]</changelogtext>
         <changelogtext>[font color=black]Introduced in-app-purchase to unlock Custom training mode for each challenge (the existing Levels mode is free). As the lone creator of this app, the money will help me pour more resources into its development.[/font]</changelogtext>
         <changelogtext>[font color=black]Removed Compete mode, you're welcome to set these test parameters in custom mode instead.[/font]</changelogtext>
