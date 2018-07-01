@@ -116,7 +116,7 @@ public class Constants {
             case NUMBERS_SPEED: return GameActivity.class;
             case NUMBERS_BINARY: return GameActivity.class;
             case NUMBERS_SPOKEN: return Numbers_Mem.class;
-            case LISTS_WORDS: return Lists_Mem.class;
+            case LISTS_WORDS: return GameActivity.class;
             case LISTS_EVENTS: return Lists_Mem.class;
             case SHAPES_FACES: return Shapes_Mem.class;
             case SHAPES_ABSTRACT: return Shapes_Mem.class;

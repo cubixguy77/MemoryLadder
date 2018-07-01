@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:background="@color/words.list.background">
+
+    <TextView
+        android:id="@+id/words_list_cell_index"
+        style="@style/Word_List_Index"
+        tools:text="4."
+        />
+
+    <TextView
+        android:id="@+id/words_list_cell_memory_text"
+        style="@style/Word_List_Text"
+        tools:text="Acetate"
+        />
+
+</LinearLayout>

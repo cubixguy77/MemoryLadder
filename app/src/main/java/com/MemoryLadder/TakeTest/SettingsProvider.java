@@ -4,8 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.MemoryLadder.Constants;
 import com.MemoryLadder.TakeTest.Cards.CardSettings;
+import com.MemoryLadder.TakeTest.RandomWords.settings.RandomWordsSettings;
 import com.MemoryLadder.TakeTest.WrittenNumbers.WrittenNumbersSettings;
+
+import static com.MemoryLadder.Constants.LISTS_WORDS;
+import static com.MemoryLadder.Constants.NUMBERS_SPEED;
 
 class SettingsProvider {
 
@@ -35,10 +40,20 @@ class SettingsProvider {
         boolean mnemonicsEnabled  = i.getIntExtra("mnemo_enabled", 0) == 1;
         int base                  = i.getIntExtra("base",     10);
 
-        SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
+        SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(NUMBERS_SPEED), 0);
         boolean nightMode = prefs.getBoolean("WRITTEN_nightMode", false);
         boolean drawGridLines = prefs.getBoolean("WRITTEN_drawGridLines", true);
 
         return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled, base, nightMode, drawGridLines);
+    }
+
+    static RandomWordsSettings getRandomWordsSettings(Intent i, Context context) {
+        int numCols               = i.getIntExtra("numCols",     -1);
+        int wordsPerCol           = i.getIntExtra("numRows",     -1);
+
+        SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(LISTS_WORDS), 0);
+        boolean nightMode = prefs.getBoolean("WORDS_nightMode", false);
+
+        return new RandomWordsSettings(numCols, wordsPerCol, nightMode);
     }
 }
