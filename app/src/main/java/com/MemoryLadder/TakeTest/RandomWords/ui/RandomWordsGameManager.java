@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,7 +43,6 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     private RecallWordsAdapter recallAdapter;
     private ReviewWordsAdapter reviewAdapter;
 
-    private int wordCount;
     private int wordsPerColumn;
 
     public static RandomWordsGameManager newInstance(RandomWordsSettings settings) {
@@ -65,7 +65,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
         if (getArguments() != null) {
             RandomWordsSettings settings = getArguments().getParcelable("settings");
-            wordCount = settings == null ? 0 : settings.getWordCount();
+            int wordCount = settings == null ? 0 : settings.getWordCount();
             wordsPerColumn = settings == null ? 0 : settings.getWordsPerColumn();
 
             RandomWordsViewModelFactory factory = new RandomWordsViewModelFactory(
@@ -78,6 +78,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
             binding.setLifecycleOwner(this);
 
             wordList.setLayoutManager(new LinearLayoutManager(getContext()));
+            wordList.addItemDecoration(new DividerItemDecoration(wordList.getContext(), DividerItemDecoration.VERTICAL));
 
             viewModel.getGamePhase().observe(this, this::render);
 

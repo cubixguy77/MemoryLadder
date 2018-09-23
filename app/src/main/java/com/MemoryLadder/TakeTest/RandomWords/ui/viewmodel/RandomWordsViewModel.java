@@ -27,6 +27,7 @@ public class RandomWordsViewModel extends ViewModel {
     /* Settings */
     private RandomWordsSettings settings;
     private MutableLiveData<Integer> wordCount = new MutableLiveData<>();
+    private MutableLiveData<Integer> columnCount = new MutableLiveData<>();
     private MutableLiveData<Boolean> nightMode = new MutableLiveData<>();
 
     /* Dynamic State Variables */
@@ -44,6 +45,7 @@ public class RandomWordsViewModel extends ViewModel {
         /* Settings */
         this.settings = settings;
         this.wordCount.setValue(settings.getWordCount());
+        this.columnCount.setValue(settings.getColumnCount());
         this.nightMode.setValue(settings.isNightMode());
 
         /* Dynamic State Variables */
@@ -54,9 +56,38 @@ public class RandomWordsViewModel extends ViewModel {
         this.scoreProvider = scoreProvider;
     }
 
+    /* Test Sheets */
+    public LiveData<List<String>> getVisibleMemorySheet() {
+        return Transformations.map(columnNum, column -> this.memorySheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()));
+    }
+
+    public LiveData<List<String>> getVisibleRecallSheet() {
+        return Transformations.map(columnNum, column -> this.recallSheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()));
+    }
+
+    public LiveData<ReviewSheet> getVisibleReviewSheet() {
+        return Transformations.map(columnNum, column -> new ReviewSheet(this.memorySheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()), this.recallSheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn())));
+    }
+
+    public String getRecallForCurrentColumnAt(int position) {
+        return recallSheet == null || recallSheet.getValue() == null ? "" :
+                recallSheet.getValue().get(getIndex(position, getColumnNumValue()));
+    }
+
+    public void updateRecallSheet(String text, int position) {
+        if (recallSheet == null || recallSheet.getValue() == null) return;
+        recallSheet.getValue().set(getIndex(position, getColumnNumValue()), text.trim());
+    }
+
+
+
+
     /* Settings */
     public LiveData<Integer> getWordCount() {
         return wordCount;
+    }
+    public LiveData<Integer> getColumnCount() {
+        return columnCount;
     }
 
     public int getWordsPerColumn() {
@@ -71,21 +102,25 @@ public class RandomWordsViewModel extends ViewModel {
         nightMode.setValue(!unboxBool(nightMode, false));
     }
 
+
+
+
+
+
+
+
+
+
+
     public Score getScore() {
         return scoreProvider.getScore(memorySheet.getValue(), recallSheet.getValue(), getWordsPerColumn());
     }
 
-    public LiveData<List<String>> getVisibleMemorySheet() {
-        return Transformations.map(columnNum, column -> this.memorySheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()));
-    }
 
-    public LiveData<List<String>> getVisibleRecallSheet() {
-        return Transformations.map(columnNum, column -> this.recallSheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()));
-    }
 
-    public LiveData<ReviewSheet> getVisibleReviewSheet() {
-        return Transformations.map(columnNum, column -> new ReviewSheet(this.memorySheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn()), this.recallSheet.getValue().subList(column * settings.getWordsPerColumn(), (column+1) * settings.getWordsPerColumn())));
-    }
+
+
+
 
     public LiveData<GamePhase> getGamePhase() { return gamePhase; }
     public GamePhase getGamePhaseValue() { return gamePhase == null ? GamePhase.PRE_MEMORIZATION : gamePhase.getValue(); }
@@ -103,8 +138,8 @@ public class RandomWordsViewModel extends ViewModel {
     private int getColumnNumValue() { return unboxInt(columnNum, 0); }
     public void setColumnNum(int newColumnNum) { columnNum.setValue(newColumnNum); }
 
-    public void prevColumn(View view) { setColumnNum(getColumnNumValue() - 1); }
-    public void nextColumn(View view) { setColumnNum(getColumnNumValue() + 1); }
+    public void prevColumn(View v) { setColumnNum(getColumnNumValue() - 1); }
+    public void nextColumn(View v) { setColumnNum(getColumnNumValue() + 1); }
 
     private Boolean unboxBool(LiveData<Boolean> liveData, Boolean defaultValue) {
         if (liveData == null)
@@ -127,13 +162,5 @@ public class RandomWordsViewModel extends ViewModel {
         return (col * settings.getWordsPerColumn()) + row;
     }
 
-    public String getRecallForCurrentColumnAt(int position) {
-        return recallSheet == null || recallSheet.getValue() == null ? "" :
-                recallSheet.getValue().get(getIndex(position, getColumnNumValue()));
-    }
 
-    public void updateRecallSheet(String text, int position) {
-        if (recallSheet == null || recallSheet.getValue() == null) return;
-        recallSheet.getValue().set(getIndex(position, getColumnNumValue()), text.trim());
-    }
 }

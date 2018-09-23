@@ -5,6 +5,7 @@
 
     <!--suppress AndroidUnknownAttribute -->
     <data class="RandomWordsFragmentBinding">
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="com.MemoryLadder.TakeTest.RandomWords.ui.viewmodel.RandomWordsViewModel" />
@@ -55,40 +56,75 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="8dp"
-            android:text="@{@string/wordCount(viewModel.columnNum)}"
-            tools:text="3" />
+            android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
+            tools:text="Column 2 of 5" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/button_prev_column"
+                android:id="@+id/button_prev_column_landscape"
                 style="@style/NextGroupButton"
                 app:srcCompat="@drawable/ic_arrow_left"
                 android:layout_marginLeft="@dimen/navigation_button.margin"
                 android:layout_marginRight="@dimen/navigation_button.margin"
                 android:onClick="@{viewModel::prevColumn}"
-                android:contentDescription="@string/prev_column" />
+                android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.GONE:View.VISIBLE}"
+                android:contentDescription="@string/prev_column"
+                tools:visibility="gone"
+                />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/word_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
                 tools:listitem="@layout/list_item_random_words_memory"
                 />
 
             <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/button_next_column"
+                android:id="@+id/button_next_column_landscape"
                 style="@style/NextGroupButton"
                 app:srcCompat="@drawable/ic_arrow_right"
                 android:layout_marginLeft="@dimen/navigation_button.margin"
                 android:layout_marginRight="@dimen/navigation_button.margin"
                 android:onClick="@{viewModel::nextColumn}"
-                android:contentDescription="@string/next_column" />
+                android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.GONE:View.VISIBLE}"
+                android:contentDescription="@string/next_column"
+                tools:visibility="gone"
+                />
         </LinearLayout>
-    </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.VISIBLE:View.GONE}"
+            tools:visibility="visible">
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/prevButton"
+                style="@style/NextGroupButton"
+                app:srcCompat="@drawable/ic_arrow_left"
+                android:layout_marginRight="@dimen/navigation_button.margin_from_center"
+                android:layout_marginEnd="@dimen/navigation_button.margin_from_center"
+                android:onClick="@{viewModel::prevColumn}"
+                android:contentDescription="Last Group"
+                />
+
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/nextButton"
+                style="@style/NextGroupButton"
+                app:srcCompat="@drawable/ic_arrow_right"
+                android:layout_marginLeft="@dimen/navigation_button.margin_from_center"
+                android:layout_marginStart="@dimen/navigation_button.margin_from_center"
+                android:onClick="@{viewModel::nextColumn}"
+                android:contentDescription="Next Group"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
 </layout>
