@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest;
+package com.memoryladder.taketest;
 
 public interface GameManagerActivity {
 

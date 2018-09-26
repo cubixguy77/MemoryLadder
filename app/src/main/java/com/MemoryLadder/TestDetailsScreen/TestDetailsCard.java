@@ -1,4 +1,4 @@
-package com.MemoryLadder.TestDetailsScreen;
+package com.memoryladder.testdetailsscreen;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -12,15 +12,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.MemoryLadder.Settings.DigitSpeedSetting;
-import com.MemoryLadder.Settings.DigitSpeedSettingDialog;
-import com.MemoryLadder.Settings.NumberSetting;
-import com.MemoryLadder.Settings.NumberSettingDialog;
-import com.MemoryLadder.Settings.Setting;
-import com.MemoryLadder.Settings.SwitchSetting;
-import com.MemoryLadder.Settings.TargetSetting;
-import com.MemoryLadder.Settings.TimeSetting;
-import com.MemoryLadder.Settings.TimeSettingDialog;
+import com.memoryladder.settings.DigitSpeedSetting;
+import com.memoryladder.settings.DigitSpeedSettingDialog;
+import com.memoryladder.settings.NumberSetting;
+import com.memoryladder.settings.NumberSettingDialog;
+import com.memoryladder.settings.Setting;
+import com.memoryladder.settings.SwitchSetting;
+import com.memoryladder.settings.TargetSetting;
+import com.memoryladder.settings.TimeSetting;
+import com.memoryladder.settings.TimeSettingDialog;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.List;

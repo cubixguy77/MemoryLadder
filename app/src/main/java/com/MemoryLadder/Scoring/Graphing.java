@@ -1,4 +1,4 @@
-package com.MemoryLadder.Scoring;
+package com.memoryladder.scoring;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.Bitmap.Config;
 
-import com.MemoryLadder.Utils;
+import com.memoryladder.Utils;
 
 class Graphing {
     private String[] scores;

@@ -1,4 +1,4 @@
-package com.MemoryLadder.ShapesChallenges;
+package com.memoryladder.shapeschallenges;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,12 +30,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.Scoring.ScoreActivity;
-import com.MemoryLadder.Scoring.Scoring;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.scoring.ScoreActivity;
+import com.memoryladder.scoring.Scoring;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
+import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.HashMap;

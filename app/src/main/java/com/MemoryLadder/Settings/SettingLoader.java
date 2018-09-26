@@ -1,9 +1,9 @@
-package com.MemoryLadder.Settings;
+package com.memoryladder.settings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.MemoryLadder.Constants;
+import com.memoryladder.Constants;
 
 import java.util.ArrayList;
 

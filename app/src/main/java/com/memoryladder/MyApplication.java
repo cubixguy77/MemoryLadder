@@ -1,4 +1,4 @@
-package com.MemoryLadder;
+package com.memoryladder;
 
 import android.support.multidex.MultiDexApplication;
 

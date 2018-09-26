@@ -1,4 +1,4 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 public class DigitSpeed {
 

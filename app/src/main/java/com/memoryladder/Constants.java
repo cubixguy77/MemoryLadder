@@ -1,13 +1,10 @@
-package com.MemoryLadder;
+package com.memoryladder;
 
-import android.support.annotation.DrawableRes;
-
-import com.MemoryLadder.TakeTest.GameActivity;
-import com.MemoryLadder.ListsChallenges.Lists_Mem;
-import com.MemoryLadder.NumbersChallenges.DigitSpeed;
-import com.MemoryLadder.NumbersChallenges.Numbers_Mem;
-import com.MemoryLadder.ShapesChallenges.Shapes_Mem;
-import com.mastersofmemory.memoryladder.R;
+import com.memoryladder.taketest.GameActivity;
+import com.memoryladder.listschallenges.Lists_Mem;
+import com.memoryladder.numberschallenges.DigitSpeed;
+import com.memoryladder.numberschallenges.Numbers_Mem;
+import com.memoryladder.shapeschallenges.Shapes_Mem;
 
 public class Constants {
 	

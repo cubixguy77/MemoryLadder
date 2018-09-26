@@ -1,4 +1,4 @@
-package com.MemoryLadder.ChooseTest;
+package com.memoryladder.choosetest;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,9 +14,9 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.LinearLayout;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.WhatsNewDialog;
+import com.memoryladder.Constants;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
+import com.memoryladder.WhatsNewDialog;
 import com.mastersofmemory.memoryladder.R;
 
 public class ChooseTest extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Timer;
+package com.memoryladder.taketest.Timer;
 
 public class TimeFormat {
 

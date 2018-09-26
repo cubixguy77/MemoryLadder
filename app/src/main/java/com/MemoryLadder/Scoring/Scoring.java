@@ -1,6 +1,6 @@
-package com.MemoryLadder.Scoring;
+package com.memoryladder.scoring;
 
-import com.MemoryLadder.Constants;
+import com.memoryladder.Constants;
 
 public class Scoring {
     final private static int NUMBERS_SPEED = Constants.NUMBERS_SPEED;

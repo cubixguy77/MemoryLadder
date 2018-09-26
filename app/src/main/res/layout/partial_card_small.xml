@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.MemoryLadder.TakeTest.Cards.SmallCardView
+<com.memoryladder.taketest.cards.SmallCardView
     android:id="@+id/card_0"
     style="@style/SmallCardStyle"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,4 +17,4 @@
         tools:text="A"
         />
 
-</com.MemoryLadder.TakeTest.Cards.SmallCardView>
+</com.memoryladder.taketest.cards.SmallCardView>

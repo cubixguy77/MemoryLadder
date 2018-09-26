@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.memorysheetproviders;
+package com.memoryladder.taketest.randomwords.memorysheetproviders;
 
 import java.util.ArrayList;
 import java.util.List;

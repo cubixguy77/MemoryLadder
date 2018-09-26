@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 interface CardSelectionListener {
     void onCardSelected(PlayingCard card);

@@ -12,13 +12,13 @@
     <uses-permission android:name="com.android.vending.BILLING" />
     
     <application
-        android:name="com.MemoryLadder.MyApplication"
+        android:name="com.memoryladder.MyApplication"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.MemoryLadder.ChooseTest.ChooseTest"
+            android:name="com.memoryladder.choosetest.ChooseTest"
             android:theme="@style/AppTheme.BrandedLaunch"
             android:label="@string/app_name">
             <intent-filter>
@@ -28,67 +28,67 @@
         </activity>
 
         <activity
-            android:name="com.MemoryLadder.TestDetailsScreen.TestDetailsActivity"
+            android:name="com.memoryladder.testdetailsscreen.TestDetailsActivity"
             android:label="@string/app_name">
         </activity>
 
         <activity
-            android:name="com.MemoryLadder.Scoring.ScoreActivity"
+            android:name="com.memoryladder.scoring.ScoreActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Numbers"
+            android:name="com.memoryladder.choosepegsscreens.ChoosePegs_Numbers"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Cards"
+            android:name="com.memoryladder.choosepegsscreens.ChoosePegs_Cards"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.NumbersChallenges.HowItWorks_Numbers"
+            android:name="com.memoryladder.numberschallenges.HowItWorks_Numbers"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.TakeTest.Cards.HowItWorks_Cards"
+            android:name="com.memoryladder.taketest.cards.HowItWorks_Cards"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.ChoosePegsScreens.Help_LoadPegs"
+            android:name="com.memoryladder.choosepegsscreens.Help_LoadPegs"
             android:noHistory="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.NumbersChallenges.Numbers_Mem"
+            android:name="com.memoryladder.numberschallenges.Numbers_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.NumbersChallenges.Numbers_Recall"
+            android:name="com.memoryladder.numberschallenges.Numbers_Recall"
             android:configChanges="keyboardHidden|orientation"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.NumbersChallenges.Numbers_Review"
+            android:name="com.memoryladder.numberschallenges.Numbers_Review"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.MemoryLadder.ShapesChallenges.Shapes_Mem"
+            android:name="com.memoryladder.shapeschallenges.Shapes_Mem"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.MemoryLadder.ShapesChallenges.Shapes_Recall"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.MemoryLadder.ShapesChallenges.Shapes_Review"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.MemoryLadder.ListsChallenges.Lists_Mem"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.MemoryLadder.ListsChallenges.Lists_Recall"
+            android:name="com.memoryladder.shapeschallenges.Shapes_Recall"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.MemoryLadder.ListsChallenges.Lists_Review"
+            android:name="com.memoryladder.shapeschallenges.Shapes_Review"
             android:screenOrientation="landscape" />
         <activity
-            android:name="com.MemoryLadder.TakeTest.GameActivity"
+            android:name="com.memoryladder.listschallenges.Lists_Mem"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.memoryladder.listschallenges.Lists_Recall"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.memoryladder.listschallenges.Lists_Review"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name="com.memoryladder.taketest.GameActivity"
             android:label="@string/title_activity_card_prototype">
         </activity>
     </application>

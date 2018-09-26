@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.MemoryLadder.TakeTest.GameManager;
-import com.MemoryLadder.TakeTest.GamePhase;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.Timer.TimerView;
-import com.MemoryLadder.Utils;
+import com.memoryladder.taketest.GameManager;
+import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.Timer.TimerView;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import butterknife.BindView;

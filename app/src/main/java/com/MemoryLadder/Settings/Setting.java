@@ -1,4 +1,4 @@
-package com.MemoryLadder.Settings;
+package com.memoryladder.settings;
 
 import android.os.Parcel;
 import android.os.Parcelable;

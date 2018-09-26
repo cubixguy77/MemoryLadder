@@ -1,10 +1,10 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.GamePhase;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.GamePhase;
 
 import java.util.List;
 

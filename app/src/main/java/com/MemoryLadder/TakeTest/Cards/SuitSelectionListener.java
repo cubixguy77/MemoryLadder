@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 public interface SuitSelectionListener {
     void onSuitSelected(int suit);

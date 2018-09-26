@@ -1,4 +1,4 @@
-package com.MemoryLadder.Billing;
+package com.memoryladder.billing;
 
 public interface BillingUpdatesListener {
     void onBillingSetupSuccess();

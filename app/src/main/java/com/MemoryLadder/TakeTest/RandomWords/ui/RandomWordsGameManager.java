@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.ui;
+package com.memoryladder.taketest.randomwords.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -12,19 +12,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.MemoryLadder.TakeTest.GameManager;
-import com.MemoryLadder.TakeTest.GamePhase;
-import com.MemoryLadder.TakeTest.RandomWords.ui.adapters.MemoryWordsAdapter;
-import com.MemoryLadder.TakeTest.RandomWords.ui.adapters.PreMemWordsAdapter;
-import com.MemoryLadder.TakeTest.RandomWords.ui.adapters.RecallWordsAdapter;
-import com.MemoryLadder.TakeTest.RandomWords.ui.adapters.ReviewWordsAdapter;
-import com.MemoryLadder.TakeTest.RandomWords.ui.viewmodel.RandomWordsViewModel;
-import com.MemoryLadder.TakeTest.RandomWords.ui.viewmodel.RandomWordsViewModelFactory;
-import com.MemoryLadder.TakeTest.RandomWords.memorysheetproviders.MemorySheetProvider;
-import com.MemoryLadder.TakeTest.RandomWords.score.RandomWordsScoreProvider;
-import com.MemoryLadder.TakeTest.RandomWords.settings.RandomWordsSettings;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.Timer.TimerView;
+import com.memoryladder.taketest.GameManager;
+import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.randomwords.ui.adapters.MemoryWordsAdapter;
+import com.memoryladder.taketest.randomwords.ui.adapters.PreMemWordsAdapter;
+import com.memoryladder.taketest.randomwords.ui.adapters.RecallWordsAdapter;
+import com.memoryladder.taketest.randomwords.ui.adapters.ReviewWordsAdapter;
+import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModel;
+import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModelFactory;
+import com.memoryladder.taketest.randomwords.memorysheetproviders.MemorySheetProvider;
+import com.memoryladder.taketest.randomwords.score.RandomWordsScoreProvider;
+import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.Timer.TimerView;
 import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.RandomWordsFragmentBinding;
 

@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.MemoryLadder.ShapesChallenges;
+package com.memoryladder.shapeschallenges;
 
 import android.app.Dialog;
 import android.content.Context;

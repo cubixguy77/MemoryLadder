@@ -8,7 +8,7 @@
     android:animateLayoutChanges="true"
     android:background="@color/activity.background"
     android:orientation="vertical"
-    tools:context="com.MemoryLadder.TakeTest.GameActivity">
+    tools:context="com.memoryladder.taketest.GameActivity">
 
     <FrameLayout
         android:id="@+id/timerContainer"

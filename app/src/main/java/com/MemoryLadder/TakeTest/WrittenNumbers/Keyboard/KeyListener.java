@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.WrittenNumbers.Keyboard;
+package com.memoryladder.taketest.WrittenNumbers.Keyboard;
 
 public interface KeyListener {
     void onDigit(char key);

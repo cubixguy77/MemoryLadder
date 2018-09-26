@@ -1,10 +1,10 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.Utils;
 
 /**
  * This class handles the shading of cells when Mnemonic Assist is On

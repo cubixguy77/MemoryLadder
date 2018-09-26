@@ -1,10 +1,10 @@
-package com.MemoryLadder.Billing.google;
+package com.memoryladder.billing.google;
 
 import android.app.Activity;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.MemoryLadder.Billing.BillingUpdatesListener;
+import com.memoryladder.billing.BillingUpdatesListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;

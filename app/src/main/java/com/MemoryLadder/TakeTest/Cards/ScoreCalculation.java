@@ -1,7 +1,6 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
-import com.MemoryLadder.TakeTest.Cards.Deck;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
+import com.memoryladder.taketest.ScorePanel.Score;
 
 public class ScoreCalculation {
 

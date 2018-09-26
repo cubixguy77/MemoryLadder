@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.MemoryLadder.TakeTest.ScorePanel.ScorePanel
+<com.memoryladder.taketest.ScorePanel.ScorePanel
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,7 +8,7 @@
     app:layout_behavior="@string/bottom_sheet_behavior"
     app:behavior_peekHeight="@dimen/score_panel.height"
     tools:visibility="visible"
-    tools:context="com.MemoryLadder.TakeTest.GameActivity"
+    tools:context="com.memoryladder.taketest.GameActivity"
     tools:showIn="@layout/activity_test_arena"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -128,4 +128,4 @@
         android:layout_margin="16dp"
         />
 
-</com.MemoryLadder.TakeTest.ScorePanel.ScorePanel>
+</com.memoryladder.taketest.ScorePanel.ScorePanel>

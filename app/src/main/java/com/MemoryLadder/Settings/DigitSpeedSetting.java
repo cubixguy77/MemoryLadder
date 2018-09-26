@@ -1,8 +1,8 @@
-package com.MemoryLadder.Settings;
+package com.memoryladder.settings;
 
 import android.os.Parcel;
 
-import com.MemoryLadder.NumbersChallenges.DigitSpeed;
+import com.memoryladder.numberschallenges.DigitSpeed;
 
 public class DigitSpeedSetting extends Setting {
 

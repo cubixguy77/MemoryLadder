@@ -1,4 +1,4 @@
-package com.MemoryLadder.ListsChallenges;
+package com.memoryladder.listschallenges;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,8 +17,8 @@ import android.widget.GridView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.memoryladder.Constants;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
 
 public class Lists_Review extends Activity implements OnClickListener {

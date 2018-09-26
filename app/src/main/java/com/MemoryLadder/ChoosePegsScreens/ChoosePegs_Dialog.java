@@ -1,4 +1,4 @@
-package com.MemoryLadder.ChoosePegsScreens;
+package com.memoryladder.choosepegsscreens;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.MemoryLadder.TakeTest.Cards.CardImageProvider;
-import com.MemoryLadder.TakeTest.Cards.PlayingCard;
+import com.memoryladder.taketest.cards.CardImageProvider;
+import com.memoryladder.taketest.cards.PlayingCard;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.ArrayList;

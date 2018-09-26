@@ -1,4 +1,4 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,11 +22,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.CountDownDialog;
-import com.MemoryLadder.InstructionsDialog;
-import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.CountDownDialog;
+import com.memoryladder.InstructionsDialog;
+import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.Random;

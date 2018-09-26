@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.WrittenNumbers;
+package com.memoryladder.taketest.WrittenNumbers;
 
 import java.util.Random;
 

@@ -1,16 +1,16 @@
-package com.MemoryLadder.TakeTest;
+package com.memoryladder.taketest;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.TakeTest.Cards.CardSettings;
-import com.MemoryLadder.TakeTest.RandomWords.settings.RandomWordsSettings;
-import com.MemoryLadder.TakeTest.WrittenNumbers.WrittenNumbersSettings;
+import com.memoryladder.Constants;
+import com.memoryladder.taketest.cards.CardSettings;
+import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
+import com.memoryladder.taketest.WrittenNumbers.WrittenNumbersSettings;
 
-import static com.MemoryLadder.Constants.LISTS_WORDS;
-import static com.MemoryLadder.Constants.NUMBERS_SPEED;
+import static com.memoryladder.Constants.LISTS_WORDS;
+import static com.memoryladder.Constants.NUMBERS_SPEED;
 
 class SettingsProvider {
 

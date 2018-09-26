@@ -1,4 +1,4 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 import android.app.Activity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Timer;
+package com.memoryladder.taketest.Timer;
 
 public class SimpleTimer extends CountDownTimerPausable {
     private final ITimer.TimerUpdateListener timerUpdateListener;

@@ -1,10 +1,10 @@
-package com.MemoryLadder.TestDetailsScreen;
+package com.memoryladder.testdetailsscreen;
 
 import android.content.Context;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.Settings.Setting;
-import com.MemoryLadder.Settings.SettingLoader;
+import com.memoryladder.Constants;
+import com.memoryladder.settings.Setting;
+import com.memoryladder.settings.SettingLoader;
 import com.mastersofmemory.memoryladder.BuildConfig;
 
 import java.util.ArrayList;

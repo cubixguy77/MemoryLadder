@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.ui.adapters;
+package com.memoryladder.taketest.randomwords.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;

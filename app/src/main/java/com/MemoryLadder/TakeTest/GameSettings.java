@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest;
+package com.memoryladder.taketest;
 
 import android.os.Parcel;
 import android.os.Parcelable;

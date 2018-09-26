@@ -1,6 +1,6 @@
-package com.MemoryLadder.TakeTest;
+package com.memoryladder.taketest;
 
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
+import com.memoryladder.taketest.ScorePanel.Score;
 
 public interface GameManager {
     void setGamePhase(GamePhase phase);

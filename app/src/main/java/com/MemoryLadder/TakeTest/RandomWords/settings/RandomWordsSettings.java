@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.settings;
+package com.memoryladder.taketest.randomwords.settings;
 
 import android.os.Parcel;
 import android.os.Parcelable;

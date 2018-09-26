@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.ScorePanel;
+package com.memoryladder.taketest.ScorePanel;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.MemoryLadder.TakeTest.Timer.TimeFormat;
+import com.memoryladder.taketest.Timer.TimeFormat;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;

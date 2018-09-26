@@ -1,12 +1,12 @@
-package com.MemoryLadder.TakeTest.WrittenNumbers;
+package com.memoryladder.taketest.WrittenNumbers;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.MemoryLadder.TakeTest.GamePhase;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.WrittenNumbers.Scoring.ScoreCalculation;
-import com.MemoryLadder.Utils;
+import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.WrittenNumbers.Scoring.ScoreCalculation;
+import com.memoryladder.Utils;
 
 import java.util.Arrays;
 

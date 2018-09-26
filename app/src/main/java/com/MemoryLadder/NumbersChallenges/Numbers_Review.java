@@ -1,4 +1,4 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,8 +17,8 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
+import com.memoryladder.Constants;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
 import com.mastersofmemory.memoryladder.R;
 
 public class Numbers_Review extends Activity implements OnClickListener{

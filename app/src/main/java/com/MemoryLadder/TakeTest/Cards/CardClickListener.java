@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 interface CardClickListener {
     void onCardClick(int index, PlayingCard card);

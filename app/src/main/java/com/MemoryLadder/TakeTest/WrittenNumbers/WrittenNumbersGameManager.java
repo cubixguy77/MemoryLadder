@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.WrittenNumbers;
+package com.memoryladder.taketest.WrittenNumbers;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,21 +11,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
 
-import com.MemoryLadder.TakeTest.GameManager;
-import com.MemoryLadder.TakeTest.GamePhase;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.Timer.TimerView;
-import com.MemoryLadder.TakeTest.WrittenNumbers.Keyboard.KeyListener;
-import com.MemoryLadder.TakeTest.WrittenNumbers.Keyboard.NumericKeyboardView;
-import com.MemoryLadder.TakeTest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;
-import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.NumberGridAdapter;
-import com.MemoryLadder.Utils;
+import com.memoryladder.taketest.GameManager;
+import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.Timer.TimerView;
+import com.memoryladder.taketest.WrittenNumbers.Keyboard.KeyListener;
+import com.memoryladder.taketest.WrittenNumbers.Keyboard.NumericKeyboardView;
+import com.memoryladder.taketest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;
+import com.memoryladder.taketest.WrittenNumbers.NumberGrid.NumberGridAdapter;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
 

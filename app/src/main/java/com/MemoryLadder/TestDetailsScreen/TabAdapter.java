@@ -1,4 +1,4 @@
-package com.MemoryLadder.TestDetailsScreen;
+package com.memoryladder.testdetailsscreen;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest;
+package com.memoryladder.taketest;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -17,16 +17,16 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.MemoryLadder.InstructionsDialog;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
-import com.MemoryLadder.TakeTest.ScorePanel.ScorePanel;
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.CountDownDialog;
-import com.MemoryLadder.FileOps;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TakeTest.Timer.ITimer;
-import com.MemoryLadder.TakeTest.Timer.SimpleTimer;
-import com.MemoryLadder.Utils;
+import com.memoryladder.InstructionsDialog;
+import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.ScorePanel.ScorePanel;
+import com.memoryladder.Constants;
+import com.memoryladder.CountDownDialog;
+import com.memoryladder.FileOps;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
+import com.memoryladder.taketest.Timer.ITimer;
+import com.memoryladder.taketest.Timer.SimpleTimer;
+import com.memoryladder.Utils;
 import com.jjoe64.graphview.series.DataPoint;
 import com.mastersofmemory.memoryladder.R;
 

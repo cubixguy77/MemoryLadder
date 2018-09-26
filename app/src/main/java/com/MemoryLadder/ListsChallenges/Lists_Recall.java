@@ -1,4 +1,4 @@
-package com.MemoryLadder.ListsChallenges;
+package com.memoryladder.listschallenges;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -28,12 +28,12 @@ import android.widget.GridView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.Scoring.ScoreActivity;
-import com.MemoryLadder.Scoring.Scoring;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.scoring.ScoreActivity;
+import com.memoryladder.scoring.Scoring;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
+import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 public class Lists_Recall extends Activity implements OnClickListener {

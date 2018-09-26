@@ -1,4 +1,4 @@
-package com.MemoryLadder.Scoring;
+package com.memoryladder.scoring;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,11 +18,11 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-import com.MemoryLadder.ChooseTest.ChooseTest;
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.FileOps;
-import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
-import com.MemoryLadder.Utils;
+import com.memoryladder.choosetest.ChooseTest;
+import com.memoryladder.Constants;
+import com.memoryladder.FileOps;
+import com.memoryladder.testdetailsscreen.TestDetailsActivity;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 public class ScoreActivity extends Activity implements OnClickListener {

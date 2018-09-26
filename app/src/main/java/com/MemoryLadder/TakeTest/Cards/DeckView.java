@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
 
-import com.MemoryLadder.Utils;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 public class DeckView extends GridLayout {

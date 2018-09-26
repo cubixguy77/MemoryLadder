@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.WrittenNumbers.Review;
+package com.memoryladder.taketest.WrittenNumbers.Review;
 
 import android.text.ParcelableSpan;
 import android.text.Spannable;

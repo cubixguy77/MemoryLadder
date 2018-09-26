@@ -1,4 +1,4 @@
-package com.MemoryLadder.ChoosePegsScreens;
+package com.memoryladder.choosepegsscreens;
 
 import android.app.Activity;
 import android.os.Bundle;

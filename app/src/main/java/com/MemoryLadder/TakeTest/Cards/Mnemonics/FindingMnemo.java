@@ -1,10 +1,10 @@
-package com.MemoryLadder.TakeTest.Cards.Mnemonics;
+package com.memoryladder.taketest.cards.mnemonics;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.MemoryLadder.TakeTest.Cards.PlayingCard;
-import com.MemoryLadder.Utils;
+import com.memoryladder.taketest.cards.PlayingCard;
+import com.memoryladder.Utils;
 
 public class FindingMnemo {
     public static String getMnemoFor(PlayingCard card, Context context) {

@@ -1,4 +1,4 @@
-package com.MemoryLadder.NumbersChallenges;
+package com.memoryladder.numberschallenges;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,11 +21,11 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.Scoring.ScoreActivity;
-import com.MemoryLadder.Scoring.Scoring;
-import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.scoring.ScoreActivity;
+import com.memoryladder.scoring.Scoring;
+import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 
 public class Numbers_Recall extends Activity implements OnClickListener {

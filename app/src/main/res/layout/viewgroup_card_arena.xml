@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     android:animateLayoutChanges="true"
     android:background="@color/activity.background"
-    tools:context="com.MemoryLadder.TakeTest.GameActivity"
+    tools:context="com.memoryladder.taketest.GameActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.MemoryLadder.TakeTest.Cards.DeckSelectorView
+            <com.memoryladder.taketest.cards.DeckSelectorView
                 android:id="@+id/layout_deck_selector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     style="@style/DeckSelectorButton"
                     app:srcCompat="@drawable/ic_arrow_right_small" />
 
-            </com.MemoryLadder.TakeTest.Cards.DeckSelectorView>
+            </com.memoryladder.taketest.cards.DeckSelectorView>
 
             <include
                 layout="@layout/viewgroup_timer">
@@ -58,7 +58,7 @@
 
         </FrameLayout>
 
-        <com.MemoryLadder.TakeTest.Cards.DeckView
+        <com.memoryladder.taketest.cards.DeckView
             android:id="@+id/deck_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             tools:layout_height="72dp"
             />
 
-        <com.MemoryLadder.TakeTest.Cards.SelectedCardsView
+        <com.memoryladder.taketest.cards.SelectedCardsView
             android:id="@+id/selected_cards_view"
             tools:visibility="visible"
             android:layout_width="fill_parent"
@@ -85,7 +85,7 @@
                 android:layout_marginRight="@dimen/navigation_button.margin"
                 android:contentDescription="Last Group" />
 
-            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+            <com.memoryladder.taketest.cards.LargeCardView
                 android:id="@+id/card_large_one"
                 style="@style/LargeCardLayoutStyle">
 
@@ -94,9 +94,9 @@
                     tools:src="@drawable/card_h1" />
 
                 <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
-            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+            </com.memoryladder.taketest.cards.LargeCardView>
 
-            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+            <com.memoryladder.taketest.cards.LargeCardView
                 android:id="@+id/card_large_two"
                 style="@style/LargeCardLayoutStyle">
 
@@ -105,9 +105,9 @@
                     tools:src="@drawable/card_h1" />
 
                 <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
-            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+            </com.memoryladder.taketest.cards.LargeCardView>
 
-            <com.MemoryLadder.TakeTest.Cards.LargeCardView
+            <com.memoryladder.taketest.cards.LargeCardView
                 android:id="@+id/card_large_three"
                 style="@style/LargeCardLayoutStyle">
 
@@ -116,7 +116,7 @@
                     tools:src="@drawable/card_h1" />
 
                 <android.support.v7.widget.AppCompatTextView style="@style/MnemonicTextStyle" />
-            </com.MemoryLadder.TakeTest.Cards.LargeCardView>
+            </com.memoryladder.taketest.cards.LargeCardView>
 
             <android.support.v7.widget.AppCompatImageButton
                 android:id="@+id/button_next_group_alt"
@@ -126,7 +126,7 @@
                 android:layout_marginRight="@dimen/navigation_button.margin"
                 android:contentDescription="Last Group" />
 
-        </com.MemoryLadder.TakeTest.Cards.SelectedCardsView>
+        </com.memoryladder.taketest.cards.SelectedCardsView>
 
     </LinearLayout>
 
@@ -137,7 +137,7 @@
         tools:visibility="visible"
         />
 
-    <com.MemoryLadder.TakeTest.Cards.SuitSelectorView
+    <com.memoryladder.taketest.cards.SuitSelectorView
         android:id="@+id/layout_suit_selector"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -164,9 +164,9 @@
             android:id="@+id/image_suit_selector_spade"
             app:srcCompat="@drawable/icon_suit_spade" />
 
-    </com.MemoryLadder.TakeTest.Cards.SuitSelectorView>
+    </com.memoryladder.taketest.cards.SuitSelectorView>
 
-    <com.MemoryLadder.TakeTest.Cards.CardSelectionView
+    <com.memoryladder.taketest.cards.CardSelectionView
         android:animateLayoutChanges="true"
         android:columnCount="7"
         android:id="@+id/card_selector_view"

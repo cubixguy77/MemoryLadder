@@ -1,8 +1,8 @@
-package com.MemoryLadder.Settings;
+package com.memoryladder.settings;
 
 import android.os.Parcel;
 
-import com.MemoryLadder.Utils;
+import com.memoryladder.Utils;
 
 public class TimeSetting extends Setting {
 

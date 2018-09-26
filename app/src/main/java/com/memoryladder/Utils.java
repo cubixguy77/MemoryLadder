@@ -1,8 +1,8 @@
-package com.MemoryLadder;
+package com.memoryladder;
 
-import com.MemoryLadder.ListsChallenges.Lists_Review;
-import com.MemoryLadder.NumbersChallenges.Numbers_Review;
-import com.MemoryLadder.ShapesChallenges.Shapes_Review;
+import com.memoryladder.listschallenges.Lists_Review;
+import com.memoryladder.numberschallenges.Numbers_Review;
+import com.memoryladder.shapeschallenges.Shapes_Review;
 
 import java.util.Arrays;
 import java.util.Collections;

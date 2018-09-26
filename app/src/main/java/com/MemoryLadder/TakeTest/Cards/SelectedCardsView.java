@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.Cards;
+package com.memoryladder.taketest.cards;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.MemoryLadder.TakeTest.Cards.Mnemonics.FindingMnemo;
+import com.memoryladder.taketest.cards.mnemonics.FindingMnemo;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.ArrayList;

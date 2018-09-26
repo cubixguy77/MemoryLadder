@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.MemoryLadder.TestDetailsScreen.TestDetailsCard android:id="@+id/testDetailsCard"
+<com.memoryladder.testdetailsscreen.TestDetailsCard android:id="@+id/testDetailsCard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:cardBackgroundColor="#aad1bd"
     app:cardCornerRadius="0dp"
     app:cardElevation="2dp"
     app:cardUseCompatPadding="true"
-    tools:context="com.MemoryLadder.TestDetailsScreen.TestDetailsActivity"
+    tools:context="com.memoryladder.testdetailsscreen.TestDetailsActivity"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -79,4 +79,4 @@
             android:textSize="@dimen/pregame.card.button.textSize"
             />
     </LinearLayout>
-</com.MemoryLadder.TestDetailsScreen.TestDetailsCard>
+</com.memoryladder.testdetailsscreen.TestDetailsCard>

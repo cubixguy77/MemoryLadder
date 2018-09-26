@@ -1,4 +1,4 @@
-package com.MemoryLadder.TestDetailsScreen;
+package com.memoryladder.testdetailsscreen;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
-import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Cards;
-import com.MemoryLadder.ChoosePegsScreens.ChoosePegs_Numbers;
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.InstructionsDialog;
+import com.memoryladder.choosepegsscreens.ChoosePegs_Cards;
+import com.memoryladder.choosepegsscreens.ChoosePegs_Numbers;
+import com.memoryladder.Constants;
+import com.memoryladder.InstructionsDialog;
 import com.mastersofmemory.memoryladder.R;
 
 public class TestDetailsActivity extends AppCompatActivity {

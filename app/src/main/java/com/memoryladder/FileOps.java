@@ -1,9 +1,9 @@
-package com.MemoryLadder;
+package com.memoryladder;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.MemoryLadder.TakeTest.Cards.PlayingCard;
+import com.memoryladder.taketest.cards.PlayingCard;
 import com.jjoe64.graphview.series.DataPoint;
 
 import java.io.BufferedReader;

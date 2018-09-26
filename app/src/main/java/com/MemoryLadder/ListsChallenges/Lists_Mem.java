@@ -1,4 +1,4 @@
-package com.MemoryLadder.ListsChallenges;
+package com.memoryladder.listschallenges;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,13 +23,12 @@ import android.widget.GridView;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.MemoryLadder.Constants;
-import com.MemoryLadder.CountDownDialog;
-import com.MemoryLadder.InstructionsDialog;
-import com.MemoryLadder.TakeTest.Timer.CountDownTimerPausable;
-import com.MemoryLadder.Utils;
+import com.memoryladder.Constants;
+import com.memoryladder.CountDownDialog;
+import com.memoryladder.InstructionsDialog;
+import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
-//import com.MemoryLadderFull.R;
 
 public class Lists_Mem extends Activity implements OnClickListener, android.content.DialogInterface.OnDismissListener {
 	

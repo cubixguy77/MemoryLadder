@@ -1,4 +1,4 @@
-package com.MemoryLadder.ChoosePegsScreens;
+package com.memoryladder.choosepegsscreens;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,10 +17,10 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
-import com.MemoryLadder.FileOps;
-import com.MemoryLadder.TakeTest.Cards.HowItWorks_Cards;
-import com.MemoryLadder.TakeTest.Cards.PlayingCard;
-import com.MemoryLadder.Utils;
+import com.memoryladder.FileOps;
+import com.memoryladder.taketest.cards.HowItWorks_Cards;
+import com.memoryladder.taketest.cards.PlayingCard;
+import com.memoryladder.Utils;
 import com.aditya.filebrowser.FileChooser;
 import com.mastersofmemory.memoryladder.R;
 

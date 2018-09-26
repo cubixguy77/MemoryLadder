@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.ui.adapters;
+package com.memoryladder.taketest.randomwords.ui.adapters;
 
 import android.support.annotation.NonNull;
 import android.text.Editable;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.MemoryLadder.TakeTest.RandomWords.ui.viewmodel.RandomWordsViewModel;
+import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModel;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.List;

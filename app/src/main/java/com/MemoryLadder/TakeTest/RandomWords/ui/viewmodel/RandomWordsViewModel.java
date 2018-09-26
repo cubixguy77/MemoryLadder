@@ -1,4 +1,4 @@
-package com.MemoryLadder.TakeTest.RandomWords.ui.viewmodel;
+package com.memoryladder.taketest.randomwords.ui.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -6,11 +6,11 @@ import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 import android.view.View;
 
-import com.MemoryLadder.TakeTest.GamePhase;
-import com.MemoryLadder.TakeTest.RandomWords.score.ScoreProvider;
-import com.MemoryLadder.TakeTest.RandomWords.settings.RandomWordsSettings;
-import com.MemoryLadder.TakeTest.RandomWords.ui.adapters.ReviewSheet;
-import com.MemoryLadder.TakeTest.ScorePanel.Score;
+import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.randomwords.score.ScoreProvider;
+import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
+import com.memoryladder.taketest.randomwords.ui.adapters.ReviewSheet;
+import com.memoryladder.taketest.ScorePanel.Score;
 
 import java.util.List;
 
