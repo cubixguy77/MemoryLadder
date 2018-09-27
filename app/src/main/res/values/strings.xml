@@ -86,7 +86,9 @@
 	    <item>Super Fast</item>
     </string-array>
 
-	<string-array name="randomwords1">
+	
+
+<string-array name="randomwords_english">
 	<item>abseil</item>
 	<item>tire</item>
 	<item>lard</item>
@@ -367,8 +369,6 @@
 	<item>jumper</item>
 	<item>tennis</item>
 	<item>kidney</item>
-</string-array>
-<string-array name="randomwords2">
 	<item>mesh</item>
 	<item>apology</item>
 	<item>cricket</item>
@@ -647,8 +647,6 @@
 	<item>scalpel</item>
 	<item>year</item>
 	<item>cannon</item>
-	</string-array>
-<string-array name="randomwords3">
 	<item>berry</item>
 	<item>boat</item>
 	<item>beetle</item>
@@ -928,8 +926,6 @@
 	<item>bicycle</item>
 	<item>specter</item>
 	<item>confectionery</item>
-	</string-array>
-<string-array name="randomwords4">
 	<item>gas</item>
 	<item>sash</item>
 	<item>indentation</item>
@@ -1209,8 +1205,6 @@
 	<item>beautician</item>
 	<item>binder</item>
 	<item>encampment</item>
-	</string-array>
-<string-array name="randomwords5">
 	<item>flagpole</item>
 	<item>conference</item>
 	<item>runner</item>
@@ -1486,7 +1480,6 @@
 	<item>hawk</item>
 	<item>stream</item>
 </string-array>
-	
 	
 	
 	

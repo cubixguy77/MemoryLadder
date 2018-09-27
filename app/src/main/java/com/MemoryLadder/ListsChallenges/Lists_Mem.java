@@ -310,41 +310,14 @@ public class Lists_Mem extends Activity implements OnClickListener, android.cont
 		int elementsperarray = (numstrings / 5) + 1;
 		int index = 0;
 				
-		String[] temp = getResources().getStringArray(R.array.randomwords1);
+		String[] temp = getResources().getStringArray(R.array.randomwords_english);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
 			else output[index] = getTranspose(index) + " " + temp[i];
 			index++;
 		}
-		temp = getResources().getStringArray(R.array.randomwords2);
-		Collections.shuffle(Arrays.asList(temp));
-		for (int i=0; i<elementsperarray; i++) {
-			if (index >= numstrings) return output;
-			else output[index] = getTranspose(index) + " " + temp[i];
-			index++;
-		}
-		temp = getResources().getStringArray(R.array.randomwords3);
-		Collections.shuffle(Arrays.asList(temp));
-		for (int i=0; i<elementsperarray; i++) {
-			if (index >= numstrings) return output;
-			else output[index] = getTranspose(index) + " " + temp[i];
-			index++;
-		}
-		temp = getResources().getStringArray(R.array.randomwords4);
-		Collections.shuffle(Arrays.asList(temp));
-		for (int i=0; i<elementsperarray; i++) {
-			if (index >= numstrings) return output;
-			else output[index] = getTranspose(index) + " " + temp[i];
-			index++;
-		}
-		temp = getResources().getStringArray(R.array.randomwords5);
-		Collections.shuffle(Arrays.asList(temp));
-		for (int i=0; i<elementsperarray; i++) {
-			if (index >= numstrings) return output;
-			else output[index] = getTranspose(index) + " " + temp[i];
-			index++;
-		}
+
 		return output;
 	}
 	

@@ -28,6 +28,9 @@ import com.memoryladder.taketest.Timer.TimerView;
 import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.RandomWordsFragmentBinding;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -43,6 +46,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     private RecallWordsAdapter recallAdapter;
     private ReviewWordsAdapter reviewAdapter;
 
+    private int wordCount;
     private int wordsPerColumn;
 
     public static RandomWordsGameManager newInstance(RandomWordsSettings settings) {
@@ -65,11 +69,11 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
         if (getArguments() != null) {
             RandomWordsSettings settings = getArguments().getParcelable("settings");
-            int wordCount = settings == null ? 0 : settings.getWordCount();
+            wordCount = settings == null ? 0 : settings.getWordCount();
             wordsPerColumn = settings == null ? 0 : settings.getWordsPerColumn();
 
             RandomWordsViewModelFactory factory = new RandomWordsViewModelFactory(
-                    MemorySheetProvider.getMemorySheet(wordCount),
+                    MemorySheetProvider.getMemorySheet(getWordList(), wordCount),
                     MemorySheetProvider.getRecallSheet(wordCount),
                     settings,
                     new RandomWordsScoreProvider());
@@ -101,8 +105,16 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
         return root;
     }
 
+    private List<String> getWordList() {
+        return Arrays.asList(getResources().getStringArray(R.array.randomwords_english));
+    }
+
     @Override
     public void setGamePhase(GamePhase phase) {
+        if (phase == GamePhase.PRE_MEMORIZATION) {
+            viewModel.reset(MemorySheetProvider.getMemorySheet(getWordList(), wordCount), MemorySheetProvider.getRecallSheet(wordCount));
+        }
+
         viewModel.setGamePhase(phase);
         viewModel.setColumnNum(0);
     }

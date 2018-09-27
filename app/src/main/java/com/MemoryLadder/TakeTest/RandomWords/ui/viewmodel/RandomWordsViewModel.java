@@ -104,6 +104,10 @@ public class RandomWordsViewModel extends ViewModel {
 
 
 
+    public void reset(List<String> memorySheet, List<String> recallSheet) {
+        this.memorySheet.setValue(memorySheet);
+        this.recallSheet.setValue(recallSheet);
+    }
 
 
 

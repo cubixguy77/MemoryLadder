@@ -6,12 +6,29 @@ import com.memoryladder.shapeschallenges.Shapes_Review;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 import java.util.StringTokenizer;
 
 public class Utils {
 
 	public static int lesserOf(int a, int b) {
 		return a < b ? a : b;
+	}
+
+	public static <E> List<E> pickNRandomElements(List<E> list, int n) {
+		int length = list.size();
+		Random r = new Random();
+
+		if (length < n)
+			return null;
+
+		for (int i = length - 1; i >= length - n; --i)
+		{
+			Collections.swap(list, i , r.nextInt(i + 1));
+		}
+
+		return list.subList(length - n, length);
 	}
 
 	public static int[] shuffleIntArray(int[] array) {

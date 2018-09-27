@@ -1,14 +1,18 @@
 package com.memoryladder.taketest.randomwords.memorysheetproviders;
 
-import com.memoryladder.Utils;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MemorySheetProvider {
+public class FakeMemorySheetProvider {
 
     public static List<String> getMemorySheet(List<String> wordBank, int numWords) {
-        return Utils.pickNRandomElements(wordBank, numWords);
+        List<String> words = new ArrayList<>();
+
+        for (int i=0; i<numWords; i++) {
+            words.add(Character.toString((char) ('a' + i)));
+        }
+
+        return words;
     }
 
     public static List<String> getRecallSheet(int numWords) {
