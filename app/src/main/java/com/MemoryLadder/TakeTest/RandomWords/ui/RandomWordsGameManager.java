@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.randomwords.ui.adapters.MemoryWordsAdapter;
-import com.memoryladder.taketest.randomwords.ui.adapters.PreMemWordsAdapter;
 import com.memoryladder.taketest.randomwords.ui.adapters.RecallWordsAdapter;
 import com.memoryladder.taketest.randomwords.ui.adapters.ReviewWordsAdapter;
 import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModel;
@@ -41,7 +40,6 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
     private RandomWordsViewModel viewModel;
 
-    private PreMemWordsAdapter preMemAdapter;
     private MemoryWordsAdapter memoryAdapter;
     private RecallWordsAdapter recallAdapter;
     private ReviewWordsAdapter reviewAdapter;
@@ -128,12 +126,14 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     public void render(GamePhase phase) {
         switch (phase) {
             case PRE_MEMORIZATION:
-                preMemAdapter = new PreMemWordsAdapter(wordsPerColumn);
-                wordList.setAdapter(preMemAdapter);
-                break;
-            case MEMORIZATION:
                 memoryAdapter = new MemoryWordsAdapter(wordsPerColumn);
                 wordList.setAdapter(memoryAdapter);
+                break;
+            case MEMORIZATION:
+                if (memoryAdapter == null) {
+                    memoryAdapter = new MemoryWordsAdapter(wordsPerColumn);
+                    wordList.setAdapter(memoryAdapter);
+                }
                 break;
             case RECALL:
                 recallAdapter = new RecallWordsAdapter(wordsPerColumn, viewModel);

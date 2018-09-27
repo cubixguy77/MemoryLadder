@@ -26,8 +26,6 @@ public class MemoryWordsAdapter extends WordsAdapter {
     }
 
     public void setMemorySheet(List<String> memorySheet) {
-        System.out.println("Setting Memory Sheet");
-        System.out.println(memorySheet.toString());
         this.memorySheet = memorySheet;
         notifyDataSetChanged();
     }
