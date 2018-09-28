@@ -16,14 +16,8 @@ import butterknife.ButterKnife;
  */
 abstract class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.RandomWordsViewHolder> {
 
-    private boolean nightMode;
-
     private static final int fadedBlack = Color.parseColor("#77000000");
-    private static final int fadedWhite = Color.parseColor("#ddFFFFFF");
-
-    public void setNightMode(boolean nightMode) {
-        this.nightMode = nightMode;
-    }
+    //private static final int fadedWhite = Color.parseColor("#ddFFFFFF");
 
     class RandomWordsViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.words_list_cell_index) TextView number;
@@ -35,11 +29,11 @@ abstract class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.RandomWord
 
         @SuppressLint("SetTextI18n")
         void bindTo(int position) {
-            number.setText(Integer.toString(position + 1) + ".");
+            number.setText(Integer.toString(position + 1));
         }
 
         int getTextColor() {
-            return nightMode ? fadedWhite : fadedBlack;
+            return fadedBlack;
         }
     }
 }
