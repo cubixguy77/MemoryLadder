@@ -23,7 +23,7 @@ class GameManagerProvider {
             case NUMBERS_SPEED: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_SPOKEN: return null;
-            case LISTS_WORDS: return RandomWordsGameManager.newInstance(SettingsProvider.getRandomWordsSettings(intent, context));
+            case LISTS_WORDS: return RandomWordsGameManager.newInstance(SettingsProvider.getRandomWordsSettings(intent));
             case LISTS_EVENTS: return null;
             case SHAPES_FACES: return null;
             case SHAPES_ABSTRACT: return null;

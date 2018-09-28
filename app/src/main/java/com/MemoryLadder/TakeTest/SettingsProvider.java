@@ -47,13 +47,9 @@ class SettingsProvider {
         return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled, base, nightMode, drawGridLines);
     }
 
-    static RandomWordsSettings getRandomWordsSettings(Intent i, Context context) {
+    static RandomWordsSettings getRandomWordsSettings(Intent i) {
         int numCols               = i.getIntExtra("numCols",     -1);
         int wordsPerCol           = i.getIntExtra("numRows",     -1);
-
-        SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(LISTS_WORDS), 0);
-        boolean nightMode = prefs.getBoolean("WORDS_nightMode", false);
-
-        return new RandomWordsSettings(numCols, wordsPerCol, nightMode);
+        return new RandomWordsSettings(numCols, wordsPerCol);
     }
 }

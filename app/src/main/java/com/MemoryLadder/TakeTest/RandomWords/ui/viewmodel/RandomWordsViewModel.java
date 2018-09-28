@@ -28,7 +28,6 @@ public class RandomWordsViewModel extends ViewModel {
     private RandomWordsSettings settings;
     private MutableLiveData<Integer> wordCount = new MutableLiveData<>();
     private MutableLiveData<Integer> columnCount = new MutableLiveData<>();
-    private MutableLiveData<Boolean> nightMode = new MutableLiveData<>();
 
     /* Dynamic State Variables */
     private MutableLiveData<GamePhase> gamePhase = new MutableLiveData<>();
@@ -46,7 +45,6 @@ public class RandomWordsViewModel extends ViewModel {
         this.settings = settings;
         this.wordCount.setValue(settings.getWordCount());
         this.columnCount.setValue(settings.getColumnCount());
-        this.nightMode.setValue(settings.isNightMode());
 
         /* Dynamic State Variables */
         setGamePhase(GamePhase.PRE_MEMORIZATION);
@@ -87,7 +85,6 @@ public class RandomWordsViewModel extends ViewModel {
 
 
 
-
     /* Settings */
     public LiveData<Integer> getWordCount() {
         return wordCount;
@@ -98,10 +95,6 @@ public class RandomWordsViewModel extends ViewModel {
     private int getWordsPerColumn() {
         return settings.getWordsPerColumn();
     }
-    public LiveData<Boolean> getNightMode() {
-        return nightMode;
-    }
-    public void toggleNightMode(View view) { nightMode.setValue(!unboxBool(nightMode, false)); }
 
 
 
@@ -125,12 +118,6 @@ public class RandomWordsViewModel extends ViewModel {
 
 
     /* Utils */
-    private Boolean unboxBool(LiveData<Boolean> liveData, Boolean defaultValue) {
-        if (liveData == null)
-            return defaultValue;
-        return liveData.getValue();
-    }
-
     private Integer unboxInt(LiveData<Integer> liveData, Integer defaultValue) {
         if (liveData == null)
             return defaultValue;

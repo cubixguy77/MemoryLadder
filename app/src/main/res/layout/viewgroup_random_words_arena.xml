@@ -36,18 +36,6 @@
             <include
                 layout="@layout/viewgroup_timer">
             </include>
-
-            <ImageView
-                android:id="@+id/buttonToggleNightMode"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="end|center_vertical"
-                android:clickable="true"
-                android:focusable="true"
-                android:src="@{viewModel.nightMode ? @drawable/icon_night_mode_on : @drawable/icon_night_mode_off}"
-                android:onClick="@{viewModel::toggleNightMode}"
-                android:contentDescription="@string/night_mode_toggle"
-                />
         </FrameLayout>
 
         <LinearLayout
