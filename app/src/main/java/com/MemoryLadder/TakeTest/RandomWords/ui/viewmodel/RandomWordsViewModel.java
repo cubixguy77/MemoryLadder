@@ -10,7 +10,7 @@ import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.randomwords.score.ScoreProvider;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
 import com.memoryladder.taketest.randomwords.ui.adapters.ReviewSheet;
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 
 import java.util.List;
 

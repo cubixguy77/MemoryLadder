@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.ScorePanel;
+package com.memoryladder.taketest.scorepanel;
 
 public class Score {
 

@@ -22,8 +22,8 @@ import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModelFa
 import com.memoryladder.taketest.randomwords.memorysheetproviders.MemorySheetProvider;
 import com.memoryladder.taketest.randomwords.score.RandomWordsScoreProvider;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
-import com.memoryladder.taketest.ScorePanel.Score;
-import com.memoryladder.taketest.Timer.TimerView;
+import com.memoryladder.taketest.scorepanel.Score;
+import com.memoryladder.taketest.timer.TimerView;
 import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.RandomWordsFragmentBinding;
 

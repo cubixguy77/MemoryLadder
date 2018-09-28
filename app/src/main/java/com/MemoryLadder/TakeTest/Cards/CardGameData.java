@@ -3,7 +3,7 @@ package com.memoryladder.taketest.cards;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.GamePhase;
 
 import java.util.List;

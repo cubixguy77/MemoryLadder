@@ -1,6 +1,6 @@
 package com.memoryladder.taketest.randomwords.score;
 
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 
 import java.util.List;
 

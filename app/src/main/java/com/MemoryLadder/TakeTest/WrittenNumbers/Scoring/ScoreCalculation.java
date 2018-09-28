@@ -1,6 +1,6 @@
 package com.memoryladder.taketest.WrittenNumbers.Scoring;
 
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 
 import static com.memoryladder.taketest.WrittenNumbers.WrittenNumberData.EMPTY_CHAR;
 

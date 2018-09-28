@@ -26,7 +26,7 @@ import android.widget.TextView;
 import com.memoryladder.Constants;
 import com.memoryladder.CountDownDialog;
 import com.memoryladder.InstructionsDialog;
-import com.memoryladder.taketest.Timer.CountDownTimerPausable;
+import com.memoryladder.taketest.timer.CountDownTimerPausable;
 import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 

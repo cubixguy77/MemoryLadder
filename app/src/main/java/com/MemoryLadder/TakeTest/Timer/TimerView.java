@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.Timer;
+package com.memoryladder.taketest.timer;
 
 import android.content.Context;
 import android.util.AttributeSet;

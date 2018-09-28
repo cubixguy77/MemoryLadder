@@ -18,8 +18,8 @@ import android.widget.Space;
 
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
-import com.memoryladder.taketest.ScorePanel.Score;
-import com.memoryladder.taketest.Timer.TimerView;
+import com.memoryladder.taketest.scorepanel.Score;
+import com.memoryladder.taketest.timer.TimerView;
 import com.memoryladder.taketest.WrittenNumbers.Keyboard.KeyListener;
 import com.memoryladder.taketest.WrittenNumbers.Keyboard.NumericKeyboardView;
 import com.memoryladder.taketest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;

@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
-import com.memoryladder.taketest.ScorePanel.Score;
-import com.memoryladder.taketest.Timer.TimerView;
+import com.memoryladder.taketest.scorepanel.Score;
+import com.memoryladder.taketest.timer.TimerView;
 import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.R;
 

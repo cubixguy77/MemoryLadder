@@ -1,122 +1,148 @@
 package com.memoryladder.taketest.randomwords.score;
 
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 
 import java.util.List;
 
 public class RandomWordsScoreProvider implements ScoreProvider {
-    /* Note to self: I have not tested the case of having some blank entries in the last row for either or the behemoths
-     * double check rounding properly
-     */
+    private final static char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+
     public Score getScore(List<String> memorySheet, List<String> recallSheet, int wordsPerColumn) {
 
-        return new Score(75, 13);
-
-        /*
-        double TotalScore = 0;
-
-        int wordCount = memorySheet.size();
         int numRows = wordsPerColumn;
-        int numCols = wordCount / numRows;
+        int numCols = memorySheet.size() / wordsPerColumn;
 
-        int numPages = numRows / wordsPerColumn;
-        int lastAttemptedColumn = lastAttemptedColumn(recallSheet, "", wordsPerColumn);
+        String[][] guess = new String[numRows][numCols];
+        String[][] answer = new String[numRows][numCols];
 
-        System.out.println("Last attempted column: " + lastAttemptedColumn);
+        for (int col = 0; col < numCols; col++) {
+            for (int row = 0; row < numRows; row++) {
+                guess[row][col] = recallSheet.get(numRows * col + row);
+                answer[row][col] = memorySheet.get(numRows * col + row);
+            }
+        }
 
-        int recallCorrect = 0;
-        int recallAttempt = 0;
-        int totalMispelled = 0;
+        int lastAttemptedColumn = lastAttemptedColumn(guess);
 
+        double TotalScore = 0;
+        int totalCorrect = 0;
+        int totalAttempt = 0;
 
-        for (int page = 0; page < numPages; page++) {
-            int rowstart = (wordsPerColumn * page);
-            int rowend = rowstart + wordsPerColumn;
+        for (int col = 0; col < numCols; col++) {
+            int columnCorrect = 0;
+            int columnWrong = 0;
+            int columnMispelled = 0;
+            int columnBlank = 0;
+            double columnScore;
 
-            for (int col = 0; col < numCols; col++) {
+            for (int row = 0; row < numRows; row++) {
+                String myGuess = guess[row][col];
+                String theAnswer = answer[row][col];
 
-                int numCorrect = 0;
-                int numWrong = 0;
-                int numMispelled = 0;
-                int numBlank = 0;
-                double columnScore = 0;
+                if (myGuess.length() > 0)
+                    totalAttempt++;
 
-                if (attemptedColumn(recallSheet, col % numCols, rowstart, rowend, ""))
-                    recallAttempt += wordsPerColumn;
-
-                for (int row = rowstart; row < rowend; row++) {
-
-                    if (recallSheet[row][col].equals(answer[row][col])) {                        // right
-                        numCorrect++;
-                        recallCorrect++;
-                    } else if (checkSpelling && oneCharAway(recallSheet[row][col], answer[row][col]))               // right, but mispelled
-                        numMispelled++;
-                    else if (recallSheet[row][col].equals("")) {                                  // blank
-                        numBlank++;
-                        numWrong++;
-                    } else {                                                                  // wrong
-                        numWrong++;
-                    }
+                if (myGuess.equalsIgnoreCase(theAnswer)) {                        // right
+                    columnCorrect++;
+                    totalCorrect++;
+                } else if (oneCharAway(guess[row][col], answer[row][col]))               // right, but mispelled
+                    columnMispelled++;
+                else if (myGuess.length() == 0) {                                  // blank
+                    columnBlank++;
+                    columnWrong++;
+                } else {                                                                  // wrong
+                    columnWrong++;
                 }
-
-                if (!((col + (numCols * page)) == lastAttemptedColumn)) { // not the last column attempted
-                    if (numWrong == 0)
-                        columnScore = numCorrect + numMispelled;
-                    else if (numWrong == 1)
-                        columnScore = (((double) (numCorrect + numMispelled) / 2) + .5);
-                    else
-                        columnScore = 0;
-
-                    columnScore -= numMispelled;
-                } else {                                       // indeed the last column attempted
-                    if ((numWrong - numBlank) == 0)
-                        columnScore = numCorrect + numMispelled;
-                    else if ((numWrong - numBlank) == 1)
-                        columnScore = (((double) (numCorrect + numMispelled) / 2) + .5);
-                    else
-                        columnScore = 0;
-                    columnScore -= numMispelled;
-                }
-
-                TotalScore += columnScore;
-                totalMispelled += numMispelled;
-                System.out.println("Col: " + col + " colscore: " + columnScore);
             }
 
+            if (col != lastAttemptedColumn) { // not the last column attempted
+                if (columnWrong == 0)
+                    columnScore = columnCorrect;
+                else if (columnWrong == 1)
+                    columnScore = columnCorrect / 2.0f;
+                else
+                    columnScore = 0;
+            } else {                                       // indeed the last column attempted
+                if ((columnWrong - columnBlank) == 0)
+                    columnScore = columnCorrect;
+                else if ((columnWrong - columnBlank) == 1)
+                    columnScore = columnCorrect / 2.0f;
+                else
+                    columnScore = 0;
+            }
+
+            TotalScore += columnScore;
         }
 
-
-        int[] scores = new int[4];
-        scores[0] = recallCorrect;
-        scores[1] = recallAttempt;
-        scores[2] = totalMispelled;
-        scores[3] = (int) roundUpToZero(TotalScore);
-        return scores;
-        */
+        return new Score((int) (totalCorrect*100f / totalAttempt), (int) roundUpToZero(TotalScore));
     }
 
-    private static int lastAttemptedColumn(String[][] recallSheet, String blank, int wordsPerColumn) {
-        int numRows = recallSheet.length;
-        int numCols = recallSheet[0].length;
-        int numPages = numRows / wordsPerColumn;
+    private static int getNumRows(Object[][] array) {
+        return array.length;
+    }
 
-        for (int col = (numCols * numPages) - 1; col >= 0; col--) {
-            int modcol = col % numCols;
-            int page = col / numCols;
-            int rowstart = wordsPerColumn * page;
-            int rowend = rowstart + wordsPerColumn;
+    private static int getNumCols(Object[][] array) {
+        return array[0].length;
+    }
 
-            System.out.println(modcol + " " + page + " " + rowstart + " " + rowend);
+    private static Boolean oneCharAway(String guess, String answer) {
+        int guessLength = guess.length();
+        int answerLength = answer.length();
 
-            if (attemptedColumn(recallSheet, modcol, rowstart, rowend, blank))
+        int diff = guessLength - answerLength;
+        if (diff < 0)
+            diff = -1 * diff;
+
+        if (diff > 1)
+            return false;
+
+        else if (diff == 1) {
+            String small;
+            String large;
+            if (guessLength < answerLength) {
+                small = guess;
+                large = answer;
+            } else {
+                small = answer;
+                large = guess;
+            }
+            for (int pos = 0; pos <= small.length(); pos++) {
+                for (char b : alphabet) {
+                    String a = small.substring(0, pos);
+                    String c = small.substring(pos, small.length());
+                    String newGuess = a + b + c;
+
+                    if (newGuess.equals(large))
+                        return true;
+                }
+            }
+        } else {   // diff == 0
+            for (int pos = 0; pos < guess.length(); pos++) {
+                for (char b : alphabet) {
+                    String a = guess.substring(0, pos);
+                    String c = guess.substring(pos + 1, guess.length());
+                    String newGuess = a + b + c;
+
+                    if (newGuess.equals(answer))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static int lastAttemptedColumn(String[][] recallSheet) {
+        for (int col = getNumCols(recallSheet) - 1; col >= 0; col--) {
+            if (attemptedColumn(recallSheet, col))
                 return col;
         }
+
         return 0;
     }
 
-    private static Boolean attemptedColumn(String[][] array, int col, int rowstart, int rowend, String blank) {
-        for (int row = rowstart; row < rowend; row++) {
-            if (!array[row][col].equals(blank))
+    private static Boolean attemptedColumn(String[][] array, int col) {
+        for (int row = 0; row < getNumRows(array); row++) {
+            if (array[row][col] != null && array[row][col].length() > 0)
                 return true;
         }
         return false;

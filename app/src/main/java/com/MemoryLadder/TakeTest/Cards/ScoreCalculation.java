@@ -1,6 +1,6 @@
 package com.memoryladder.taketest.cards;
 
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 
 public class ScoreCalculation {
 

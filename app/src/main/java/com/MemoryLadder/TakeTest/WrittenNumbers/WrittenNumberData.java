@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.memoryladder.taketest.GamePhase;
-import com.memoryladder.taketest.ScorePanel.Score;
+import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.WrittenNumbers.Scoring.ScoreCalculation;
 import com.memoryladder.Utils;
 
