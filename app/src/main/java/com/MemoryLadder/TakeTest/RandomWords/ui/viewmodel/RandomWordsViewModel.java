@@ -79,6 +79,12 @@ public class RandomWordsViewModel extends ViewModel {
         recallSheet.getValue().set(getIndex(position, getColumnNumValue()), text.trim());
     }
 
+    public void resetTestSheets(List<String> memorySheet, List<String> recallSheet) {
+        this.memorySheet.setValue(memorySheet);
+        this.recallSheet.setValue(recallSheet);
+    }
+
+
 
 
 
@@ -89,62 +95,36 @@ public class RandomWordsViewModel extends ViewModel {
     public LiveData<Integer> getColumnCount() {
         return columnCount;
     }
-
-    public int getWordsPerColumn() {
+    private int getWordsPerColumn() {
         return settings.getWordsPerColumn();
     }
-
     public LiveData<Boolean> getNightMode() {
         return nightMode;
     }
-
-    public void toggleNightMode(View view) {
-        nightMode.setValue(!unboxBool(nightMode, false));
-    }
+    public void toggleNightMode(View view) { nightMode.setValue(!unboxBool(nightMode, false)); }
 
 
 
-    public void reset(List<String> memorySheet, List<String> recallSheet) {
-        this.memorySheet.setValue(memorySheet);
-        this.recallSheet.setValue(recallSheet);
-    }
+    /* Dynamic State Variables */
+    public LiveData<GamePhase> getGamePhase() { return gamePhase; }
+    public GamePhase getGamePhaseValue() { return gamePhase == null ? GamePhase.PRE_MEMORIZATION : gamePhase.getValue(); }
+    public void setGamePhase(GamePhase gamePhase) { this.gamePhase.setValue(gamePhase); }
+
+    public LiveData<Integer> getColumnNum() { return this.columnNum; }
+    private int getColumnNumValue() { return unboxInt(columnNum, 0); }
+    public void setColumnNum(int newColumnNum) { columnNum.setValue(newColumnNum); }
+    public void prevColumn(View v) { int newColumnNum = getColumnNumValue() - 1; if (newColumnNum >= 0) setColumnNum(newColumnNum); }
+    public void nextColumn(View v) { int newColumnNum = getColumnNumValue() + 1; if (newColumnNum < settings.getColumnCount()) setColumnNum(newColumnNum); }
 
 
 
-
-
-
-
-
+    /* Scoring */
     public Score getScore() {
         return scoreProvider.getScore(memorySheet.getValue(), recallSheet.getValue(), getWordsPerColumn());
     }
 
 
-
-
-
-
-
-    public LiveData<GamePhase> getGamePhase() { return gamePhase; }
-    public GamePhase getGamePhaseValue() { return gamePhase == null ? GamePhase.PRE_MEMORIZATION : gamePhase.getValue(); }
-    public void setGamePhase(GamePhase gamePhase) { this.gamePhase.setValue(gamePhase); }
-
-    public LiveData<Boolean> isBackEnabled() {
-        return Transformations.map(columnNum, column -> column == 0);
-    }
-
-    public LiveData<Boolean> isNextEnabled() {
-        return Transformations.map(columnNum, column -> column >= settings.getColumnCount());
-    }
-
-    public LiveData<Integer> getColumnNum() { return this.columnNum; }
-    private int getColumnNumValue() { return unboxInt(columnNum, 0); }
-    public void setColumnNum(int newColumnNum) { columnNum.setValue(newColumnNum); }
-
-    public void prevColumn(View v) { setColumnNum(getColumnNumValue() - 1); }
-    public void nextColumn(View v) { setColumnNum(getColumnNumValue() + 1); }
-
+    /* Utils */
     private Boolean unboxBool(LiveData<Boolean> liveData, Boolean defaultValue) {
         if (liveData == null)
             return defaultValue;
@@ -165,6 +145,4 @@ public class RandomWordsViewModel extends ViewModel {
     private int getIndex(int row, int col) {
         return (col * settings.getWordsPerColumn()) + row;
     }
-
-
 }

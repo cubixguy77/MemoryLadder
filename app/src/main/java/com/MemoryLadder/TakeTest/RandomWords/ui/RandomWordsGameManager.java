@@ -110,7 +110,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     @Override
     public void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
-            viewModel.reset(MemorySheetProvider.getMemorySheet(getWordList(), wordCount), MemorySheetProvider.getRecallSheet(wordCount));
+            viewModel.resetTestSheets(MemorySheetProvider.getMemorySheet(getWordList(), wordCount), MemorySheetProvider.getRecallSheet(wordCount));
         }
 
         viewModel.setGamePhase(phase);
