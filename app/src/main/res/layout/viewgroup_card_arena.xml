@@ -31,7 +31,7 @@
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/button_prev_deck"
-                    style="@style/DeckSelectorButton"
+                    style="@style/PageSelectorButton"
                     app:srcCompat="@drawable/ic_arrow_left_small" />
 
                 <TextView
@@ -43,11 +43,11 @@
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:textColor="#ffffffff"
-                    android:textSize="@dimen/deck_selector.text.size" />
+                    android:textSize="@dimen/page_selector.text.size" />
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/button_next_deck"
-                    style="@style/DeckSelectorButton"
+                    style="@style/PageSelectorButton"
                     app:srcCompat="@drawable/ic_arrow_right_small" />
 
             </com.memoryladder.taketest.cards.DeckSelectorView>

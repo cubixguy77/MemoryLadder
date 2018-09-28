@@ -53,10 +53,10 @@
     <dimen name="navigation_button.margin">20dp</dimen>
     <dimen name="navigation_button.margin_from_center">72dp</dimen>
 
-    <dimen name="deck_selector.size">36dp</dimen>
-    <dimen name="deck_selector.margin">12dp</dimen>
-    <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
-    <dimen name="deck_selector.arrow.size">32dp</dimen>
+    <dimen name="page_selector.size">36dp</dimen>
+    <dimen name="page_selector.margin">12dp</dimen>
+    <dimen name="page_selector.text.size">@dimen/timer.text.size</dimen>
+    <dimen name="page_selector.arrow.size">32dp</dimen>
 
     <dimen name="timer.height">52dp</dimen>
     <dimen name="timer.text.size">20sp</dimen>

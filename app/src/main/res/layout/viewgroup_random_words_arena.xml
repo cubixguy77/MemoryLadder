@@ -46,85 +46,52 @@
                 android:focusable="true"
                 android:src="@{viewModel.nightMode ? @drawable/icon_night_mode_on : @drawable/icon_night_mode_off}"
                 android:onClick="@{viewModel::toggleNightMode}"
-                android:contentDescription="@string/night_mode_toggle" />
-
+                android:contentDescription="@string/night_mode_toggle"
+                />
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/text_column_number"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="8dp"
-            android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
-            tools:text="Column 2 of 5" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_gravity="center_horizontal">
 
             <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/button_prev_column_landscape"
-                style="@style/NextGroupButton"
-                app:srcCompat="@drawable/ic_arrow_left"
-                android:layout_marginLeft="@dimen/navigation_button.margin"
-                android:layout_marginRight="@dimen/navigation_button.margin"
+                android:id="@+id/button_prev_deck"
                 android:onClick="@{viewModel::prevColumn}"
-                android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.GONE:View.VISIBLE}"
-                android:contentDescription="@string/prev_column"
-                tools:visibility="gone"
+                style="@style/PageSelectorButton"
+                app:srcCompat="@drawable/ic_arrow_left_small"
                 />
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/word_list"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"
-                tools:listitem="@layout/list_item_random_words_memory"
+            <TextView
+                android:id="@+id/text_column_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="8dp"
+                android:paddingLeft="8dp"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp"
+                android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
+                tools:text="Column 2 of 5"
                 />
 
             <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/button_next_column_landscape"
-                style="@style/NextGroupButton"
-                app:srcCompat="@drawable/ic_arrow_right"
-                android:layout_marginLeft="@dimen/navigation_button.margin"
-                android:layout_marginRight="@dimen/navigation_button.margin"
+                android:id="@+id/button_next_deck"
                 android:onClick="@{viewModel::nextColumn}"
-                android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.GONE:View.VISIBLE}"
-                android:contentDescription="@string/next_column"
-                tools:visibility="gone"
+                style="@style/PageSelectorButton"
+                app:srcCompat="@drawable/ic_arrow_right_small"
                 />
         </LinearLayout>
 
-        <FrameLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/word_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="@{@bool/random_words_bottom_navigation_buttons_display ? View.VISIBLE:View.GONE}"
-            tools:visibility="visible">
-
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/prevButton"
-                style="@style/NextGroupButton"
-                app:srcCompat="@drawable/ic_arrow_left"
-                android:layout_marginRight="@dimen/navigation_button.margin_from_center"
-                android:layout_marginEnd="@dimen/navigation_button.margin_from_center"
-                android:onClick="@{viewModel::prevColumn}"
-                android:contentDescription="Last Group"
-                />
-
-            <android.support.v7.widget.AppCompatImageButton
-                android:id="@+id/nextButton"
-                style="@style/NextGroupButton"
-                app:srcCompat="@drawable/ic_arrow_right"
-                android:layout_marginLeft="@dimen/navigation_button.margin_from_center"
-                android:layout_marginStart="@dimen/navigation_button.margin_from_center"
-                android:onClick="@{viewModel::nextColumn}"
-                android:contentDescription="Next Group"
-                />
-        </FrameLayout>
-
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/list_item_random_words_memory"
+            />
     </LinearLayout>
 </layout>

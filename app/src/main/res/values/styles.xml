@@ -69,9 +69,9 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="DeckSelectorButton">
-        <item name="android:layout_width">@dimen/deck_selector.size</item>
-        <item name="android:layout_height">@dimen/deck_selector.size</item>
+    <style name="PageSelectorButton">
+        <item name="android:layout_width">@dimen/page_selector.size</item>
+        <item name="android:layout_height">@dimen/page_selector.size</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:background">@drawable/shape_rounded_corners</item>
     </style>
