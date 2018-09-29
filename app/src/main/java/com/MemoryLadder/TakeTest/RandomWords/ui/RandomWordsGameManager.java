@@ -85,14 +85,14 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
 
-            viewModel.getVisibleMemorySheet().observe(this, wordList -> {
+            viewModel.getVisibleMemorySheet().observe(this, memorySheet -> {
                 if (viewModel.getGamePhaseValue() == GamePhase.MEMORIZATION)
-                    memoryAdapter.setMemorySheet(wordList);
+                    memoryAdapter.setMemorySheet(memorySheet);
             });
 
-            viewModel.getVisibleRecallSheet().observe(this, wordList -> {
+            viewModel.getVisibleRecallSheet().observe(this, recallSheet -> {
                 if (viewModel.getGamePhaseValue() == GamePhase.RECALL)
-                    recallAdapter.setRecallSheet(wordList);
+                    recallAdapter.setRecallSheet(recallSheet);
             });
 
             viewModel.getVisibleReviewSheet().observe(this, reviewSheet -> {
