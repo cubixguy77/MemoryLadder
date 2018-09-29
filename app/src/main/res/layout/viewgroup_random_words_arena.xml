@@ -17,6 +17,7 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
         <FrameLayout
@@ -60,6 +61,7 @@
                 android:paddingEnd="8dp"
                 android:paddingRight="8dp"
                 android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
+                android:textSize="16sp"
                 tools:text="Column 2 of 5"
                 />
 

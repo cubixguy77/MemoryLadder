@@ -1,5 +1,6 @@
 package com.memoryladder.taketest.randomwords.ui.adapters;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class MemoryWordsAdapter extends WordsAdapter {
 
     private final int numWords;
     private List<String> memorySheet;
+    private boolean animate = false;
 
     public MemoryWordsAdapter(int numWords) {
         this.numWords = numWords;
@@ -27,7 +29,9 @@ public class MemoryWordsAdapter extends WordsAdapter {
 
     public void setMemorySheet(List<String> memorySheet) {
         this.memorySheet = memorySheet;
+        animate = true;
         notifyDataSetChanged();
+        new Handler().postDelayed(() -> animate = false, 500);
     }
 
     @NonNull
@@ -57,7 +61,15 @@ public class MemoryWordsAdapter extends WordsAdapter {
         void bindTo(int position, String word) {
             super.bindTo(position);
             text.setTextColor(getTextColor());
-            text.setText(word);
+
+            if (animate) {
+                text.setAlpha(0f);
+                text.setText(word);
+                text.animate().alpha(1f).setDuration(200).setStartDelay(position * 30);
+            }
+            else {
+                text.setText(word);
+            }
         }
     }
 }

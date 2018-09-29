@@ -1,6 +1,7 @@
 package com.memoryladder.taketest.randomwords.ui.adapters;
 
 import android.annotation.SuppressLint;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class ReviewWordsAdapter extends WordsAdapter {
 
     private final int numWords;
     private ReviewSheet reviewSheet;
+    private boolean animate = false;
 
     public ReviewWordsAdapter(int numWords) {
         this.numWords = numWords;
@@ -27,7 +29,9 @@ public class ReviewWordsAdapter extends WordsAdapter {
 
     public void setReviewSheet(ReviewSheet reviewSheet) {
         this.reviewSheet = reviewSheet;
+        animate = true;
         notifyDataSetChanged();
+        new Handler().postDelayed(() -> animate = false, 500);
     }
 
     @NonNull
@@ -60,32 +64,34 @@ public class ReviewWordsAdapter extends WordsAdapter {
         void bindTo(int position, String memorySheetWord, String recallSheetWord, ReviewCellOutcome outcome) {
             super.bindTo(position);
 
+            memoryText.setTextColor(getTextColor());
+            recallText.setTextColor(getTextColor());
+
+            if (animate) {
+                memoryText.setAlpha(0f);
+                recallText.setAlpha(0f);
+                memoryText.setText(memorySheetWord);
+                recallText.setText(recallSheetWord);
+                memoryText.animate().alpha(1f).setDuration(200).setStartDelay(position * 20);
+                recallText.animate().alpha(1f).setDuration(200).setStartDelay(position * 20);
+            }
+            else {
+                memoryText.setText(memorySheetWord);
+                recallText.setText(recallSheetWord);
+            }
+
             switch (outcome) {
                 case CORRECT:
-                    memoryText.setTextColor(getTextColor());
-                    memoryText.setText(memorySheetWord);
-
                     recallText.setVisibility(View.GONE);
-
                     icon.setImageResource(R.drawable.icon_review_correct);
                     break;
                 case WRONG:
-                    memoryText.setTextColor(getTextColor());
-                    memoryText.setText(memorySheetWord);
-
                     recallText.setVisibility(View.VISIBLE);
-                    recallText.setTextColor(getTextColor());
-                    recallText.setText(recallSheetWord);
-
                     icon.setImageResource(R.drawable.icon_review_wrong);
                     break;
 
                 case BLANK:
-                    memoryText.setTextColor(getTextColor());
-                    memoryText.setText(memorySheetWord);
-
                     recallText.setVisibility(View.GONE);
-
                     icon.setImageResource(R.drawable.icon_review_blank);
                     break;
             }
