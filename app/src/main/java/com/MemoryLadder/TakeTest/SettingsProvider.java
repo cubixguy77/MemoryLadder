@@ -49,7 +49,7 @@ class SettingsProvider {
     static RandomWordsSettings getRandomWordsSettings(Intent i) {
         int numCols               = i.getIntExtra("numCols",     -1);
         int wordsPerCol           = i.getIntExtra("numRows",     -1);
-        boolean fullWordList      = i.getIntExtra("fullWordList", 0) == 1;
+        boolean fullWordList      = i.getIntExtra("fullWordList", 1) == 1;
         return new RandomWordsSettings(numCols, wordsPerCol, fullWordList);
     }
 }
