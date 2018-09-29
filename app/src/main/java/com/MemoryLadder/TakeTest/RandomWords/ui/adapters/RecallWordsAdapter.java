@@ -6,6 +6,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 import com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModel;
@@ -62,6 +63,7 @@ public class RecallWordsAdapter extends WordsAdapter {
 
             this.myCustomEditTextListener = myCustomEditTextListener;
             this.input.addTextChangedListener(myCustomEditTextListener);
+            this.input.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         }
 
         void bindTo(int position, String text) {
@@ -79,7 +81,7 @@ public class RecallWordsAdapter extends WordsAdapter {
     private class MyCustomEditTextListener implements TextWatcher {
         private int position;
 
-        public void updatePosition(int position) {
+        void updatePosition(int position) {
             this.position = position;
         }
 
