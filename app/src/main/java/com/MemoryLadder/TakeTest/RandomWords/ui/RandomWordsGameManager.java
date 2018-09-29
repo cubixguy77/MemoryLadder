@@ -84,9 +84,9 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
             viewModel.getGamePhase().observe(this, this::render);
 
-            viewModel.getColumnNum().observe(this, columnNum -> {
-                wordList.smoothScrollToPosition(0);
-            });
+            viewModel.getColumnNum().observe(this, columnNum -> wordList.smoothScrollToPosition(0));
+
+            viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible ? View.VISIBLE : View.INVISIBLE));
 
             viewModel.getVisibleMemorySheet().observe(this, wordList -> {
                 if (viewModel.getGamePhaseValue() == GamePhase.MEMORIZATION)

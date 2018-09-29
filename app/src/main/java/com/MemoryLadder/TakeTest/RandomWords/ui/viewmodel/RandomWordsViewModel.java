@@ -109,6 +109,9 @@ public class RandomWordsViewModel extends ViewModel {
     public void prevColumn(View v) { int newColumnNum = getColumnNumValue() - 1; if (newColumnNum >= 0) setColumnNum(newColumnNum); }
     public void nextColumn(View v) { int newColumnNum = getColumnNumValue() + 1; if (newColumnNum < settings.getColumnCount()) setColumnNum(newColumnNum); }
 
+    public LiveData<Boolean> getTimerVisible() {
+        return Transformations.map(gamePhase, phase -> phase != GamePhase.REVIEW);
+    }
 
 
     /* Scoring */
