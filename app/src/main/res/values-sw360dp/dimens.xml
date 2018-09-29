@@ -55,5 +55,6 @@
 
     <dimen name="words.list.indexWidth">48dp</dimen>
     <dimen name="words.list.memorytext.size">36sp</dimen>
+    <dimen name="words.list.reviewtext.size">24sp</dimen>
 
 </resources>

@@ -512,6 +512,7 @@
 	<item>constable</item>
 	<item>document</item>
 </string-array>
+
 <string-array name="randomwords_english">
 	<item>aardvark</item>
 	<item>abacus</item>
@@ -520,17 +521,13 @@
 	<item>ability</item>
 	<item>abroad</item>
 	<item>abuse</item>
-	<item>accelerator</item>
 	<item>access</item>
 	<item>accident</item>
-	<item>accommodation</item>
-	<item>accompanist</item>
 	<item>accordion</item>
 	<item>account</item>
 	<item>accountant</item>
 	<item>achiever</item>
 	<item>acid</item>
-	<item>acknowledgment</item>
 	<item>acoustic</item>
 	<item>acoustics</item>
 	<item>acrylic</item>
@@ -539,21 +536,16 @@
 	<item>activity</item>
 	<item>actor</item>
 	<item>actress</item>
-	<item>acupuncture</item>
 	<item>adapter</item>
 	<item>addiction</item>
 	<item>addition</item>
 	<item>address</item>
 	<item>adjustment</item>
-	<item>administration</item>
 	<item>adrenalin</item>
 	<item>adult</item>
 	<item>adulthood</item>
 	<item>advance</item>
-	<item>advancement</item>
 	<item>advantage</item>
-	<item>advertisement</item>
-	<item>advertising</item>
 	<item>advice</item>
 	<item>affair</item>
 	<item>affect</item>
@@ -561,7 +553,6 @@
 	<item>afternoon</item>
 	<item>aftershave</item>
 	<item>aftershock</item>
-	<item>afterthought</item>
 	<item>age</item>
 	<item>agency</item>
 	<item>agenda</item>
@@ -596,7 +587,6 @@
 	<item>alpaca</item>
 	<item>alpha</item>
 	<item>alphabet</item>
-	<item>alternative</item>
 	<item>altitude</item>
 	<item>alto</item>
 	<item>aluminium</item>
@@ -615,7 +605,6 @@
 	<item>analysis</item>
 	<item>analyst</item>
 	<item>anatomy</item>
-	<item>anesthesiology</item>
 	<item>anger</item>
 	<item>angiosperm</item>
 	<item>angle</item>
@@ -631,10 +620,8 @@
 	<item>answer</item>
 	<item>ant</item>
 	<item>anteater</item>
-	<item>antechamber</item>
 	<item>antelope</item>
 	<item>anthony</item>
-	<item>anthropology</item>
 	<item>antler</item>
 	<item>anxiety</item>
 	<item>anybody</item>
@@ -653,18 +640,14 @@
 	<item>apple</item>
 	<item>applewood</item>
 	<item>appliance</item>
-	<item>application</item>
-	<item>appointment</item>
 	<item>approval</item>
 	<item>apron</item>
 	<item>apse</item>
 	<item>aquifer</item>
 	<item>arch</item>
-	<item>archaeology</item>
 	<item>archeology</item>
 	<item>archer</item>
 	<item>architect</item>
-	<item>architecture</item>
 	<item>area</item>
 	<item>argument</item>
 	<item>arithmetic</item>
@@ -695,7 +678,6 @@
 	<item>assistance</item>
 	<item>assistant</item>
 	<item>associate</item>
-	<item>association</item>
 	<item>assumption</item>
 	<item>asterisk</item>
 	<item>astrakhan</item>
@@ -714,7 +696,6 @@
 	<item>attempt</item>
 	<item>attendant</item>
 	<item>attention</item>
-	<item>attenuation</item>
 	<item>attic</item>
 	<item>attitude</item>
 	<item>attorney</item>
@@ -723,9 +704,7 @@
 	<item>auditorium</item>
 	<item>aunt</item>
 	<item>author</item>
-	<item>authorisation</item>
 	<item>authority</item>
-	<item>authorization</item>
 	<item>automaton</item>
 	<item>avalanche</item>
 	<item>avenue</item>
@@ -781,7 +760,6 @@
 	<item>bar</item>
 	<item>barbeque</item>
 	<item>barber</item>
-	<item>barbiturate</item>
 	<item>barge</item>
 	<item>baritone</item>
 	<item>barium</item>
@@ -846,13 +824,11 @@
 	<item>belief</item>
 	<item>believe</item>
 	<item>bell</item>
-	<item>belligerency</item>
 	<item>bellows</item>
 	<item>belly</item>
 	<item>belt</item>
 	<item>bench</item>
 	<item>bend</item>
-	<item>beneficiary</item>
 	<item>benefit</item>
 	<item>bengal</item>
 	<item>beret</item>
@@ -861,7 +837,6 @@
 	<item>bet</item>
 	<item>beverage</item>
 	<item>beyond</item>
-	<item>bibliography</item>
 	<item>bicycle</item>
 	<item>bid</item>
 	<item>bidet</item>
@@ -982,12 +957,10 @@
 	<item>breakfast</item>
 	<item>breakpoint</item>
 	<item>breast</item>
-	<item>breastplate</item>
 	<item>breath</item>
 	<item>breeze</item>
 	<item>bribery</item>
 	<item>brick</item>
-	<item>bricklaying</item>
 	<item>bridge</item>
 	<item>brief</item>
 	<item>briefs</item>
@@ -1061,8 +1034,6 @@
 	<item>cafe</item>
 	<item>caftan</item>
 	<item>cake</item>
-	<item>calcification</item>
-	<item>calculation</item>
 	<item>calculator</item>
 	<item>calculus</item>
 	<item>calendar</item>
@@ -1094,7 +1065,6 @@
 	<item>cap</item>
 	<item>cape</item>
 	<item>capital</item>
-	<item>capitulation</item>
 	<item>capon</item>
 	<item>cappuccino</item>
 	<item>captain</item>
@@ -1142,17 +1112,14 @@
 	<item>catamaran</item>
 	<item>catch</item>
 	<item>category</item>
-	<item>caterpillar</item>
 	<item>cathedral</item>
 	<item>catsup</item>
 	<item>cattle</item>
-	<item>cauliflower</item>
 	<item>cause</item>
 	<item>caution</item>
 	<item>cave</item>
 	<item>cd</item>
 	<item>ceiling</item>
-	<item>celebration</item>
 	<item>celeriac</item>
 	<item>celery</item>
 	<item>celeste</item>
@@ -1171,21 +1138,18 @@
 	<item>century</item>
 	<item>ceramic</item>
 	<item>cereal</item>
-	<item>certification</item>
 	<item>cesspool</item>
 	<item>chafe</item>
 	<item>chain</item>
 	<item>chair</item>
 	<item>chairlift</item>
 	<item>chairman</item>
-	<item>chairperson</item>
 	<item>chaise</item>
 	<item>chalet</item>
 	<item>chalice</item>
 	<item>chalk</item>
 	<item>challenge</item>
 	<item>champion</item>
-	<item>championship</item>
 	<item>chance</item>
 	<item>chandelier</item>
 	<item>change</item>
@@ -1244,8 +1208,6 @@
 	<item>chord</item>
 	<item>chowder</item>
 	<item>chrome</item>
-	<item>chronograph</item>
-	<item>chronometer</item>
 	<item>chub</item>
 	<item>chug</item>
 	<item>church</item>
@@ -1254,12 +1216,8 @@
 	<item>cigarette</item>
 	<item>cinema</item>
 	<item>circle</item>
-	<item>circulation</item>
-	<item>circumference</item>
 	<item>cirrus</item>
-	<item>citizenship</item>
 	<item>city</item>
-	<item>civilisation</item>
 	<item>claim</item>
 	<item>clam</item>
 	<item>clank</item>
@@ -1321,7 +1279,6 @@
 	<item>coffin</item>
 	<item>coil</item>
 	<item>coin</item>
-	<item>coinsurance</item>
 	<item>coke</item>
 	<item>cold</item>
 	<item>coliseum</item>
@@ -1331,7 +1288,6 @@
 	<item>collision</item>
 	<item>colloquia</item>
 	<item>colon</item>
-	<item>colonisation</item>
 	<item>colony</item>
 	<item>color</item>
 	<item>colt</item>
@@ -1339,10 +1295,8 @@
 	<item>columnist</item>
 	<item>comb</item>
 	<item>combat</item>
-	<item>combination</item>
 	<item>combine</item>
 	<item>comfort</item>
-	<item>comfortable</item>
 	<item>comic</item>
 	<item>comma</item>
 	<item>command</item>
@@ -1352,64 +1306,45 @@
 	<item>commission</item>
 	<item>committee</item>
 	<item>common</item>
-	<item>communicant</item>
-	<item>communication</item>
 	<item>community</item>
 	<item>company</item>
 	<item>comparison</item>
 	<item>compassion</item>
-	<item>competition</item>
 	<item>competitor</item>
 	<item>complaint</item>
 	<item>complement</item>
 	<item>complex</item>
 	<item>component</item>
-	<item>comportment</item>
 	<item>composer</item>
-	<item>composition</item>
 	<item>compost</item>
-	<item>comprehension</item>
 	<item>compulsion</item>
 	<item>computer</item>
-	<item>comradeship</item>
-	<item>concentrate</item>
 	<item>concept</item>
 	<item>concern</item>
 	<item>concert</item>
 	<item>conclusion</item>
 	<item>concrete</item>
 	<item>condition</item>
-	<item>condominium</item>
 	<item>condor</item>
 	<item>conductor</item>
 	<item>cone</item>
-	<item>confectionery</item>
 	<item>conference</item>
 	<item>confidence</item>
-	<item>confirmation</item>
 	<item>conflict</item>
 	<item>confusion</item>
 	<item>conga</item>
 	<item>congo</item>
 	<item>congress</item>
-	<item>congressman</item>
-	<item>congressperson</item>
 	<item>conifer</item>
 	<item>connection</item>
 	<item>consent</item>
-	<item>consequence</item>
-	<item>consideration</item>
 	<item>consist</item>
 	<item>console</item>
 	<item>consonant</item>
-	<item>conspirator</item>
 	<item>constant</item>
-	<item>constellation</item>
-	<item>construction</item>
 	<item>consul</item>
 	<item>consulate</item>
 	<item>contact</item>
-	<item>contact lens</item>
 	<item>contagion</item>
 	<item>content</item>
 	<item>contest</item>
@@ -1418,12 +1353,9 @@
 	<item>contract</item>
 	<item>contrail</item>
 	<item>contrary</item>
-	<item>contribution</item>
 	<item>control</item>
 	<item>convection</item>
-	<item>conversation</item>
 	<item>convert</item>
-	<item>convertible</item>
 	<item>cook</item>
 	<item>cookie</item>
 	<item>cooking</item>
@@ -1439,10 +1371,8 @@
 	<item>cormorant</item>
 	<item>corn</item>
 	<item>corner</item>
-	<item>cornerstone</item>
 	<item>cornet</item>
 	<item>corral</item>
-	<item>correspondent</item>
 	<item>corridor</item>
 	<item>corruption</item>
 	<item>corsage</item>
@@ -1457,7 +1387,6 @@
 	<item>council</item>
 	<item>councilman</item>
 	<item>councilor</item>
-	<item>councilperson</item>
 	<item>count</item>
 	<item>counter</item>
 	<item>countess</item>
@@ -1522,7 +1451,6 @@
 	<item>crude</item>
 	<item>crush</item>
 	<item>cry</item>
-	<item>crystallography</item>
 	<item>cub</item>
 	<item>cuckoo</item>
 	<item>cucumber</item>
@@ -1596,8 +1524,6 @@
 	<item>decimal</item>
 	<item>decision</item>
 	<item>deck</item>
-	<item>declination</item>
-	<item>decongestant</item>
 	<item>decrease</item>
 	<item>decryption</item>
 	<item>dedication</item>
@@ -1606,7 +1532,6 @@
 	<item>defense</item>
 	<item>deficit</item>
 	<item>definition</item>
-	<item>deformation</item>
 	<item>degree</item>
 	<item>delay</item>
 	<item>delete</item>
@@ -1629,7 +1554,6 @@
 	<item>deputy</item>
 	<item>derby</item>
 	<item>derrick</item>
-	<item>description</item>
 	<item>desert</item>
 	<item>design</item>
 	<item>designer</item>
@@ -1638,13 +1562,10 @@
 	<item>dessert</item>
 	<item>destiny</item>
 	<item>destroyer</item>
-	<item>destruction</item>
 	<item>detail</item>
 	<item>detainment</item>
 	<item>detective</item>
 	<item>detention</item>
-	<item>determination</item>
-	<item>development</item>
 	<item>device</item>
 	<item>devil</item>
 	<item>dew</item>
@@ -1676,19 +1597,13 @@
 	<item>director</item>
 	<item>dirndl</item>
 	<item>dirt</item>
-	<item>disadvantage</item>
-	<item>disarmament</item>
 	<item>disaster</item>
 	<item>discipline</item>
 	<item>disco</item>
-	<item>disconnection</item>
 	<item>discount</item>
 	<item>discovery</item>
-	<item>discrepancy</item>
 	<item>discussion</item>
 	<item>disease</item>
-	<item>disembodiment</item>
-	<item>disengagement</item>
 	<item>disguise</item>
 	<item>dish</item>
 	<item>dishes</item>
@@ -1697,7 +1612,6 @@
 	<item>display</item>
 	<item>disposer</item>
 	<item>distance</item>
-	<item>distributor</item>
 	<item>district</item>
 	<item>diver</item>
 	<item>divide</item>
@@ -1794,7 +1708,6 @@
 	<item>east</item>
 	<item>eat</item>
 	<item>eave</item>
-	<item>eavesdropper</item>
 	<item>ecclesia</item>
 	<item>eclipse</item>
 	<item>ecliptic</item>
@@ -1822,8 +1735,6 @@
 	<item>ejector</item>
 	<item>elbow</item>
 	<item>election</item>
-	<item>electricity</item>
-	<item>electrocardiogram</item>
 	<item>element</item>
 	<item>elephant</item>
 	<item>elevator</item>
@@ -1843,24 +1754,18 @@
 	<item>employee</item>
 	<item>employer</item>
 	<item>employment</item>
-	<item>empowerment</item>
 	<item>emu</item>
-	<item>encirclement</item>
-	<item>encyclopedia</item>
 	<item>end</item>
 	<item>enemy</item>
 	<item>energy</item>
 	<item>engine</item>
 	<item>engineer</item>
-	<item>engineering</item>
 	<item>enigma</item>
 	<item>enjoyment</item>
 	<item>enquiry</item>
-	<item>entertainment</item>
 	<item>enthusiasm</item>
 	<item>entrance</item>
 	<item>entry</item>
-	<item>environment</item>
 	<item>envy</item>
 	<item>epee</item>
 	<item>ephemera</item>
@@ -1878,7 +1783,6 @@
 	<item>espadrille</item>
 	<item>espalier</item>
 	<item>essay</item>
-	<item>establishment</item>
 	<item>estate</item>
 	<item>estimate</item>
 	<item>estrogen</item>
@@ -1895,12 +1799,10 @@
 	<item>evocation</item>
 	<item>evolution</item>
 	<item>exam</item>
-	<item>examination</item>
 	<item>examiner</item>
 	<item>example</item>
 	<item>exchange</item>
 	<item>excitement</item>
-	<item>exclamation</item>
 	<item>excuse</item>
 	<item>executor</item>
 	<item>exercise</item>
@@ -1909,10 +1811,8 @@
 	<item>existence</item>
 	<item>exit</item>
 	<item>expansion</item>
-	<item>expansionism</item>
 	<item>experience</item>
 	<item>expert</item>
-	<item>explanation</item>
 	<item>exposition</item>
 	<item>expression</item>
 	<item>extension</item>
@@ -2113,13 +2013,10 @@
 	<item>frost</item>
 	<item>frown</item>
 	<item>fruit</item>
-	<item>frustration</item>
 	<item>fuel</item>
-	<item>fulfillment</item>
 	<item>full</item>
 	<item>fun</item>
 	<item>function</item>
-	<item>fundraising</item>
 	<item>funeral</item>
 	<item>funny</item>
 	<item>fur</item>
@@ -2190,7 +2087,6 @@
 	<item>glen</item>
 	<item>glider</item>
 	<item>gliding</item>
-	<item>glockenspiel</item>
 	<item>glove</item>
 	<item>gloves</item>
 	<item>glue</item>
@@ -2224,9 +2120,6 @@
 	<item>gram</item>
 	<item>grammar</item>
 	<item>grand</item>
-	<item>granddaughter</item>
-	<item>grandfather</item>
-	<item>grandmother</item>
 	<item>grandson</item>
 	<item>granny</item>
 	<item>grape</item>
@@ -2234,7 +2127,6 @@
 	<item>graph</item>
 	<item>graphic</item>
 	<item>grass</item>
-	<item>grasshopper</item>
 	<item>grassland</item>
 	<item>gratitude</item>
 	<item>gray</item>
@@ -2274,7 +2166,6 @@
 	<item>gym</item>
 	<item>gymnast</item>
 	<item>gymnastics</item>
-	<item>gynaecology</item>
 	<item>gyro</item>
 	<item>habit</item>
 	<item>hacienda</item>
@@ -2312,7 +2203,6 @@
 	<item>harmony</item>
 	<item>harp</item>
 	<item>harpooner</item>
-	<item>harpsichord</item>
 	<item>hassock</item>
 	<item>hat</item>
 	<item>hatbox</item>
@@ -2364,7 +2254,6 @@
 	<item>hill</item>
 	<item>hip</item>
 	<item>hippodrome</item>
-	<item>hippopotamus</item>
 	<item>hire</item>
 	<item>history</item>
 	<item>hit</item>
@@ -2398,7 +2287,6 @@
 	<item>hosiery</item>
 	<item>hospice</item>
 	<item>hospital</item>
-	<item>hospitality</item>
 	<item>host</item>
 	<item>hostel</item>
 	<item>hostess</item>
@@ -2430,16 +2318,12 @@
 	<item>hut</item>
 	<item>hutch</item>
 	<item>hyacinth</item>
-	<item>hybridisation</item>
 	<item>hydrant</item>
 	<item>hydraulics</item>
 	<item>hydrofoil</item>
 	<item>hydrogen</item>
 	<item>hyena</item>
 	<item>hygienic</item>
-	<item>hyphenation</item>
-	<item>hypochondria</item>
-	<item>hypothermia</item>
 	<item>ice</item>
 	<item>icebreaker</item>
 	<item>icicle</item>
@@ -2450,24 +2334,18 @@
 	<item>igloo</item>
 	<item>illegal</item>
 	<item>image</item>
-	<item>imagination</item>
 	<item>impact</item>
 	<item>implement</item>
 	<item>importance</item>
 	<item>impress</item>
 	<item>impression</item>
-	<item>imprisonment</item>
-	<item>improvement</item>
 	<item>impudence</item>
 	<item>impulse</item>
 	<item>inbox</item>
-	<item>incandescence</item>
 	<item>inch</item>
 	<item>incident</item>
 	<item>income</item>
 	<item>increase</item>
-	<item>independence</item>
-	<item>independent</item>
 	<item>index</item>
 	<item>indication</item>
 	<item>indigence</item>
@@ -2475,10 +2353,8 @@
 	<item>industry</item>
 	<item>inevitable</item>
 	<item>infancy</item>
-	<item>inflammation</item>
 	<item>inflation</item>
 	<item>influence</item>
-	<item>information</item>
 	<item>infusion</item>
 	<item>inglenook</item>
 	<item>ingrate</item>
@@ -2489,49 +2365,35 @@
 	<item>ink</item>
 	<item>inlay</item>
 	<item>inn</item>
-	<item>innervation</item>
 	<item>innocence</item>
 	<item>innocent</item>
 	<item>input</item>
 	<item>inquiry</item>
-	<item>inscription</item>
 	<item>insect</item>
 	<item>inside</item>
 	<item>insolence</item>
 	<item>inspection</item>
 	<item>inspector</item>
 	<item>instance</item>
-	<item>instruction</item>
 	<item>instrument</item>
-	<item>instrumentalist</item>
-	<item>instrumentation</item>
 	<item>insulation</item>
 	<item>insurance</item>
 	<item>insurgence</item>
-	<item>intelligence</item>
 	<item>intention</item>
-	<item>interaction</item>
-	<item>interactive</item>
 	<item>interest</item>
-	<item>interferometer</item>
 	<item>interior</item>
 	<item>interloper</item>
 	<item>internal</item>
-	<item>international</item>
 	<item>internet</item>
-	<item>interpreter</item>
 	<item>interview</item>
-	<item>interviewer</item>
 	<item>intestine</item>
 	<item>intestines</item>
-	<item>introduction</item>
 	<item>invention</item>
 	<item>inventor</item>
 	<item>inventory</item>
 	<item>investment</item>
 	<item>invite</item>
 	<item>invoice</item>
-	<item>iridescence</item>
 	<item>iris</item>
 	<item>iron</item>
 	<item>ironclad</item>
@@ -2600,7 +2462,6 @@
 	<item>kettledrum</item>
 	<item>key</item>
 	<item>keyboard</item>
-	<item>keyboarding</item>
 	<item>keystone</item>
 	<item>kick</item>
 	<item>kid</item>
@@ -2719,7 +2580,6 @@
 	<item>line</item>
 	<item>linen</item>
 	<item>liner</item>
-	<item>linguistics</item>
 	<item>link</item>
 	<item>linseed</item>
 	<item>lion</item>
@@ -2772,7 +2632,6 @@
 	<item>lumber</item>
 	<item>lumberman</item>
 	<item>lunch</item>
-	<item>luncheonette</item>
 	<item>lunchroom</item>
 	<item>lung</item>
 	<item>lunge</item>
@@ -2798,7 +2657,6 @@
 	<item>mailbox</item>
 	<item>mailman</item>
 	<item>main</item>
-	<item>maintenance</item>
 	<item>major</item>
 	<item>make</item>
 	<item>makeup</item>
@@ -2824,7 +2682,6 @@
 	<item>mansion</item>
 	<item>mantel</item>
 	<item>mantle</item>
-	<item>manufacturer</item>
 	<item>manx</item>
 	<item>many</item>
 	<item>map</item>
@@ -2849,14 +2706,12 @@
 	<item>mass</item>
 	<item>massage</item>
 	<item>master</item>
-	<item>mastication</item>
 	<item>mastoid</item>
 	<item>mat</item>
 	<item>match</item>
 	<item>mate</item>
 	<item>material</item>
 	<item>math</item>
-	<item>mathematics</item>
 	<item>matter</item>
 	<item>mattock</item>
 	<item>mattress</item>
@@ -2868,7 +2723,6 @@
 	<item>meaning</item>
 	<item>measles</item>
 	<item>measure</item>
-	<item>measurement</item>
 	<item>meat</item>
 	<item>mechanic</item>
 	<item>media</item>
@@ -2888,13 +2742,10 @@
 	<item>mess</item>
 	<item>message</item>
 	<item>metal</item>
-	<item>metallurgist</item>
 	<item>meteor</item>
-	<item>meteorology</item>
 	<item>meter</item>
 	<item>methane</item>
 	<item>method</item>
-	<item>methodology</item>
 	<item>metro</item>
 	<item>metronome</item>
 	<item>mezzanine</item>
@@ -2913,7 +2764,6 @@
 	<item>milkshake</item>
 	<item>millennium</item>
 	<item>millimeter</item>
-	<item>millisecond</item>
 	<item>mime</item>
 	<item>mimosa</item>
 	<item>mind</item>
@@ -2927,10 +2777,8 @@
 	<item>mint</item>
 	<item>minute</item>
 	<item>mirror</item>
-	<item>miscarriage</item>
 	<item>misfit</item>
 	<item>misogyny</item>
-	<item>misplacement</item>
 	<item>misreading</item>
 	<item>miss</item>
 	<item>missile</item>
@@ -2954,7 +2802,6 @@
 	<item>mom</item>
 	<item>moment</item>
 	<item>monastery</item>
-	<item>monasticism</item>
 	<item>money</item>
 	<item>monger</item>
 	<item>monitor</item>
@@ -3002,7 +2849,6 @@
 	<item>mule</item>
 	<item>multimedia</item>
 	<item>muscle</item>
-	<item>musculature</item>
 	<item>museum</item>
 	<item>music</item>
 	<item>mustache</item>
@@ -3018,7 +2864,6 @@
 	<item>national</item>
 	<item>native</item>
 	<item>natural</item>
-	<item>naturalisation</item>
 	<item>nature</item>
 	<item>neat</item>
 	<item>necessary</item>
@@ -3029,7 +2874,6 @@
 	<item>needle</item>
 	<item>negative</item>
 	<item>negligee</item>
-	<item>negotiation</item>
 	<item>neologism</item>
 	<item>neon</item>
 	<item>nephew</item>
@@ -3049,15 +2893,11 @@
 	<item>night</item>
 	<item>nightclub</item>
 	<item>nightgown</item>
-	<item>nightingale</item>
 	<item>nightlight</item>
 	<item>nitrogen</item>
 	<item>nobody</item>
 	<item>node</item>
 	<item>noise</item>
-	<item>nonbeliever</item>
-	<item>nonconformist</item>
-	<item>nondisclosure</item>
 	<item>nonsense</item>
 	<item>noodle</item>
 	<item>normal</item>
@@ -3076,7 +2916,6 @@
 	<item>number</item>
 	<item>numeracy</item>
 	<item>numeric</item>
-	<item>numismatist</item>
 	<item>nurse</item>
 	<item>nursery</item>
 	<item>nurture</item>
@@ -3094,8 +2933,6 @@
 	<item>objective</item>
 	<item>obligation</item>
 	<item>oboe</item>
-	<item>observation</item>
-	<item>observatory</item>
 	<item>occasion</item>
 	<item>occupation</item>
 	<item>ocean</item>
@@ -3125,12 +2962,9 @@
 	<item>opening</item>
 	<item>opera</item>
 	<item>operation</item>
-	<item>ophthalmologist</item>
 	<item>opinion</item>
 	<item>opium</item>
 	<item>opossum</item>
-	<item>opportunist</item>
-	<item>opportunity</item>
 	<item>opposite</item>
 	<item>option</item>
 	<item>orange</item>
@@ -3143,8 +2977,6 @@
 	<item>ordinary</item>
 	<item>ordination</item>
 	<item>organ</item>
-	<item>organisation</item>
-	<item>organization</item>
 	<item>original</item>
 	<item>ornament</item>
 	<item>osmosis</item>
@@ -3168,9 +3000,7 @@
 	<item>ovary</item>
 	<item>oven</item>
 	<item>overcharge</item>
-	<item>overclocking</item>
 	<item>overcoat</item>
-	<item>overexertion</item>
 	<item>overflight</item>
 	<item>overshoot</item>
 	<item>owl</item>
@@ -3220,19 +3050,16 @@
 	<item>parable</item>
 	<item>parachute</item>
 	<item>parade</item>
-	<item>parallelogram</item>
 	<item>paramedic</item>
 	<item>parcel</item>
 	<item>parchment</item>
 	<item>parent</item>
-	<item>parentheses</item>
 	<item>park</item>
 	<item>parka</item>
 	<item>parking</item>
 	<item>parrot</item>
 	<item>parsnip</item>
 	<item>part</item>
-	<item>participant</item>
 	<item>particle</item>
 	<item>particular</item>
 	<item>partner</item>
@@ -3297,7 +3124,6 @@
 	<item>percentage</item>
 	<item>perception</item>
 	<item>perch</item>
-	<item>performance</item>
 	<item>perfume</item>
 	<item>period</item>
 	<item>periodical</item>
@@ -3307,8 +3133,6 @@
 	<item>permit</item>
 	<item>person</item>
 	<item>personal</item>
-	<item>personality</item>
-	<item>perspective</item>
 	<item>pest</item>
 	<item>pet</item>
 	<item>petal</item>
@@ -3316,14 +3140,11 @@
 	<item>pew</item>
 	<item>pha</item>
 	<item>pharmacist</item>
-	<item>pharmacopoeia</item>
 	<item>phase</item>
 	<item>pheasant</item>
-	<item>philosopher</item>
 	<item>philosophy</item>
 	<item>phone</item>
 	<item>photo</item>
-	<item>photographer</item>
 	<item>phrase</item>
 	<item>physical</item>
 	<item>physics</item>
@@ -3377,7 +3198,6 @@
 	<item>plantation</item>
 	<item>planter</item>
 	<item>plaster</item>
-	<item>plasterboard</item>
 	<item>plastic</item>
 	<item>plate</item>
 	<item>platform</item>
@@ -3437,7 +3257,6 @@
 	<item>position</item>
 	<item>positive</item>
 	<item>possession</item>
-	<item>possibility</item>
 	<item>possible</item>
 	<item>post</item>
 	<item>postage</item>
@@ -3456,21 +3275,15 @@
 	<item>power</item>
 	<item>practice</item>
 	<item>precedent</item>
-	<item>precipitation</item>
 	<item>preface</item>
 	<item>preference</item>
 	<item>prelude</item>
-	<item>premeditation</item>
 	<item>premier</item>
-	<item>preoccupation</item>
-	<item>preparation</item>
 	<item>presence</item>
 	<item>present</item>
-	<item>presentation</item>
 	<item>president</item>
 	<item>press</item>
 	<item>pressure</item>
-	<item>pressurisation</item>
 	<item>price</item>
 	<item>pride</item>
 	<item>priest</item>
@@ -3499,7 +3312,6 @@
 	<item>product</item>
 	<item>production</item>
 	<item>profession</item>
-	<item>professional</item>
 	<item>professor</item>
 	<item>profile</item>
 	<item>profit</item>
@@ -3509,22 +3321,16 @@
 	<item>promise</item>
 	<item>promotion</item>
 	<item>prompt</item>
-	<item>pronunciation</item>
 	<item>proof</item>
 	<item>propane</item>
 	<item>property</item>
 	<item>proposal</item>
 	<item>prose</item>
-	<item>prosecution</item>
 	<item>protection</item>
 	<item>protest</item>
 	<item>protocol</item>
 	<item>prow</item>
 	<item>pruner</item>
-	<item>pseudoscience</item>
-	<item>psychiatrist</item>
-	<item>psychoanalyst</item>
-	<item>psychologist</item>
 	<item>psychology</item>
 	<item>ptarmigan</item>
 	<item>public</item>
@@ -3539,7 +3345,6 @@
 	<item>pump</item>
 	<item>pumpkin</item>
 	<item>punch</item>
-	<item>punctuation</item>
 	<item>punishment</item>
 	<item>pupa</item>
 	<item>pupil</item>
@@ -3606,7 +3411,6 @@
 	<item>ramie</item>
 	<item>ranch</item>
 	<item>random</item>
-	<item>randomisation</item>
 	<item>range</item>
 	<item>rank</item>
 	<item>raspberry</item>
@@ -3633,8 +3437,6 @@
 	<item>recess</item>
 	<item>recipe</item>
 	<item>recliner</item>
-	<item>recognition</item>
-	<item>recommendation</item>
 	<item>record</item>
 	<item>recorder</item>
 	<item>recording</item>
@@ -3644,13 +3446,11 @@
 	<item>rectangle</item>
 	<item>red</item>
 	<item>redesign</item>
-	<item>rediscovery</item>
 	<item>reduction</item>
 	<item>reef</item>
 	<item>refectory</item>
 	<item>reference</item>
 	<item>reflection</item>
-	<item>refrigerator</item>
 	<item>refund</item>
 	<item>refuse</item>
 	<item>region</item>
@@ -3661,11 +3461,9 @@
 	<item>reindeer</item>
 	<item>reject</item>
 	<item>relation</item>
-	<item>relationship</item>
 	<item>relative</item>
 	<item>relaxation</item>
 	<item>release</item>
-	<item>reliability</item>
 	<item>relief</item>
 	<item>religion</item>
 	<item>relish</item>
@@ -3677,16 +3475,11 @@
 	<item>reparation</item>
 	<item>repeat</item>
 	<item>replace</item>
-	<item>replacement</item>
-	<item>replication</item>
 	<item>reply</item>
 	<item>report</item>
-	<item>representative</item>
-	<item>reprocessing</item>
 	<item>republic</item>
 	<item>reputation</item>
 	<item>request</item>
-	<item>requirement</item>
 	<item>resale</item>
 	<item>research</item>
 	<item>reserve</item>
@@ -3700,7 +3493,6 @@
 	<item>respite</item>
 	<item>respond</item>
 	<item>response</item>
-	<item>responsibility</item>
 	<item>rest</item>
 	<item>restaurant</item>
 	<item>result</item>
@@ -3818,7 +3610,6 @@
 	<item>satellite</item>
 	<item>satin</item>
 	<item>satire</item>
-	<item>satisfaction</item>
 	<item>sauce</item>
 	<item>sausage</item>
 	<item>save</item>
@@ -3833,16 +3624,13 @@
 	<item>scanner</item>
 	<item>scarecrow</item>
 	<item>scarf</item>
-	<item>scarification</item>
 	<item>scene</item>
 	<item>scenery</item>
 	<item>scent</item>
 	<item>schedule</item>
 	<item>scheme</item>
-	<item>schizophrenic</item>
 	<item>schnitzel</item>
 	<item>school</item>
-	<item>schoolhouse</item>
 	<item>schooner</item>
 	<item>science</item>
 	<item>scimitar</item>
@@ -3855,9 +3643,7 @@
 	<item>scratch</item>
 	<item>screamer</item>
 	<item>screen</item>
-	<item>screenwriting</item>
 	<item>screw</item>
-	<item>screwdriver</item>
 	<item>scrim</item>
 	<item>scrip</item>
 	<item>script</item>
@@ -3875,7 +3661,6 @@
 	<item>seat</item>
 	<item>second</item>
 	<item>secret</item>
-	<item>secretariat</item>
 	<item>secretary</item>
 	<item>section</item>
 	<item>sectional</item>
@@ -3897,7 +3682,6 @@
 	<item>sensitive</item>
 	<item>sentence</item>
 	<item>sepal</item>
-	<item>septicaemia</item>
 	<item>series</item>
 	<item>servant</item>
 	<item>serve</item>
@@ -3978,7 +3762,6 @@
 	<item>signal</item>
 	<item>signature</item>
 	<item>signet</item>
-	<item>significance</item>
 	<item>silence</item>
 	<item>silica</item>
 	<item>silk</item>
@@ -4044,10 +3827,8 @@
 	<item>snob</item>
 	<item>snorer</item>
 	<item>snow</item>
-	<item>snowboarding</item>
 	<item>snowflake</item>
 	<item>snowman</item>
-	<item>snowmobiling</item>
 	<item>snowplow</item>
 	<item>snowstorm</item>
 	<item>snowsuit</item>
@@ -4086,8 +3867,6 @@
 	<item>source</item>
 	<item>sousaphone</item>
 	<item>south</item>
-	<item>south america</item>
-	<item>south korea</item>
 	<item>sow</item>
 	<item>soy</item>
 	<item>soybean</item>
@@ -4102,14 +3881,12 @@
 	<item>sparrow</item>
 	<item>spasm</item>
 	<item>speaker</item>
-	<item>speakerphone</item>
 	<item>spear</item>
 	<item>special</item>
 	<item>specialist</item>
 	<item>specific</item>
 	<item>spectacle</item>
 	<item>spectacles</item>
-	<item>spectrograph</item>
 	<item>speech</item>
 	<item>speed</item>
 	<item>speedboat</item>
@@ -4177,7 +3954,6 @@
 	<item>steak</item>
 	<item>steal</item>
 	<item>steam</item>
-	<item>steamroller</item>
 	<item>steel</item>
 	<item>steeple</item>
 	<item>stem</item>
@@ -4241,7 +4017,6 @@
 	<item>style</item>
 	<item>styling</item>
 	<item>stylus</item>
-	<item>subconscious</item>
 	<item>subject</item>
 	<item>submarine</item>
 	<item>subroutine</item>
@@ -4252,7 +4027,6 @@
 	<item>success</item>
 	<item>suck</item>
 	<item>suede</item>
-	<item>suffocation</item>
 	<item>sugar</item>
 	<item>suggestion</item>
 	<item>suit</item>
@@ -4268,11 +4042,9 @@
 	<item>sunglasses</item>
 	<item>sunlamp</item>
 	<item>sunshine</item>
-	<item>supermarket</item>
 	<item>supply</item>
 	<item>support</item>
 	<item>supporter</item>
-	<item>suppression</item>
 	<item>surface</item>
 	<item>surfboard</item>
 	<item>surgeon</item>
@@ -4284,7 +4056,6 @@
 	<item>sushi</item>
 	<item>suspect</item>
 	<item>suspenders</item>
-	<item>sustainment</item>
 	<item>SUV</item>
 	<item>swallow</item>
 	<item>swamp</item>
@@ -4306,7 +4077,6 @@
 	<item>swing</item>
 	<item>swiss</item>
 	<item>switch</item>
-	<item>switchboard</item>
 	<item>swivel</item>
 	<item>sword</item>
 	<item>swordfish</item>
@@ -4356,7 +4126,6 @@
 	<item>teaching</item>
 	<item>team</item>
 	<item>tear</item>
-	<item>technologist</item>
 	<item>technology</item>
 	<item>teen</item>
 	<item>teeth</item>
@@ -4367,10 +4136,8 @@
 	<item>teller</item>
 	<item>temp</item>
 	<item>temper</item>
-	<item>temperature</item>
 	<item>temple</item>
 	<item>tempo</item>
-	<item>temporariness</item>
 	<item>temporary</item>
 	<item>temptress</item>
 	<item>tendency</item>
@@ -4396,7 +4163,6 @@
 	<item>theory</item>
 	<item>therapist</item>
 	<item>thermals</item>
-	<item>thermometer</item>
 	<item>thigh</item>
 	<item>thing</item>
 	<item>thinking</item>
@@ -4414,9 +4180,6 @@
 	<item>thrush</item>
 	<item>thumb</item>
 	<item>thunder</item>
-	<item>thunderbolt</item>
-	<item>thunderhead</item>
-	<item>thunderstorm</item>
 	<item>tiara</item>
 	<item>tic</item>
 	<item>ticket</item>
@@ -4490,7 +4253,6 @@
 	<item>tractor</item>
 	<item>trade</item>
 	<item>tradition</item>
-	<item>traditionalism</item>
 	<item>traffic</item>
 	<item>trail</item>
 	<item>trailer</item>
@@ -4499,13 +4261,9 @@
 	<item>training</item>
 	<item>tram</item>
 	<item>tramp</item>
-	<item>transaction</item>
 	<item>transition</item>
-	<item>translation</item>
-	<item>transmission</item>
 	<item>transom</item>
 	<item>transport</item>
-	<item>transportation</item>
 	<item>trapdoor</item>
 	<item>trapezium</item>
 	<item>trapezoid</item>
@@ -4522,7 +4280,6 @@
 	<item>triangle</item>
 	<item>tribe</item>
 	<item>trick</item>
-	<item>trigonometry</item>
 	<item>trim</item>
 	<item>trinket</item>
 	<item>trip</item>
@@ -4577,15 +4334,11 @@
 	<item>umbrella</item>
 	<item>unblinking</item>
 	<item>uncle</item>
-	<item>underclothes</item>
-	<item>underground</item>
 	<item>underneath</item>
 	<item>underpants</item>
 	<item>underpass</item>
 	<item>undershirt</item>
-	<item>understanding</item>
 	<item>underwear</item>
-	<item>unemployment</item>
 	<item>uniform</item>
 	<item>union</item>
 	<item>unique</item>
@@ -4620,7 +4373,6 @@
 	<item>vaulting</item>
 	<item>veal</item>
 	<item>vegetable</item>
-	<item>vegetarianism</item>
 	<item>vegetation</item>
 	<item>vehicle</item>
 	<item>veil</item>
@@ -4702,7 +4454,6 @@
 	<item>washtub</item>
 	<item>wasp</item>
 	<item>waste</item>
-	<item>wastebasket</item>
 	<item>watch</item>
 	<item>watchmaker</item>
 	<item>water</item>
@@ -4841,9 +4592,7 @@
 	<item>zoology</item>
 	<item>zucchini</item>
 </string-array>
-	
-	
-	
+
 <string-array name="historicaldates1">
     <item>Jack Sparrow is hanged</item>
 	<item>The horse cart is discovered</item>

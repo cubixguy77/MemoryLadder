@@ -85,5 +85,7 @@
     <dimen name="startButton.size">300dp</dimen>
 
     <dimen name="words.list.memorytext.size">46sp</dimen>
+    <dimen name="words.list.reviewtext.size">36sp</dimen>
     <dimen name="words.list.margins">64dp</dimen>
+    <dimen name="words.list.rowheight">100dp</dimen>
 </resources>

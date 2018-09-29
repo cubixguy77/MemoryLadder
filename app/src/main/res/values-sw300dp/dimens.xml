@@ -123,5 +123,9 @@
 
     <dimen name="words.list.indexWidth">40dp</dimen>
     <dimen name="words.list.memorytext.size">32sp</dimen>
+    <dimen name="words.list.reviewtext.size">20sp</dimen>
     <dimen name="words.list.margins">32dp</dimen>
+    <dimen name="words.list.icon.marginright">32dp</dimen>
+    <dimen name="words.list.rowheight">80dp</dimen>
+
 </resources>
