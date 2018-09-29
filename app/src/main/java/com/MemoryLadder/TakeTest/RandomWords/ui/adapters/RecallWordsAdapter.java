@@ -64,13 +64,13 @@ public class RecallWordsAdapter extends WordsAdapter {
             this.myCustomEditTextListener = myCustomEditTextListener;
             this.input.addTextChangedListener(myCustomEditTextListener);
             this.input.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+            this.input.setTextColor(getTextColor());
         }
 
         void bindTo(int position, String text) {
             super.bindTo(position);
 
             myCustomEditTextListener.updatePosition(position);
-            input.setTextColor(getTextColor());
             input.setText(text);
         }
     }

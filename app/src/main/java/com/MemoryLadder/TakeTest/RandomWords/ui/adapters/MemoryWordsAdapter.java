@@ -56,11 +56,11 @@ public class MemoryWordsAdapter extends WordsAdapter {
         MemoryViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            text.setTextColor(getTextColor());
         }
 
         void bindTo(int position, String word) {
             super.bindTo(position);
-            text.setTextColor(getTextColor());
 
             if (animate) {
                 text.setAlpha(0f);

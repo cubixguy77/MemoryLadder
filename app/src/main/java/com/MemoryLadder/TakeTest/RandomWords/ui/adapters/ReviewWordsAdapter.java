@@ -58,14 +58,13 @@ public class ReviewWordsAdapter extends WordsAdapter {
         ReviewViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            memoryText.setTextColor(getTextColor());
+            recallText.setTextColor(getTextColor());
         }
 
         @SuppressLint("SetTextI18n")
         void bindTo(int position, String memorySheetWord, String recallSheetWord, ReviewCellOutcome outcome) {
             super.bindTo(position);
-
-            memoryText.setTextColor(getTextColor());
-            recallText.setTextColor(getTextColor());
 
             if (animate) {
                 memoryText.setAlpha(0f);
