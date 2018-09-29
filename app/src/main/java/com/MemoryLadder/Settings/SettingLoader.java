@@ -227,6 +227,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "Words per Column:", numRows));
                 settings.add(new NumberSetting("numCols", "Number of Columns:", numCols));
+                settings.add(new SwitchSetting("fullWordList", "Full Word List", 0));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));

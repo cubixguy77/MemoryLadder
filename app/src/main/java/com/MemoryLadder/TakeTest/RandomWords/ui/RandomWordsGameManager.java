@@ -44,8 +44,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     private RecallWordsAdapter recallAdapter;
     private ReviewWordsAdapter reviewAdapter;
 
-    private int wordCount;
-    private int wordsPerColumn;
+    RandomWordsSettings settings;
 
     public static RandomWordsGameManager newInstance(RandomWordsSettings settings) {
         RandomWordsGameManager cardGameManager = new RandomWordsGameManager();
@@ -66,13 +65,11 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
         ButterKnife.bind(this, root);
 
         if (getArguments() != null) {
-            RandomWordsSettings settings = getArguments().getParcelable("settings");
-            wordCount = settings == null ? 0 : settings.getWordCount();
-            wordsPerColumn = settings == null ? 0 : settings.getWordsPerColumn();
+            settings = getArguments().getParcelable("settings");
 
             RandomWordsViewModelFactory factory = new RandomWordsViewModelFactory(
-                    MemorySheetProvider.getMemorySheet(getWordList(), wordCount),
-                    MemorySheetProvider.getRecallSheet(wordCount),
+                    MemorySheetProvider.getMemorySheet(getWordList(settings.isFullWordList()), settings.getWordCount()),
+                    MemorySheetProvider.getRecallSheet(settings.getWordCount()),
                     settings,
                     new RandomWordsScoreProvider());
             viewModel = ViewModelProviders.of(this, factory).get(RandomWordsViewModel.class);
@@ -86,7 +83,7 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
 
             viewModel.getColumnNum().observe(this, columnNum -> wordList.smoothScrollToPosition(0));
 
-            viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible ? View.VISIBLE : View.INVISIBLE));
+            viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
 
             viewModel.getVisibleMemorySheet().observe(this, wordList -> {
                 if (viewModel.getGamePhaseValue() == GamePhase.MEMORIZATION)
@@ -107,14 +104,14 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
         return root;
     }
 
-    private List<String> getWordList() {
-        return Arrays.asList(getResources().getStringArray(R.array.randomwords_english));
+    private List<String> getWordList(boolean useFullWordList) {
+        return Arrays.asList(useFullWordList ? getResources().getStringArray(R.array.randomwords_english) : getResources().getStringArray(R.array.randomwords_english_truncated));
     }
 
     @Override
     public void setGamePhase(GamePhase phase) {
         if (phase == GamePhase.PRE_MEMORIZATION) {
-            viewModel.resetTestSheets(MemorySheetProvider.getMemorySheet(getWordList(), wordCount), MemorySheetProvider.getRecallSheet(wordCount));
+            viewModel.resetTestSheets(MemorySheetProvider.getMemorySheet(getWordList(settings.isFullWordList()), settings.getWordCount()), MemorySheetProvider.getRecallSheet(settings.getWordCount()));
         }
 
         viewModel.setGamePhase(phase);
@@ -130,21 +127,21 @@ public class RandomWordsGameManager extends Fragment implements GameManager {
     public void render(GamePhase phase) {
         switch (phase) {
             case PRE_MEMORIZATION:
-                memoryAdapter = new MemoryWordsAdapter(wordsPerColumn);
+                memoryAdapter = new MemoryWordsAdapter(settings.getWordsPerColumn());
                 wordList.setAdapter(memoryAdapter);
                 break;
             case MEMORIZATION:
                 if (memoryAdapter == null) {
-                    memoryAdapter = new MemoryWordsAdapter(wordsPerColumn);
+                    memoryAdapter = new MemoryWordsAdapter(settings.getWordsPerColumn());
                     wordList.setAdapter(memoryAdapter);
                 }
                 break;
             case RECALL:
-                recallAdapter = new RecallWordsAdapter(wordsPerColumn, viewModel);
+                recallAdapter = new RecallWordsAdapter(settings.getWordsPerColumn(), viewModel);
                 wordList.setAdapter(recallAdapter);
                 break;
             case REVIEW:
-                reviewAdapter = new ReviewWordsAdapter(wordsPerColumn);
+                reviewAdapter = new ReviewWordsAdapter(settings.getWordsPerColumn());
                 wordList.setAdapter(reviewAdapter);
                 break;
         }
