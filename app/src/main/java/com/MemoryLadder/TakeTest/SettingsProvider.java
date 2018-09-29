@@ -7,9 +7,8 @@ import android.content.SharedPreferences;
 import com.memoryladder.Constants;
 import com.memoryladder.taketest.cards.CardSettings;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
-import com.memoryladder.taketest.WrittenNumbers.WrittenNumbersSettings;
+import com.memoryladder.taketest.writtennumbers.WrittenNumbersSettings;
 
-import static com.memoryladder.Constants.LISTS_WORDS;
 import static com.memoryladder.Constants.NUMBERS_SPEED;
 
 class SettingsProvider {

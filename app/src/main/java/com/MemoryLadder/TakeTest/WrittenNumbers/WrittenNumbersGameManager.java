@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.WrittenNumbers;
+package com.memoryladder.taketest.writtennumbers;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -20,10 +20,10 @@ import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.timer.TimerView;
-import com.memoryladder.taketest.WrittenNumbers.Keyboard.KeyListener;
-import com.memoryladder.taketest.WrittenNumbers.Keyboard.NumericKeyboardView;
-import com.memoryladder.taketest.WrittenNumbers.NumberCarousel.CustomNumberCarousel;
-import com.memoryladder.taketest.WrittenNumbers.NumberGrid.NumberGridAdapter;
+import com.memoryladder.taketest.writtennumbers.Keyboard.KeyListener;
+import com.memoryladder.taketest.writtennumbers.Keyboard.NumericKeyboardView;
+import com.memoryladder.taketest.writtennumbers.NumberCarousel.CustomNumberCarousel;
+import com.memoryladder.taketest.writtennumbers.NumberGrid.NumberGridAdapter;
 import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
@@ -53,7 +53,6 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     @BindView(R.id.nextButton) AppCompatImageButton nextButton;
     @BindView(R.id.buttonToggleNightMode) ImageView nightModeIcon;
     @BindView(R.id.buttonToggleGridLines) ImageView gridLinesIcon;
-    @BindView(R.id.bottomSpacer) Space bottomSpacer;
 
     public static WrittenNumbersGameManager newInstance(WrittenNumbersSettings settings) {
         WrittenNumbersGameManager cardGameManager = new WrittenNumbersGameManager();
@@ -159,7 +158,6 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             timerView.show();
             nightModeIcon.setVisibility(View.VISIBLE);
             gridLinesIcon.setVisibility(View.VISIBLE);
-            bottomSpacer.setVisibility(View.GONE);
             timerContainer.setVisibility(View.VISIBLE);
         }
         else if (phase == GamePhase.MEMORIZATION) {
@@ -189,7 +187,6 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
             nightModeIcon.setVisibility(View.INVISIBLE);
             gridLinesIcon.setVisibility(View.INVISIBLE);
             navigatorLayout.setVisibility(View.GONE);
-            bottomSpacer.setVisibility(View.VISIBLE);
             timerContainer.setVisibility(View.GONE);
         }
     }

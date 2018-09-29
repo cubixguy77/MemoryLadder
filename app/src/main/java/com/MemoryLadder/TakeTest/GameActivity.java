@@ -41,6 +41,7 @@ public class GameActivity extends AppCompatActivity {
     @BindView(R.id.score_panel) ScorePanel scorePanel;
     @BindView(R.id.generalToolbar) Toolbar toolbar;
     @BindView(R.id.button_start) Button startButton;
+    @BindView(R.id.score_panel_invisible) View hiddenScorePanel;
 
     private GameSettings settings;
     private GameManager gameManager;
@@ -196,6 +197,8 @@ public class GameActivity extends AppCompatActivity {
         } else {
             startButton.setVisibility(View.GONE);
         }
+
+        hiddenScorePanel.setVisibility(gamePhase == GamePhase.REVIEW ? View.INVISIBLE : View.GONE);
 
         View gameRootView = ((Fragment) gameManager).getView();
         ViewTreeObserver viewTreeObserver = Objects.requireNonNull(gameRootView).getViewTreeObserver();

@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.WrittenNumbers.NumberGrid;
+package com.memoryladder.taketest.writtennumbers.NumberGrid;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.memoryladder.taketest.GamePhase;
-import com.memoryladder.taketest.WrittenNumbers.Review.SimpleSpanBuilder;
-import com.memoryladder.taketest.WrittenNumbers.WrittenNumberData;
+import com.memoryladder.taketest.writtennumbers.Review.SimpleSpanBuilder;
+import com.memoryladder.taketest.writtennumbers.WrittenNumberData;
 import com.mastersofmemory.memoryladder.R;
 
 public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.ViewHolder> {

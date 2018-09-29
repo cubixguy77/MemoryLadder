@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.WrittenNumbers.NumberCarousel;
+package com.memoryladder.taketest.writtennumbers.NumberCarousel;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

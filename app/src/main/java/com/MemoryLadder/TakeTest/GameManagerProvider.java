@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.memoryladder.taketest.cards.CardGameManager;
 import com.memoryladder.taketest.randomwords.ui.RandomWordsGameManager;
-import com.memoryladder.taketest.WrittenNumbers.WrittenNumbersGameManager;
+import com.memoryladder.taketest.writtennumbers.WrittenNumbersGameManager;
 
 import static com.memoryladder.Constants.CARDS_LONG;
 import static com.memoryladder.Constants.LISTS_EVENTS;

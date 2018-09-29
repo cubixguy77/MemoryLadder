@@ -29,7 +29,6 @@
             app:srcCompat="@drawable/icon_night_mode_off"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackgroundBorderless"
             />
 
         <ImageView
@@ -42,7 +41,6 @@
             app:srcCompat="@drawable/icon_gridlines_on"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackgroundBorderless"
             />
     </FrameLayout>
 
@@ -75,12 +73,4 @@
         layout="@layout/viewgroup_navigator_buttons"
         tools:visibility="visible"
         />
-
-    <Space
-        android:id="@+id/bottomSpacer"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/score_panel.height"
-        android:visibility="gone"
-        />
-
 </LinearLayout>
