@@ -121,4 +121,7 @@
 
     <dimen name="startButton.size">180dp</dimen>
 
+    <dimen name="words.list.indexWidth">40dp</dimen>
+    <dimen name="words.list.memorytext.size">32sp</dimen>
+    <dimen name="words.list.margins">32dp</dimen>
 </resources>

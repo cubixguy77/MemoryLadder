@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/words_list_cell_memory_text"
         style="@style/Word_List_Text"
-        tools:text="Acetate"
+        tools:text="Constellation"
         />
 
 </LinearLayout>

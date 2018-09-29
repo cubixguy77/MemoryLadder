@@ -31,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:text="@{@string/wordCount(viewModel.wordCount)}"
-                tools:text="XX Words"
-                />
+                android:textSize="@dimen/page_selector.text.size"
+                tools:text="XX Words" />
 
             <include
                 layout="@layout/viewgroup_timer">
@@ -61,7 +61,7 @@
                 android:paddingEnd="8dp"
                 android:paddingRight="8dp"
                 android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
-                android:textSize="16sp"
+                android:textSize="@dimen/page_selector.text.size"
                 tools:text="Column 2 of 5"
                 />
 
@@ -78,8 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="@dimen/words.list.margins"
+            android:layout_marginRight="@dimen/words.list.margins"
             android:layout_marginBottom="16dp"
             tools:listitem="@layout/list_item_random_words_memory"
             />

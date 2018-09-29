@@ -136,9 +136,9 @@
     </style>
 
     <style name="Word_List_Index">
-        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_width">@dimen/words.list.indexWidth</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingLeft">12dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">#FFFFFFFF</item>
         <item name="android:gravity">center_vertical</item>
@@ -148,7 +148,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:textSize">32sp</item>
+        <item name="android:textSize">@dimen/words.list.memorytext.size</item>
         <item name="android:textColor">#FFFFFFFF</item>
         <item name="android:gravity">center_vertical</item>
     </style>
