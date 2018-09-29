@@ -200,6 +200,10 @@ public class GameActivity extends AppCompatActivity {
 
         hiddenScorePanel.setVisibility(gamePhase == GamePhase.REVIEW ? View.INVISIBLE : View.GONE);
 
+        if (gamePhase == GamePhase.REVIEW) {
+            Utils.hideKeyboard(this);
+        }
+
         View gameRootView = ((Fragment) gameManager).getView();
         ViewTreeObserver viewTreeObserver = Objects.requireNonNull(gameRootView).getViewTreeObserver();
         if (viewTreeObserver == null)
