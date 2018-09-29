@@ -70,15 +70,15 @@ public class ReviewWordsAdapter extends WordsAdapter {
                 memoryText.setAlpha(0f);
                 recallText.setAlpha(0f);
                 icon.setAlpha(0f);
-                memoryText.setText("aggression");
-                recallText.setText("aggression");
+                memoryText.setText(memorySheetWord);
+                recallText.setText(recallSheetWord);
                 memoryText.animate().alpha(1f).setDuration(200).setStartDelay(position * 20);
                 recallText.animate().alpha(1f).setDuration(200).setStartDelay(position * 20);
                 icon.animate().alpha(1f).setDuration(200).setStartDelay(position * 20);
             }
             else {
-                memoryText.setText("aggression");
-                recallText.setText("aggression");
+                memoryText.setText(memorySheetWord);
+                recallText.setText(recallSheetWord);
             }
 
             switch (outcome) {
