@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.0.3" changeDate="June 6, 2018">
+        <changelogtext>[font color=black]Redesigned the random words challenge, and for those who have unlocked custom play, the word list has been greatly expanded to over 4,000 words.[/font]</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="2.0.2" changeDate="June 6, 2018">
         <changelogtext>[font color=black]Resolved a bug where devices running old version of Android crashed on the written numbers challenge.[/font]</changelogtext>
     </changelogversion>
