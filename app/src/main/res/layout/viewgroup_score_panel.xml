@@ -2,7 +2,7 @@
 
 <com.memoryladder.taketest.scorepanel.ScorePanel
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     android:orientation="vertical"
     android:background="#5c5c5c"
     app:layout_behavior="@string/bottom_sheet_behavior"
