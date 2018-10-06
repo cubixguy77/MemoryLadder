@@ -61,6 +61,8 @@ public class WrittenNumberData implements Parcelable {
         recallData[textEntryPos] = digit;
     }
 
+
+
     /* Returns true when the current group has been filled */
     boolean highlightNextCell() {
         if (textEntryPos + 1 < this.numDigits) {
@@ -78,6 +80,22 @@ public class WrittenNumberData implements Parcelable {
 
         return this.textEntryPos < this.highlightPos;
     }
+
+    void highlightCell(int index) {
+        this.textEntryPos = index;
+        this.highlightPos = index - (index % digitsPerGroup);
+    }
+
+    private void setHighlightPos(int pos) {
+        this.highlightPos = pos;
+        this.textEntryPos = pos;
+    }
+
+    void setTextEntryPos(int textEntryPos) {
+        this.textEntryPos = textEntryPos;
+    }
+
+
 
     public String getMemoryText(int pos) {
         return getDigitString(memoryData[pos]);
@@ -127,6 +145,10 @@ public class WrittenNumberData implements Parcelable {
 
     String getPreviousGroupText() {
         return this.getGroupText(getHighlightPos() - this.digitsPerGroup);
+    }
+
+    String getCurrentGroupText() {
+        return this.getGroupText(getHighlightPos());
     }
 
     String getNextGroupText() {
@@ -211,26 +233,14 @@ public class WrittenNumberData implements Parcelable {
         return this.highlightPos > 0;
     }
 
-    private void setHighlightPos(int pos) {
-        this.highlightPos = pos;
-        this.textEntryPos = pos;
-    }
 
-    void highlightNextGroup() {
-        setHighlightPos(this.highlightPos + digitsPerGroup);
-    }
 
-    void highlightPrevGroup() {
-        setHighlightPos(this.highlightPos - digitsPerGroup);
-    }
+
 
     public boolean isTextHighlighted(int position) {
         return position == this.textEntryPos;
     }
 
-    void setTextEntryPos(int textEntryPos) {
-        this.textEntryPos = textEntryPos;
-    }
 
     private WrittenNumberData(Parcel in) {
         highlightPos = in.readInt();

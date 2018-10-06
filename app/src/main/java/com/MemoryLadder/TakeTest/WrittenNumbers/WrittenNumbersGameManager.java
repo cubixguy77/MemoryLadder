@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Space;
 
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
@@ -34,7 +33,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WrittenNumbersGameManager extends Fragment implements GameManager, KeyListener {
+public class WrittenNumbersGameManager extends Fragment implements GameManager, KeyListener, CellSelectListener {
 
     private WrittenNumberData data;
     private WrittenNumbersSettings settings;
@@ -102,7 +101,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void resetGrid() {
-        adapter = new NumberGridAdapter(getActivity(), data, settings.isNightMode(), settings.isDrawGridLines());
+        adapter = new NumberGridAdapter(getActivity(), this, data, settings.isNightMode(), settings.isDrawGridLines());
         numberGrid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
         numberGrid.setAdapter(adapter);
     }
@@ -239,48 +238,11 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     @OnClick(R.id.prevButton) void onPrevClick() {
-        if (!textCarousel.animationsInProgress() && data.allowPrev()) {
-            int curRow = data.getRow(data.getHighlightPosEnd());
-            data.highlightPrevGroup();
-            int nextRow = data.getRow(data.getHighlightPos());
-
-            String curGroupText = data.getGroupText(data.getHighlightPos());
-
-            adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup() * 2);
-            textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
-            textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
-
-            if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
-                textCarousel.setMnemoText(getMnemo(curGroupText));
-            }
-
-            if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPos()), false)) {
-                scroll(false);
-            }
-        }
+        onCellHighlighted(data.getHighlightPos() - data.getDigitsPerGroup());
     }
 
     @OnClick(R.id.nextButton) void onNextClick() {
-        if (!textCarousel.animationsInProgress() && data.allowNext()) {
-
-            int curRow = data.getRow(data.getHighlightPosEnd());
-            data.highlightNextGroup();
-            int nextRow = data.getRow(data.getHighlightPosEnd());
-
-            String curGroupText = data.getGroupText(data.getHighlightPos());
-
-            adapter.notifyItemRangeChanged(data.getHighlightPos() - data.getDigitsPerGroup(), data.getDigitsPerGroup() * 2);
-            textCarousel.transitionForward (data.getPreviousGroupText(), curGroupText, data.getNextGroupText());
-            textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
-
-            if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
-                textCarousel.setMnemoText(getMnemo(curGroupText));
-            }
-
-            if (curRow != nextRow && shouldScroll(data.getRow(data.getHighlightPosEnd()), true)) {
-                scroll(true);
-            }
-        }
+        onCellHighlighted(data.getHighlightPos() + data.getDigitsPerGroup());
     }
 
     private void scroll(boolean down) {
@@ -408,6 +370,34 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
         if (advanceGroup) {
             onNextClick();
+        }
+    }
+
+    @Override
+    public void onCellHighlighted(int index) {
+        if (index < 0 || index > data.getNumDigits()-1)
+            return;
+
+        if (textCarousel.animationsInProgress())
+            return;
+
+        int curRow = data.getRow(data.getHighlightPosEnd());
+        adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup());
+
+        data.highlightCell(index);
+
+        int nextRow = data.getRow(data.getHighlightPos());
+        adapter.notifyItemRangeChanged(data.getHighlightPos(), data.getDigitsPerGroup());
+
+        textCarousel.transitionForward (data.getPreviousGroupText(), data.getCurrentGroupText(), data.getNextGroupText());
+        textCarousel.setRowNum(data.getHighlightRowNumBegin(), data.getHighlightRowNumEnd(), settings.getNumRows());
+
+        if (shouldShowMnemonics(settings.isMnemonicsEnabled(), data.getGamePhase(), settings.getDigitsPerGroup())) {
+            textCarousel.setMnemoText(getMnemo(data.getCurrentGroupText()));
+        }
+
+        if (curRow != nextRow && shouldScroll(nextRow, nextRow > curRow)) {
+            scroll(nextRow > curRow);
         }
     }
 }

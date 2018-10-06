@@ -13,12 +13,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.writtennumbers.CellSelectListener;
 import com.memoryladder.taketest.writtennumbers.Review.SimpleSpanBuilder;
 import com.memoryladder.taketest.writtennumbers.WrittenNumberData;
 import com.mastersofmemory.memoryladder.R;
 
 public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.ViewHolder> {
 
+    private final CellSelectListener cellSelectListener;
     private WrittenNumberData mData;
     private LayoutInflater mInflater;
     private boolean nightMode;
@@ -36,8 +38,9 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     private static final String dash = "—";
 
     // data is passed into the constructor
-    public NumberGridAdapter(Context context, WrittenNumberData data, boolean nightMode, boolean drawGridLines) {
+    public NumberGridAdapter(Context context, CellSelectListener cellSelectListener, WrittenNumberData data, boolean nightMode, boolean drawGridLines) {
         this.mInflater = LayoutInflater.from(context);
+        this.cellSelectListener = cellSelectListener;
         this.mData = data;
         this.nightMode = nightMode;
         this.drawGridLines = drawGridLines;
@@ -72,6 +75,12 @@ public class NumberGridAdapter extends RecyclerView.Adapter<NumberGridAdapter.Vi
     // binds the data to the textview in each cell
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
+        if (mData.getGamePhase() == GamePhase.MEMORIZATION || mData.getGamePhase() == GamePhase.RECALL) {
+            holder.myTextView.setOnClickListener(view -> cellSelectListener.onCellHighlighted(position));
+        } else {
+            holder.myTextView.setOnClickListener(null);
+        }
 
         if (mData.getGamePhase() == GamePhase.REVIEW) {
             if (this.drawGridLines) {
