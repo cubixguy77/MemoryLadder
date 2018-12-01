@@ -58,9 +58,8 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
 	final int MALE   = 0; 
 	final int FEMALE = 1;
 	
-	final int NUM_MALE_FACES = 117;
-	final int NUM_FEMALE_FACES = 118;
-	final int NUM_FACES = NUM_MALE_FACES + NUM_FEMALE_FACES;
+	final int NUM_MALE_FACES = 382;
+	final int NUM_FEMALE_FACES = 364;
 	
 	final int NUM_ABSTRACT_IMAGES = 200;
 	
@@ -224,7 +223,6 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
     			String lastname = lastnames[i];
     			strings[i] = firstname + " " + lastname;    			
     			images[i] = maleImages[maleIndex];
-    			System.out.println(i + " adding MALE: " + strings[i] + " attached to filename male" + maleIndex);
     			maleIndex++;
     		}
     		else {
@@ -232,7 +230,6 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
     			String lastname = lastnames[i];
     			strings[i] = firstname + " " + lastname;    			
     			images[i] = femaleImages[femaleIndex];
-    			System.out.println(i + " adding FEMALE: " + strings[i] + " attached to filename female" + femaleIndex);
     			femaleIndex++;
     		}
     		MyHolder holder = new MyHolder();
