@@ -41,7 +41,7 @@
         android:layout_gravity="center"
         android:layout_marginRight="@dimen/words.list.icon.marginright"
         android:layout_marginEnd="@dimen/words.list.icon.marginright"
-        app:srcCompat="@drawable/icon_review_correct"
+        app:srcCompat="@drawable/icon_review_correct_green"
         android:contentDescription="Outcome Icon" />
 
 </LinearLayout>

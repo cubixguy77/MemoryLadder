@@ -58,7 +58,7 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
 	final int MALE   = 0; 
 	final int FEMALE = 1;
 	
-	final int NUM_MALE_FACES = 382;
+	final int NUM_MALE_FACES = 383;
 	final int NUM_FEMALE_FACES = 364;
 	
 	final int NUM_ABSTRACT_IMAGES = 200;
@@ -117,12 +117,17 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
     
     public void initGrid() {
     	grid = (GridView) findViewById(R.id.grid);
-        grid.setNumColumns(numCols);
+        grid.setNumColumns(1);
         grid.setBackgroundColor(Color.WHITE);
         grid.setAdapter(new ShapeAdapter(this));
     }
     
     public void setScreenOrientation() {
+    	if (gameType == SHAPES_FACES) {
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+			return;
+		}
+
     	int screenSize = getResources().getConfiguration().screenLayout;
     	if ((screenSize&Configuration.SCREENLAYOUT_SIZE_MASK) == 4)
     		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

@@ -115,7 +115,7 @@ public class Constants {
             case NUMBERS_SPOKEN: return Numbers_Mem.class;
             case LISTS_WORDS: return GameActivity.class;
             case LISTS_EVENTS: return Lists_Mem.class;
-            case SHAPES_FACES: return Shapes_Mem.class;
+            case SHAPES_FACES: return GameActivity.class;
             case SHAPES_ABSTRACT: return Shapes_Mem.class;
             case CARDS_LONG: return GameActivity.class;
             default: return Numbers_Mem.class;
@@ -326,35 +326,30 @@ public class Constants {
     	int[] specs = new int[5];
     	switch (level) {
     		case 1: 
-    			specs[0] = 1;
-    			specs[1] = 3;
-    			specs[2] = 300;
-    			specs[3] = 600;
-    			specs[4] = 5; break;
-    		case 2: 
-    			specs[0] = 2;
-    			specs[1] = 3;
-    			specs[2] = 300;
-    			specs[3] = 600;
-    			specs[4] = 10; break;
-    		case 3: 
     			specs[0] = 3;
-				specs[1] = 3;
-				specs[2] = 300;
-    			specs[3] = 600;
-				specs[4] = 15; break;
+    			specs[1] = 300;
+    			specs[2] = 600;
+    			specs[3] = 5; break;
+    		case 2: 
+    			specs[0] = 6;
+    			specs[1] = 300;
+    			specs[2] = 600;
+    			specs[3] = 10; break;
+    		case 3: 
+    			specs[0] = 9;
+				specs[1] = 300;
+    			specs[2] = 600;
+				specs[3] = 15; break;
     		case 4: 
-    			specs[0] = 5;
-				specs[1] = 3;
-				specs[2] = 300;
-    			specs[3] = 600;
-				specs[4] = 25; break;
+    			specs[0] = 15;
+				specs[1] = 300;
+    			specs[2] = 600;
+				specs[3] = 25; break;
     		case 5: 
-    			specs[0] = 10;
-				specs[1] = 3;
-				specs[2] = 300;
-    			specs[3] = 600;
-				specs[4] = 50; break;
+    			specs[0] = 30;
+				specs[1] = 300;
+    			specs[2] = 600;
+				specs[3] = 50; break;
     	}
     	return specs;
     }

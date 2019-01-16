@@ -84,7 +84,7 @@ public class ReviewWordsAdapter extends WordsAdapter {
             switch (outcome) {
                 case CORRECT:
                     recallText.setVisibility(View.GONE);
-                    icon.setImageResource(R.drawable.icon_review_correct);
+                    icon.setImageResource(R.drawable.icon_review_correct_green);
                     break;
                 case WRONG:
                     recallText.setVisibility(View.VISIBLE);

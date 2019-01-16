@@ -70,6 +70,7 @@
 	<string name="Row_Num_Indicator">Row %d%s/%d</string>
     <string name="night_mode_toggle">Night Mode Toggle</string>
 	<string name="wordCount">%d Words</string>
+	<string name="faceCount">%d Faces</string>
 	<string name="columnIndicator">Column %d of %d</string>
     <string name="prev_column">Previous Column</string>
 	<string name="next_column">Next Column</string>

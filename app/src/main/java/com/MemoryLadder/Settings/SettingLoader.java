@@ -290,7 +290,7 @@ public class SettingLoader {
 
 
         else if (game == Constants.SHAPES_FACES) {
-            int numRows;
+            int numFaces;
             int numCols;
             int memTime;
             int recallTime;
@@ -301,27 +301,24 @@ public class SettingLoader {
                 int step     = prefs.getInt(Constants.getGameName(game), 1);
                 int[] specs = Constants.getSpecs_STEPS_NameAndFaces(step);
 
-                numRows         = specs[0];
-                numCols         = specs[1];
-                memTime         = specs[2];
-                recallTime      = specs[3];
-                target          = specs[4];
+                numFaces        = specs[0];
+                memTime         = specs[1];
+                recallTime      = specs[2];
+                target          = specs[3];
 
-                settings.add(new NumberSetting("numRows", "Number of rows:", numRows));
-                settings.add(new NumberSetting("numCols", "", "Number of Columns:", numCols, 3, 3, false));
+                settings.add(new NumberSetting("numFaces", "Number of rows:", numFaces));
+                settings.add(new SwitchSetting("fullFaceDataSet", "Full HD Face Library", 0));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));
             }
             else {
                 SharedPreferences prefs = context.getSharedPreferences("Shape_Preferences", 0);
-                numRows         = prefs.getInt("FACES_numRows", Constants.default_faces_numRows);
-                numCols         = prefs.getInt("FACES_numCols", Constants.default_faces_numCols);
+                numFaces        = prefs.getInt("FACES_numFaces", Constants.default_faces_numRows);
                 memTime         = prefs.getInt("FACES_memTime", Constants.default_faces_memTime);
                 recallTime      = prefs.getInt("FACES_recallTime", Constants.default_faces_recallTime);
 
-                settings.add(new NumberSetting("numRows", "FACES_numRows", "Number of rows:", numRows, 1, 40, true));
-                settings.add(new NumberSetting("numCols", "FACES_numCols", "Number of Columns:", numCols, 3, 3, false));
+                settings.add(new NumberSetting("numFaces", "FACES_numRows", "Number of faces:", numFaces, 1, 40, true));
                 settings.add(new TimeSetting("memTime", "FACES_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "FACES_recallTime", "Recall Time:", recallTime));
             }
