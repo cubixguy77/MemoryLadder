@@ -12,7 +12,7 @@
     </data>
 
     <LinearLayout
-        android:id="@+id/root_words"
+        android:id="@+id/root_faces"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
@@ -43,10 +43,12 @@
             android:id="@+id/grid_faces"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
+            android:focusableInTouchMode="true"
+            android:descendantFocusability="beforeDescendants"
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             tools:listitem="@layout/list_item_names_and_faces"
             />

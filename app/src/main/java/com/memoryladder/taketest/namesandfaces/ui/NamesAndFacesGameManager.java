@@ -3,6 +3,7 @@ package com.memoryladder.taketest.namesandfaces.ui;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,19 +17,19 @@ import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.NamesAndFacesFragmentBinding;
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.namesandfaces.memorysheetproviders.MemorySheetProvider;
+import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
 import com.memoryladder.taketest.namesandfaces.ui.adapters.FaceAdapter;
 import com.memoryladder.taketest.namesandfaces.ui.adapters.TestSheet;
 import com.memoryladder.taketest.namesandfaces.ui.viewmodel.NamesAndFacesViewModel;
 import com.memoryladder.taketest.namesandfaces.ui.viewmodel.NamesAndFacesViewModelFactory;
-import com.memoryladder.taketest.namesandfaces.memorysheetproviders.MemorySheetProvider;
-import com.memoryladder.taketest.namesandfaces.score.NamesAndFacesScoreProvider;
-import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
 import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.timer.TimerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,13 +63,21 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
         View root = binding.getRoot();
         ButterKnife.bind(this, root);
 
+        root.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            if (getActivity() != null && viewModel != null) {
+                Rect r = new Rect();
+                View view = getActivity().getWindow().getDecorView();
+                view.getWindowVisibleDisplayFrame(r);
+                viewModel.setViewPortHeight(r.bottom);
+            }
+        });
+
         if (getArguments() != null) {
             // Data
             settings = getArguments().getParcelable("settings");
-            //testSheet = getTestSheet(settings);
 
             // View Model
-            NamesAndFacesViewModelFactory factory = new NamesAndFacesViewModelFactory(settings, new NamesAndFacesScoreProvider());
+            NamesAndFacesViewModelFactory factory = new NamesAndFacesViewModelFactory(settings);
             viewModel = ViewModelProviders.of(this, factory).get(NamesAndFacesViewModel.class);
             binding.setViewModel(viewModel);
             binding.setLifecycleOwner(this);
@@ -77,9 +86,14 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
             grid.setLayoutManager(new GridLayoutManager(getContext(), 1));
 
             // Observe
-            //viewModel.getGamePhase().observe(this, phase -> viewModel.shuffleTestSheet());
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
             viewModel.getTestSheet().observe(this, newTestSheet -> grid.setAdapter(adapter = new FaceAdapter(newTestSheet)));
+            viewModel.getViewPortHeight().observe(this, newViewPortHeight -> {
+                if (adapter != null) {
+                    adapter.adjustToViewPortHeight(newViewPortHeight);
+                }
+            });
+            viewModel.getGamePhase().observe(this, newGamePhase -> { if (adapter != null) adapter.setGamePhase(newGamePhase);});
         }
 
         return root;
@@ -101,7 +115,7 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
 
     private List<Integer> getImages(boolean isMale, boolean isHighQuality) {
         Resources res = getResources();
-        String packageName = getActivity().getPackageName();
+        String packageName = Objects.requireNonNull(getActivity()).getPackageName();
 
         int numImages;
         String prefix;
@@ -123,7 +137,7 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
 
     @Override
     public void setGamePhase(GamePhase phase) {
-        System.out.println("ML NamesAndFacesGameManager: setGamePhase: " + phase.toString());
+        //System.out.println("ML NamesAndFacesGameManager: setGamePhase: " + phase.toString());
         if (phase == GamePhase.PRE_MEMORIZATION) {
             viewModel.resetTestSheets(getTestSheet(settings));
         }
@@ -132,9 +146,6 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
         }
 
         viewModel.setGamePhase(phase);
-
-        if (adapter != null)
-            adapter.setGamePhase(phase);
     }
 
     @Override
@@ -144,7 +155,7 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
 
     @Override
     public void render(GamePhase phase) {
-        System.out.println("ML NamesAndFacesGameManager: render: " + phase.toString());
+        //System.out.println("ML NamesAndFacesGameManager: render: " + phase.toString());
         switch (phase) {
             case PRE_MEMORIZATION:
                 break;

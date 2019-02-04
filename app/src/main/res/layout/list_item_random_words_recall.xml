@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="80dp"
     android:orientation="horizontal"
-    android:background="@color/words.list.background">
+    android:background="@color/words_list_background">
 
     <TextView
         android:id="@+id/words_list_cell_index"

@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:fitsSystemWindows="true"
-        android:background="@color/activity.background">
+        android:background="@color/activity_background">
 
         <include
             android:id="@+id/generalToolbar"

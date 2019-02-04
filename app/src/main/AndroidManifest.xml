@@ -92,7 +92,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name="com.memoryladder.taketest.GameActivity"
-            android:label="@string/title_activity_card_prototype">
+            android:label="@string/title_activity_card_prototype"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

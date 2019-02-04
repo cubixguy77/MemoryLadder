@@ -39,8 +39,22 @@ public class NameAndFace {
         return lastRecall;
     }
 
-    public void setFirstRecall(String firstRecall) { this.firstRecall = firstRecall; }
-    public void setLastRecall(String lastRecall) { this.lastRecall = lastRecall; }
+    public void setFirstRecall(String userInput) {
+        if (userInput == null || userInput.length() == 0) {
+            this.firstRecall = userInput;
+        }
+        else {
+            this.firstRecall = userInput.substring(0, 1).toUpperCase() + userInput.substring(1).toLowerCase();
+        }
+    }
+    public void setLastRecall(String userInput) {
+        if (userInput == null || userInput.length() == 0) {
+            this.lastRecall = userInput;
+        }
+        else {
+            this.lastRecall = userInput.substring(0, 1).toUpperCase() + userInput.substring(1).toLowerCase();
+        }
+    }
 
     public ReviewCellOutcome getFirstResult() {
         if (firstResult == null) {

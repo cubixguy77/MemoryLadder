@@ -38,7 +38,7 @@
                 android:gravity="center_horizontal|bottom"
                 android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
                 android:text="@string/accuracy"
-                android:textColor="@color/score_panel.top_label"
+                android:textColor="@color/score_panel_top_label"
                 android:textSize="@dimen/score_panel.top_label.text.size"
                 android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:layout_marginTop="@dimen/score_panel.value.margin.top"
                 android:layout_weight="1"
                 android:gravity="center_horizontal|top"
-                android:textColor="@color/score_panel.value"
+                android:textColor="@color/score_panel_value"
                 android:textSize="@dimen/score_panel.value.text.size"
                 tools:text="100%" />
 
@@ -70,7 +70,7 @@
                 android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
                 android:textSize="@dimen/score_panel.top_label.text.size"
                 android:textStyle="bold"
-                android:textColor="@color/score_panel.top_label"
+                android:textColor="@color/score_panel_top_label"
                 />
 
             <TextView
@@ -82,7 +82,7 @@
                 android:layout_marginTop="@dimen/score_panel.value.margin.top"
                 tools:text="50"
                 android:textSize="@dimen/score_panel.value.text.size"
-                android:textColor="@color/score_panel.value"
+                android:textColor="@color/score_panel_value"
                 />
 
         </LinearLayout>
@@ -102,7 +102,7 @@
                 android:paddingBottom="@dimen/score_panel.top_label.padding.bottom"
                 android:textSize="@dimen/score_panel.top_label.text.size"
                 android:textStyle="bold"
-                android:textColor="@color/score_panel.top_label"
+                android:textColor="@color/score_panel_top_label"
                 />
 
             <TextView
@@ -114,7 +114,7 @@
                 android:layout_marginTop="@dimen/score_panel.value.margin.top"
                 tools:text="37.1s"
                 android:textSize="@dimen/score_panel.value.text.size"
-                android:textColor="@color/score_panel.value"
+                android:textColor="@color/score_panel_value"
                 />
 
         </LinearLayout>

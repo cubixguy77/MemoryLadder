@@ -6,43 +6,34 @@ import android.arch.lifecycle.Transformations;
 import android.arch.lifecycle.ViewModel;
 
 import com.memoryladder.taketest.GamePhase;
-import com.memoryladder.taketest.namesandfaces.score.ScoreProvider;
 import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
 import com.memoryladder.taketest.namesandfaces.ui.adapters.TestSheet;
 import com.memoryladder.taketest.scorepanel.Score;
 
+import java.util.Objects;
+
 /**
- * The ViewModel for the Random Words game
+ * The ViewModel for the Names & Faces event
  * This class maintains the observable fields which completely describe the UI of the game in progress
  */
 public class NamesAndFacesViewModel extends ViewModel {
 
-    /* Test Sheets */
+    /* Test Sheet */
     private MutableLiveData<TestSheet> testSheet = new MutableLiveData<>();
 
     /* Settings */
-    private NamesAndFacesSettings settings;
     private MutableLiveData<Integer> faceCount = new MutableLiveData<>();
 
     /* Dynamic State Variables */
     private MutableLiveData<GamePhase> gamePhase = new MutableLiveData<>();
+    private MutableLiveData<Integer> viewPortHeight = new MutableLiveData<>();
 
-    /* Score Provider */
-    private final ScoreProvider scoreProvider;
-
-    NamesAndFacesViewModel(NamesAndFacesSettings settings, ScoreProvider scoreProvider) {
-        /* Test Sheets */
-        //this.testSheet.setValue(testSheet);
-
+    NamesAndFacesViewModel(NamesAndFacesSettings settings) {
         /* Settings */
-        //this.settings = settings;
         this.faceCount.setValue(settings.getFaceCount());
 
         /* Dynamic State Variables */
         setGamePhase(GamePhase.PRE_MEMORIZATION);
-
-        /* Score Provider */
-        this.scoreProvider = scoreProvider;
     }
 
     /* Test Sheet */
@@ -50,7 +41,11 @@ public class NamesAndFacesViewModel extends ViewModel {
     public void resetTestSheets(TestSheet testSheet) {
         this.testSheet.setValue(testSheet);
     }
-    public void shuffleTestSheet() {        if (this.testSheet.getValue() != null) {           this.testSheet.getValue().shuffle();        }    }
+    public void shuffleTestSheet() {
+        if (this.testSheet.getValue() != null) {
+            this.testSheet.getValue().shuffle();
+        }
+    }
 
     /* Settings */
     public LiveData<Integer> getFaceCount() {
@@ -61,12 +56,17 @@ public class NamesAndFacesViewModel extends ViewModel {
     public LiveData<GamePhase> getGamePhase() { return gamePhase; }
     public void setGamePhase(GamePhase gamePhase) { this.gamePhase.setValue(gamePhase); }
 
+    public LiveData<Integer> getViewPortHeight() { return viewPortHeight; }
+    public void setViewPortHeight(Integer newViewPortHeight) {
+        this.viewPortHeight.setValue(newViewPortHeight);
+    }
+
     public LiveData<Boolean> getTimerVisible() {
         return Transformations.map(gamePhase, phase -> phase != GamePhase.REVIEW);
     }
 
     /* Scoring */
     public Score getScore() {
-        return testSheet.getValue().getScore();
+        return Objects.requireNonNull(testSheet.getValue()).getScore();
     }
 }

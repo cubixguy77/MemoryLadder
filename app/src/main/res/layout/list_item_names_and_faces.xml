@@ -9,13 +9,16 @@
     android:layout_margin="8dp"
     android:orientation="vertical"
     android:animateLayoutChanges="true"
-    android:background="@android:color/white">
+    android:background="#749FE9">
 
     <ImageView
         android:id="@+id/image_face"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="fitCenter"
+        android:layout_margin="8dp"
+        android:padding="12dp"
+        android:background="#E6EDF8"
         tools:src="@drawable/male0"
         />
 
@@ -23,16 +26,20 @@
         android:id="@+id/name_first"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FAFAFA"
         android:gravity="center_vertical"
-        android:paddingLeft="12dp"
         android:paddingStart="12dp"
-        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
         android:paddingEnd="12dp"
-        android:background="@color/colorPrimary"
-        app:autoSizeTextType="uniform"
-        app:autoSizeMinTextSize="12sp"
+        android:paddingRight="12dp"
+        android:textColor="#202020"
         app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="12sp"
         app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform"
         tools:text="First Last"
         />
 
@@ -40,31 +47,38 @@
         android:id="@+id/names_faces_cell_recall_first"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:paddingLeft="12dp"
         android:paddingStart="12dp"
         android:paddingRight="12dp"
         android:paddingEnd="12dp"
         android:singleLine="true"
-        android:inputType="text"
-        android:textColor="@android:color/white"
+        android:inputType="textFilter"
+        android:privateImeOptions="nm"
         android:hint="First Name"
-        android:background="@color/colorPrimary"
+        android:background="#FAFAFA"
+        android:textColor="#202020"
         />
 
     <EditText
         android:id="@+id/names_faces_cell_recall_last"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:paddingLeft="12dp"
         android:paddingStart="12dp"
         android:paddingRight="12dp"
         android:paddingEnd="12dp"
-        android:layout_marginTop="1px"
         android:singleLine="true"
-        android:inputType="text"
-        android:textColor="@android:color/white"
+        android:inputType="textFilter"
+        android:privateImeOptions="nm"
         android:hint="Last Name"
-        android:background="@color/colorPrimary"
+        android:background="#FAFAFA"
+        android:textColor="#202020"
         />
 
     <LinearLayout
@@ -72,36 +86,53 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        >
 
         <TextView
-            android:id="@+id/names_faces_cell_review_text_first"
+            android:id="@+id/names_faces_cell_review_memory_first"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
             android:paddingLeft="12dp"
             android:paddingStart="12dp"
             android:paddingRight="12dp"
             android:paddingEnd="12dp"
-            android:background="@color/colorPrimary"
+            android:background="#FAFAFA"
+            android:textColor="#202020"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeStepGranularity="2sp"
+            tools:text="Brenda"
+            />
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_recall_first"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            android:paddingLeft="12dp"
+            android:paddingStart="12dp"
+            android:paddingRight="12dp"
+            android:paddingEnd="12dp"
+            android:background="#FAFAFA"
+            android:textColor="#202020"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeMaxTextSize="100sp"
             app:autoSizeStepGranularity="2sp"
             tools:text="First Recall"
-            />
-
-        <ImageView
-            android:id="@+id/names_faces_cell_review_icon_first"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:padding="4dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
-            app:srcCompat="@drawable/icon_review_correct_white"
-            android:contentDescription="Outcome Icon"
             />
     </LinearLayout>
 
@@ -110,36 +141,54 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:background="@color/colorPrimary">
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        >
 
         <TextView
-            android:id="@+id/names_faces_cell_review_text_last"
+            android:id="@+id/names_faces_cell_review_memory_last"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
             android:paddingLeft="12dp"
             android:paddingStart="12dp"
             android:paddingRight="12dp"
             android:paddingEnd="12dp"
-            android:background="@color/colorPrimary"
+            android:background="#FAFAFA"
+            android:textColor="#202020"
+            app:autoSizeTextType="uniform"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeStepGranularity="2sp"
+            tools:text="Last Memory"
+            />
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_recall_last"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            android:paddingLeft="12dp"
+            android:paddingStart="12dp"
+            android:paddingRight="12dp"
+            android:paddingEnd="12dp"
+            android:background="#FAFAFA"
+            android:textColor="#202020"
             app:autoSizeTextType="uniform"
             app:autoSizeMinTextSize="12sp"
             app:autoSizeMaxTextSize="100sp"
             app:autoSizeStepGranularity="2sp"
             tools:text="Last Recall"
-            />
-
-        <ImageView
-            android:id="@+id/names_faces_cell_review_icon_last"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:padding="4dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginEnd="8dp"
-            app:srcCompat="@drawable/icon_review_correct_white"
-            android:contentDescription="Outcome Icon"
             />
     </LinearLayout>
 </LinearLayout>

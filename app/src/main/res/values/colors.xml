@@ -10,15 +10,17 @@
     <color name="greyLight">#7a7f91</color>
     <color name="green">@color/colorPrimary</color>
 
-    <color name="activity.background">@color/grey</color>
+    <color name="activity_background">@color/grey</color>
 
-    <color name="score_panel.top_label">#ffffff</color>
-    <color name="score_panel.value">#ffffff</color>
+    <color name="score_panel_top_label">#ffffff</color>
+    <color name="score_panel_value">#ffffff</color>
 
-    <color name="keyboard.highlightRecallDigits">#efefef</color>
-
-
-    <color name="words.list.background">#b5b5b5</color>
+    <color name="keyboard_highlightRecallDigits">#efefef</color>
 
 
+    <color name="words_list_background">#b5b5b5</color>
+
+    <color name="gradeCorrect">#9FDC88</color>
+    <color name="gradeWrong">#FF5656</color>
+    <color name="gradeBlank">#FFDFDD</color>
 </resources>
