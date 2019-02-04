@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 
 import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.NamesAndFacesFragmentBinding;
@@ -34,7 +36,7 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NamesAndFacesGameManager extends Fragment implements GameManager {
+public class NamesAndFacesGameManager extends Fragment implements GameManager, ViewTreeObserver.OnGlobalLayoutListener {
 
     @BindView(R.id.grid_faces) RecyclerView grid;
     @BindView(R.id.text_timer) TimerView timerView;
@@ -43,7 +45,6 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
     private FaceAdapter adapter;
 
     NamesAndFacesSettings settings;
-    //TestSheet testSheet;
 
     public static NamesAndFacesGameManager newInstance(NamesAndFacesSettings settings) {
         NamesAndFacesGameManager cardGameManager = new NamesAndFacesGameManager();
@@ -63,14 +64,7 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
         View root = binding.getRoot();
         ButterKnife.bind(this, root);
 
-        root.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
-            if (getActivity() != null && viewModel != null) {
-                Rect r = new Rect();
-                View view = getActivity().getWindow().getDecorView();
-                view.getWindowVisibleDisplayFrame(r);
-                viewModel.setViewPortHeight(r.bottom);
-            }
-        });
+        root.getViewTreeObserver().addOnGlobalLayoutListener(this);
 
         if (getArguments() != null) {
             // Data
@@ -83,7 +77,7 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
             binding.setLifecycleOwner(this);
 
             // Grid Adapter
-            grid.setLayoutManager(new GridLayoutManager(getContext(), 1));
+            grid.setLayoutManager(new GridLayoutManager(getContext(), getResources().getInteger(R.integer.faces_Columns)));
 
             // Observe
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
@@ -97,6 +91,17 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
         }
 
         return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            Objects.requireNonNull(getView()).getViewTreeObserver().removeOnGlobalLayoutListener(this);
+        }
+        else {
+            Objects.requireNonNull(getView()).getViewTreeObserver().removeGlobalOnLayoutListener(this);
+        }
     }
 
     private TestSheet getTestSheet(NamesAndFacesSettings settings) {
@@ -137,7 +142,6 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
 
     @Override
     public void setGamePhase(GamePhase phase) {
-        //System.out.println("ML NamesAndFacesGameManager: setGamePhase: " + phase.toString());
         if (phase == GamePhase.PRE_MEMORIZATION) {
             viewModel.resetTestSheets(getTestSheet(settings));
         }
@@ -173,5 +177,13 @@ public class NamesAndFacesGameManager extends Fragment implements GameManager {
     @Override
     public Score getScore() {
         return viewModel.getScore();
+    }
+
+    @Override
+    public void onGlobalLayout() {
+        Rect r = new Rect();
+        View view = Objects.requireNonNull(getActivity()).getWindow().getDecorView();
+        view.getWindowVisibleDisplayFrame(r);
+        viewModel.setViewPortHeight(r.bottom);
     }
 }

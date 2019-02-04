@@ -323,7 +323,7 @@ public class Constants {
     }
 	
 	public static int[] getSpecs_STEPS_NameAndFaces(int level) {
-    	int[] specs = new int[5];
+    	int[] specs = new int[4];
     	switch (level) {
     		case 1: 
     			specs[0] = 3;

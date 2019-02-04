@@ -3,7 +3,6 @@ package com.memoryladder.taketest.namesandfaces.ui.adapters;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -217,29 +216,23 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
 
                 ReviewCellOutcome firstResult = nameAndFace.getFirstResult();
                 if (firstResult == ReviewCellOutcome.CORRECT) {
-                    //reviewFirstRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeCorrect));
                     reviewFirstRecall.setBackgroundColor(Color.parseColor("#9FDC88"));
                 }
                 else if (firstResult == ReviewCellOutcome.BLANK) {
-                    //reviewFirstRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeBlank));
                     reviewFirstRecall.setBackgroundColor(Color.parseColor("#FFDFDD"));
                 }
                 else if (firstResult == ReviewCellOutcome.WRONG) {
-                    //reviewFirstRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeWrong));
                     reviewFirstRecall.setBackgroundColor(Color.parseColor("#FF5656"));
                 }
 
                 ReviewCellOutcome lastResult = nameAndFace.getLastResult();
                 if (lastResult == ReviewCellOutcome.CORRECT) {
-                    //reviewLastRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeCorrect));                    reviewFirstRecall.setBackgroundColor(Color.parseColor("#9FDC88"));
                     reviewLastRecall.setBackgroundColor(Color.parseColor("#9FDC88"));
                 }
                 else if (lastResult == ReviewCellOutcome.BLANK) {
-                    //reviewLastRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeBlank));
                     reviewLastRecall.setBackgroundColor(Color.parseColor("#FFDFDD"));
                 }
                 else if (lastResult == ReviewCellOutcome.WRONG) {
-                    //reviewLastRecall.setBackgroundColor(Resources.getSystem().getColor(R.color.gradeWrong));
                     reviewLastRecall.setBackgroundColor(Color.parseColor("#FF5656"));
                 }
             }

@@ -160,4 +160,63 @@
         <item name="android:textSize">@dimen/words.list.reviewtext.size</item>
     </style>
 
+    <style name="Faces_Name_Memory">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="autoSizeMaxTextSize">100sp</item>
+        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <style name="Faces_Recall_Input">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:inputType">textFilter</item>
+        <item name="android:privateImeOptions">nm</item>
+        <item name="android:hint">First Name</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Faces_Review_Cell">
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="autoSizeMaxTextSize">100sp</item>
+        <item name="autoSizeMinTextSize">12sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+        <item name="autoSizeTextType">uniform</item>
+    </style>
+
+    <style name="Faces_Review_Left_Cell" parent="Faces_Review_Cell">
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginEnd">2dp</item>
+    </style>
+
+    <style name="Faces_Review_Right_Cell" parent="Faces_Review_Cell">
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginStart">2dp</item>
+    </style>
+
 </resources>

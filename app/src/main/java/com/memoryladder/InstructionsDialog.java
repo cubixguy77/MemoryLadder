@@ -131,9 +131,7 @@ public class InstructionsDialog extends Dialog {
 	    	Point1.setText(res.getText(R.string.shapes_faces_point1));
 	    	Point2.setText(res.getText(R.string.shapes_faces_point2));
 	    	Point3.setText(res.getText(R.string.shapes_faces_point3));
-	    	
 	    	AddOn1.setText(res.getText(R.string.shapes_faces_addon1));
-	    	AddOn2.setText(res.getText(R.string.shapes_faces_addon2));
     	}
     	else {	    	
     		about.setText(res.getText(R.string.shapes_images_about));

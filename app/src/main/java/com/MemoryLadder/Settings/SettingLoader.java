@@ -306,7 +306,7 @@ public class SettingLoader {
                 recallTime      = specs[2];
                 target          = specs[3];
 
-                settings.add(new NumberSetting("numFaces", "Number of rows:", numFaces));
+                settings.add(new NumberSetting("numFaces", "Number of faces:", numFaces));
                 settings.add(new SwitchSetting("fullFaceDataSet", "Full HD Face Library", 0));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
