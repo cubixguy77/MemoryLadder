@@ -276,7 +276,7 @@ public class GameActivity extends AppCompatActivity {
 
     private boolean isLevelUp(int scoreValue) {
         double target = Utils.getTargetScore(settings.getGameType(), settings.getStep());
-        return scoreValue >= target && settings.getStep() < 5;
+        return scoreValue >= target && settings.getStep() < 8;
     }
 
     private void doLevelUp() {

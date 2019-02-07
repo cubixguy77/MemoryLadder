@@ -34,8 +34,7 @@ public class Constants {
 	public final static int default_dates_numRows = 10;
 	public final static int default_dates_memTime = 300;
 	public final static int default_dates_recallTime = 600;
-	
-	final public static int default_faces_numCols = 3;
+
 	final public static int default_faces_numRows = 5;
 	final public static int default_faces_memTime = 300;
 	final public static int default_faces_recallTime = 600;
@@ -163,12 +162,30 @@ public class Constants {
 				specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 50; break;
-    		case 5: 
-    			specs[0] = 10;
+			case 5:
+				specs[0] = 10;
 				specs[1] = 10;
 				specs[2] = 300;
-    			specs[3] = 600;
-    			specs[4] = 80; break;
+				specs[3] = 600;
+				specs[4] = 80; break;
+			case 6:
+				specs[0] = 10;
+				specs[1] = 10;
+				specs[2] = 300;
+				specs[3] = 600;
+				specs[4] = 90; break;
+			case 7:
+				specs[0] = 10;
+				specs[1] = 10;
+				specs[2] = 300;
+				specs[3] = 600;
+				specs[4] = 100; break;
+			case 8:
+				specs[0] = 15;
+				specs[1] = 10;
+				specs[2] = 500;
+				specs[3] = 1000;
+				specs[4] = 130; break;
     	}
     	return specs;
     }
@@ -200,12 +217,30 @@ public class Constants {
 				specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 25; break;
-    		case 5: 
-    			specs[0] = 5;
+			case 5:
+				specs[0] = 5;
 				specs[1] = 10;
 				specs[2] = 300;
-    			specs[3] = 600;
-    			specs[4] = 45; break;
+				specs[3] = 600;
+				specs[4] = 45; break;
+			case 6:
+				specs[0] = 10;
+				specs[1] = 10;
+				specs[2] = 300;
+				specs[3] = 600;
+				specs[4] = 70; break;
+			case 7:
+				specs[0] = 10;
+				specs[1] = 10;
+				specs[2] = 300;
+				specs[3] = 600;
+				specs[4] = 90; break;
+			case 8:
+				specs[0] = 10;
+				specs[1] = 10;
+				specs[2] = 300;
+				specs[3] = 600;
+				specs[4] = 100; break;
     	}
     	return specs;
     }
@@ -237,12 +272,30 @@ public class Constants {
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_SLOW;
 				specs[4] = 15; break;
-    		case 5: 
-    			specs[0] = 1;
+			case 5:
+				specs[0] = 1;
+				specs[1] = 25;
+				specs[2] = 300;
+				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+				specs[4] = 20; break;
+			case 6:
+				specs[0] = 1;
 				specs[1] = 25;
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 25; break;
+			case 7:
+				specs[0] = 1;
+				specs[1] = 30;
+				specs[2] = 300;
+				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+				specs[4] = 30; break;
+			case 8:
+				specs[0] = 1;
+				specs[1] = 35;
+				specs[2] = 300;
+				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+				specs[4] = 35; break;
     	}
     	return specs;
     }
@@ -255,32 +308,50 @@ public class Constants {
     			specs[0] = 5;
     			specs[1] = 1;
     			specs[2] = 300;
-    			specs[3] = 600;
+    			specs[3] = 1000;
     			specs[4] = 4; break;
     		case 2: 
     			specs[0] = 5;
     			specs[1] = 2;
     			specs[2] = 300;
-    			specs[3] = 600;
+    			specs[3] = 1000;
     			specs[4] = 8; break;
     		case 3: 
     			specs[0] = 5;
 				specs[1] = 4;
 				specs[2] = 300;
-    			specs[3] = 600;
+    			specs[3] = 1000;
 				specs[4] = 16; break;
     		case 4: 
     			specs[0] = 6;
 				specs[1] = 5;
 				specs[2] = 300;
-    			specs[3] = 600;
+    			specs[3] = 1000;
 				specs[4] = 25; break;
-    		case 5: 
-    			specs[0] = 8;
+			case 5:
+				specs[0] = 8;
 				specs[1] = 5;
 				specs[2] = 300;
-    			specs[3] = 600;
+				specs[3] = 1000;
 				specs[4] = 35; break;
+			case 6:
+				specs[0] = 8;
+				specs[1] = 5;
+				specs[2] = 500;
+				specs[3] = 1000;
+				specs[4] = 40; break;
+			case 7:
+				specs[0] = 8;
+				specs[1] = 8;
+				specs[2] = 500;
+				specs[3] = 1000;
+				specs[4] = 50; break;
+			case 8:
+				specs[0] = 8;
+				specs[1] = 8;
+				specs[2] = 500;
+				specs[3] = 1000;
+				specs[4] = 60; break;
     	}
     	return specs;
     }
@@ -312,12 +383,30 @@ public class Constants {
 				specs[2] = 300;
     			specs[3] = 600;
 				specs[4] = 15; break;
-    		case 5: 
-    			specs[0] = 25;
+			case 5:
+				specs[0] = 25;
 				specs[1] = 1;
 				specs[2] = 300;
-    			specs[3] = 600;
+				specs[3] = 1000;
 				specs[4] = 25; break;
+			case 6:
+				specs[0] = 35;
+				specs[1] = 1;
+				specs[2] = 300;
+				specs[3] = 1000;
+				specs[4] = 30; break;
+			case 7:
+				specs[0] = 40;
+				specs[1] = 1;
+				specs[2] = 300;
+				specs[3] = 1000;
+				specs[4] = 35; break;
+			case 8:
+				specs[0] = 50;
+				specs[1] = 1;
+				specs[2] = 300;
+				specs[3] = 1000;
+				specs[4] = 45; break;
     	}
     	return specs;
     }
@@ -328,28 +417,43 @@ public class Constants {
     		case 1: 
     			specs[0] = 3;
     			specs[1] = 300;
-    			specs[2] = 600;
+    			specs[2] = 2000;
     			specs[3] = 5; break;
     		case 2: 
     			specs[0] = 6;
     			specs[1] = 300;
-    			specs[2] = 600;
+    			specs[2] = 2000;
     			specs[3] = 10; break;
     		case 3: 
     			specs[0] = 9;
 				specs[1] = 300;
-    			specs[2] = 600;
+    			specs[2] = 2000;
 				specs[3] = 15; break;
     		case 4: 
     			specs[0] = 15;
 				specs[1] = 300;
-    			specs[2] = 600;
+    			specs[2] = 2000;
 				specs[3] = 25; break;
-    		case 5: 
-    			specs[0] = 30;
+			case 5:
+				specs[0] = 30;
 				specs[1] = 300;
-    			specs[2] = 600;
+				specs[2] = 2000;
 				specs[3] = 50; break;
+			case 6:
+				specs[0] = 35;
+				specs[1] = 300;
+				specs[2] = 2000;
+				specs[3] = 55; break;
+			case 7:
+				specs[0] = 40;
+				specs[1] = 300;
+				specs[2] = 2000;
+				specs[3] = 65; break;
+			case 8:
+				specs[0] = 50;
+				specs[1] = 300;
+				specs[2] = 3000;
+				specs[3] = 100; break;
     	}
     	return specs;
     }
@@ -381,12 +485,30 @@ public class Constants {
 				specs[2] = 300;
     			specs[3] = 600;
 				specs[4] = 20; break;
-    		case 5: 
-    			specs[0] = 10;
+			case 5:
+				specs[0] = 10;
 				specs[1] = 5;
 				specs[2] = 300;
-    			specs[3] = 600;
+				specs[3] = 1000;
 				specs[4] = 50; break;
+			case 6:
+				specs[0] = 12;
+				specs[1] = 5;
+				specs[2] = 300;
+				specs[3] = 2000;
+				specs[4] = 60; break;
+			case 7:
+				specs[0] = 14;
+				specs[1] = 5;
+				specs[2] = 300;
+				specs[3] = 2000;
+				specs[4] = 70; break;
+			case 8:
+				specs[0] = 16;
+				specs[1] = 5;
+				specs[2] = 300;
+				specs[3] = 3000;
+				specs[4] = 80; break;
     	}
     	return specs;
     }
@@ -418,11 +540,29 @@ public class Constants {
 				specs[2] = 300;
     			specs[3] = 600;
 				specs[4] = 18; break;
-    		case 5: 
-    			specs[0] = 52;
+			case 5:
+				specs[0] = 52;
 				specs[1] = 1;
 				specs[2] = 300;
-    			specs[3] = 600;
+				specs[3] = 800;
+				specs[4] = 52; break;
+			case 6:
+				specs[0] = 52;
+				specs[1] = 1;
+				specs[2] = 180;
+				specs[3] = 800;
+				specs[4] = 52; break;
+			case 7:
+				specs[0] = 52;
+				specs[1] = 1;
+				specs[2] = 120;
+				specs[3] = 800;
+				specs[4] = 52; break;
+			case 8:
+				specs[0] = 52;
+				specs[1] = 1;
+				specs[2] = 60;
+				specs[3] = 800;
 				specs[4] = 52; break;
     	}
     	return specs;

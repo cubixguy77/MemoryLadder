@@ -191,7 +191,7 @@ public class ScoreActivity extends Activity implements OnClickListener {
 				if (score >= target) {
 					SuccessText.setText("You passed Step " + step + "!");
 					SuccessGraphic.setImageResource(R.drawable.graphic_mark_check);
-					if (step < 5)
+					if (step < 8)
 						LevelUp();
 				}
 				else {
