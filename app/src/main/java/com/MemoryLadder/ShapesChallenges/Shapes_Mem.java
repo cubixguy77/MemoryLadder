@@ -117,7 +117,7 @@ public class Shapes_Mem extends Activity implements OnClickListener, android.con
     
     public void initGrid() {
     	grid = (GridView) findViewById(R.id.grid);
-        grid.setNumColumns(1);
+        grid.setNumColumns(5);
         grid.setBackgroundColor(Color.WHITE);
         grid.setAdapter(new ShapeAdapter(this));
     }
