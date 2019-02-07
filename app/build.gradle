@@ -16,7 +16,7 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
         versionCode 17
-        versionName "2.0.3"
+        versionName "2.1.0"
         vectorDrawables.useSupportLibrary true
     }
 
