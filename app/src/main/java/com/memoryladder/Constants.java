@@ -360,53 +360,53 @@ public class Constants {
     	int[] specs = new int[5];
     	switch (level) {
     		case 1: 
+    			specs[0] = 2;
+    			specs[1] = 1;
+    			specs[2] = 300;
+    			specs[3] = 600;
+    			specs[4] = 2; break;
+    		case 2: 
     			specs[0] = 3;
     			specs[1] = 1;
     			specs[2] = 300;
     			specs[3] = 600;
     			specs[4] = 3; break;
-    		case 2: 
-    			specs[0] = 6;
-    			specs[1] = 1;
-    			specs[2] = 300;
-    			specs[3] = 600;
-    			specs[4] = 6; break;
     		case 3: 
-    			specs[0] = 9;
+    			specs[0] = 5;
 				specs[1] = 1;
 				specs[2] = 300;
     			specs[3] = 600;
-				specs[4] = 9; break;
+				specs[4] = 5; break;
     		case 4: 
-    			specs[0] = 15;
+    			specs[0] = 8;
 				specs[1] = 1;
 				specs[2] = 300;
     			specs[3] = 600;
-				specs[4] = 15; break;
+				specs[4] = 8; break;
 			case 5:
+				specs[0] = 15;
+				specs[1] = 1;
+				specs[2] = 300;
+				specs[3] = 1000;
+				specs[4] = 15; break;
+			case 6:
+				specs[0] = 20;
+				specs[1] = 1;
+				specs[2] = 300;
+				specs[3] = 1000;
+				specs[4] = 20; break;
+			case 7:
 				specs[0] = 25;
 				specs[1] = 1;
 				specs[2] = 300;
 				specs[3] = 1000;
 				specs[4] = 25; break;
-			case 6:
-				specs[0] = 35;
-				specs[1] = 1;
-				specs[2] = 300;
-				specs[3] = 1000;
-				specs[4] = 30; break;
-			case 7:
+			case 8:
 				specs[0] = 40;
 				specs[1] = 1;
 				specs[2] = 300;
 				specs[3] = 1000;
-				specs[4] = 35; break;
-			case 8:
-				specs[0] = 50;
-				specs[1] = 1;
-				specs[2] = 300;
-				specs[3] = 1000;
-				specs[4] = 45; break;
+				specs[4] = 40; break;
     	}
     	return specs;
     }
