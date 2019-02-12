@@ -205,7 +205,10 @@ public class GameActivity extends AppCompatActivity {
         }
 
         View gameRootView = ((Fragment) gameManager).getView();
-        ViewTreeObserver viewTreeObserver = Objects.requireNonNull(gameRootView).getViewTreeObserver();
+        if (gameRootView == null)
+            return;
+
+        ViewTreeObserver viewTreeObserver = gameRootView.getViewTreeObserver();
         if (viewTreeObserver == null)
             return;
 
