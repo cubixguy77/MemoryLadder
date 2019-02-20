@@ -67,6 +67,10 @@ public class NamesAndFacesViewModel extends ViewModel {
 
     /* Scoring */
     public Score getScore() {
-        return Objects.requireNonNull(testSheet.getValue()).getScore();
+        if (testSheet.getValue() == null) {
+            return new Score(0, 0);
+        }
+
+        return testSheet.getValue().getScore();
     }
 }
