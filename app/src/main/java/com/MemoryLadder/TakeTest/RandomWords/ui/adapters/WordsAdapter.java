@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
  */
 abstract class WordsAdapter extends RecyclerView.Adapter<WordsAdapter.RandomWordsViewHolder> {
 
-    private static final int fadedBlack = Color.parseColor("#77000000");
+    private static final int fadedBlack = Color.parseColor("#E6272727");
     //private static final int fadedWhite = Color.parseColor("#ddFFFFFF");
 
     class RandomWordsViewHolder extends RecyclerView.ViewHolder {

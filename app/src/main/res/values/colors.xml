@@ -18,7 +18,7 @@
     <color name="keyboard_highlightRecallDigits">#efefef</color>
 
 
-    <color name="words_list_background">#b5b5b5</color>
+    <color name="words_list_background">#DFDFDF</color>
 
     <color name="gradeCorrect">#9FDC88</color>
     <color name="gradeWrong">#FF5656</color>
