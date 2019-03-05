@@ -71,7 +71,7 @@ public class ImagesGameManager extends Fragment implements GameManager {
             binding.setLifecycleOwner(this);
 
             // Grid Adapter
-            grid.setLayoutManager(new GridLayoutManager(getContext(), 5));
+            grid.setLayoutManager(new GridLayoutManager(getContext(), 6));
 
             // Observe
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
@@ -83,13 +83,20 @@ public class ImagesGameManager extends Fragment implements GameManager {
     }
 
     private TestSheet getTestSheet(ImagesSettings settings) {
-        return new TestSheet(MemorySheetProvider.getTestSheet(settings.getRowCount(), getImages(settings.getRowCount())));
+        return MemorySheetProvider.getTestSheet(settings.getRowCount(), getImages());
     }
 
-    private List<Integer> getImages(int numRows) {
+    private List<Integer> getImages() {
         Resources res = getResources();
         String packageName = Objects.requireNonNull(getActivity()).getPackageName();
-        return new ArrayList<>();
+
+        int imageCount = 200;
+
+        List<Integer> images = new ArrayList<>(imageCount);
+        for (int i=0; i < imageCount; i++)
+            images.add(res.getIdentifier("image"+i, "drawable", packageName));
+
+        return images;
     }
 
     @Override

@@ -3,24 +3,25 @@ package com.memoryladder.taketest.images.ui.adapters;
 import com.memoryladder.taketest.images.models.Image;
 import com.memoryladder.taketest.scorepanel.Score;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class TestSheet {
 
-    private List<Image> memorySheet;
+    private ArrayList<Image>[] memorySheet;
     private Score score;
 
-    public TestSheet(List<Image> memorySheet) {
+    public TestSheet(ArrayList<Image>[] memorySheet) {
         this.memorySheet = memorySheet;
     }
 
-    Image getImage(int position) {
-        return memorySheet.get(position);
+    Image getImage(int row, int column) {
+        return memorySheet[row].get(column);
     }
 
     public void shuffle() {
-        Collections.shuffle(memorySheet);
+        //Collections.shuffle(memorySheet);
     }
 
     public Score getScore() {
@@ -36,5 +37,5 @@ public class TestSheet {
         return this.score;
     }
 
-    int getRowCount() { return memorySheet.size() / 5; }
+    int getImageCount() { return memorySheet.length * 6; }
 }

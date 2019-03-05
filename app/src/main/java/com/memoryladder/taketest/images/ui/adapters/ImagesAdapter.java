@@ -36,12 +36,12 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewH
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        holder.bindTo(testSheet.getImage(position), position);
+        holder.bindTo(position % 6 == 0 ? null : testSheet.getImage(position / 6, position % 6), position / 6, position % 6);
     }
 
     @Override
     public int getItemCount() {
-        return testSheet.getRowCount();
+        return testSheet.getImageCount();
     }
 
     public void setGamePhase(GamePhase phase) {
@@ -58,22 +58,30 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewH
             ButterKnife.bind(this, itemView);
         }
 
-        void bindTo(Image image, int position) {
-            if (phase == GamePhase.PRE_MEMORIZATION) {
-                this.image.setImageResource(R.drawable.face_placeholder);
-                this.index.setText(position);
+        void bindTo(Image imageModel, int row, int column) {
+            if (column == 0) {
+                this.image.setVisibility(View.GONE);
+                this.index.setText(Integer.toString(row+1));
             }
-            else if (phase == GamePhase.MEMORIZATION) {
-                this.image.setImageResource(image.getImageId());
-                this.index.setText(position);
-            }
-            else if (phase == GamePhase.RECALL) {
-                this.image.setImageResource(image.getImageId());
-                this.index.setText(position);
-            }
-            else if (phase == GamePhase.REVIEW) {
-                this.image.setImageResource(image.getImageId());
-                this.index.setText(position);
+            else {
+                this.image.setVisibility(View.VISIBLE);
+
+                if (phase == GamePhase.PRE_MEMORIZATION) {
+                    this.image.setImageResource(R.drawable.face_placeholder);
+                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
+                }
+                else if (phase == GamePhase.MEMORIZATION) {
+                    this.image.setImageResource(imageModel.getImageId());
+                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
+                }
+                else if (phase == GamePhase.RECALL) {
+                    this.image.setImageResource(imageModel.getImageId());
+                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
+                }
+                else if (phase == GamePhase.REVIEW) {
+                    this.image.setImageResource(imageModel.getImageId());
+                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
+                }
             }
         }
     }
