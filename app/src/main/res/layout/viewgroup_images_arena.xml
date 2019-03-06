@@ -30,9 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
-                android:text="@{@string/faceCount(viewModel.rowCount)}"
+                android:text="@{@string/rowCount(viewModel.rowCount)}"
                 android:textSize="@dimen/page_selector.text.size"
-                tools:text="XX Faces" />
+                tools:text="XX Rows" />
 
             <include
                 layout="@layout/viewgroup_timer">

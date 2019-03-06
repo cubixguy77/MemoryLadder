@@ -18,10 +18,13 @@ import butterknife.ButterKnife;
 /**
  * Renders the Images
  */
-public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewHolder> {
+public class ImagesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private TestSheet testSheet;
     private GamePhase phase;
+
+    private final int ROW_NUM_VIEW_TYPE = 0;
+    private final int IMAGE_VIEW_TYPE = 1;
 
     public ImagesAdapter(TestSheet testSheet) {
         this.testSheet = testSheet;
@@ -30,13 +33,28 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewH
 
     @NonNull
     @Override
-    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ImageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_images, parent, false));
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == ROW_NUM_VIEW_TYPE) {
+            return new RowNumViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_row_num, parent, false));
+        }
+        else {
+            return new ImageViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_images, parent, false));
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        holder.bindTo(position % 6 == 0 ? null : testSheet.getImage(position / 6, position % 6), position / 6, position % 6);
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder.getItemViewType() == ROW_NUM_VIEW_TYPE) {
+            ((RowNumViewHolder) holder).bindTo(getRow(position) + 1);
+        }
+        else if (holder.getItemViewType() == IMAGE_VIEW_TYPE) {
+            ((ImageViewHolder) holder).bindTo(testSheet.getImage(getRow(position), getCol(position), phase), getRow(position), getCol(position));
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return getCol(position) == 0 ? ROW_NUM_VIEW_TYPE : IMAGE_VIEW_TYPE;
     }
 
     @Override
@@ -49,6 +67,14 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewH
         notifyDataSetChanged();
     }
 
+    private int getRow(int position) {
+        return position / 6;
+    }
+
+    private int getCol(int position) {
+        return position % 6;
+    }
+
     class ImageViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.image_image) ImageView image;
         @BindView(R.id.image_index) TextView index;
@@ -59,30 +85,32 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ImageViewH
         }
 
         void bindTo(Image imageModel, int row, int column) {
-            if (column == 0) {
-                this.image.setVisibility(View.GONE);
-                this.index.setText(Integer.toString(row+1));
+            if (phase == GamePhase.PRE_MEMORIZATION) {
+                this.image.setImageResource(R.drawable.face_placeholder);
+                this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
+            } else if (phase == GamePhase.MEMORIZATION) {
+                this.image.setImageResource(imageModel.getImageId());
+                this.index.setText(Integer.toString(imageModel.getMemoryIndex()) + " " + imageModel.getRecallIndex());
+            } else if (phase == GamePhase.RECALL) {
+                this.image.setImageResource(imageModel.getImageId());
+                this.index.setText(Integer.toString(imageModel.getMemoryIndex()) + " " + imageModel.getRecallIndex());
+            } else if (phase == GamePhase.REVIEW) {
+                this.image.setImageResource(imageModel.getImageId());
+                this.index.setText(Integer.toString(imageModel.getMemoryIndex()) + " " + imageModel.getRecallIndex());
             }
-            else {
-                this.image.setVisibility(View.VISIBLE);
+        }
+    }
 
-                if (phase == GamePhase.PRE_MEMORIZATION) {
-                    this.image.setImageResource(R.drawable.face_placeholder);
-                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
-                }
-                else if (phase == GamePhase.MEMORIZATION) {
-                    this.image.setImageResource(imageModel.getImageId());
-                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
-                }
-                else if (phase == GamePhase.RECALL) {
-                    this.image.setImageResource(imageModel.getImageId());
-                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
-                }
-                else if (phase == GamePhase.REVIEW) {
-                    this.image.setImageResource(imageModel.getImageId());
-                    this.index.setText(Integer.toString(imageModel.getMemoryIndex()));
-                }
-            }
+    class RowNumViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.text_row_num) TextView rowNum;
+
+        RowNumViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+
+        void bindTo(int row) {
+            rowNum.setText(Integer.toString(row));
         }
     }
 }

@@ -105,7 +105,7 @@ public class ImagesGameManager extends Fragment implements GameManager {
             viewModel.resetTestSheets(getTestSheet(settings));
         }
         else if (phase == GamePhase.RECALL) {
-            viewModel.shuffleTestSheet();
+            viewModel.sortImagesForRecall();
         }
 
         viewModel.setGamePhase(phase);

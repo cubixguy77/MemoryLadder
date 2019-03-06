@@ -11,8 +11,9 @@ public class Image {
 
     private final int imageId;
 
-    public Image(int memoryIndex, int imageId) {
+    public Image(int memoryIndex, int recallIndex, int imageId) {
         this.memoryIndex = memoryIndex;
+        this.recallIndex = recallIndex;
         this.imageId = imageId;
     }
 

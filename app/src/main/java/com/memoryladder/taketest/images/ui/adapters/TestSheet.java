@@ -1,11 +1,11 @@
 package com.memoryladder.taketest.images.ui.adapters;
 
+import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.images.models.Image;
 import com.memoryladder.taketest.scorepanel.Score;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class TestSheet {
 
@@ -16,12 +16,14 @@ public class TestSheet {
         this.memorySheet = memorySheet;
     }
 
-    Image getImage(int row, int column) {
+    Image getImage(int row, int column, GamePhase phase) {
         return memorySheet[row].get(column);
     }
 
-    public void shuffle() {
-        //Collections.shuffle(memorySheet);
+    public void sortImagesForRecall() {
+        for (ArrayList<Image> aMemorySheet : memorySheet) {
+            Collections.sort(aMemorySheet, ((i1, i2) -> i1 == null ? -1 : i2 == null ? 1 : i1.getRecallIndex() - i2.getRecallIndex()));
+        }
     }
 
     public Score getScore() {

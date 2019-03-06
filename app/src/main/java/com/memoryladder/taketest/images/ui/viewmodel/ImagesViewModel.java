@@ -38,11 +38,6 @@ public class ImagesViewModel extends ViewModel {
     public void resetTestSheets(TestSheet testSheet) {
         this.testSheet.setValue(testSheet);
     }
-    public void shuffleTestSheet() {
-        if (this.testSheet.getValue() != null) {
-            this.testSheet.getValue().shuffle();
-        }
-    }
 
     /* Settings */
     public LiveData<Integer> getRowCount() {
@@ -64,5 +59,11 @@ public class ImagesViewModel extends ViewModel {
         }
 
         return testSheet.getValue().getScore();
+    }
+
+    public void sortImagesForRecall() {
+        if (this.testSheet.getValue() != null) {
+            this.testSheet.getValue().sortImagesForRecall();
+        }
     }
 }
