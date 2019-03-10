@@ -2,7 +2,7 @@ package com.memoryladder.taketest.images.memorysheetproviders;
 
 import com.memoryladder.Utils;
 import com.memoryladder.taketest.images.models.Image;
-import com.memoryladder.taketest.images.ui.adapters.TestSheet;
+import com.memoryladder.taketest.images.models.TestSheet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,9 +15,12 @@ public class MemorySheetProvider {
         int IMAGES_PER_ROW = 5;
         int NUM_IMAGES_TO_FETCH = numRows * IMAGES_PER_ROW;
 
-        Utils.pickNRandomElements(images, NUM_IMAGES_TO_FETCH);
+        images = Utils.pickNRandomElements(images, NUM_IMAGES_TO_FETCH);
 
-        ArrayList<Image>[] memorySheet = new ArrayList[numRows];
+        if (images == null)
+            return null;
+
+        List<Image>[] memorySheet = new ArrayList[numRows];
         List<Integer> permutation = Arrays.asList(1, 2, 3, 4, 5);
         int imageFetchCount = 0;
 
@@ -25,7 +28,11 @@ public class MemorySheetProvider {
             memorySheet[row] = new ArrayList<>(IMAGES_PER_ROW + 1);
             memorySheet[row].add(null);
 
-            Collections.shuffle(permutation);
+            // Require that every row have its order changed for recall
+            do {
+                Collections.shuffle(permutation);
+            } while (permutation.get(0) == 1 && permutation.get(1) == 2 && permutation.get(2) == 3 && permutation.get(3) == 4 && permutation.get(4) == 5);
+
             memorySheet[row].add(new Image(1, permutation.get(0), images.get(imageFetchCount++)));
             memorySheet[row].add(new Image(2, permutation.get(1), images.get(imageFetchCount++)));
             memorySheet[row].add(new Image(3, permutation.get(2), images.get(imageFetchCount++)));

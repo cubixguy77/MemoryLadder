@@ -2,22 +2,24 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/image_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:layout_margin="4dp"
     android:orientation="vertical"
     android:animateLayoutChanges="true"
-    android:background="#749FE9">
+    android:background="@color/images_list_item_background"
+    >
 
     <ImageView
         android:id="@+id/image_image"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:scaleType="fitCenter"
         android:layout_margin="4dp"
         android:padding="0dp"
-        android:background="#E6EDF8"
+        android:background="#FFFFFF"
         tools:src="@drawable/image112"
         />
 
@@ -32,7 +34,7 @@
         android:gravity="center"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="12sp"
         tools:text="1"
         />
 </LinearLayout>

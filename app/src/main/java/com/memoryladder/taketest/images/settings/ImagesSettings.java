@@ -6,15 +6,22 @@ import android.os.Parcelable;
 public class ImagesSettings implements Parcelable {
 
     private final int numRows;
+    private final boolean fullImageDataSet;
 
-    public ImagesSettings(int numRows) {
+    public ImagesSettings(int numRows, boolean fullImageDataSet) {
         this.numRows = numRows;
+        this.fullImageDataSet = fullImageDataSet;
     }
 
     public int getRowCount() { return this.numRows; }
 
+    public boolean isFullImageDataSet() {
+        return fullImageDataSet;
+    }
+
     private ImagesSettings(Parcel in) {
         numRows = in.readInt();
+        fullImageDataSet = in.readByte() != 0x00;
     }
 
     @Override
@@ -25,6 +32,7 @@ public class ImagesSettings implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(numRows);
+        dest.writeByte((byte) (fullImageDataSet ? 0x01 : 0x00));
     }
 
     @SuppressWarnings("unused")
@@ -39,4 +47,6 @@ public class ImagesSettings implements Parcelable {
             return new ImagesSettings[size];
         }
     };
+
+
 }

@@ -6,6 +6,7 @@ public class Image {
 
     private int memoryIndex;
     private int recallIndex;
+    private boolean attempted;
 
     private ReviewCellOutcome result;
 
@@ -14,6 +15,7 @@ public class Image {
     public Image(int memoryIndex, int recallIndex, int imageId) {
         this.memoryIndex = memoryIndex;
         this.recallIndex = recallIndex;
+        this.attempted = false;
         this.imageId = imageId;
     }
 
@@ -27,14 +29,19 @@ public class Image {
     public int getRecallIndex() {
         return recallIndex;
     }
+    public boolean isAttempted() { return attempted; }
 
-    public void setRecallIndex(int recallIndex) {
+    void setRecallIndex(int recallIndex) {
         this.recallIndex = recallIndex;
+    }
+
+    void setAttempted(boolean attempted) {
+        this.attempted = attempted;
     }
 
     public ReviewCellOutcome getResult() {
         if (result == null) {
-            result = memoryIndex == recallIndex ? ReviewCellOutcome.CORRECT : ReviewCellOutcome.WRONG;
+            result = !attempted ? ReviewCellOutcome.BLANK : memoryIndex == recallIndex ? ReviewCellOutcome.CORRECT : ReviewCellOutcome.WRONG;
         }
 
         return result;

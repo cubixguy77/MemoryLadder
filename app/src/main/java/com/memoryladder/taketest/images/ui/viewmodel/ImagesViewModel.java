@@ -7,7 +7,7 @@ import android.arch.lifecycle.ViewModel;
 
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.images.settings.ImagesSettings;
-import com.memoryladder.taketest.images.ui.adapters.TestSheet;
+import com.memoryladder.taketest.images.models.TestSheet;
 import com.memoryladder.taketest.scorepanel.Score;
 
 /**
@@ -64,6 +64,12 @@ public class ImagesViewModel extends ViewModel {
     public void sortImagesForRecall() {
         if (this.testSheet.getValue() != null) {
             this.testSheet.getValue().sortImagesForRecall();
+        }
+    }
+
+    public void sortUnattemptedRowsForReview() {
+        if (this.testSheet.getValue() != null) {
+            this.testSheet.getValue().sortUnattemptedRowsForReview();
         }
     }
 }

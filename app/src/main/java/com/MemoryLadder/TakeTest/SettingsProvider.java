@@ -63,6 +63,7 @@ class SettingsProvider {
 
     static ImagesSettings getImagesSettings(Intent i) {
         int numRows = i.getIntExtra("numRows",     -1);
-        return new ImagesSettings(numRows);
+        boolean fullImageDataSet   = i.getIntExtra("fullImageDataSet", 1) == 1;
+        return new ImagesSettings(numRows, fullImageDataSet);
     }
 }

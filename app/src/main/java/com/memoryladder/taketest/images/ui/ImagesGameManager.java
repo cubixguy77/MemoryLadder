@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,9 @@ import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.images.memorysheetproviders.MemorySheetProvider;
 import com.memoryladder.taketest.images.settings.ImagesSettings;
 import com.memoryladder.taketest.images.ui.adapters.ImagesAdapter;
-import com.memoryladder.taketest.images.ui.adapters.TestSheet;
+import com.memoryladder.taketest.images.ui.adapters.OnStartDragListener;
+import com.memoryladder.taketest.images.ui.adapters.SimpleItemTouchHelperCallback;
+import com.memoryladder.taketest.images.models.TestSheet;
 import com.memoryladder.taketest.images.ui.viewmodel.ImagesViewModel;
 import com.memoryladder.taketest.images.ui.viewmodel.ImagesViewModelFactory;
 import com.memoryladder.taketest.scorepanel.Score;
@@ -32,13 +35,15 @@ import java.util.Objects;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ImagesGameManager extends Fragment implements GameManager {
+public class ImagesGameManager extends Fragment implements GameManager, OnStartDragListener {
 
     @BindView(R.id.grid_images) RecyclerView grid;
     @BindView(R.id.text_timer) TimerView timerView;
 
     private ImagesViewModel viewModel;
     private ImagesAdapter adapter;
+    private ItemTouchHelper mItemTouchHelper;
+    private GridLayoutManager layoutManager;
 
     ImagesSettings settings;
 
@@ -70,16 +75,35 @@ public class ImagesGameManager extends Fragment implements GameManager {
             binding.setViewModel(viewModel);
             binding.setLifecycleOwner(this);
 
-            // Grid Adapter
-            grid.setLayoutManager(new GridLayoutManager(getContext(), 6));
+            // Grid Layout Manager
+            layoutManager = new GridLayoutManager(getContext(), 26);
+            layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (position % 6 == 0)
+                        return 1;
+                    return 5;
+                }
+            });
+            grid.setLayoutManager(layoutManager);
 
             // Observe
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
-            viewModel.getTestSheet().observe(this, newTestSheet -> grid.setAdapter(adapter = new ImagesAdapter(newTestSheet)));
+            viewModel.getTestSheet().observe(this, newTestSheet -> {
+                grid.setAdapter(adapter = new ImagesAdapter(newTestSheet, this, layoutManager));
+                ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter);
+                mItemTouchHelper = new ItemTouchHelper(callback);
+                mItemTouchHelper.attachToRecyclerView(grid);
+            });
             viewModel.getGamePhase().observe(this, newGamePhase -> { if (adapter != null) adapter.setGamePhase(newGamePhase);});
         }
 
         return root;
+    }
+
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
     }
 
     private TestSheet getTestSheet(ImagesSettings settings) {
@@ -90,10 +114,11 @@ public class ImagesGameManager extends Fragment implements GameManager {
         Resources res = getResources();
         String packageName = Objects.requireNonNull(getActivity()).getPackageName();
 
-        int imageCount = 200;
+        int start = settings.isFullImageDataSet() ? 200 : 0;
+        int end = settings.isFullImageDataSet() ? 1087 : 199;
 
-        List<Integer> images = new ArrayList<>(imageCount);
-        for (int i=0; i < imageCount; i++)
+        List<Integer> images = new ArrayList<>(end + 1 - start);
+        for (int i=start; i<end; i++)
             images.add(res.getIdentifier("image"+i, "drawable", packageName));
 
         return images;
@@ -106,6 +131,9 @@ public class ImagesGameManager extends Fragment implements GameManager {
         }
         else if (phase == GamePhase.RECALL) {
             viewModel.sortImagesForRecall();
+        }
+        else if (phase == GamePhase.REVIEW) {
+            viewModel.sortUnattemptedRowsForReview();
         }
 
         viewModel.setGamePhase(phase);

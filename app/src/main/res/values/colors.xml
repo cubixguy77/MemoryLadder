@@ -2,13 +2,17 @@
 <resources>
     <color name="colorPrimary">#4CAF50</color>
     <color name="colorPrimaryDark">#064e09</color>
-    <color name="colorAccent">#051bae</color>
+    <color name="colorAccent">#749FE9</color>
 
     <color name="orange">#aaff9900</color>
     <color name="yellow">#fffcff00</color>
     <color name="grey">#5c5c5c</color>
     <color name="greyLight">#7a7f91</color>
     <color name="green">@color/colorPrimary</color>
+    <color name="greenLight">#9FDC88</color>
+    <color name="redLight">#EB7971</color>
+    <color name="blueLight">@color/colorAccent</color>
+    <color name="blueDark">#427FEB</color>
 
     <color name="activity_background">@color/grey</color>
 
@@ -17,10 +21,12 @@
 
     <color name="keyboard_highlightRecallDigits">#efefef</color>
 
-
     <color name="words_list_background">#b5b5b5</color>
 
-    <color name="gradeCorrect">#9FDC88</color>
-    <color name="gradeWrong">#FF5656</color>
+    <color name="images_list_item_background">@color/blueLight</color>
+    <color name="images_list_item_background_selected">@color/blueDark</color>
+
+    <color name="gradeCorrect">@color/greenLight</color>
+    <color name="gradeWrong">@color/redLight</color>
     <color name="gradeBlank">#FFDFDD</color>
 </resources>
