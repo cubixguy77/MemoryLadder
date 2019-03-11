@@ -357,7 +357,7 @@ public class SettingLoader {
                 memTime         = prefs.getInt("ABSTRACT_memTime", Constants.default_abstract_memTime);
                 recallTime      = prefs.getInt("ABSTRACT_recallTime", Constants.default_abstract_recallTime);
 
-                settings.add(new NumberSetting("numRows", "", "Number of rows:", numRows, 1, 35, true));
+                settings.add(new NumberSetting("numRows", "", "Number of rows:", numRows, 1, 100, true));
                 settings.add(new NumberSetting("numCols", "", "Number of Columns:", numCols, 5, 5, false));
                 settings.add(new TimeSetting("memTime", "", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "", "Recall Time:", recallTime));

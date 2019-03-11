@@ -10,7 +10,7 @@
     <color name="greyLight">#7a7f91</color>
     <color name="green">@color/colorPrimary</color>
     <color name="greenLight">#9FDC88</color>
-    <color name="redLight">#EB7971</color>
+    <color name="redLight">#EC6A61</color>
     <color name="blueLight">@color/colorAccent</color>
     <color name="blueDark">#427FEB</color>
 

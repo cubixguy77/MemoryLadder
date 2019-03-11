@@ -128,4 +128,11 @@
     <dimen name="words.list.icon.marginright">32dp</dimen>
     <dimen name="words.list.rowheight">80dp</dimen>
 
+    <!-- Images -->
+    <dimen name="images.image.height">100dp</dimen>
+    <dimen name="images.index.textSizes">12sp</dimen>
+    <dimen name="images.rownum.width">14dp</dimen>
+    <dimen name="images.rownum.textSize">12sp</dimen>
+
+
 </resources>

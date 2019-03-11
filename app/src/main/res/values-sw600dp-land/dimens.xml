@@ -20,4 +20,9 @@
     <!-- Cards -->
     <dimen name="suit_selector.height">56dp</dimen>
     <dimen name="small_card.rank.size">28sp</dimen>
+
+    <!-- Images -->
+    <dimen name="images.image.height">160dp</dimen>
+    <dimen name="images.rownum.width">28dp</dimen>
+
 </resources>

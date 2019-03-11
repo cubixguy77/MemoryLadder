@@ -31,4 +31,12 @@
     <!-- Cards -->
     <dimen name="small_card.suit.size">17dp</dimen>
     <dimen name="small_card.rank.size">15sp</dimen>
+
+
+    <!-- Images -->
+    <dimen name="images.image.height">100dp</dimen>
+    <dimen name="images.index.textSizes">12sp</dimen>
+    <dimen name="images.rownum.width">20dp</dimen>
+    <dimen name="images.rownum.textSize">12sp</dimen>
+
 </resources>

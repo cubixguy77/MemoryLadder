@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
     android:id="@+id/text_row_num"
-    android:layout_width="20dp"
+    android:layout_width="@dimen/images.rownum.width"
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
@@ -9,7 +9,7 @@
     android:background="@color/colorPrimary"
     android:textAlignment="center"
     android:textColor="@android:color/white"
-    android:textSize="14sp"
+    android:textSize="@dimen/images.rownum.textSize"
     tools:text="1"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
