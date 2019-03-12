@@ -110,7 +110,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "WRITTEN_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "WRITTEN_numCols", "Digits per Row:", numCols, 1, 40, true));
-                settings.add(new NumberSetting("digitsPerGroup", "WRITTEN_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
+                settings.add(new NumberSetting("digitsPerGroup", "WRITTEN_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 6, true));
                 settings.add(new NumberSetting("base", "WRITTEN_base", "Base:", 10, 10, 10, false));
                 settings.add(new SwitchSetting("mnemo_enabled", "WRITTEN_mnemo", "Mnemo Hint:", mnemo_enabled, true));
                 settings.add(new TimeSetting("memTime", "WRITTEN_memTime", "Memorization Time:", memTime));

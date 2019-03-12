@@ -139,6 +139,9 @@ public class WrittenNumberData implements Parcelable {
             case 1: return new String(new char[] { getCharAt(pos)});//, EMPTY_SPACE,          EMPTY_SPACE });
             case 2: return new String(new char[] { getCharAt(pos), getCharAt(pos+1) });
             case 3: return new String(new char[] { getCharAt(pos), getCharAt(pos+1), getCharAt(pos+2) });
+            case 4: return new String(new char[] { getCharAt(pos), getCharAt(pos+1), getCharAt(pos+2), getCharAt(pos+3) });
+            case 5: return new String(new char[] { getCharAt(pos), getCharAt(pos+1), getCharAt(pos+2), getCharAt(pos+3), getCharAt(pos+4) });
+            case 6: return new String(new char[] { getCharAt(pos), getCharAt(pos+1), getCharAt(pos+2), getCharAt(pos+3), getCharAt(pos+4), getCharAt(pos+5) });
             default: return "x";
         }
     }
@@ -196,7 +199,10 @@ public class WrittenNumberData implements Parcelable {
     public boolean isHighlighted(int pos) {
         return this.highlightPos == pos ||
                 (digitsPerGroup >= 2 && this.highlightPos + 1 == pos) ||
-                (digitsPerGroup >= 3 && this.highlightPos + 2 == pos);
+                (digitsPerGroup >= 3 && this.highlightPos + 2 == pos) ||
+                (digitsPerGroup >= 4 && this.highlightPos + 3 == pos) ||
+                (digitsPerGroup >= 5 && this.highlightPos + 4 == pos) ||
+                (digitsPerGroup >= 6 && this.highlightPos + 5 == pos);
     }
 
     /*
