@@ -88,4 +88,12 @@
     <dimen name="words.list.reviewtext.size">36sp</dimen>
     <dimen name="words.list.margins">64dp</dimen>
     <dimen name="words.list.rowheight">100dp</dimen>
+
+
+    <!-- Images -->
+    <dimen name="images.image.height">120dp</dimen>
+    <dimen name="images.index.textSizes">16sp</dimen>
+    <dimen name="images.rownum.width">20dp</dimen>
+    <dimen name="images.rownum.textSize">16sp</dimen>
+
 </resources>

@@ -115,7 +115,7 @@ public class Constants {
             case LISTS_WORDS: return GameActivity.class;
             case LISTS_EVENTS: return Lists_Mem.class;
             case SHAPES_FACES: return GameActivity.class;
-            case SHAPES_ABSTRACT: return Shapes_Mem.class;
+            case SHAPES_ABSTRACT: return GameActivity.class;
             case CARDS_LONG: return GameActivity.class;
             default: return Numbers_Mem.class;
         }

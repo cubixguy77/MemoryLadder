@@ -30,8 +30,6 @@ import com.memoryladder.Utils;
 import com.jjoe64.graphview.series.DataPoint;
 import com.mastersofmemory.memoryladder.R;
 
-import java.util.Objects;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;

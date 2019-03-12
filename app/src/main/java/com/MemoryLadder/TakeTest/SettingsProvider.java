@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.memoryladder.Constants;
 import com.memoryladder.taketest.cards.CardSettings;
+import com.memoryladder.taketest.images.settings.ImagesSettings;
 import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
 import com.memoryladder.taketest.writtennumbers.WrittenNumbersSettings;
@@ -58,5 +59,11 @@ class SettingsProvider {
         int numFaces              = i.getIntExtra("numFaces",     -1);
         boolean fullFaceDataSet   = i.getIntExtra("fullFaceDataSet", 1) == 1;
         return new NamesAndFacesSettings(numFaces, fullFaceDataSet);
+    }
+
+    static ImagesSettings getImagesSettings(Intent i) {
+        int numRows = i.getIntExtra("numRows",     -1);
+        boolean fullImageDataSet   = i.getIntExtra("fullImageDataSet", 1) == 1;
+        return new ImagesSettings(numRows, fullImageDataSet);
     }
 }
