@@ -44,7 +44,7 @@
     <string name="shapes_faces_point3">There is no penalty for guessing.</string>
     <string name="shapes_faces_addon1">Points are still awarded if only the first or last name is recalled. The faces will be shuffled at the start of recall.</string>
     
-    <string name="shapes_images_about">In this test, you will be presented with several rows of abstract images, with each row containing 5 images. On the recall page, the sequence of the images will be shuffled within each individual row (the rows remain in the same order). Contestants must write a number under each image indicating its original position (reading from left to right). Your job is to commit to memory and recall the original sequence of images within as many rows as possible in the time allotted.</string>
+    <string name="shapes_images_about">In this test, you will be presented with several rows of abstract images, with each row containing 5 images. On the recall page, the sequence of the images will be shuffled within each individual row (the rows remain in the same order). You must rearrange the images back to their original position (reading from left to right). Your job is to commit to memory and recall the original sequence of images within as many rows as possible in the time allotted.</string>
     <string name="shapes_images_point1">5 points are awarded for each correct row.</string>
     <string name="shapes_images_point2">1 point is deducted for each incorrectly attempted row.</string>
     <string name="shapes_images_point3">No points are awarded or deducted for rows that are not attempted.</string>    
