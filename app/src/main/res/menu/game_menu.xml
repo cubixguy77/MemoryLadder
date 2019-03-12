@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_finished_mem"
         app:showAsAction="withText|always"
-        android:title="Finish">
+        android:title="Recall">
     </item>
 
     <item
