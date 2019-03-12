@@ -156,7 +156,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "BINARY_numRows", "Number of Rows:", numRows, 1, 200, true));
                 settings.add(new NumberSetting("numCols", "BINARY_numCols", "Digits per Row:", numCols, 1, 40, true));
-                settings.add(new NumberSetting("digitsPerGroup", "BINARY_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 3, true));
+                settings.add(new NumberSetting("digitsPerGroup", "BINARY_digitsPerGroup", "Digits per Group:", digitsPerGroup, 1, 6, true));
                 settings.add(new NumberSetting("base", "BINARY_base", "Base:", 2, 2, 2, false));
                 settings.add(new TimeSetting("memTime", "BINARY_memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "BINARY_recallTime", "Recall Time:", recallTime));

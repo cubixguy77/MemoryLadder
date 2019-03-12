@@ -2,6 +2,7 @@
 <changelog bulletedList="true">
     <changelogversion versionName="2.1.1" changeDate="March 15, 2019">
         <changelogtext>[font color=black]Redesigns the abstract images challenge, and adds hundreds of new high quality images to the collection (in unlocked play only).[/font]</changelogtext>
+        <changelogtext>[font color=black]You can now memorize in groups of up to 6 at a time in the numbers events.[/font]</changelogtext>
     </changelogversion>
 
     <changelogversion versionName="2.1.0" changeDate="Feb 28, 2019">
