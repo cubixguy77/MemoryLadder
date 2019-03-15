@@ -70,6 +70,7 @@
     <string name="night_mode_toggle">Night Mode Toggle</string>
 	<string name="wordCount">%d Words</string>
 	<string name="faceCount">%d Faces</string>
+	<string name="dateCount">%d Dates</string>
 	<string name="rowCount">%d Rows</string>
 	<string name="columnIndicator">Column %d of %d</string>
     <string name="prev_column">Previous Column</string>
@@ -4298,7 +4299,7 @@
 	<item>zucchini</item>
 </string-array>
 
-<string-array name="historicaldates1">
+<string-array name="historical_dates_steps">
     <item>Jack Sparrow is hanged</item>
 	<item>The horse cart is discovered</item>
 	<item>First shopping mall opened</item>
@@ -4479,8 +4480,6 @@
 	<item>Rum becomes favorite drink</item>
 	<item>Plastic flowers planted in park</item>
 	<item>Child gets into trouble</item>
-</string-array>
-<string-array name="historicaldates2">
 	<item>Bird catches fly</item>
 	<item>Celebrity marries postman</item>
 	<item>Mystery writer found dead</item>
@@ -4552,7 +4551,7 @@
 	<item>New species of fish discovered on reef</item>
 	<item>Computers become more intelligent than people</item>
 	<item>Mystery plant found in greenhouse</item>
-	<item> year old man celebrates birthday</item>
+	<item>90 year old man celebrates birthday</item>
 	<item>Dieter loses Kg</item>
 	<item>Fish drowned in flooding</item>
 	<item>United States president resigns</item>
@@ -4660,7 +4659,424 @@
 	<item>Straight bananas discovered</item>
 	<item>Blues played at \'Happiness Conference\'</item>
 </string-array>
-<string-array name="historicaldates3">
+<string-array name="historical_dates_custom">
+	<item>Dentist repairs teeth with wood</item>
+	<item>Jupiter\'s moons colonised</item>
+	<item>Intermet makes TV broadcasts obsolete</item>
+	<item>Rare butterfly photographed</item>
+	<item>Library book returned 59 years late</item>
+	<item>Bus driver forgets route</item>
+	<item>Sequel to best-selling novel flops</item>
+	<item>Farmer breeds sheep with red fleece</item>
+	<item>Bull fight is injured</item>
+	<item>Robots go on strike</item>
+	<item>New fashion - wearing hats made of fruit</item>
+	<item>Bangra dancing is worldwide craze</item>
+	<item>Airline pilot foils hijack</item>
+	<item>Night club opens</item>
+	<item>Space rocket explodes on launch pad</item>
+	<item>Military hero returns home</item>
+	<item>Opera singer loses voice</item>
+	<item>International Space Station completed</item>
+	<item>Cricket team wins test match</item>
+	<item>Cook bakes world\'s biggest cake</item>
+	<item>Inventor designs mouse trap</item>
+	<item>Time flows backwards</item>
+	<item>FLorist shop opens new branch</item>
+	<item>Bollywood film is most popular release of year</item>
+	<item>Global creativity in short supply</item>
+	<item>Newspaper folds</item>
+	<item>Nuclear power station declared safe</item>
+	<item>Dinosaurs are getting cloned</item>
+	<item>Aliens are landing on earth</item>
+	<item>Bacon cools on a plate</item>
+	<item>Puppy discovers piglet</item>
+	<item>Apple found on moon</item>
+	<item>Jockey drinks coffee</item>
+	<item>Manager writes on wet fish</item>
+	<item>Elephant discovers brother</item>
+	<item>Termite attacks forest</item>
+	<item>Hollywood hires Mary</item>
+	<item>Man adopts fish</item>
+	<item>Monk makes a mobile</item>
+	<item>Television documentary airs on Pluto</item>
+	<item>Doctor travels to South Pole</item>
+	<item>Warrior arrives in Thailand</item>
+	<item>New language invented</item>
+	<item>Ducks shake forest</item>
+	<item>Scout protects hockey net</item>
+	<item>Nun steals from poor</item>
+	<item>Soccer game played</item>
+	<item>Food dyes stored in hamper</item>
+	<item>Hairdresser travels around the world</item>
+	<item>Revolution in China</item>
+	<item>Bort license plates sell out</item>
+	<item>Top blanks merge into super bank</item>
+	<item>Doping athlete receives sentence</item>
+	<item>Government denies use of spy satellite</item>
+	<item>Global warming accelerates</item>
+	<item>Playtime declared fun</item>
+	<item>Lone programmer eats entire pizza</item>
+	<item>Aerospace startup fails to launch</item>
+	<item>Jack Sparrow is hanged</item>
+	<item>The horse cart is discovered</item>
+	<item>First shopping mall opened</item>
+	<item>Bush visits Pluto</item>
+	<item>The CIA is formed</item>
+	<item>Formal education ends</item>
+	<item>Labor union hunger strike</item>
+	<item>Cars are fueled by air</item>
+	<item>Elvis is born</item>
+	<item>The ozone layer is depleted by half</item>
+	<item>Man starts the first newspaper</item>
+	<item>The last eunuch of China dies</item>
+	<item>Rapunzel marries the king</item>
+	<item>Japanese actor wins an Oscar</item>
+	<item>Elvis is found still alive</item>
+	<item>First trans-oceanic cycling service</item>
+	<item>First US Marine unit formed</item>
+	<item>Chinese Emperor visits Pakistan</item>
+	<item>Halloween is declared a public holiday</item>
+	<item>First Civil War in Europe</item>
+	<item>“No Rain” year</item>
+	<item>Humans drink through the ear</item>
+	<item>First Space War</item>
+	<item>Man discovers bread</item>
+	<item>Basketball becomes very popular</item>
+	<item>Jenny dates Marlow</item>
+	<item>Cotton is widely exported</item>
+	<item>First auction sale in Malaysia</item>
+	<item>Color photography invented</item>
+	<item>Mobile phones are banned from schools</item>
+	<item>Dog eats worm</item>
+	<item>Honey is used as medication</item>
+	<item>Man discovers BBQ cooking style</item>
+	<item>Andalusia gains independence</item>
+	<item>The Third World War</item>
+	<item>Man starts to wear shoes</item>
+	<item>Motorcycle can reverse</item>
+	<item>A camel walks across the Gulf</item>
+	<item>World peace initiatives</item>
+	<item>First language recorded</item>
+	<item>Chocolate can cure insomnia</item>
+	<item>Chimpanzees learn how to swim</item>
+	<item>First inter-racial marriage</item>
+	<item>Watermelon is used to cure cancer</item>
+	<item>Monkeys start to write</item>
+	<item>Bread is declared a brain nutrient</item>
+	<item>The Stone Age turns into civilization</item>
+	<item>The first Mental Olympics</item>
+	<item>Men are couriered to Venus</item>
+	<item>Espionage is declared illegal</item>
+	<item>Mental literacy is achieved</item>
+	<item>Discovery of the Mechanics Theory</item>
+	<item>US satellite shot down</item>
+	<item>A chicken lands on the moon</item>
+	<item>The Chinese cross the Indian Ocean</item>
+	<item>First undersea disco completed</item>
+	<item>Mars moves further away</item>
+	<item>The first shoe factory is built</item>
+	<item>Rhinoceroses become extinct</item>
+	<item>The greatest tsunami in Japan</item>
+	<item>Tobacco companies stop operations</item>
+	<item>UFO lands in San Francisco</item>
+	<item>Spaghetti is made the national food</item>
+	<item>Monkeys stop talking</item>
+	<item>Walt Disney produces artificial eyes</item>
+	<item>The Cultural Revolution ends</item>
+	<item>A factory produces the first Air Nike</item>
+	<item>Man stops sweating</item>
+	<item>Houdini’s greatest escape</item>
+	<item>The world’s largest building burns down</item>
+	<item>Arabians eat with chopsticks</item>
+	<item>Polygamy is widely accepted</item>
+	<item>Oxygen is worth more than diamonds</item>
+	<item>Women are allowed to work</item>
+	<item>First United Nations elections</item>
+	<item>An ostrich lays the biggest egg</item>
+	<item>Jeans are first worn</item>
+	<item>First billionaire from the memory industry</item>
+	<item>Ornithologist spots rare bird</item>
+	<item>Water rationing starts</item>
+	<item>Diamond ring is valued at a million dollars</item>
+	<item>Tree is cut down by lumberjack</item>
+	<item>Cricket team win match</item>
+	<item>Painting is stolen from gallery</item>
+	<item>Asteroid collides with Earth</item>
+	<item>Cat chases dog</item>
+	<item>Chef creates new dish</item>
+	<item>Post office raises price of stamps</item>
+	<item>Terrorist is captured</item>
+	<item>Computer beats backgammon champion</item>
+	<item>Film breaks box-office records</item>
+	<item>Cancer cure is discovered in rainforest</item>
+	<item>New planet is discovered</item>
+	<item>Hottest day ever recorded</item>
+	<item>Speaker gets standing ovation</item>
+	<item>Man walks across Africa</item>
+	<item>New play opens on Broadway</item>
+	<item>American actor wins Academy Award</item>
+	<item>Butcher makes award winning sausage</item>
+	<item>Volcano erupts</item>
+	<item>Pneumonia kills grandmother</item>
+	<item>New airplane takes to the sky</item>
+	<item>Astronaut travels to Mars</item>
+	<item>County declares independence</item>
+	<item>Newspaper publishes apology</item>
+	<item>Campaigner wins legal case</item>
+	<item>Plumber learns to tap-dance</item>
+	<item>Politician tells the truth</item>
+	<item>Royal wedding takes place</item>
+	<item>Glazier fits new window</item>
+	<item>New radio station goes on-air</item>
+	<item>Elephant escapes from zoo</item>
+	<item>First democratic elections held</item>
+	<item>Hay fever sufferer is cured</item>
+	<item>New country discovered by explorer</item>
+	<item>Hotel opens for business</item>
+	<item>Schoolboy passes exam</item>
+	<item>Caveman discovers fire</item>
+	<item>Exhibition attracts record visitor numbers</item>
+	<item>Composer writes concerto</item>
+	<item>Doctor cures disease</item>
+	<item>Butterfly species becomes extinct</item>
+	<item>First contact with extraterrestrial life</item>
+	<item>Lawyer wins court case</item>
+	<item>Card player is banned from casino</item>
+	<item>Rocket launch is delayed by bad weather</item>
+	<item>War ends</item>
+	<item>Financial adviser is arrested</item>
+	<item>Duck is shot by hunter</item>
+	<item>Cabinet minister resigns over scandal</item>
+	<item>President undergoes heart surgery</item>
+	<item>First African pope is elected</item>
+	<item>First domestic robot comes onto the market</item>
+	<item>New statue is unveiled</item>
+	<item>Stock prices reach a record high</item>
+	<item>Rock star cancels World tour</item>
+	<item>Insomnia is cured</item>
+	<item>Car driver fined for speeding</item>
+	<item>Factory closes</item>
+	<item>Inventor builds time machine</item>
+	<item>Crime rate drops</item>
+	<item>Farmer buys a new tractor</item>
+	<item>Company appoints new Chairman</item>
+	<item>Journalist reveals security lapse</item>
+	<item>Ship sets sail on maiden voyage</item>
+	<item>Sailor leaves Navy</item>
+	<item>Musical breaks box-office records</item>
+	<item>Athlete wins silver medal at Olympic Games</item>
+	<item>Coal mine opens</item>
+	<item>House prices fall</item>
+	<item>Missile hits South Pole</item>
+	<item>Alien defeats monster</item>
+	<item>Canada joins America</item>
+	<item>Kitten attacks toy dog</item>
+	<item>Explorer finds Atlantis</item>
+	<item>Mouse eats Elephant</item>
+	<item>Bucket springs big leak</item>
+	<item>Teacher plays in rock band</item>
+	<item>Calendar girls wear pajamas</item>
+	<item>Fat man wins marathon</item>
+	<item>Scouts repair graffiti</item>
+	<item>Famous sisters go missing</item>
+	<item>Footballers sing on stage</item>
+	<item>Elephants turn pink</item>
+	<item>First indoor rainstorm</item>
+	<item>Bowler strikes cricket fan</item>
+	<item>Farmer wants a boyfriend</item>
+	<item>Vacuum swallows snake</item>
+	<item>Spring is in the air</item>
+	<item>Football is banned in Brazil</item>
+	<item>Green plastic boxes break</item>
+	<item>Cool pencils are lost</item>
+	<item>Little girl eats liver</item>
+	<item>Speaker runs from house</item>
+	<item>French men are polite</item>
+	<item>Hollywood moves to China</item>
+	<item>Sharks attack American fleet</item>
+	<item>Rum becomes favorite drink</item>
+	<item>Plastic flowers planted in park</item>
+	<item>Child gets into trouble</item>
+	<item>Bird catches fly</item>
+	<item>Celebrity marries postman</item>
+	<item>Mystery writer found dead</item>
+	<item>Professor files patent</item>
+	<item>New bridge is built</item>
+	<item>Astronomer observes comet</item>
+	<item>Auctioneers sell vase</item>
+	<item>Electric light replaces gas lamps in city</item>
+	<item>Woman gives birth to twins</item>
+	<item>Soldier dies in battle</item>
+	<item>Singer loses voice</item>
+	<item>Industrial revolution begins</item>
+	<item>Millionaire donates money to charity</item>
+	<item>Drugs smuggler is caught by customs</item>
+	<item>Teacher punishes misbehaving pupil</item>
+	<item>Author writes bestseller</item>
+	<item>King loses crown</item>
+	<item>World poverty ends</item>
+	<item>Pensioner runs London marathon</item>
+	<item>New soft drink goes on sale</item>
+	<item>Photographer wins prize</item>
+	<item>Naturalist discovers new plant species</item>
+	<item>Fashion designer stages first show</item>
+	<item>Battle takes place</item>
+	<item>Billionth e-mail is sent</item>
+	<item>Government introduces controversial new law</item>
+	<item>Egyptologist translates hieroglyphics</item>
+	<item>Shark attacks surfer</item>
+	<item>Ballet production praised by critics</item>
+	<item>Lightning strikes church spire</item>
+	<item>Magician disappears</item>
+	<item>Banker sent to jail</item>
+	<item>King abdicates</item>
+	<item>Internet company makes record profits</item>
+	<item>Paper is invented</item>
+	<item>Emperor is assassinated</item>
+	<item>Shark sited in river</item>
+	<item>Stock market prices crash</item>
+	<item>Aliens invade Belgium</item>
+	<item>Taxes cut by city council</item>
+	<item>Rare postage stamp auctioned for record price</item>
+	<item>Toxic waste dumped at sea</item>
+	<item>Anti-gravity boots go on sale</item>
+	<item>Last ice at North Pole melts</item>
+	<item>Detective solves crime</item>
+	<item>Police armed with laser guns</item>
+	<item>Ballet dancer makes final performance</item>
+	<item>Dinosaur skeleton discovered</item>
+	<item>Composer copyrights birdsong</item>
+	<item>Golf tournament won by seven-year-old</item>
+	<item>Concert raises record amount for charity</item>
+	<item>Pop star revealed miming</item>
+	<item>Fraudster captured</item>
+	<item>New art exhibition opens</item>
+	<item>Businessman jailed</item>
+	<item>Prisoner moved to low security jail</item>
+	<item>School holds reunion for former pupils</item>
+	<item>Orator makes historic speech</item>
+	<item>Warship sinks in battle</item>
+	<item>Hunter kills lion</item>
+	<item>Bridge built across Atlantic Ocean</item>
+	<item>Elephant enters memory championships</item>
+	<item>Olive grove is planted</item>
+	<item>Pianist gets standing ovation</item>
+	<item>Woman climbs tall mountain</item>
+	<item>Golden temple built</item>
+	<item>Village church built</item>
+	<item>Poet wins award</item>
+	<item>New species of fish discovered on reef</item>
+	<item>Computers become more intelligent than people</item>
+	<item>Mystery plant found in greenhouse</item>
+	<item>90 year old man celebrates birthday</item>
+	<item>Dieter loses Kg</item>
+	<item>Fish drowned in flooding</item>
+	<item>United States president resigns</item>
+	<item>Chimpanzee elected to parliament</item>
+	<item>Knight killed in battle</item>
+	<item>Play closes after first performance</item>
+	<item>Cinema opens</item>
+	<item>Artist paints portrait of rock star</item>
+	<item>Man chokes on peanut</item>
+	<item>Ancient text is deciphered</item>
+	<item>Billionaire donates entire fortune to charity</item>
+	<item>Highwayman robs stagecoach</item>
+	<item>Clothing shop makes record profits</item>
+	<item>First artificial satellite orbits Neptune</item>
+	<item>First genetically modified flying pig</item>
+	<item>Drug recalled due to safety fears</item>
+	<item>Crime figures fall</item>
+	<item>Water powered car invented</item>
+	<item>Record breaking summer temperatures</item>
+	<item>Traitor is publicly executed</item>
+	<item>Village quarantined after disease outbreak</item>
+	<item>Hijacker overpowered by airline passengers</item>
+	<item>Spider escapes from zoo</item>
+	<item>Alpine ski slopes close due to lack of snow</item>
+	<item>World\'s largest diamond discovered</item>
+	<item>World shortage of tomato sauce</item>
+	<item>Last dragon slain</item>
+	<item>Castle repels invaders</item>
+	<item>Radio station broadcasts silence</item>
+	<item>Tallest tree struck by lightening</item>
+	<item>New production by leading playwright opens</item>
+	<item>Ghost hunter dies of fright</item>
+	<item>Meat shortage causes price rise</item>
+	<item>Dancer breaks leg</item>
+	<item>Actor breaks leg</item>
+	<item>Journalist investigates corruption</item>
+	<item>Forest fires sweep world</item>
+	<item>Pirates loot merchant ship</item>
+	<item>Heiress marries road sweeper</item>
+	<item>Oil well runs dry</item>
+	<item>Most expensive bottle of wine is drunk</item>
+	<item>Paper becomes obsolete</item>
+	<item>Oasis discovered in desert</item>
+	<item>Champion racehorse disappears</item>
+	<item>Gardener eaten by carnivorous plant</item>
+	<item>Council workers strike</item>
+	<item>Mathematician solves equation</item>
+	<item>Best selling book withdrawn from shops</item>
+	<item>Movie star auctions dresses</item>
+	<item>New king is crowned</item>
+	<item>First cheese factory opens on the moon</item>
+	<item>World\'s tallest building erected</item>
+	<item>Explorer sets sail</item>
+	<item>Asteroid impact wipes out city</item>
+	<item>Telephone call charges rise</item>
+	<item>Steam train breaks speed record</item>
+	<item>Lost tribe discovered in rainforest</item>
+	<item>New chemical element discovered</item>
+	<item>First Chinese woman on the moon</item>
+	<item>Dogs must buy an owner license</item>
+	<item>First democratic elections</item>
+	<item>Frenchman wins World Chess championships</item>
+	<item>First successful eye transplant</item>
+	<item>Alcohol made illegal in Europe</item>
+	<item>Volcano erupts</item>
+	<item>Internet closes down</item>
+	<item>Actor fails audition</item>
+	<item>Dentist arrested for torturing patient</item>
+	<item>King\'s tomb excavated by archaeologists</item>
+	<item>First fusion PowerStation opens</item>
+	<item>Sea monster captured by fisherman</item>
+	<item>Opera singer catches laryngitis</item>
+	<item>Queen makes bungee jump</item>
+	<item>World custard shortage</item>
+	<item>Explorer discovers Isle of Wight</item>
+	<item>Artist sells blank canvas</item>
+	<item>Chef poisons diner</item>
+	<item>Fox jumps over the moon</item>
+	<item>Sea Eagle catches fish</item>
+	<item>Mist-free glasses invented</item>
+	<item>Lamp turns people off</item>
+	<item>Concert tickets sold to aliens</item>
+	<item>Cat calls home</item>
+	<item>Saturn invades Jupiter</item>
+	<item>Television becomes obsolete</item>
+	<item>Man washes dinner dishes</item>
+	<item>Soccer is played under water</item>
+	<item>Short trousers are stolen</item>
+	<item>Large weapons banned</item>
+	<item>Mermaid kisses fish</item>
+	<item>Mime sings opera</item>
+	<item>Bottle found in stream</item>
+	<item>Fans boo favorite player</item>
+	<item>Photos become history</item>
+	<item>Girl flies around the world</item>
+	<item>Fortune gambled on ship</item>
+	<item>Husband removes old car</item>
+	<item>Actress dyes her hair</item>
+	<item>Walrus sings on Broadway</item>
+	<item>Turtle swims in bath tub</item>
+	<item>Teenager saves Universe</item>
+	<item>Mirror shows Queen\'s age</item>
+	<item>Runner cools his feet in ice bucket</item>
+	<item>Sun shines on future</item>
+	<item>Ice skater cries foul</item>
+	<item>Straight bananas discovered</item>
+	<item>Blues played at \'Happiness Conference\'</item>
 	<item>Government loses secret files</item>
 	<item>Tap dancing spider wins talent contest</item>
 	<item>Mnemonist breaks world record</item>
@@ -4839,8 +5255,6 @@
 	<item>Rabbit follows Alice</item>
 	<item>Granddad loses hairpiece</item>
 	<item>Da Vinci steals statue</item>
-</string-array>
-<string-array name="historicaldates4">
 	<item>English tennis player wins Wimbledon</item>
 	<item>Wolf eats grandmother</item>
 	<item>Cat burglar steals cream</item>
@@ -5020,8 +5434,6 @@
 	<item>Carpenter cuts square hole</item>
 	<item>Home delivery is cancelled</item>
 	<item>Hockey player scores own goal</item>
-</string-array>
-<string-array name="historicaldates5">
 	<item>Hydrogen powered cars replace petrol ones</item>
 	<item>New fashion - Wearing underpants on the outside</item>
 	<item>Dustmen strike over pay cuts</item>
@@ -5109,8 +5521,9 @@
 	<item>Candle burns alter boy</item>
 	<item>Panda chases men</item>
 	<item>Ice-cream cools hot chili</item>
+	<item>Panda learns kung fu</item>
+	<item>Man wears ugly sweater</item>
 </string-array>
-
 
 <string-array name="malenames">
         <item>Jonathon</item>

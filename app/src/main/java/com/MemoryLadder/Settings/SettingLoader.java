@@ -268,6 +268,7 @@ public class SettingLoader {
 
                 settings.add(new NumberSetting("numRows", "Number of dates:", numRows));
                 settings.add(new NumberSetting("numCols", "", "Number of Columns:", numCols, 1, 1, false));
+                settings.add(new SwitchSetting("fullDateList", "Full Event List", 0));
                 settings.add(new TimeSetting("memTime", "Memorization Time:", memTime));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));

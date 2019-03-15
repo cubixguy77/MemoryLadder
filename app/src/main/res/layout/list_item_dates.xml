@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tableLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="#123123">
+
+        <EditText
+            android:id="@+id/dates_input"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:maxLength="4"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:inputType="number"
+            tools:text="1984"
+            />
+
+        <TextView
+            android:id="@+id/dates_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:paddingLeft="4dp"
+            android:paddingStart="4dp"
+            android:paddingRight="4dp"
+            android:paddingEnd="4dp"
+            android:textSize="24sp"
+            tools:text="1972"
+            />
+
+        <TextView
+            android:id="@+id/dates_event_details_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="start|center_vertical"
+            android:textSize="24sp"
+            tools:text="Man lands on moon."
+            />
+</LinearLayout>
