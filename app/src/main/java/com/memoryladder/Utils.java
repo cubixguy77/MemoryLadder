@@ -6,7 +6,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.memoryladder.numberschallenges.Numbers_Review;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -44,33 +43,6 @@ public class Utils {
 		return list.subList(length - n, length);
 	}
 
-	public static int[] shuffleIntArray(int[] array) {
-		Integer[] temp = new Integer[array.length];
-		for (int i=0; i<array.length; i++) {
-			temp[i] = array[i];
-		}
-		Collections.shuffle(Arrays.asList(temp));
-		for (int i=0; i<array.length; i++) {
-    		array[i] = temp[i];
-    	}
-		return array;
- 	}
-	
-	public static int[] shuffleIntArrayByRow(int[] array, int numRows, int numCols) {
-		Integer[] temp = new Integer[numCols];
-		for (int row=0; row<numRows; row++) {			
-			for (int col=0; col<numCols; col++) {
-				temp[col] = array[(row * numCols) + col];
-			}			
-			Collections.shuffle(Arrays.asList(temp));			
-			for (int col=0; col<numCols; col++) {
-				array[(row * numCols) + col] = temp[col];
-			}
-		}
-		return array;
- 	}
-
-		
 	private static int[] getSpecsSteps(int gameType, int step) {
 		switch (gameType) {
 	        case 1:  return Constants.getSpecs_STEPS_Numbers(step);
