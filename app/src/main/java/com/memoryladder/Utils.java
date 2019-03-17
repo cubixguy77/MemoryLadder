@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.memoryladder.listschallenges.Lists_Review;
 import com.memoryladder.numberschallenges.Numbers_Review;
-import com.memoryladder.shapeschallenges.Shapes_Review;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -98,10 +96,6 @@ public class Utils {
 	        case Constants.NUMBERS_SPEED:  return Numbers_Review.class;
 	        case Constants.NUMBERS_BINARY:  return Numbers_Review.class;
 	        case Constants.NUMBERS_SPOKEN:  return Numbers_Review.class;
-	        case Constants.LISTS_WORDS:  return Lists_Review.class;
-	        case Constants.LISTS_EVENTS:  return Lists_Review.class;
-	        case Constants.SHAPES_FACES:  return Shapes_Review.class;
-	        case Constants.SHAPES_ABSTRACT:  return Shapes_Review.class;
         	default: return null;
 		}
     }

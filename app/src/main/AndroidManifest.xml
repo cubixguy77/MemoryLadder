@@ -67,30 +67,6 @@
             android:name="com.memoryladder.numberschallenges.Numbers_Review"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.memoryladder.shapeschallenges.Shapes_Mem"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.memoryladder.shapeschallenges.Shapes_Recall"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.memoryladder.shapeschallenges.Shapes_Review"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.memoryladder.listschallenges.Lists_Mem"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name="com.memoryladder.listschallenges.Lists_Recall"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name="com.memoryladder.listschallenges.Lists_Review"
-            android:screenOrientation="landscape" />
-        <activity
             android:name="com.memoryladder.taketest.GameActivity"
             android:label="@string/title_activity_card_prototype"
             android:windowSoftInputMode="adjustPan">

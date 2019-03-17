@@ -1,10 +1,8 @@
 package com.memoryladder;
 
 import com.memoryladder.taketest.GameActivity;
-import com.memoryladder.listschallenges.Lists_Mem;
 import com.memoryladder.numberschallenges.DigitSpeed;
 import com.memoryladder.numberschallenges.Numbers_Mem;
-import com.memoryladder.shapeschallenges.Shapes_Mem;
 
 public class Constants {
 	
