@@ -1,7 +1,5 @@
 package com.memoryladder.taketest.dates.models;
 
-import com.memoryladder.taketest.dates.ui.adapters.ReviewCellOutcome;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -17,12 +15,12 @@ public class TestSheet {
         return dates.get(position);
     }
 
-    public ReviewCellOutcome getOutcome(int position) {
-        return getDate(position).getResult();
-    }
-
     public void shuffleDates() {
         Collections.shuffle(dates);
+    }
+
+    public List<HistoricDate> getDates() {
+        return this.dates;
     }
 
     public int getDateCount() {

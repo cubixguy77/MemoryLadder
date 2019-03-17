@@ -23,7 +23,7 @@ public class HistoricDate {
         return result;
     }
 
-    public boolean isAttempted() {
+    private boolean isAttempted() {
         return recallDate != null && recallDate.length() > 0;
     }
 
