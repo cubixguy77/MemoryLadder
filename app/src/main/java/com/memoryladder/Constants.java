@@ -113,7 +113,7 @@ public class Constants {
             case NUMBERS_BINARY: return GameActivity.class;
             case NUMBERS_SPOKEN: return Numbers_Mem.class;
             case LISTS_WORDS: return GameActivity.class;
-            case LISTS_EVENTS: return Lists_Mem.class;
+            case LISTS_EVENTS: return GameActivity.class;
             case SHAPES_FACES: return GameActivity.class;
             case SHAPES_ABSTRACT: return GameActivity.class;
             case CARDS_LONG: return GameActivity.class;

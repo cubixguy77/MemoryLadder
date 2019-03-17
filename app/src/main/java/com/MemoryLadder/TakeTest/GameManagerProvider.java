@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.memoryladder.taketest.cards.CardGameManager;
+import com.memoryladder.taketest.dates.ui.DatesGameManager;
 import com.memoryladder.taketest.images.ui.ImagesGameManager;
 import com.memoryladder.taketest.namesandfaces.ui.NamesAndFacesGameManager;
 import com.memoryladder.taketest.randomwords.ui.RandomWordsGameManager;
@@ -26,7 +27,7 @@ class GameManagerProvider {
             case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_SPOKEN: return null;
             case LISTS_WORDS: return RandomWordsGameManager.newInstance(SettingsProvider.getRandomWordsSettings(intent));
-            case LISTS_EVENTS: return null;
+            case LISTS_EVENTS: return DatesGameManager.newInstance(SettingsProvider.getHistoricDatesSettings(intent));
             case SHAPES_FACES: return NamesAndFacesGameManager.newInstance(SettingsProvider.getNamesAndFacesSettings(intent));
             case SHAPES_ABSTRACT: return ImagesGameManager.newInstance(SettingsProvider.getImagesSettings(intent));
             case CARDS_LONG: return CardGameManager.newInstance(SettingsProvider.getCardSettings(intent));

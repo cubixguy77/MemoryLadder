@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 
 import com.memoryladder.Constants;
 import com.memoryladder.taketest.cards.CardSettings;
+import com.memoryladder.taketest.dates.settings.DatesSettings;
 import com.memoryladder.taketest.images.settings.ImagesSettings;
 import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
@@ -65,5 +66,11 @@ class SettingsProvider {
         int numRows = i.getIntExtra("numRows",     -1);
         boolean fullImageDataSet   = i.getIntExtra("fullImageDataSet", 1) == 1;
         return new ImagesSettings(numRows, fullImageDataSet);
+    }
+
+    static DatesSettings getHistoricDatesSettings(Intent i) {
+        int numDates = i.getIntExtra("numRows",     -1);
+        boolean fullImageDataSet   = i.getIntExtra("fullDateList", 1) == 1;
+        return new DatesSettings(numDates, fullImageDataSet);
     }
 }

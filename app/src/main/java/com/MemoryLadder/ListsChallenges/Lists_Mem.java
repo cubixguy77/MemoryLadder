@@ -329,35 +329,35 @@ public class Lists_Mem extends Activity implements OnClickListener, android.cont
 		int elementsperarray = (numstrings / 5) + 1;
 		int index = 0;
 				
-		String[] temp = getResources().getStringArray(R.array.historicaldates1);
+		String[] temp = getResources().getStringArray(R.array.historical_dates_custom);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
 			else output[index] = getRandomDate() + " " + temp[i];
 			index++;
 		}
-		temp = getResources().getStringArray(R.array.historicaldates2);
+		temp = getResources().getStringArray(R.array.historical_dates_custom);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
 			else output[index] = getRandomDate() + " " + temp[i];
 			index++;
 		}
-		temp = getResources().getStringArray(R.array.historicaldates3);
+		temp = getResources().getStringArray(R.array.historical_dates_custom);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
 			else output[index] = getRandomDate() + " " + temp[i];
 			index++;
 		}
-		temp = getResources().getStringArray(R.array.historicaldates4);
+		temp = getResources().getStringArray(R.array.historical_dates_custom);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
 			else output[index] = getRandomDate() + " " + temp[i];
 			index++;
 		}
-		temp = getResources().getStringArray(R.array.historicaldates5);
+		temp = getResources().getStringArray(R.array.historical_dates_custom);
 		Collections.shuffle(Arrays.asList(temp));
 		for (int i=0; i<elementsperarray; i++) {
 			if (index >= numstrings) return output;
