@@ -8,7 +8,6 @@ import android.arch.lifecycle.ViewModel;
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.numbers.spoken.models.TestSheet;
 import com.memoryladder.taketest.numbers.spoken.settings.SpokenNumbersSettings;
-import com.memoryladder.taketest.numbers.written.Keyboard.KeyListener;
 import com.memoryladder.taketest.scorepanel.Score;
 
 /**

@@ -139,7 +139,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
         if (userQuit)
             return;
 
-        if (index >= settings.getDigitCount())
+        if (index >= settings.getDigitCount() && getActivity() != null)
             ((GameActivity)getActivity()).setGamePhase(GamePhase.RECALL);
         else {
             this.viewModel.setHighlight(index);
@@ -233,21 +233,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     }
 
     @Override
-    public void render(GamePhase phase) {
-        //System.out.println("ML NamesAndFacesGameManager: render: " + phase.toString());
-        switch (phase) {
-            case PRE_MEMORIZATION:
-                break;
-            case MEMORIZATION:
-                break;
-            case RECALL:
-                break;
-            case REVIEW:
-                break;
-            default:
-                break;
-        }
-    }
+    public void render(GamePhase phase) {}
 
     @Override
     public Score getScore() {
@@ -255,8 +241,8 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     }
 
     @Override
-    public void onCellHighlighted(int index) {
-
+    public void onCellHighlighted(int pos) {
+		viewModel.setHighlight(pos);
     }
 
     private void refreshNightModeIcon() {

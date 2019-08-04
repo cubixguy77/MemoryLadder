@@ -45,7 +45,6 @@ public class SpokenNumberGridAdapter extends RecyclerView.Adapter<SpokenNumberGr
         this.testSheet = testSheet;
         this.nightMode = nightMode;
         this.drawGridLines = drawGridLines;
-        this.highlight = 2;
     }
 
     public void setNightMode(boolean nightMode) {
@@ -67,10 +66,6 @@ public class SpokenNumberGridAdapter extends RecyclerView.Adapter<SpokenNumberGr
         this.highlight = position;
         notifyDataSetChanged();
     }
-
-    //public void clearHighlight() {
-    //    this.highlight = -1;
-    //}
 
     // inflates the cell layout from xml when needed
     @NonNull

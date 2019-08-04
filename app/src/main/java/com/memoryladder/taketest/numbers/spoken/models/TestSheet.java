@@ -10,18 +10,7 @@ public class TestSheet {
     private char[] memoryData;
     private char[] recallData;
 
-    //private int highlightPos;
-    //private int textEntryPos;
-    //private boolean keepHighlightPos = false;
-
-    //private int numDigits;
-    //private int numRows;
-    //private int numCols;
-    //private final int digitsPerGroup;
-    //private GamePhase gamePhase;
-
     public static final char EMPTY_CHAR = '‒';
-    private static final String EMPTY_STRING = "  ";
     private static String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "‒"};
 
     public TestSheet(char[] memoryData)
