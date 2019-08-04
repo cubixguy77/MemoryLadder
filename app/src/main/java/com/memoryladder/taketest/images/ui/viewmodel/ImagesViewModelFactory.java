@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 import com.memoryladder.taketest.images.settings.ImagesSettings;
 
 /**
- * Factory for ImagesViewModelFactory
+ * Factory for SpokenNumbersViewModelFactory
  */
 public class ImagesViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 

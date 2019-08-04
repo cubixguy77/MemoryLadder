@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.writtennumbers;
+package com.memoryladder.taketest.numbers.written;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,12 +17,14 @@ import android.widget.LinearLayout;
 
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;
+import com.memoryladder.taketest.numbers.CellSelectListener;
+import com.memoryladder.taketest.numbers.MemoryDataSetFactory;
 import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.timer.TimerView;
-import com.memoryladder.taketest.writtennumbers.Keyboard.KeyListener;
-import com.memoryladder.taketest.writtennumbers.Keyboard.NumericKeyboardView;
-import com.memoryladder.taketest.writtennumbers.NumberCarousel.CustomNumberCarousel;
-import com.memoryladder.taketest.writtennumbers.NumberGrid.NumberGridAdapter;
+import com.memoryladder.taketest.numbers.written.Keyboard.KeyListener;
+import com.memoryladder.taketest.numbers.written.Keyboard.NumericKeyboardView;
+import com.memoryladder.taketest.numbers.written.NumberCarousel.CustomNumberCarousel;
+import com.memoryladder.taketest.numbers.written.NumberGrid.NumberGridAdapter;
 import com.memoryladder.Utils;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;

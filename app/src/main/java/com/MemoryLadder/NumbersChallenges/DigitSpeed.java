@@ -19,7 +19,7 @@ public class DigitSpeed {
         }
     }
 
-    static int getMillisPerSecond(int digitSpeed) {
+    public static int getMillisPerSecond(int digitSpeed) {
         switch (digitSpeed) {
             case DIGIT_SPEED_SUPER_FAST: return 500;
             case DIGIT_SPEED_FAST:       return 750;
@@ -30,7 +30,7 @@ public class DigitSpeed {
         }
     }
 
-    static float getSpeechRate(int digitSpeed) {
+    public static float getSpeechRate(int digitSpeed) {
         switch (digitSpeed) {
             case DIGIT_SPEED_SUPER_FAST: return 2.7f;
             case DIGIT_SPEED_FAST:       return 2.0f;

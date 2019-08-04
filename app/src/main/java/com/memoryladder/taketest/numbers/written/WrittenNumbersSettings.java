@@ -1,4 +1,4 @@
-package com.memoryladder.taketest.writtennumbers;
+package com.memoryladder.taketest.numbers.written;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -151,7 +151,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     private SimpleTimer getMemTimer() {
-        if (timer == null) {
+        if (timer == null && settings.isMemTimerEnabled()) {
             timer = new SimpleTimer(settings.getTimeLimitInSeconds(), this.secondsElapsedMem, new ITimer.TimerUpdateListener() {
                 @Override
                 public void onTimeUpdate(float secondsRemaining, float secondsElapsed) {
@@ -229,7 +229,8 @@ public class GameActivity extends AppCompatActivity {
                 }
                 if (gamePhase == GamePhase.MEMORIZATION) {
                     gameManager.setGamePhase(GamePhase.MEMORIZATION);
-                    getMemTimer().start();
+                    if (settings.isMemTimerEnabled())
+                        getMemTimer().start();
                 }
                 if (gamePhase == GamePhase.RECALL) {
                     if (timer != null) {

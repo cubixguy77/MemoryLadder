@@ -7,8 +7,9 @@ import com.memoryladder.taketest.cards.CardGameManager;
 import com.memoryladder.taketest.dates.ui.DatesGameManager;
 import com.memoryladder.taketest.images.ui.ImagesGameManager;
 import com.memoryladder.taketest.namesandfaces.ui.NamesAndFacesGameManager;
+import com.memoryladder.taketest.numbers.spoken.ui.SpokenNumbersGameManager;
 import com.memoryladder.taketest.randomwords.ui.RandomWordsGameManager;
-import com.memoryladder.taketest.writtennumbers.WrittenNumbersGameManager;
+import com.memoryladder.taketest.numbers.written.WrittenNumbersGameManager;
 
 import static com.memoryladder.Constants.CARDS_LONG;
 import static com.memoryladder.Constants.LISTS_EVENTS;
@@ -25,7 +26,7 @@ class GameManagerProvider {
         switch (gameType) {
             case NUMBERS_SPEED: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
-            case NUMBERS_SPOKEN: return null;
+            case NUMBERS_SPOKEN: return SpokenNumbersGameManager.newInstance(SettingsProvider.getSpokenNumbersSettings(intent, context));
             case LISTS_WORDS: return RandomWordsGameManager.newInstance(SettingsProvider.getRandomWordsSettings(intent));
             case LISTS_EVENTS: return DatesGameManager.newInstance(SettingsProvider.getHistoricDatesSettings(intent));
             case SHAPES_FACES: return NamesAndFacesGameManager.newInstance(SettingsProvider.getNamesAndFacesSettings(intent));

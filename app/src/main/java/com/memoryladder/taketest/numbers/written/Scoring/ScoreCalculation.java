@@ -1,8 +1,8 @@
-package com.memoryladder.taketest.writtennumbers.Scoring;
+package com.memoryladder.taketest.numbers.written.Scoring;
 
 import com.memoryladder.taketest.scorepanel.Score;
 
-import static com.memoryladder.taketest.writtennumbers.WrittenNumberData.EMPTY_CHAR;
+import static com.memoryladder.taketest.numbers.written.WrittenNumberData.EMPTY_CHAR;
 
 public class ScoreCalculation {
 

@@ -19,7 +19,7 @@ import com.mastersofmemory.memoryladder.R;
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.dates.models.HistoricDate;
 import com.memoryladder.taketest.dates.models.TestSheet;
-import com.memoryladder.taketest.writtennumbers.Review.SimpleSpanBuilder;
+import com.memoryladder.taketest.numbers.written.Review.SimpleSpanBuilder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

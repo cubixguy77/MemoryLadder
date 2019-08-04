@@ -1,10 +1,10 @@
-package com.memoryladder.taketest.writtennumbers;
+package com.memoryladder.taketest.numbers;
 
 import java.util.Random;
 
-class MemoryDataSetFactory {
+public class MemoryDataSetFactory {
 
-    static char[] getNumberDataSet(int numDigits, int base, boolean ordered) {
+    public static char[] getNumberDataSet(int numDigits, int base, boolean ordered) {
         if (base == 2 && ordered) {
             return getOrderedBinaryNumberSet(numDigits);
         } else if (base == 2) {

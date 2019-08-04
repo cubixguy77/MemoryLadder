@@ -70,6 +70,7 @@
     <string name="night_mode_toggle">Night Mode Toggle</string>
 	<string name="wordCount">%d Words</string>
 	<string name="faceCount">%d Faces</string>
+	<string name="digitCount">%d Digits</string>
 	<string name="dateCount">%d Dates</string>
 	<string name="rowCount">%d Rows</string>
 	<string name="columnIndicator">Column %d of %d</string>

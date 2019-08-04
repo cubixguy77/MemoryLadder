@@ -109,7 +109,7 @@ public class Constants {
         switch (gameType) {
             case NUMBERS_SPEED: return GameActivity.class;
             case NUMBERS_BINARY: return GameActivity.class;
-            case NUMBERS_SPOKEN: return Numbers_Mem.class;
+            case NUMBERS_SPOKEN: return GameActivity.class;
             case LISTS_WORDS: return GameActivity.class;
             case LISTS_EVENTS: return GameActivity.class;
             case SHAPES_FACES: return GameActivity.class;
@@ -271,29 +271,29 @@ public class Constants {
 				specs[3] = DigitSpeed.DIGIT_SPEED_SLOW;
 				specs[4] = 15; break;
 			case 5:
-				specs[0] = 1;
-				specs[1] = 25;
+				specs[0] = 2;
+				specs[1] = 10;
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 20; break;
 			case 6:
-				specs[0] = 1;
-				specs[1] = 25;
+				specs[0] = 5;
+				specs[1] = 5;
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 25; break;
 			case 7:
-				specs[0] = 1;
-				specs[1] = 30;
+				specs[0] = 3;
+				specs[1] = 10;
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 30; break;
 			case 8:
-				specs[0] = 1;
-				specs[1] = 35;
+				specs[0] = 4;
+				specs[1] = 10;
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
-				specs[4] = 35; break;
+				specs[4] = 40; break;
     	}
     	return specs;
     }

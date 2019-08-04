@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.memoryladder.Constants;
+import com.memoryladder.numberschallenges.DigitSpeed;
 import com.memoryladder.taketest.cards.CardSettings;
 import com.memoryladder.taketest.dates.settings.DatesSettings;
 import com.memoryladder.taketest.images.settings.ImagesSettings;
 import com.memoryladder.taketest.namesandfaces.settings.NamesAndFacesSettings;
+import com.memoryladder.taketest.numbers.spoken.settings.SpokenNumbersSettings;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
-import com.memoryladder.taketest.writtennumbers.WrittenNumbersSettings;
+import com.memoryladder.taketest.numbers.written.WrittenNumbersSettings;
 
 import static com.memoryladder.Constants.NUMBERS_SPEED;
 
@@ -49,6 +51,18 @@ class SettingsProvider {
         return new WrittenNumbersSettings(numRows, numCols, digitsPerGroup, mnemonicsEnabled, base, nightMode, drawGridLines);
     }
 
+    static SpokenNumbersSettings getSpokenNumbersSettings(Intent i, Context context) {
+        int numRows    = i.getIntExtra("numRows",     -1);
+        int numCols    = i.getIntExtra("numCols",     -1);
+        int digitSpeed = i.getIntExtra("digitSpeed", DigitSpeed.DIGIT_SPEED_STANDARD);
+
+        SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(NUMBERS_SPEED), 0);
+        boolean nightMode = prefs.getBoolean("WRITTEN_nightMode", false);
+        boolean drawGridLines = prefs.getBoolean("WRITTEN_drawGridLines", true);
+
+        return new SpokenNumbersSettings(numRows, numCols, digitSpeed, nightMode, drawGridLines);
+    }
+
     static RandomWordsSettings getRandomWordsSettings(Intent i) {
         int numCols               = i.getIntExtra("numCols",     -1);
         int wordsPerCol           = i.getIntExtra("numRows",     -1);
@@ -69,8 +83,8 @@ class SettingsProvider {
     }
 
     static DatesSettings getHistoricDatesSettings(Intent i) {
-        int numDates = i.getIntExtra("numRows",     -1);
-        boolean fullImageDataSet   = i.getIntExtra("fullDateList", 1) == 1;
+        int numDates = i.getIntExtra("numRows", -1);
+        boolean fullImageDataSet = i.getIntExtra("fullDateList", 1) == 1;
         return new DatesSettings(numDates, fullImageDataSet);
     }
 }

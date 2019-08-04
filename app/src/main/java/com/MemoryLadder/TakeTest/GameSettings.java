@@ -39,6 +39,10 @@ class GameSettings implements Parcelable {
         return timeLimitInSecondsForRecall;
     }
 
+    boolean isMemTimerEnabled() {
+        return this.timeLimitInSeconds > 0;
+    }
+
     @Override
     public int describeContents() {
         return 0;

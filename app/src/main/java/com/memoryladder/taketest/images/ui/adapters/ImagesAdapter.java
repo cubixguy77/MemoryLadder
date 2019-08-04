@@ -18,7 +18,7 @@ import com.mastersofmemory.memoryladder.R;
 import com.memoryladder.taketest.GamePhase;
 import com.memoryladder.taketest.images.models.Image;
 import com.memoryladder.taketest.images.models.TestSheet;
-import com.memoryladder.taketest.writtennumbers.Review.SimpleSpanBuilder;
+import com.memoryladder.taketest.numbers.written.Review.SimpleSpanBuilder;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
