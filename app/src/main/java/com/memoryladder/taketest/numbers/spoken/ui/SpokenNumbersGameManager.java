@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 import com.mastersofmemory.memoryladder.R;
 import com.mastersofmemory.memoryladder.databinding.SpokenNumbersFragmentBinding;
-import com.memoryladder.numberschallenges.DigitSpeed;
+import com.memoryladder.taketest.numbers.spoken.settings.DigitSpeed;
 import com.memoryladder.taketest.GameActivity;
 import com.memoryladder.taketest.GameManager;
 import com.memoryladder.taketest.GamePhase;

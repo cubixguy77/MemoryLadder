@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.memoryladder.numberschallenges.DigitSpeed;
+import com.memoryladder.taketest.numbers.spoken.settings.DigitSpeed;
 import com.mastersofmemory.memoryladder.R;
 
 public class DigitSpeedSettingDialog extends Dialog implements OnClickListener {

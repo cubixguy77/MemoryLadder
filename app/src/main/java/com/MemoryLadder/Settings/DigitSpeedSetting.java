@@ -2,7 +2,7 @@ package com.memoryladder.settings;
 
 import android.os.Parcel;
 
-import com.memoryladder.numberschallenges.DigitSpeed;
+import com.memoryladder.taketest.numbers.spoken.settings.DigitSpeed;
 
 public class DigitSpeedSetting extends Setting {
 

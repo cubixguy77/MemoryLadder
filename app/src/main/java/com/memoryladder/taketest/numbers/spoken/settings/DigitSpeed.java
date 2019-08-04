@@ -1,4 +1,4 @@
-package com.memoryladder.numberschallenges;
+package com.memoryladder.taketest.numbers.spoken.settings;
 
 public class DigitSpeed {
 

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.memoryladder.Constants;
-import com.memoryladder.numberschallenges.DigitSpeed;
+import com.memoryladder.taketest.numbers.spoken.settings.DigitSpeed;
 import com.memoryladder.taketest.cards.CardSettings;
 import com.memoryladder.taketest.dates.settings.DatesSettings;
 import com.memoryladder.taketest.images.settings.ImagesSettings;

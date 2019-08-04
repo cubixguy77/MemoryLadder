@@ -1,8 +1,6 @@
 package com.memoryladder;
 
-import com.memoryladder.taketest.GameActivity;
-import com.memoryladder.numberschallenges.DigitSpeed;
-import com.memoryladder.numberschallenges.Numbers_Mem;
+import com.memoryladder.taketest.numbers.spoken.settings.DigitSpeed;
 
 public class Constants {
 	
@@ -102,20 +100,6 @@ public class Constants {
             case SHAPES_ABSTRACT: return "Abstract Images";
             case CARDS_LONG: return "Speed Cards";
             default: return "Unknown";
-        }
-    }
-
-    public static Class getClass(int gameType) {
-        switch (gameType) {
-            case NUMBERS_SPEED: return GameActivity.class;
-            case NUMBERS_BINARY: return GameActivity.class;
-            case NUMBERS_SPOKEN: return GameActivity.class;
-            case LISTS_WORDS: return GameActivity.class;
-            case LISTS_EVENTS: return GameActivity.class;
-            case SHAPES_FACES: return GameActivity.class;
-            case SHAPES_ABSTRACT: return GameActivity.class;
-            case CARDS_LONG: return GameActivity.class;
-            default: return Numbers_Mem.class;
         }
     }
 

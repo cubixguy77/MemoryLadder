@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.memoryladder.FileOps;
-import com.memoryladder.numberschallenges.HowItWorks_Numbers;
+import com.memoryladder.taketest.numbers.HowItWorks_Numbers;
 import com.memoryladder.Utils;
 import com.aditya.filebrowser.Constants;
 import com.aditya.filebrowser.FileChooser;

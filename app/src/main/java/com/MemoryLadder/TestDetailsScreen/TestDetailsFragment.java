@@ -18,6 +18,7 @@ import com.memoryladder.settings.SettingLoader;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
+import com.memoryladder.taketest.GameActivity;
 
 import java.util.ArrayList;
 
@@ -137,7 +138,7 @@ public class TestDetailsFragment extends Fragment {
         logChooseTestEvent();
 
         Intent i = new Intent();
-        i.setClass(getActivity(), Constants.getClass(gameType));
+        i.setClass(getActivity(), GameActivity.class);
 
         for (Setting setting : settings) {
             i.putExtra(setting.key, setting.value);

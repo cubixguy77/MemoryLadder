@@ -3,8 +3,6 @@ package com.memoryladder.taketest.numbers.spoken.settings;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.memoryladder.numberschallenges.DigitSpeed;
-
 public class SpokenNumbersSettings implements Parcelable {
 
     private int numRows;

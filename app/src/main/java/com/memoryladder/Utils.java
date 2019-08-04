@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.memoryladder.numberschallenges.Numbers_Review;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -62,16 +60,6 @@ public class Utils {
 		int[] specs = getSpecsSteps(gameType, step);
 		return specs != null ? specs[specs.length - 1] : 0;
 	}
-    
-    public static Class<?> getReviewClass(int gameType) {
-    	switch (gameType) {
-	        case Constants.NUMBERS_SPEED:  return Numbers_Review.class;
-	        case Constants.NUMBERS_BINARY:  return Numbers_Review.class;
-	        case Constants.NUMBERS_SPOKEN:  return Numbers_Review.class;
-        	default: return null;
-		}
-    }
-    
 
 	private static String[] getStrings(String string) {
 		StringTokenizer st = new StringTokenizer(string, "*");
