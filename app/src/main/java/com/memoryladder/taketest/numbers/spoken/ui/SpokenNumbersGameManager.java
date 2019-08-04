@@ -88,18 +88,18 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
             grid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
 
             // Sound
-            soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(this.settings.getDigitSpeed()));
+            soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()));
 
             // Observe
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
             viewModel.getTestSheet().observe(this, newTestSheet -> {
-                this.testSheet = newTestSheet;
+                testSheet = newTestSheet;
                 grid.setAdapter(adapter = new SpokenNumberGridAdapter(this, newTestSheet, false, true));
             });
 
             viewModel.getHighlight().observe(this, highlight -> {
-            	if (this.adapter != null && highlight != null)
-	                this.adapter.setHighlight(highlight);
+            	if (adapter != null && highlight != null)
+	                adapter.setHighlight(highlight);
             });
 
             viewModel.getGamePhase().observe(this, newGamePhase -> {
@@ -110,13 +110,14 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
                     nextSpokenDigit(0);
                 }
                 else if (newGamePhase == GamePhase.RECALL) {
-                    this.viewModel.setHighlight(0);
-                    this.keyboardView.setVisibility(View.VISIBLE);
-                    this.keyboardView.setKeyListener(this);
+                    shutDownSound();
+                    viewModel.setHighlight(0);
+                    keyboardView.setVisibility(View.VISIBLE);
+                    keyboardView.setKeyListener(this);
                 }
                 else if (newGamePhase == GamePhase.REVIEW) {
-	                this.keyboardView.setVisibility(View.GONE);
-	                this.keyboardView.setKeyListener(null);
+	                keyboardView.setVisibility(View.GONE);
+	                keyboardView.setKeyListener(null);
                 }
             });
         }
@@ -127,23 +128,36 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     @Override
     public void onPause() {
         super.onPause();
-        soundManager.stop();
-        this.userQuit = true;
+        shutDownSound();
     }
 
-    public void playSound(int digit) {
+    private void shutDownSound() {
+        soundManager.stop();
+        userQuit = true;
+    }
+
+    private void playSound(int digit) {
         soundManager.playSound(digit);
     }
 
-    public void nextSpokenDigit(final int index) {
-        if (userQuit)
-            return;
+    private void proceedToRecall() {
+        if (getActivity() != null){
+            ((GameActivity) getActivity()).setGamePhase(GamePhase.RECALL);
+            shutDownSound();
+        }
+    }
 
-        if (index >= settings.getDigitCount() && getActivity() != null)
-            ((GameActivity)getActivity()).setGamePhase(GamePhase.RECALL);
+    private void nextSpokenDigit(final int index) {
+        if (userQuit) {
+            shutDownSound();
+            return;
+        }
+
+        if (index >= settings.getDigitCount())
+            proceedToRecall();
         else {
-            this.viewModel.setHighlight(index);
-            playSound(Integer.parseInt(this.testSheet.getMemoryText(index)));
+            viewModel.setHighlight(index);
+            playSound(Integer.parseInt(testSheet.getMemoryText(index)));
             new Handler().postDelayed(() -> nextSpokenDigit(index + 1), DigitSpeed.getMillisPerSecond(settings.getDigitSpeed()));
         }
     }

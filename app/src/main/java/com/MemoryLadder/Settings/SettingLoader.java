@@ -185,19 +185,19 @@ public class SettingLoader {
                 target          = specs[4];
 
                 settings.add(new NumberSetting("numRows", "", "Number of Rows (Hidden):", numRows, 1, 1, false));
-                settings.add(new NumberSetting("numCols", "Number of Digits:", numCols));
+                settings.add(new NumberSetting("numCols", "Number of Digits:", numRows * numCols));
                 settings.add(new DigitSpeedSetting("digitSpeed", "Digit Speed:", digitSpeed));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));
             }
             else {
                 SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
-                numRows         = prefs.getInt("SPOKEN_numRows", Constants.default_spoken_numRows);
-                numCols         = prefs.getInt("SPOKEN_numCols", Constants.default_spoken_numCols);
+                //numRows         = prefs.getInt("SPOKEN_numRows", Constants.default_spoken_numRows);
+                numCols         = prefs.getInt("SPOKEN_numCols", Constants.default_spoken_numCols); // Contains the full digit count
                 recallTime      = prefs.getInt("SPOKEN_recallTime", Constants.default_spoken_recallTime);
                 digitSpeed      = prefs.getInt("SPOKEN_digitSpeed", Constants.default_spoken_digitSpeed);
 
-                settings.add(new NumberSetting("numRows", "SPOKEN_numRows", "Number of Rows (Hidden):", numRows, 1, 1, false));
+                settings.add(new NumberSetting("numRows", "SPOKEN_numRows", "Number of Rows (Hidden):", 1, 1, 1, false));
                 settings.add(new NumberSetting("numCols", "SPOKEN_numCols", "Number of Digits:", numCols, 1, 1000, true));
                 settings.add(new DigitSpeedSetting("digitSpeed", "SPOKEN_digitSpeed", "Digit Speed:", digitSpeed, true));
                 settings.add(new TimeSetting("recallTime", "SPOKEN_recallTime", "Recall Time:", recallTime));

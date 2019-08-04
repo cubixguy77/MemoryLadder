@@ -54,13 +54,20 @@ class SettingsProvider {
     static SpokenNumbersSettings getSpokenNumbersSettings(Intent i, Context context) {
         int numRows    = i.getIntExtra("numRows",     -1);
         int numCols    = i.getIntExtra("numCols",     -1);
+        int digitCount = numCols >= 10 ? numCols : numRows * numCols;
+
+        if (numCols >= 10) {
+            numCols = 10;
+            numRows = (digitCount / numCols) + (digitCount % numCols == 0 ? 0 : 1);
+        }
+
         int digitSpeed = i.getIntExtra("digitSpeed", DigitSpeed.DIGIT_SPEED_STANDARD);
 
         SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(NUMBERS_SPEED), 0);
-        boolean nightMode = prefs.getBoolean("WRITTEN_nightMode", false);
-        boolean drawGridLines = prefs.getBoolean("WRITTEN_drawGridLines", true);
+        boolean nightMode = prefs.getBoolean("SPOKEN_nightMode", false);
+        boolean drawGridLines = prefs.getBoolean("SPOKEN_drawGridLines", true);
 
-        return new SpokenNumbersSettings(numRows, numCols, digitSpeed, nightMode, drawGridLines);
+        return new SpokenNumbersSettings(digitCount, numCols, digitSpeed, nightMode, drawGridLines);
     }
 
     static RandomWordsSettings getRandomWordsSettings(Intent i) {

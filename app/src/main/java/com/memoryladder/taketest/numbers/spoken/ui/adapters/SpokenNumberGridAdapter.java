@@ -78,6 +78,11 @@ public class SpokenNumberGridAdapter extends RecyclerView.Adapter<SpokenNumberGr
     // binds the test sheet's data to the text in each cell
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if (position >= testSheet.getDigitCount()) {
+            holder.myTextView.setVisibility(View.GONE);
+            holder.myTextView.setOnClickListener(null);
+        }
+
         if (this.gamePhase == GamePhase.RECALL) {
             holder.myTextView.setOnClickListener(view -> cellSelectListener.onCellHighlighted(position));
         } else {
