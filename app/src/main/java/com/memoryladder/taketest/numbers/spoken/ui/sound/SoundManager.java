@@ -20,10 +20,11 @@ public class SoundManager {
     private SparseIntArray mSoundPoolMap;
     private AudioManager mAudioManager;
 
-    public SoundManager(Context context, float speechRate) {
+    public SoundManager(Context context, float speechRate, Locale locale) {
+        Locale localeToUse = locale != null ? locale : Locale.UK;
         this.speaker = new TextToSpeech(context, status -> {
             if (status == TextToSpeech.SUCCESS && speaker != null) {
-                int result = speaker.setLanguage(Locale.UK);
+                int result = speaker.setLanguage(localeToUse);
                 if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     setupLegacySpeaker(context);
                 }
@@ -52,6 +53,10 @@ public class SoundManager {
             speaker.stop();
             speaker.shutdown();
         }
+    }
+
+    public boolean isSpeakerActive() {
+        return speaker != null;
     }
 
     private void setupLegacySpeaker(Context context) {

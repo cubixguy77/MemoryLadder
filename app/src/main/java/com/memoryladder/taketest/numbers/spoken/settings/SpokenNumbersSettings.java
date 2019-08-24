@@ -3,19 +3,23 @@ package com.memoryladder.taketest.numbers.spoken.settings;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Locale;
+
 public class SpokenNumbersSettings implements Parcelable {
     private int digitCount;
     private int numCols;
     private int digitSpeed;
     private boolean nightMode;
     private boolean drawGridLines;
+    private Locale locale;
 
-    public SpokenNumbersSettings(int digitCount, int numCols, int digitSpeed, boolean nightMode, boolean drawGridLines) {
+    public SpokenNumbersSettings(int digitCount, int numCols, int digitSpeed, boolean nightMode, boolean drawGridLines, Locale locale) {
         this.digitCount = digitCount;
         this.numCols = numCols;
         this.digitSpeed = digitSpeed;
         this.nightMode = nightMode;
         this.drawGridLines = drawGridLines;
+        this.locale = locale;
     }
 
     public int getNumCols() {
@@ -36,6 +40,10 @@ public class SpokenNumbersSettings implements Parcelable {
     public void setDrawGridLines(boolean drawGridLines) {        this.drawGridLines = drawGridLines;    }
     public boolean isDrawGridLines() {
         return this.drawGridLines;
+    }
+
+    public Locale getLocale() {
+        return locale;
     }
 
     private SpokenNumbersSettings(Parcel in) {
@@ -70,4 +78,6 @@ public class SpokenNumbersSettings implements Parcelable {
             return new SpokenNumbersSettings[size];
         }
     };
+
+
 }

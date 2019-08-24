@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.memoryladder.billing.BillingUpdatesListener;
 import com.memoryladder.billing.google.BillingManager;
 import com.memoryladder.Constants;
+import com.memoryladder.settings.LanguageSetting;
 import com.memoryladder.settings.Setting;
 import com.memoryladder.settings.SettingLoader;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -142,6 +143,10 @@ public class TestDetailsFragment extends Fragment {
 
         for (Setting setting : settings) {
             i.putExtra(setting.key, setting.value);
+
+            if (setting instanceof LanguageSetting) {
+                i.putExtra(setting.key, ((LanguageSetting) setting).getLocale());
+            }
         }
 
         i.putExtra("gameType", gameType);

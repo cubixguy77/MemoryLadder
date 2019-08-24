@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.memoryladder.settings.DigitSpeedSetting;
 import com.memoryladder.settings.DigitSpeedSettingDialog;
+import com.memoryladder.settings.LanguageSetting;
+import com.memoryladder.settings.LanguageSettingDialog;
 import com.memoryladder.settings.NumberSetting;
 import com.memoryladder.settings.NumberSettingDialog;
 import com.memoryladder.settings.Setting;
@@ -24,6 +26,7 @@ import com.memoryladder.settings.TimeSettingDialog;
 import com.mastersofmemory.memoryladder.R;
 
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,6 +109,14 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
                     dialog.show();
                 });
             }
+            else if (setting instanceof LanguageSetting) {
+                TextView editableField = addTextField(inflater, R.layout.test_details_card_setting_editable, testDetailsValueLayout, setting.getDisplayValue());
+                editableField.setOnClickListener(v -> {
+                    LanguageSettingDialog dialog = new LanguageSettingDialog(context, ((LanguageSetting) setting).getLocale());
+                    dialog.setValueChangedListener(newValue -> updateLanguageSetting(editableField, setting, newValue, prefsName));
+                    dialog.show();
+                });
+            }
         }
     }
 
@@ -114,6 +125,16 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
         editableField.setText(setting.getDisplayValue());
         SharedPreferences.Editor editor = context.getSharedPreferences(prefsName, 0).edit();
         editor.putInt(setting.settingName, newValue);
+        editor.apply();
+    }
+
+    private void updateLanguageSetting(TextView editableField, Setting setting, Locale locale, String prefsName) {
+        ((LanguageSetting) setting).setLocale(locale);
+        editableField.setText(setting.getDisplayValue());
+        SharedPreferences.Editor editor = context.getSharedPreferences(prefsName, 0).edit();
+        editor.putString(setting.settingName + "language", locale.getLanguage());
+        editor.putString(setting.settingName + "country", locale.getCountry());
+        editor.putString(setting.settingName + "variant", locale.getVariant());
         editor.apply();
     }
 

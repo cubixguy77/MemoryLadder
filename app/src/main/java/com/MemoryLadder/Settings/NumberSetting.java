@@ -29,7 +29,7 @@ public class NumberSetting extends Setting {
 
     @Override
     public String getDisplayValue() {
-        return Integer.toString(value);
+        return Integer.toString((int) value);
     }
 
     private NumberSetting(Parcel in) {

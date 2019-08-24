@@ -14,6 +14,8 @@ import com.memoryladder.taketest.numbers.spoken.settings.SpokenNumbersSettings;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;
 import com.memoryladder.taketest.numbers.written.WrittenNumbersSettings;
 
+import java.util.Locale;
+
 import static com.memoryladder.Constants.NUMBERS_SPEED;
 
 class SettingsProvider {
@@ -62,12 +64,13 @@ class SettingsProvider {
         }
 
         int digitSpeed = i.getIntExtra("digitSpeed", DigitSpeed.DIGIT_SPEED_STANDARD);
+        Locale locale = (Locale) i.getSerializableExtra("language");
 
         SharedPreferences prefs = context.getSharedPreferences(Constants.getPrefsName(NUMBERS_SPEED), 0);
         boolean nightMode = prefs.getBoolean("SPOKEN_nightMode", false);
         boolean drawGridLines = prefs.getBoolean("SPOKEN_drawGridLines", true);
 
-        return new SpokenNumbersSettings(digitCount, numCols, digitSpeed, nightMode, drawGridLines);
+        return new SpokenNumbersSettings(digitCount, numCols, digitSpeed, nightMode, drawGridLines, locale);
     }
 
     static RandomWordsSettings getRandomWordsSettings(Intent i) {

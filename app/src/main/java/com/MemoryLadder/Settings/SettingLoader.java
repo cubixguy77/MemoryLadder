@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import com.memoryladder.Constants;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class SettingLoader {
 
@@ -187,6 +188,7 @@ public class SettingLoader {
                 settings.add(new NumberSetting("numRows", "", "Number of Rows (Hidden):", numRows, 1, 1, false));
                 settings.add(new NumberSetting("numCols", "Number of Digits:", numRows * numCols));
                 settings.add(new DigitSpeedSetting("digitSpeed", "Digit Speed:", digitSpeed));
+                settings.add(new LanguageSetting("language", "Language:", Locale.UK));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
                 settings.add(new TargetSetting("target", "Target:", target));
             }
@@ -196,10 +198,14 @@ public class SettingLoader {
                 numCols         = prefs.getInt("SPOKEN_numCols", Constants.default_spoken_numCols); // Contains the full digit count
                 recallTime      = prefs.getInt("SPOKEN_recallTime", Constants.default_spoken_recallTime);
                 digitSpeed      = prefs.getInt("SPOKEN_digitSpeed", Constants.default_spoken_digitSpeed);
+	            String language = prefs.getString("SPOKEN_language", "en");
+	            String country  = prefs.getString("SPOKEN_country", "uk");
+	            String variant  = prefs.getString("SPOKEN_variant", "");
 
                 settings.add(new NumberSetting("numRows", "SPOKEN_numRows", "Number of Rows (Hidden):", 1, 1, 1, false));
                 settings.add(new NumberSetting("numCols", "SPOKEN_numCols", "Number of Digits:", numCols, 1, 1000, true));
                 settings.add(new DigitSpeedSetting("digitSpeed", "SPOKEN_digitSpeed", "Digit Speed:", digitSpeed, true));
+                settings.add(new LanguageSetting("language", "SPOKEN_", "Language:", new Locale(language, country, variant), true));
                 settings.add(new TimeSetting("recallTime", "SPOKEN_recallTime", "Recall Time:", recallTime));
             }
         }

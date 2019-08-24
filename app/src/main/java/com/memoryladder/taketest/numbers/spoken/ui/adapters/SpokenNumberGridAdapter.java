@@ -118,18 +118,22 @@ public class SpokenNumberGridAdapter extends RecyclerView.Adapter<SpokenNumberGr
             ssb.append(lineSeparator);
 
             ForegroundColorSpan standardTextColor = nightMode ? whiteColorSpan : blackColorSpan;
+            ssb.append(memoryText, standardTextColor);
+
+            /*
             switch (answerResult) {
                 case BLANK:   ssb.append(memoryText, standardTextColor); break;
                 case WRONG:   ssb.append(memoryText, standardTextColor); break;
                 case CORRECT: ssb.append(memoryText, standardTextColor); break;
             }
+            */
 
             holder.myTextView.setText(ssb.build());
         }
         else if (this.gamePhase == GamePhase.MEMORIZATION && this.highlight == position) {
             holder.myTextView.setBackgroundResource(R.drawable.border_highlight_green);
             holder.myTextView.setTextColor(Color.WHITE);
-            holder.myTextView.setText(testSheet.getMemoryText(position));
+            holder.myTextView.setText(EMPTY_CHAR);
         }
         else if (this.gamePhase == GamePhase.RECALL && this.highlight == position) {
             holder.myTextView.setBackgroundResource(R.drawable.border_highlight_green_red_outline);

@@ -54,7 +54,6 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
 
     private SpokenNumbersSettings settings;
     private TestSheet testSheet;
-    private boolean userQuit = false;
 
     public static SpokenNumbersGameManager newInstance(SpokenNumbersSettings settings) {
         SpokenNumbersGameManager spokenNumbersGameManager = new SpokenNumbersGameManager();
@@ -87,9 +86,6 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
             // Grid
             grid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
 
-            // Sound
-            soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()));
-
             // Observe
             viewModel.getTimerVisible().observe(this, visible -> timerView.setVisibility(visible != null && visible ? View.VISIBLE : View.INVISIBLE));
             viewModel.getTestSheet().observe(this, newTestSheet -> {
@@ -106,7 +102,10 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
                 if (adapter != null)
                     adapter.setGamePhase(newGamePhase);
 
-                if (newGamePhase == GamePhase.MEMORIZATION) {
+                if (newGamePhase == GamePhase.PRE_MEMORIZATION) {
+                    soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()), settings.getLocale());
+                }
+                else if (newGamePhase == GamePhase.MEMORIZATION) {
                     nextSpokenDigit(0);
                 }
                 else if (newGamePhase == GamePhase.RECALL) {
@@ -133,7 +132,6 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
 
     private void shutDownSound() {
         soundManager.stop();
-        userQuit = true;
     }
 
     private void playSound(int digit) {
@@ -148,7 +146,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     }
 
     private void nextSpokenDigit(final int index) {
-        if (userQuit) {
+        if (!soundManager.isSpeakerActive() || viewModel.getGamePhase().getValue() != GamePhase.MEMORIZATION) {
             shutDownSound();
             return;
         }
