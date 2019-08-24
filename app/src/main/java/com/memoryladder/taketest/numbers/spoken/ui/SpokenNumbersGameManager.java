@@ -83,6 +83,9 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
             binding.setViewModel(viewModel);
             binding.setLifecycleOwner(this);
 
+            // Sound
+            soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()), settings.getLocale());
+
             // Grid
             grid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
 
@@ -103,14 +106,13 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
                     adapter.setGamePhase(newGamePhase);
 
                 if (newGamePhase == GamePhase.PRE_MEMORIZATION) {
-                    soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()), settings.getLocale());
                 }
                 else if (newGamePhase == GamePhase.MEMORIZATION) {
+                    viewModel.setHighlight(0);
                     nextSpokenDigit(0);
                 }
                 else if (newGamePhase == GamePhase.RECALL) {
                     shutDownSound();
-                    viewModel.setHighlight(0);
                     keyboardView.setVisibility(View.VISIBLE);
                     keyboardView.setKeyListener(this);
                 }
@@ -131,7 +133,10 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     }
 
     private void shutDownSound() {
-        soundManager.stop();
+        if (soundManager != null && soundManager.isSpeakerActive()) {
+            soundManager.stop();
+            soundManager = null;
+        }
     }
 
     private void playSound(int digit) {
@@ -142,11 +147,12 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
         if (getActivity() != null){
             ((GameActivity) getActivity()).setGamePhase(GamePhase.RECALL);
             shutDownSound();
+            viewModel.setHighlight(0);
         }
     }
 
     private void nextSpokenDigit(final int index) {
-        if (!soundManager.isSpeakerActive() || viewModel.getGamePhase().getValue() != GamePhase.MEMORIZATION) {
+        if (soundManager == null || !soundManager.isSpeakerActive() || viewModel.getGamePhase().getValue() != GamePhase.MEMORIZATION) {
             shutDownSound();
             return;
         }
