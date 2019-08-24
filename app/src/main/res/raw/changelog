@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog bulletedList="true">
+    <changelogversion versionName="2.2.0" changeDate="August 24, 2019">
+        <changelogtext>[font color=black]Redesigns the spoken numbers event. Custom mode now allows you to choose a language.[/font]</changelogtext>
+    </changelogversion>
+
     <changelogversion versionName="2.1.1" changeDate="March 15, 2019">
         <changelogtext>[font color=black]Redesigns the abstract images event, and adds hundreds of new high quality images to the collection (in unlocked play only).[/font]</changelogtext>
         <changelogtext>[font color=black]Redesigns the historic dates event, adding hundreds of new historic events to draw from (in unlocked play only).[/font]</changelogtext>
