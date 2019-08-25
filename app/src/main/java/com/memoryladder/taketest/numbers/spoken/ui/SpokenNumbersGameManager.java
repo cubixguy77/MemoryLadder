@@ -84,7 +84,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
             binding.setLifecycleOwner(this);
 
             // Sound
-            soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()), settings.getLocale());
+            initSpeaker();
 
             // Grid
             grid.setLayoutManager(new GridLayoutManager(getContext(), settings.getNumCols()));
@@ -106,8 +106,14 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
                     adapter.setGamePhase(newGamePhase);
 
                 if (newGamePhase == GamePhase.PRE_MEMORIZATION) {
+                    if (!isSpeakerActive()) {
+                        initSpeaker();
+                    }
                 }
                 else if (newGamePhase == GamePhase.MEMORIZATION) {
+                    if (!isSpeakerActive()) {
+                        initSpeaker();
+                    }
                     viewModel.setHighlight(0);
                     nextSpokenDigit(0);
                 }
@@ -151,8 +157,16 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
         }
     }
 
+    private void initSpeaker() {
+        soundManager = new SoundManager(getContext(), DigitSpeed.getSpeechRate(settings.getDigitSpeed()), settings.getLocale());
+    }
+
+    private boolean isSpeakerActive() {
+        return soundManager != null && soundManager.isSpeakerActive();
+    }
+
     private void nextSpokenDigit(final int index) {
-        if (soundManager == null || !soundManager.isSpeakerActive() || viewModel.getGamePhase().getValue() != GamePhase.MEMORIZATION) {
+        if (!isSpeakerActive() || viewModel.getGamePhase().getValue() != GamePhase.MEMORIZATION) {
             shutDownSound();
             return;
         }
