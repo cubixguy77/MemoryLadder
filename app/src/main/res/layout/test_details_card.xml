@@ -58,7 +58,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/testDetailsPlayButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pregame.card.button.height"
@@ -70,7 +70,7 @@
             android:textSize="@dimen/pregame.card.button.textSize"
             />
 
-        <android.support.v7.widget.AppCompatButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/testDetailsUnlockButton"
             android:layout_width="match_parent"
             android:layout_height="@dimen/pregame.card.button.height"

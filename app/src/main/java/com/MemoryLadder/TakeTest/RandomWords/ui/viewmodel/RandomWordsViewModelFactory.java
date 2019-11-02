@@ -1,8 +1,8 @@
 package com.memoryladder.taketest.randomwords.ui.viewmodel;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.annotation.NonNull;
 
 import com.memoryladder.taketest.randomwords.score.ScoreProvider;
 import com.memoryladder.taketest.randomwords.settings.RandomWordsSettings;

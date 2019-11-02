@@ -42,14 +42,14 @@
             </include>
         </FrameLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/grid_images"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="16dp"
             android:focusableInTouchMode="true"
             android:descendantFocusability="beforeDescendants"
-            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="6"
             tools:listitem="@layout/list_item_images"
             tools:itemCount="12"

@@ -1,8 +1,8 @@
 package com.memoryladder.taketest.cards;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -13,7 +13,7 @@ import com.mastersofmemory.memoryladder.R;
 
 public class SmallCardView extends FrameLayout {
 
-    private android.support.v7.widget.AppCompatImageView suitIcon;
+    private androidx.appcompat.widget.AppCompatImageView suitIcon;
     private TextView rankIcon;
     private PlayingCard card;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class TimerView extends android.support.v7.widget.AppCompatTextView implements ITimer.View {
+public class TimerView extends androidx.appcompat.widget.AppCompatTextView implements ITimer.View {
 
     public TimerView(Context context) {
         super(context);

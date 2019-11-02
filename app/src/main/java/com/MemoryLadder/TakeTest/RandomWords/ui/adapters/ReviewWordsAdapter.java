@@ -2,7 +2,7 @@ package com.memoryladder.taketest.randomwords.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.os.Handler;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

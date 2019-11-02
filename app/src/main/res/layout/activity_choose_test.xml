@@ -7,13 +7,13 @@
     android:background="@drawable/background_blue"
     tools:context="com.memoryladder.choosetest.ChooseTest">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <include
             android:id="@+id/test_details_toolbar"
             layout="@layout/toolbar" />
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/Numbers"

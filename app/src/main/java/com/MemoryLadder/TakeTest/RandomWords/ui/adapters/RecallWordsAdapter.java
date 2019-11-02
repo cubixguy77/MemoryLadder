@@ -1,6 +1,6 @@
 package com.memoryladder.taketest.randomwords.ui.adapters;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;

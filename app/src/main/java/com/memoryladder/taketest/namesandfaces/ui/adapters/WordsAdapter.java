@@ -2,7 +2,7 @@ package com.memoryladder.taketest.namesandfaces.ui.adapters;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 

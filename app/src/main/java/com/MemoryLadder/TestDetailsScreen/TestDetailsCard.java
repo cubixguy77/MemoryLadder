@@ -2,8 +2,8 @@ package com.memoryladder.testdetailsscreen;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.AppCompatButton;
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import com.memoryladder.settings.DigitSpeedSetting;
 import com.memoryladder.settings.DigitSpeedSettingDialog;
@@ -31,7 +33,7 @@ import java.util.Locale;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TestDetailsCard extends android.support.v7.widget.CardView {
+public class TestDetailsCard extends CardView {
 
     private final Context context;
 

@@ -1,8 +1,8 @@
 package com.memoryladder.taketest.cards;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageButton;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 

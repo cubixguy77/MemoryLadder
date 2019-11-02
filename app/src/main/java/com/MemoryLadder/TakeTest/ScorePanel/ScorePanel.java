@@ -2,7 +2,7 @@ package com.memoryladder.taketest.scorepanel;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.design.widget.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;

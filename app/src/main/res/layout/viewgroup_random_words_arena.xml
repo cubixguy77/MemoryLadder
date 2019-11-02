@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal">
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/button_prev_deck"
                 android:onClick="@{viewModel::prevColumn}"
                 style="@style/PageSelectorButton"
@@ -65,7 +65,7 @@
                 tools:text="Column 2 of 5"
                 />
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/button_next_deck"
                 android:onClick="@{viewModel::nextColumn}"
                 style="@style/PageSelectorButton"
@@ -73,7 +73,7 @@
                 />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/word_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
