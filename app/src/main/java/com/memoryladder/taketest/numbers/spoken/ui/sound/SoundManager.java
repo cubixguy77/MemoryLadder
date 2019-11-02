@@ -25,7 +25,7 @@ public class SoundManager {
         this.speaker = new TextToSpeech(context, status -> {
             if (status == TextToSpeech.SUCCESS && speaker != null) {
                 int result = speaker.setLanguage(localeToUse);
-                if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                if (locale == Locale.UK || result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                     setupLegacySpeaker(context);
                 }
                 else {
