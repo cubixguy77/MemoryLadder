@@ -15,7 +15,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         multiDexEnabled true
-        versionCode 26
+        versionCode 27
         versionName "2.2.0"
         vectorDrawables.useSupportLibrary true
     }
@@ -62,7 +62,7 @@ android {
     }
 
     dependencies {
-        implementation 'com.android.billingclient:billing:1.0'
+        implementation 'com.android.billingclient:billing:1.2.2'
         implementation 'com.jjoe64:graphview:4.2.2'
         implementation 'com.adityak:browsemyfiles:1.8'
         implementation 'com.google.firebase:firebase-core:17.2.1'
