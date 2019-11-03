@@ -22,7 +22,7 @@ public class SoundManager {
 
     public SoundManager(Context context, float speechRate, Locale locale) {
         Locale localeToUse = locale != null ? locale : Locale.UK;
-        this.speaker = new TextToSpeech(context, status -> {
+        this.speaker = new TextToSpeech(context.getApplicationContext(), status -> {
             if (status == TextToSpeech.SUCCESS && speaker != null) {
                 int result = speaker.setLanguage(localeToUse);
                 if (locale == Locale.UK || result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
