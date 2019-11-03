@@ -119,7 +119,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
                 }
                 else if (newGamePhase == GamePhase.RECALL) {
                     shutDownSound();
-                    keyboardView.setVisibility(View.VISIBLE);
+                    keyboardView.show(10);
                     keyboardView.setKeyListener(this);
                 }
                 else if (newGamePhase == GamePhase.REVIEW) {

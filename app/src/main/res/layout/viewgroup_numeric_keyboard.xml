@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:visibility="gone"
+        tools:visibility="visible"
         >
 
         <Button
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <Button
             android:id="@+id/key_4"
@@ -83,7 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <Button
             android:id="@+id/key_7"
@@ -115,7 +115,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageButton
             android:id="@+id/key_back"

@@ -51,6 +51,7 @@
 
     <dimen name="picker.digitSpeed.margin">28dp</dimen>
 
+    <dimen name="numeric_keyboard.layout_height">240dp</dimen>
     <dimen name="numbers.grid.row.height">36dp</dimen>
 
     <dimen name="words.list.indexWidth">48dp</dimen>
