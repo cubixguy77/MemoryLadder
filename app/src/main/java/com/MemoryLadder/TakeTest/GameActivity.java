@@ -373,9 +373,11 @@ public class GameActivity extends AppCompatActivity {
         else if (phase == GamePhase.RECALL) {
             toolbar.setTitle("Recall");
             finishMem.setVisible(false);
-            finishRecall.setVisible(true);
             playAgain.setVisible(false);
             help.setVisible(false);
+
+            final Handler handler = new Handler();
+            handler.postDelayed(() -> finishRecall.setVisible(true), 1500);
         }
         else if (phase == GamePhase.REVIEW) {
             toolbar.setTitle("Review");
