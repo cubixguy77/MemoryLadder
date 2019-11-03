@@ -40,20 +40,10 @@ public class NameAndFace {
     }
 
     public void setFirstRecall(String userInput) {
-        if (userInput == null || userInput.length() == 0) {
-            this.firstRecall = userInput;
-        }
-        else {
-            this.firstRecall = userInput.substring(0, 1).toUpperCase() + userInput.substring(1).toLowerCase();
-        }
+        this.firstRecall = format(sanitize(userInput));
     }
     public void setLastRecall(String userInput) {
-        if (userInput == null || userInput.length() == 0) {
-            this.lastRecall = userInput;
-        }
-        else {
-            this.lastRecall = userInput.substring(0, 1).toUpperCase() + userInput.substring(1).toLowerCase();
-        }
+        this.lastRecall = format(sanitize(userInput));
     }
 
     public ReviewCellOutcome getFirstResult() {
@@ -69,5 +59,22 @@ public class NameAndFace {
         }
 
         return lastResult;
+    }
+
+    private String sanitize(String s) {
+        if (s == null)
+            return "";
+
+        return s.replaceAll("[^a-zA-Z]", "");
+    }
+
+    private String format(String s) {
+        if (s == null)
+            return "";
+
+        if (s.length() == 0)
+            return "";
+
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 }
