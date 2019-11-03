@@ -9,6 +9,7 @@ import com.mastersofmemory.memoryladder.R;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Optional;
 
 public class NumericKeyboardView extends TableLayout {
 
@@ -35,15 +36,18 @@ public class NumericKeyboardView extends TableLayout {
 
         /* Binary mode, only show 0 and 1 keys */
         if (base == 2) {
-            findViewById(R.id.keyboardBottomRow).setVisibility(View.GONE);
-            findViewById(R.id.key_2).setVisibility(View.GONE);
-            findViewById(R.id.key_3).setVisibility(View.GONE);
-            findViewById(R.id.key_4).setVisibility(View.GONE);
-            findViewById(R.id.key_5).setVisibility(View.GONE);
-            findViewById(R.id.key_6).setVisibility(View.GONE);
-            findViewById(R.id.key_7).setVisibility(View.GONE);
-            findViewById(R.id.key_8).setVisibility(View.GONE);
-            findViewById(R.id.key_9).setVisibility(View.GONE);
+            findViewById(R.id.keyboardBinaryRow).setVisibility(View.VISIBLE);
+            findViewById(R.id.keyboardRow1).setVisibility(View.GONE);
+            findViewById(R.id.keyboardRow2).setVisibility(View.GONE);
+            findViewById(R.id.keyboardRow3).setVisibility(View.GONE);
+            findViewById(R.id.keyboardRow4).setVisibility(View.GONE);
+        }
+        else {
+            findViewById(R.id.keyboardBinaryRow).setVisibility(View.GONE);
+            findViewById(R.id.keyboardRow1).setVisibility(View.VISIBLE);
+            findViewById(R.id.keyboardRow2).setVisibility(View.VISIBLE);
+            findViewById(R.id.keyboardRow3).setVisibility(View.VISIBLE);
+            findViewById(R.id.keyboardRow4).setVisibility(View.VISIBLE);
         }
 
         setVisibility(View.VISIBLE);
@@ -63,7 +67,13 @@ public class NumericKeyboardView extends TableLayout {
     @OnClick(R.id.key_8) void on8Clicked() { if(listener != null) listener.onDigit('8'); }
     @OnClick(R.id.key_9) void on9Clicked() { if(listener != null) listener.onDigit('9'); }
     @OnClick(R.id.key_0) void on0Clicked() { if(listener != null) listener.onDigit('0'); }
+    @OnClick(R.id.bin_key_0) void onBin0Clicked() { if(listener != null) listener.onDigit('0'); }
+    @OnClick(R.id.bin_key_1) void onBin1Clicked() { if(listener != null) listener.onDigit('1'); }
     @OnClick(R.id.key_forward) void onKeyForwardClicked() { if(listener != null) listener.onForward(); }
     @OnClick(R.id.key_back) void onKeyBackClicked() { if(listener != null) listener.onBack(); }
     @OnClick(R.id.key_backspace) void onKeyBackspaceClicked() { if(listener != null) listener.onBackspace(); }
+
+    @Optional @OnClick(R.id.bin_key_forward) void onBinKeyForwardClicked() { if(listener != null) listener.onForward(); }
+    @Optional @OnClick(R.id.bin_key_back) void onBinKeyBackClicked() { if(listener != null) listener.onBack(); }
+    @Optional @OnClick(R.id.bin_key_backspace) void onBinKeyBackspaceClicked() { if(listener != null) listener.onBackspace(); }
 }

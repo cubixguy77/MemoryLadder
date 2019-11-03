@@ -10,9 +10,12 @@
     tools:visibility="visible">
 
     <TableRow
+        android:id="@+id/keyboardRow1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:visibility="gone"
+        >
 
         <Button
             android:id="@+id/key_1"
@@ -41,14 +44,14 @@
             android:foreground="?attr/selectableItemBackground"
             android:background="@color/keyboard_highlightRecallDigits"
             android:contentDescription="BackSpace" />
-
-
     </TableRow>
 
     <TableRow
+        android:id="@+id/keyboardRow2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:visibility="gone">
 
         <Button
             android:id="@+id/key_4"
@@ -76,9 +79,11 @@
     </TableRow>
 
     <TableRow
+        android:id="@+id/keyboardRow3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:visibility="gone">
 
         <Button
             android:id="@+id/key_7"
@@ -106,10 +111,11 @@
     </TableRow>
 
     <TableRow
-        android:id="@+id/keyboardBottomRow"
+        android:id="@+id/keyboardRow4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:visibility="gone">
 
         <ImageButton
             android:id="@+id/key_back"
@@ -144,6 +150,59 @@
             android:layout_weight=".5"
             android:background="@color/keyboard_highlightRecallDigits"
             />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/keyboardBinaryRow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/bin_key_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            app:srcCompat="@drawable/ic_arrow_left_small_black"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@color/keyboard_highlightRecallDigits"
+            android:contentDescription="Back"
+            />
+
+        <Button
+            android:id="@+id/bin_key_0"
+            style="@style/Keyboard_Key"
+            android:text="0"
+            android:layout_weight="1.5"
+            />
+
+        <Button
+            android:id="@+id/bin_key_1"
+            style="@style/Keyboard_Key"
+            android:text="1"
+            android:layout_weight="1.5"
+            />
+
+        <ImageButton
+            android:id="@+id/bin_key_forward"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            app:srcCompat="@drawable/ic_arrow_right_small_black"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@color/keyboard_highlightRecallDigits"
+            android:contentDescription="Forward" />
+
+
+        <ImageButton
+            android:id="@+id/bin_key_backspace"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".75"
+            app:srcCompat="@drawable/icon_backspace"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="@color/keyboard_highlightRecallDigits"
+            android:contentDescription="BackSpace" />
     </TableRow>
 
 </com.memoryladder.taketest.numbers.written.Keyboard.NumericKeyboardView>

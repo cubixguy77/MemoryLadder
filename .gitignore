@@ -127,3 +127,4 @@ captures/
 keystore
 release.properties
 app/prod/release/output.json
+app/prodGoogle/release/
