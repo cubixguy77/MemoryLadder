@@ -109,7 +109,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private void generateDataModel() {
-        data = new WrittenNumberData(settings, MemoryDataSetFactory.getNumberDataSet(settings.getNumDigits(), settings.getBase(), BuildConfig.DEBUG));
+        data = new WrittenNumberData(settings, MemoryDataSetFactory.getNumberDataSet(settings.getNumDigits(), settings.getBase(), BuildConfig.DEBUG, false));
     }
 
     @Override

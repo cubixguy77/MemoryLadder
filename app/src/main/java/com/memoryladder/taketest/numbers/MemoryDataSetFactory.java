@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class MemoryDataSetFactory {
 
-    public static char[] getNumberDataSet(int numDigits, int base, boolean ordered) {
+    public static char[] getNumberDataSet(int numDigits, int base, boolean ordered, boolean noRepeats) {
         if (base == 2 && ordered) {
             return getOrderedBinaryNumberSet(numDigits);
         } else if (base == 2) {
@@ -12,14 +12,14 @@ public class MemoryDataSetFactory {
         } else if (base == 10 && ordered) {
             return getOrderedDecimalNumberSet(numDigits);
         } else if (base == 10) {
-            return getRandomizedDecimalNumberSet(numDigits);
+            return getRandomizedDecimalNumberSet(numDigits, noRepeats);
         }
 
         return null;
     }
 
-    private static char[] getRandomizedDecimalNumberSet(int numDigits) {
-        return getRandomizedNumberData(numDigits, 10);
+    private static char[] getRandomizedDecimalNumberSet(int numDigits, boolean noRepeats) {
+        return getRandomizedNumberData(numDigits, 10, noRepeats);
     }
 
     private static char[] getOrderedDecimalNumberSet(int numDigits) {
@@ -27,19 +27,22 @@ public class MemoryDataSetFactory {
     }
 
     private static char[] getRandomizedBinaryNumberSet(int numDigits) {
-        return getRandomizedNumberData(numDigits, 2);
+        return getRandomizedNumberData(numDigits, 2, false);
     }
 
     private static char[] getOrderedBinaryNumberSet(int numDigits) {
         return getOrderedNumberData(numDigits, 2);
     }
 
-    private static char[] getRandomizedNumberData(int numDigits, int base) {
+    private static char[] getRandomizedNumberData(int numDigits, int base, boolean noRepeats) {
         char[] data = new char[numDigits];
         Random rand = new Random();
 
         for (int i = 0; i < numDigits; i++) {
-            data[i] = Character.forDigit(rand.nextInt(base), 10);
+            do {
+                data[i] = Character.forDigit(rand.nextInt(base), 10);
+            }
+            while (noRepeats && i > 0 && data[i] == data[i-1]);
         }
 
         return data;
