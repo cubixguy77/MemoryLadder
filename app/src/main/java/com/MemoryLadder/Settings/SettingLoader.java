@@ -194,16 +194,16 @@ public class SettingLoader {
             }
             else {
                 SharedPreferences prefs = context.getSharedPreferences("Number_Preferences", 0);
-                //numRows         = prefs.getInt("SPOKEN_numRows", Constants.default_spoken_numRows);
-                numCols         = prefs.getInt("SPOKEN_numCols", Constants.default_spoken_numCols); // Contains the full digit count
+                numRows         = prefs.getInt("SPOKEN_numRows", Constants.default_spoken_numRows);
+                numCols         = prefs.getInt("SPOKEN_numCols", Constants.default_spoken_numCols);
                 recallTime      = prefs.getInt("SPOKEN_recallTime", Constants.default_spoken_recallTime);
                 digitSpeed      = prefs.getInt("SPOKEN_digitSpeed", Constants.default_spoken_digitSpeed);
 	            String language = prefs.getString("SPOKEN_language", "en");
 	            String country  = prefs.getString("SPOKEN_country", "uk");
 	            String variant  = prefs.getString("SPOKEN_variant", "");
 
-                settings.add(new NumberSetting("numRows", "SPOKEN_numRows", "Number of Rows (Hidden):", 1, 1, 1, false));
-                settings.add(new NumberSetting("numCols", "SPOKEN_numCols", "Number of Digits:", numCols, 1, 1000, true));
+                settings.add(new NumberSetting("numRows", "SPOKEN_numRows", "Number of Rows:", numRows, 1, 200, true));
+                settings.add(new NumberSetting("numCols", "SPOKEN_numCols", "Digits per Row:", numCols, 1, 40, true));
                 settings.add(new DigitSpeedSetting("digitSpeed", "SPOKEN_digitSpeed", "Digit Speed:", digitSpeed, true));
                 settings.add(new LanguageSetting("language", "SPOKEN_", "Language:", new Locale(language, country, variant), true));
                 settings.add(new TimeSetting("recallTime", "SPOKEN_recallTime", "Recall Time:", recallTime));

@@ -7,19 +7,25 @@ import java.util.Locale;
 
 public class SpokenNumbersSettings implements Parcelable {
     private int digitCount;
+    private int numRows;
     private int numCols;
     private int digitSpeed;
     private boolean nightMode;
     private boolean drawGridLines;
     private Locale locale;
 
-    public SpokenNumbersSettings(int digitCount, int numCols, int digitSpeed, boolean nightMode, boolean drawGridLines, Locale locale) {
-        this.digitCount = digitCount;
+    public SpokenNumbersSettings(int numRows, int numCols, int digitSpeed, boolean nightMode, boolean drawGridLines, Locale locale) {
+        this.numRows = numRows;
         this.numCols = numCols;
+        this.digitCount = numRows * numCols;
         this.digitSpeed = digitSpeed;
         this.nightMode = nightMode;
         this.drawGridLines = drawGridLines;
         this.locale = locale;
+    }
+
+    public int getNumRows() {
+        return numRows;
     }
 
     public int getNumCols() {

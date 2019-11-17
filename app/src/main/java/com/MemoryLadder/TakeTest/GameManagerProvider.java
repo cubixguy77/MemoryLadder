@@ -24,7 +24,7 @@ class GameManagerProvider {
 
     static GameManager getGameManager(int gameType, Intent intent, Context context) {
         switch (gameType) {
-            case NUMBERS_SPEED: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
+            case NUMBERS_SPEED:
             case NUMBERS_BINARY: return WrittenNumbersGameManager.newInstance(SettingsProvider.getWrittenNumbersSettings(intent, context));
             case NUMBERS_SPOKEN: return SpokenNumbersGameManager.newInstance(SettingsProvider.getSpokenNumbersSettings(intent, context));
             case LISTS_WORDS: return RandomWordsGameManager.newInstance(SettingsProvider.getRandomWordsSettings(intent));

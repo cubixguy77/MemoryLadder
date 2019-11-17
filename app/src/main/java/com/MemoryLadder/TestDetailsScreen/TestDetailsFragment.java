@@ -28,7 +28,7 @@ import butterknife.OnClick;
 
 public class TestDetailsFragment extends Fragment {
 
-    BillingManager billingManager;
+    private BillingManager billingManager;
     private FirebaseAnalytics analytics;
 
     private ArrayList<Setting> settings;
@@ -135,7 +135,8 @@ public class TestDetailsFragment extends Fragment {
         analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
-    @OnClick(R.id.testDetailsPlayButton) public void onPlayClick() {
+    @OnClick(R.id.testDetailsPlayButton)
+    void onPlayClick() {
         logChooseTestEvent();
 
         Intent i = new Intent();
@@ -158,7 +159,8 @@ public class TestDetailsFragment extends Fragment {
         startActivity(i);
     }
 
-    @OnClick(R.id.testDetailsUnlockButton) public void onUnlockClick() {
+    @OnClick(R.id.testDetailsUnlockButton)
+    void onUnlockClick() {
         logUnlockClickEvent();
 
         if (billingManager != null) {

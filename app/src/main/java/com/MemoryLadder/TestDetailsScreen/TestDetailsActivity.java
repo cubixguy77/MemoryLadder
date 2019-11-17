@@ -1,6 +1,7 @@
 package com.memoryladder.testdetailsscreen;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -16,6 +17,8 @@ import com.memoryladder.Constants;
 import com.memoryladder.InstructionsDialog;
 import com.mastersofmemory.memoryladder.R;
 
+import static com.memoryladder.Constants.NUMBERS_SPEED;
+
 public class TestDetailsActivity extends AppCompatActivity {
 
     private int gameType;
@@ -28,6 +31,9 @@ public class TestDetailsActivity extends AppCompatActivity {
 
         gameType = getIntent().getIntExtra("gameType", Constants.NUMBERS_SPOKEN);
         int mode = getIntent().getIntExtra("mode", Constants.STEPS);
+
+        /* Settings */
+        migrateSettings(gameType);
 
         /* Toolbar stuff */
         Toolbar toolbar = findViewById(R.id.test_details_toolbar);
@@ -47,6 +53,25 @@ public class TestDetailsActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setCurrentItem(mode == Constants.CUSTOM ? 1 : 0);
+    }
+
+    private void migrateSettings(int gameType) {
+        if (gameType == Constants.NUMBERS_SPOKEN) {
+            SharedPreferences prefs = getSharedPreferences(Constants.getPrefsName(NUMBERS_SPEED), 0);
+            int numRows    = prefs.getInt("SPOKEN_numRows", -1);
+            int numCols    = prefs.getInt("SPOKEN_numCols", -1);
+
+            // Legacy support - numCols used to contain the digit count, so it could have been as high as 500
+            if (numCols > 40) {
+                numRows = numRows * numCols / 10;
+                numCols = 10;
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putInt("SPOKEN_numRows", numRows);
+                editor.putInt("SPOKEN_numCols", numCols);
+                editor.apply();
+            }
+        }
     }
 
     @Override

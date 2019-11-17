@@ -77,8 +77,8 @@ public class Constants {
 
 	public static String getGameSku(int gameType) {
 		switch (gameType) {
-			case NUMBERS_SPEED: return "com.memoryladder.numbers";
-			case NUMBERS_BINARY: return "com.memoryladder.numbers";
+			case NUMBERS_SPEED:
+			case NUMBERS_BINARY:
 			case NUMBERS_SPOKEN: return "com.memoryladder.numbers";
 			case LISTS_WORDS: return "com.memoryladder.randomwords";
 			case LISTS_EVENTS: return "com.memoryladder.historicdates";
@@ -105,12 +105,12 @@ public class Constants {
 
     public static String getPrefsName(int gameType) {
         switch (gameType) {
-            case NUMBERS_SPEED: return "Number_Preferences";
-            case NUMBERS_BINARY: return "Number_Preferences";
+            case NUMBERS_SPEED:
+            case NUMBERS_BINARY:
             case NUMBERS_SPOKEN: return "Number_Preferences";
-            case LISTS_WORDS: return "List_Preferences";
+            case LISTS_WORDS:
             case LISTS_EVENTS: return "List_Preferences";
-            case SHAPES_FACES: return "Shape_Preferences";
+            case SHAPES_FACES:
             case SHAPES_ABSTRACT: return "Shape_Preferences";
             case CARDS_LONG: return "Card_Preferences";
             default: return "";

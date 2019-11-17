@@ -33,7 +33,6 @@ import com.memoryladder.taketest.numbers.written.Keyboard.NumericKeyboardView;
 import com.memoryladder.taketest.scorepanel.Score;
 import com.memoryladder.taketest.timer.TimerView;
 
-import java.util.Locale;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -182,7 +181,7 @@ public class SpokenNumbersGameManager extends Fragment implements GameManager, C
     }
 
     private TestSheet getTestSheet(SpokenNumbersSettings settings) {
-        return TestSheetProvider.getTestSheet(settings.getDigitCount(), false); //settings.getLocale() == Locale.UK);
+        return TestSheetProvider.getTestSheet(settings.getDigitCount(), false);
     }
 
     @OnClick(R.id.buttonToggleNightMode) void onToggleNightMode() {
