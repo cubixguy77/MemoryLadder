@@ -29,6 +29,8 @@ public class LanguageSetting extends Setting {
 
     @Override
     public String getDisplayValue() {
+        if (this.locale == null)
+            this.locale = Locale.UK;
         return this.locale.getDisplayLanguage();
     }
 
