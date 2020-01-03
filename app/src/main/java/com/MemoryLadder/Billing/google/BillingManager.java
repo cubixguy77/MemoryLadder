@@ -18,6 +18,7 @@ public class BillingManager implements PurchasesUpdatedListener {
 
     private BillingClient billingClient;
     private String sku;
+    private String skuForEverything = "com.memoryladder.everything";
     private Activity activity;
     private final BillingUpdatesListener updatesListener;
 
@@ -55,7 +56,7 @@ public class BillingManager implements PurchasesUpdatedListener {
         }
 
         for (Purchase purchase : purchases.getPurchasesList()) {
-            if (purchase.getSku().equals(sku)) {
+            if (purchase.getSku().equals(sku) || purchase.getSku().equals(skuForEverything)) {
                 return true;
             }
         }
@@ -77,7 +78,7 @@ public class BillingManager implements PurchasesUpdatedListener {
     */
 
     public void launchPurchaseDialog() {
-        BillingFlowParams flowParams = BillingFlowParams.newBuilder().setSku(sku).setType(BillingClient.SkuType.INAPP).build();
+        BillingFlowParams flowParams = BillingFlowParams.newBuilder().setSku(skuForEverything).setType(BillingClient.SkuType.INAPP).build();
         billingClient.launchBillingFlow(activity, flowParams);
     }
 
@@ -93,7 +94,7 @@ public class BillingManager implements PurchasesUpdatedListener {
     public void onPurchasesUpdated(int responseCode, @Nullable List<Purchase> purchases) {
         if (responseCode == BillingClient.BillingResponse.OK && purchases != null) {
             for (Purchase purchase : purchases) {
-                if (purchase.getSku().equals(sku)) {
+                if (purchase.getSku().equals(sku) || purchase.getSku().equals(skuForEverything)) {
                     updatesListener.onUnlockChallenge();
                 }
             }
