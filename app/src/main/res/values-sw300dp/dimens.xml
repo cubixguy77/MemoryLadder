@@ -135,4 +135,7 @@
     <dimen name="images.rownum.textSize">12sp</dimen>
 
 
+    <!-- Faces -->
+    <dimen name="faces.image.height">200dp</dimen>
+
 </resources>

@@ -17,14 +17,13 @@ import com.memoryladder.taketest.scorepanel.Score;
 public class NamesAndFacesViewModel extends ViewModel {
 
     /* Test Sheet */
-    private MutableLiveData<TestSheet> testSheet = new MutableLiveData<>();
+    private final MutableLiveData<TestSheet> testSheet = new MutableLiveData<>();
 
     /* Settings */
-    private MutableLiveData<Integer> faceCount = new MutableLiveData<>();
+    private final MutableLiveData<Integer> faceCount = new MutableLiveData<>();
 
     /* Dynamic State Variables */
-    private MutableLiveData<GamePhase> gamePhase = new MutableLiveData<>();
-    private MutableLiveData<Integer> viewPortHeight = new MutableLiveData<>();
+    private final MutableLiveData<GamePhase> gamePhase = new MutableLiveData<>();
 
     NamesAndFacesViewModel(NamesAndFacesSettings settings) {
         /* Settings */
@@ -53,11 +52,6 @@ public class NamesAndFacesViewModel extends ViewModel {
     /* Dynamic State Variables */
     public LiveData<GamePhase> getGamePhase() { return gamePhase; }
     public void setGamePhase(GamePhase gamePhase) { this.gamePhase.setValue(gamePhase); }
-
-    public LiveData<Integer> getViewPortHeight() { return viewPortHeight; }
-    public void setViewPortHeight(Integer newViewPortHeight) {
-        this.viewPortHeight.setValue(newViewPortHeight);
-    }
 
     public LiveData<Boolean> getTimerVisible() {
         return Transformations.map(gamePhase, phase -> phase != GamePhase.REVIEW);

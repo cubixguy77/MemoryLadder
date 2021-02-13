@@ -1,8 +1,5 @@
 package com.memoryladder.taketest.namesandfaces.ui.adapters;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
 import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,11 +25,8 @@ import butterknife.ButterKnife;
  */
 public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder> {
 
-    private TestSheet testSheet;
+    private final TestSheet testSheet;
     private GamePhase phase;
-    private int viewPortHeight;
-    private int lastFocusedPosition = -1;
-    private boolean lastFocusedIsFirstName = true;
 
     public FaceAdapter(TestSheet testSheet) {
         this.testSheet = testSheet;
@@ -45,9 +39,7 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
         return new FaceViewHolder(
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_names_and_faces, parent, false),
                 new MyCustomEditTextListener(),
-                new MyCustomEditTextListener(),
-                new MyCustomFocusChangeListener(),
-                new MyCustomFocusChangeListener());
+                new MyCustomEditTextListener());
     }
 
     @Override
@@ -65,19 +57,9 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
         notifyDataSetChanged();
     }
 
-    public void adjustToViewPortHeight(int newViewPortHeightInPx) {
-        if (newViewPortHeightInPx != viewPortHeight) {
-            System.out.println("Setting height to: " + newViewPortHeightInPx);
-            this.viewPortHeight = newViewPortHeightInPx;
-            notifyDataSetChanged();
-        }
-    }
-
     class FaceViewHolder extends RecyclerView.ViewHolder {
         private final MyCustomEditTextListener firstNameWatcher;
         private final MyCustomEditTextListener lastNameWatcher;
-        private final MyCustomFocusChangeListener firstNameFocusListener;
-        private final MyCustomFocusChangeListener lastNameFocusListener;
 
         @BindView(R.id.image_face) ImageView face;
 
@@ -94,7 +76,7 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
         @BindView(R.id.names_faces_cell_review_memory_last) TextView reviewLastMemory;
         @BindView(R.id.names_faces_cell_review_recall_last) TextView reviewLastRecall;
 
-        FaceViewHolder(View itemView, MyCustomEditTextListener firstNameWatcher, MyCustomEditTextListener lastNameWatcher, MyCustomFocusChangeListener firstNameFocusListener, MyCustomFocusChangeListener lastNameFocusListener) {
+        FaceViewHolder(View itemView, MyCustomEditTextListener firstNameWatcher, MyCustomEditTextListener lastNameWatcher) {
             super(itemView);
             ButterKnife.bind(this, itemView);
 
@@ -103,57 +85,12 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
 
             firstNameInput.addTextChangedListener(firstNameWatcher);
             lastNameInput.addTextChangedListener(lastNameWatcher);
-
-            this.firstNameFocusListener = firstNameFocusListener;
-            this.lastNameFocusListener = lastNameFocusListener;
-
-            firstNameInput.setOnFocusChangeListener(firstNameFocusListener);
-            lastNameInput.setOnFocusChangeListener(lastNameFocusListener);
         }
 
         void bindTo(NameAndFace nameAndFace, int position) {
-            float scaleFactor = phase == GamePhase.REVIEW ? 2.5F : 2.0F;
-
-            int newHeight = (int) (viewPortHeight / scaleFactor);
-
-            if (face.getMeasuredHeight() == 0) {
-                ViewGroup.LayoutParams layoutParams = face.getLayoutParams();
-                layoutParams.height = newHeight;
-                face.setLayoutParams(layoutParams);
-            }
-            else {
-                ValueAnimator anim = ValueAnimator.ofInt(face.getMeasuredHeight(), newHeight);
-                anim.addUpdateListener(valueAnimator -> {
-                    int val = (Integer) valueAnimator.getAnimatedValue();
-                    ViewGroup.LayoutParams layoutParams = face.getLayoutParams();
-                    layoutParams.height = val;
-                    face.setLayoutParams(layoutParams);
-                });
-
-                /*
-                 * When the resizing takes place, the selected input often loses focus
-                 * So, we attach a listener to the resize animation, and re-focus at the end
-                 */
-                if (phase == GamePhase.RECALL && position == lastFocusedPosition) {
-                    anim.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            EditText controlToFocus = lastFocusedIsFirstName ? firstNameInput : lastNameInput;
-                            controlToFocus.post(controlToFocus::requestFocus);
-                            lastFocusedPosition = -1;
-                        }
-                    });
-                }
-
-                anim.setDuration(150);
-                anim.start();
-            }
-
             if (firstNameWatcher != null) {
                 firstNameWatcher.updatePosition(position, true);
                 lastNameWatcher.updatePosition(position, false);
-                firstNameFocusListener.updatePosition(position, true);
-                lastNameFocusListener.updatePosition(position, false);
             }
 
             if (phase == GamePhase.PRE_MEMORIZATION) {
@@ -261,23 +198,5 @@ public class FaceAdapter extends RecyclerView.Adapter<FaceAdapter.FaceViewHolder
 
         @Override
         public void afterTextChanged(Editable editable) {}
-    }
-
-    private class MyCustomFocusChangeListener implements View.OnFocusChangeListener {
-        private int position;
-        private boolean isFirstName;
-
-        void updatePosition(int position, boolean isFirstName) {
-            this.position = position;
-            this.isFirstName = isFirstName;
-        }
-
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            if (hasFocus) {
-                lastFocusedPosition = position;
-                lastFocusedIsFirstName = isFirstName;
-            }
-        }
     }
 }

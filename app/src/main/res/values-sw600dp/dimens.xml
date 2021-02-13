@@ -96,4 +96,6 @@
     <dimen name="images.rownum.width">20dp</dimen>
     <dimen name="images.rownum.textSize">16sp</dimen>
 
+    <!-- Faces -->
+    <dimen name="faces.image.height">400dp</dimen>
 </resources>

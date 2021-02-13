@@ -13,7 +13,7 @@
     <ImageView
         android:id="@+id/image_face"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/faces.image.height"
         android:scaleType="fitCenter"
         android:layout_margin="8dp"
         android:padding="12dp"

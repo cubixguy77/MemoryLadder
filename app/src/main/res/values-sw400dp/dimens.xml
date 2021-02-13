@@ -41,4 +41,7 @@
     <dimen name="numbers.grid.row.height">40dp</dimen>
 
     <dimen name="startButton.size">240dp</dimen>
+
+    <!-- Faces -->
+    <dimen name="faces.image.height">250dp</dimen>
 </resources>
