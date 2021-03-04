@@ -177,7 +177,7 @@ public class SettingLoader {
             if (gameMode == Constants.STEPS) {
                 SharedPreferences prefs = context.getSharedPreferences("Steps", 0);
                 int step     = prefs.getInt("NUMBERS_SPOKEN", 1);
-                int[] specs = Constants.getSpecs_STEPS_Spoken(step);
+                int[] specs = Constants.getSpecs_STEPS_Spoken(16);
 
                 numRows         = specs[0];
                 numCols         = specs[1];
@@ -186,7 +186,8 @@ public class SettingLoader {
                 target          = specs[4];
 
                 settings.add(new NumberSetting("numRows", "", "Number of Rows (Hidden):", numRows, 1, 1, false));
-                settings.add(new NumberSetting("numCols", "Number of Digits:", numRows * numCols));
+                settings.add(new NumberSetting("numCols", "", "Number of Columns (Hidden):", numCols, 1, 1, false));
+                settings.add(new NumberSetting("numDigits", "Number of Digits:", numRows * numCols));
                 settings.add(new DigitSpeedSetting("digitSpeed", "Digit Speed:", digitSpeed));
                 settings.add(new LanguageSetting("language", "Language:", Locale.UK));
                 settings.add(new TimeSetting("recallTime", "Recall Time:", recallTime));
