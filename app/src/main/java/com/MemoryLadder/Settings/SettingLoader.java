@@ -177,7 +177,7 @@ public class SettingLoader {
             if (gameMode == Constants.STEPS) {
                 SharedPreferences prefs = context.getSharedPreferences("Steps", 0);
                 int step     = prefs.getInt("NUMBERS_SPOKEN", 1);
-                int[] specs = Constants.getSpecs_STEPS_Spoken(16);
+                int[] specs = Constants.getSpecs_STEPS_Spoken(step);
 
                 numRows         = specs[0];
                 numCols         = specs[1];
