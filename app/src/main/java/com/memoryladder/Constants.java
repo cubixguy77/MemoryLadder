@@ -278,6 +278,54 @@ public class Constants {
 				specs[2] = 300;
 				specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
 				specs[4] = 40; break;
+		    case 9:
+			    specs[0] = 6;
+			    specs[1] = 10;
+			    specs[2] = 480;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 60; break;
+		    case 10:
+			    specs[0] = 8;
+			    specs[1] = 10;
+			    specs[2] = 600;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 80; break;
+		    case 11:
+			    specs[0] = 10;
+			    specs[1] = 10;
+			    specs[2] = 660;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 100; break;
+		    case 12:
+			    specs[0] = 12;
+			    specs[1] = 10;
+			    specs[2] = 720;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 120; break;
+		    case 13:
+			    specs[0] = 14;
+			    specs[1] = 10;
+			    specs[2] = 780;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 140; break;
+		    case 14:
+			    specs[0] = 16;
+			    specs[1] = 10;
+			    specs[2] = 840;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 160; break;
+		    case 15:
+			    specs[0] = 18;
+			    specs[1] = 10;
+			    specs[2] = 900;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 180; break;
+		    case 16:
+			    specs[0] = 20;
+			    specs[1] = 10;
+			    specs[2] = 2400;
+			    specs[3] = DigitSpeed.DIGIT_SPEED_STANDARD;
+			    specs[4] = 200; break;
     	}
     	return specs;
     }
