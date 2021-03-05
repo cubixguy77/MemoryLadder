@@ -171,6 +171,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_Numbers = 8;
 	
 	public static int[] getSpecs_STEPS_Binary(int level) {
     	int[] specs = new int[5];
@@ -226,7 +228,9 @@ public class Constants {
     	}
     	return specs;
     }
-	
+
+	public static int maxLevel_Binary = 8;
+
 	public static int[] getSpecs_STEPS_Spoken(int level) {
     	int[] specs = new int[5];
     	switch (level) {
@@ -329,6 +333,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+    public static int maxLevel_Spoken = 16;
 	
 	public static int[] getSpecs_STEPS_RandomWords(int level) {
     	int[] specs = new int[5];
@@ -385,6 +391,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_Words = 8;
 	
 	public static int[] getSpecs_STEPS_HistoricDates(int level) {
     	int[] specs = new int[5];
@@ -440,6 +448,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_HistoricDates = 8;
 	
 	public static int[] getSpecs_STEPS_NameAndFaces(int level) {
     	int[] specs = new int[4];
@@ -487,6 +497,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_NamesAndFaces = 8;
 	
 	public static int[] getSpecs_STEPS_AbstractImages(int level) {
     	int[] specs = new int[5];
@@ -542,6 +554,8 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_AbstractImages = 8;
 	
 	public static int[] getSpecs_STEPS_Cards(int level) {
     	int[] specs = new int[5];
@@ -597,4 +611,6 @@ public class Constants {
     	}
     	return specs;
     }
+
+	public static int maxLevel_Cards = 8;
 }

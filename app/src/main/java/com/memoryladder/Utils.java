@@ -55,6 +55,21 @@ public class Utils {
 	        default: return null;
 		}
 	}
+
+	public static int getMaxStepLevel(int gameType) {
+		switch (gameType) {
+			case 1:  return Constants.maxLevel_Numbers;
+			case 3:  return Constants.maxLevel_Binary;
+			case 4:  return Constants.maxLevel_Spoken;
+			case 5:  return Constants.maxLevel_Words;
+			case 6:  return Constants.maxLevel_HistoricDates;
+			case 7:  return Constants.maxLevel_NamesAndFaces;
+			case 8:  return Constants.maxLevel_AbstractImages;
+			case 9:  return Constants.maxLevel_Cards;
+			case 10: return Constants.maxLevel_Cards;
+			default: return 8;
+		}
+	}
 	
 	public static double getTargetScore(int gameType, int step) {
 		int[] specs = getSpecsSteps(gameType, step);

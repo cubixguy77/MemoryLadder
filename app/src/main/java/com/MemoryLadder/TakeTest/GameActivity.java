@@ -277,8 +277,13 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean isLevelUp(int scoreValue) {
-        double target = Utils.getTargetScore(settings.getGameType(), settings.getStep());
-        return scoreValue >= target && settings.getStep() < 8;
+        if (settings.getStep() < Utils.getMaxStepLevel(settings.getGameType())) {
+            double target = Utils.getTargetScore(settings.getGameType(), settings.getStep());
+            return scoreValue >= target;
+        }
+        else {
+            return false; // Already reached max level
+        }
     }
 
     private void doLevelUp() {
