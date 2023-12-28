@@ -1,9 +1,9 @@
 package com.MemoryLadder.TakeTest.Cards;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatImageButton;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.AppCompatImageButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,26 +15,23 @@ import com.MemoryLadder.TakeTest.ScorePanel.Score;
 import com.MemoryLadder.TakeTest.Timer.TimerView;
 import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.mastersofmemory.memoryladder.databinding.ViewgroupCardArenaBinding;
 
 public class CardGameManager extends Fragment implements GameManager, DeckSelector.Presenter, SuitSelectionListener, CardSelectionListener, CardClickListener {
 
     private CardGameData data;
     private CardSettings settings;
 
-    @BindView(R.id.text_timer) TimerView timerView;
-    @BindView(R.id.deck_view) DeckView deckView;
-    @BindView(R.id.selected_cards_view) SelectedCardsView selectedCardsView;
-    @BindView(R.id.layout_suit_selector) SuitSelectorView suitSelectorView;
-    @BindView(R.id.card_selector_view) CardSelectionView cardSelectorView;
-    @BindView(R.id.layout_deck_selector) DeckSelectorView deckSelectorView;
+    private TimerView timerView;
+    private DeckView deckView;
+    private SelectedCardsView selectedCardsView;
+    private SuitSelectorView suitSelectorView;
+    private CardSelectionView cardSelectorView;
+    private DeckSelectorView deckSelectorView;
 
-    @BindView(R.id.layout_bottom_navigator_buttons) FrameLayout navigatorButtons;
-    @BindView(R.id.button_prev_group_alt) AppCompatImageButton prevGroupButton;
-    @BindView(R.id.button_next_group_alt) AppCompatImageButton nextGroupButton;
+    private FrameLayout navigatorButtons;
+    private AppCompatImageButton prevGroupButton;
+    private AppCompatImageButton nextGroupButton;
 
     public static CardGameManager newInstance(CardSettings settings) {
         CardGameManager cardGameManager = new CardGameManager();
@@ -58,24 +55,38 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.viewgroup_card_arena, container, false);
-        ButterKnife.bind(this, view);
+        com.mastersofmemory.memoryladder.databinding.ViewgroupCardArenaBinding binding = ViewgroupCardArenaBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
 
         if (getArguments() != null) {
             settings = getArguments().getParcelable("settings");
         }
 
+        timerView = binding.timerContainer.findViewById(R.id.text_timer);
+        deckView = binding.deckView;
+        selectedCardsView = binding.selectedCardsView;
+        suitSelectorView = binding.layoutSuitSelector;
+        cardSelectorView = binding.cardSelectorView;
+        deckSelectorView = binding.layoutDeckSelector;
+        navigatorButtons = binding.layoutBottomNavigatorButtons.getRoot();
+        prevGroupButton = binding.buttonPrevGroupAlt;
+        nextGroupButton = binding.buttonNextGroupAlt;
+
         deckView.setListener(this);
         deckSelectorView.setDeckSelectionListener(this);
         suitSelectorView.setSuitSelectionListener(this);
         cardSelectorView.setCardSelectionListener(this);
+        navigatorButtons.findViewById(R.id.prevButton).setOnClickListener(v -> prevGroup());
+        prevGroupButton.setOnClickListener(v -> prevGroup());
+        navigatorButtons.findViewById(R.id.nextButton).setOnClickListener(v -> nextGroup());
+        nextGroupButton.setOnClickListener(v -> nextGroup());
 
         selectedCardsView.setMnemonicsEnabled(settings.isMnemonicsEnabled());
 
         return view;
     }
 
+/*
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -85,6 +96,7 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
             this.data = savedInstanceState.getParcelable("gameData");
         }
     }
+*/
 
     @Override
     public void setGamePhase(GamePhase phase) {
@@ -167,8 +179,8 @@ public class CardGameManager extends Fragment implements GameManager, DeckSelect
     }
 
     /* Highlight position adjustment */
-    @OnClick({R.id.prevButton, R.id.button_prev_group_alt}) void prevGroup() { setFocusAt(data.getHighlightPosition() - data.getNumCardsPerGroup()); }
-    @OnClick({R.id.nextButton, R.id.button_next_group_alt}) void nextGroup() { setFocusAt(data.getHighlightPosition() + data.getNumCardsPerGroup()); }
+    void prevGroup() { setFocusAt(data.getHighlightPosition() - data.getNumCardsPerGroup()); }
+    void nextGroup() { setFocusAt(data.getHighlightPosition() + data.getNumCardsPerGroup()); }
 
     @Override
     public void onCardClick(int index, PlayingCard card) {

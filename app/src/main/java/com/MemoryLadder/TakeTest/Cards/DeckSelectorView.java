@@ -1,7 +1,7 @@
 package com.MemoryLadder.TakeTest.Cards;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,16 +9,12 @@ import android.widget.TextView;
 
 import com.mastersofmemory.memoryladder.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class DeckSelectorView extends LinearLayout implements DeckSelector.View {
 
-    private Context context;
+    private final Context context;
     private DeckSelector.Presenter presenter;
 
-    @BindView(R.id.text_deck_number) TextView deckNumText;
+    private TextView deckNumText;
 
     public DeckSelectorView(Context context) {        super(context); this.context = context;    }
     public DeckSelectorView(Context context, @Nullable AttributeSet attrs) {        super(context, attrs); this.context = context;    }
@@ -27,7 +23,9 @@ public class DeckSelectorView extends LinearLayout implements DeckSelector.View 
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        ButterKnife.bind(this);
+        deckNumText = findViewById(R.id.text_deck_number);
+        findViewById(R.id.button_prev_deck).setOnClickListener(this::prevDeck);
+        findViewById(R.id.button_next_deck).setOnClickListener(this::nextDeck);
     }
 
     @Override
@@ -35,10 +33,12 @@ public class DeckSelectorView extends LinearLayout implements DeckSelector.View 
         this.presenter = presenter;
     }
 
-    @OnClick(R.id.button_prev_deck) public void prevDeck(View view) {
+    public void prevDeck(View view) {
         presenter.onPrevDeck();
     }
-    @OnClick(R.id.button_next_deck) public void nextDeck(View view) { presenter.onNextDeck(); }
+    public void nextDeck(View view) {
+        presenter.onNextDeck();
+    }
 
     @Override
     public void displayDeckNumber(int deckNum, int numDecks) {

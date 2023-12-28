@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +17,9 @@ import com.MemoryLadder.Settings.SettingLoader;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
+import com.mastersofmemory.memoryladder.databinding.TestDetailsCardBinding;
 
 import java.util.ArrayList;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class TestDetailsFragment extends Fragment {
 
@@ -49,8 +47,12 @@ public class TestDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.test_details_card, container, false);
-        ButterKnife.bind(this, view);
+        TestDetailsCardBinding binding = TestDetailsCardBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+        // View view = inflater.inflate(R.layout.test_details_card, container, false);
+        view.findViewById(R.id.testDetailsPlayButton).setOnClickListener(v -> onPlayClick());
+        view.findViewById(R.id.testDetailsUnlockButton).setOnClickListener(v -> onUnlockClick());
+
         analytics = FirebaseAnalytics.getInstance(getActivity());
 
         Bundle args = getArguments();
@@ -69,7 +71,7 @@ public class TestDetailsFragment extends Fragment {
             billingManager = new BillingManager(getActivity(), Constants.getGameSku(gameType), new BillingManager.BillingUpdatesListener() {
                 @Override
                 public void onBillingSetupSuccess() {
-                    card.setLocked(!billingManager.isPurchased());
+                    billingManager.isPurchased(isPurchased -> card.setLocked(!isPurchased));
                 }
 
                 @Override
@@ -132,7 +134,7 @@ public class TestDetailsFragment extends Fragment {
         analytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 
-    @OnClick(R.id.testDetailsPlayButton) public void onPlayClick() {
+    private void onPlayClick() {
         logChooseTestEvent();
 
         Intent i = new Intent();
@@ -151,7 +153,7 @@ public class TestDetailsFragment extends Fragment {
         startActivity(i);
     }
 
-    @OnClick(R.id.testDetailsUnlockButton) public void onUnlockClick() {
+    private void onUnlockClick() {
         logUnlockClickEvent();
 
         if (billingManager != null) {

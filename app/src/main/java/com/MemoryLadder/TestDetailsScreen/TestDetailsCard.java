@@ -2,8 +2,8 @@ package com.MemoryLadder.TestDetailsScreen;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.AppCompatButton;
+import androidx.annotation.LayoutRes;
+import androidx.appcompat.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import com.MemoryLadder.Settings.DigitSpeedSetting;
 import com.MemoryLadder.Settings.DigitSpeedSettingDialog;
@@ -25,19 +27,15 @@ import com.mastersofmemory.memoryladder.R;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-public class TestDetailsCard extends android.support.v7.widget.CardView {
+public class TestDetailsCard extends CardView {
 
     private final Context context;
 
-    @BindView(R.id.testDetailsCardTitle) Button titleText;
-    @BindView(R.id.testDetailsPlayButton) AppCompatButton playButton;
-    @BindView(R.id.testDetailsUnlockButton) AppCompatButton unlockButton;
-
-    @BindView(R.id.testDetailsLabelLayout) LinearLayout testDetailsLabelLayout;
-    @BindView(R.id.testDetailsValueLayout) LinearLayout testDetailsValueLayout;
+    private Button titleText;
+    private AppCompatButton playButton;
+    private AppCompatButton unlockButton;
+    private LinearLayout testDetailsLabelLayout;
+    private LinearLayout testDetailsValueLayout;
 
     public TestDetailsCard(Context context) {        super(context); this.context = context;    }
     public TestDetailsCard(Context context, AttributeSet attrs) {        super(context, attrs); this.context = context;   }
@@ -46,7 +44,12 @@ public class TestDetailsCard extends android.support.v7.widget.CardView {
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        ButterKnife.bind(this);
+
+        titleText = findViewById(R.id.testDetailsCardTitle);
+        playButton = findViewById(R.id.testDetailsPlayButton);
+        unlockButton = findViewById(R.id.testDetailsUnlockButton);
+        testDetailsLabelLayout = findViewById(R.id.testDetailsLabelLayout);
+        testDetailsValueLayout = findViewById(R.id.testDetailsValueLayout);
     }
 
     void setTitle(String title) {

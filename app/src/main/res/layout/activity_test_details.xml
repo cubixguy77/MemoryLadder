@@ -9,7 +9,7 @@
     android:background="@drawable/background_blue"
     tools:context="com.MemoryLadder.TestDetailsScreen.TestDetailsActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,7 +17,7 @@
             android:id="@+id/test_details_toolbar"
             layout="@layout/toolbar" />
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/test_details_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,11 +27,11 @@
             app:tabIndicatorColor="@color/yellow"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             />
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/test_details_view_pager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"

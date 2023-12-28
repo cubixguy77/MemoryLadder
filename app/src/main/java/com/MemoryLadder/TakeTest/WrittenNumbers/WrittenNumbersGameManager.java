@@ -2,11 +2,11 @@ package com.MemoryLadder.TakeTest.WrittenNumbers;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +27,9 @@ import com.MemoryLadder.TakeTest.WrittenNumbers.NumberGrid.NumberGridAdapter;
 import com.MemoryLadder.Utils;
 import com.mastersofmemory.memoryladder.BuildConfig;
 import com.mastersofmemory.memoryladder.R;
+import com.mastersofmemory.memoryladder.databinding.ViewgroupWrittenNumbersArenaBinding;
 
 import java.util.Objects;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class WrittenNumbersGameManager extends Fragment implements GameManager, KeyListener {
 
@@ -43,17 +40,16 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
 
     private NumberGridAdapter adapter;
 
-    @BindView(R.id.numbersFragmentContainer) LinearLayout root;
-    @BindView(R.id.text_timer) TimerView timerView;
-    @BindView(R.id.timerContainer) FrameLayout timerContainer;
-    @BindView(R.id.keyboard) NumericKeyboardView keyboardView;
-    @BindView(R.id.carousel) CustomNumberCarousel textCarousel;
-    @BindView(R.id.numberGrid) RecyclerView numberGrid;
-    @BindView(R.id.navigatorLayout) FrameLayout navigatorLayout;
-    @BindView(R.id.nextButton) AppCompatImageButton nextButton;
-    @BindView(R.id.buttonToggleNightMode) Button nightModeIcon;
-    @BindView(R.id.buttonToggleGridLines) Button gridLinesIcon;
-    @BindView(R.id.bottomSpacer) Space bottomSpacer;
+    private LinearLayout root;
+    private TimerView timerView;
+    private FrameLayout timerContainer;
+    private NumericKeyboardView keyboardView;
+    private CustomNumberCarousel textCarousel;
+    private RecyclerView numberGrid;
+    private FrameLayout navigatorLayout;
+    private Button nightModeIcon;
+    private Button gridLinesIcon;
+    private Space bottomSpacer;
 
     public static WrittenNumbersGameManager newInstance(WrittenNumbersSettings settings) {
         WrittenNumbersGameManager cardGameManager = new WrittenNumbersGameManager();
@@ -76,8 +72,27 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView()");
-        View view = inflater.inflate(R.layout.viewgroup_written_numbers_arena, container, false);
-        ButterKnife.bind(this, view);
+
+        com.mastersofmemory.memoryladder.databinding.ViewgroupWrittenNumbersArenaBinding binding = ViewgroupWrittenNumbersArenaBinding.inflate(inflater, container, false);
+        View view = binding.getRoot();
+
+        root = binding.numbersFragmentContainer;
+        timerView = root.findViewById(R.id.text_timer);
+        timerContainer = binding.timerContainer;
+        keyboardView = binding.keyboard.getRoot();
+        textCarousel = binding.carousel.getRoot();
+        numberGrid = binding.numberGrid;
+        navigatorLayout = binding.navigatorLayout.getRoot();
+        AppCompatImageButton nextButton = root.findViewById(R.id.nextButton);
+        nightModeIcon = binding.buttonToggleNightMode;
+        gridLinesIcon = binding.buttonToggleGridLines;
+        bottomSpacer = binding.bottomSpacer;
+
+        root.findViewById(R.id.closeButton).setOnClickListener(v -> toggleCarousel());
+        root.findViewById(R.id.prevButton).setOnClickListener(v -> onPrevClick());
+        nextButton.setOnClickListener(v -> onNextClick());
+        root.findViewById(R.id.buttonToggleNightMode).setOnClickListener(v -> onToggleNightMode());
+        root.findViewById(R.id.buttonToggleGridLines).setOnClickListener(v -> onToggleDrawGridLines());
 
         if (getArguments() != null) {
             settings = getArguments().getParcelable("settings");
@@ -215,7 +230,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     private String getMnemo(String text) {
-        SharedPreferences prefs = Objects.requireNonNull(getContext()).getSharedPreferences("Peg_Numbers", 0);
+        SharedPreferences prefs = requireContext().getSharedPreferences("Peg_Numbers", 0);
         int sanitizedNumber = Integer.parseInt(text);
         return prefs.getString("peg_numbers_" + sanitizedNumber, Objects.requireNonNull(Utils.getNumberSuggestions(sanitizedNumber))[0]);
     }
@@ -231,7 +246,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
     }
 
     /* Expands or collapses the carousel */
-    @OnClick(R.id.closeButton) void toggleCarousel() {
+    void toggleCarousel() {
         if (textCarousel.isExpanded()) {
             textCarousel.collapse();
         }
@@ -241,7 +256,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         }
     }
 
-    @OnClick(R.id.prevButton) void onPrevClick() {
+    void onPrevClick() {
         if (!textCarousel.animationsInProgress() && data.allowPrev()) {
             int curRow = data.getRow(data.getHighlightPosEnd());
             data.highlightPrevGroup();
@@ -263,7 +278,7 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         }
     }
 
-    @OnClick(R.id.nextButton) void onNextClick() {
+    void onNextClick() {
         if (!textCarousel.animationsInProgress() && data.allowNext()) {
 
             int curRow = data.getRow(data.getHighlightPosEnd());
@@ -344,22 +359,22 @@ public class WrittenNumbersGameManager extends Fragment implements GameManager, 
         gridLinesIcon.setBackgroundResource(adapter.isDrawGridLines() ? R.drawable.icon_gridlines_on : R.drawable.icon_gridlines_off);
     }
 
-    @OnClick(R.id.buttonToggleNightMode) void onToggleNightMode() {
+    void onToggleNightMode() {
         adapter.toggleNightMode();
         settings.setNightMode(adapter.isNightMode());
 
-        SharedPreferences.Editor editor = Objects.requireNonNull(getContext()).getSharedPreferences("Number_Preferences", 0).edit();
+        SharedPreferences.Editor editor = requireContext().getSharedPreferences("Number_Preferences", 0).edit();
         editor.putBoolean("WRITTEN_nightMode", adapter.isNightMode());
         editor.apply();
 
         refreshNightModeIcon();
     }
 
-    @OnClick(R.id.buttonToggleGridLines) void onToggleDrawGridLines() {
+    void onToggleDrawGridLines() {
         adapter.toggleDrawGridLines();
         settings.setDrawGridLines(adapter.isDrawGridLines());
 
-        SharedPreferences.Editor editor = Objects.requireNonNull(getContext()).getSharedPreferences("Number_Preferences", 0).edit();
+        SharedPreferences.Editor editor = requireContext().getSharedPreferences("Number_Preferences", 0).edit();
         editor.putBoolean("WRITTEN_drawGridLines", adapter.isDrawGridLines());
         editor.apply();
 

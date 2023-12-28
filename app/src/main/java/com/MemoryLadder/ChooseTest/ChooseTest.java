@@ -3,9 +3,8 @@ package com.MemoryLadder.ChooseTest;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,14 +17,20 @@ import com.MemoryLadder.Constants;
 import com.MemoryLadder.TestDetailsScreen.TestDetailsActivity;
 import com.MemoryLadder.WhatsNewDialog;
 import com.mastersofmemory.memoryladder.R;
+import com.mastersofmemory.memoryladder.databinding.ActivityChooseTestBinding;
+import com.mastersofmemory.memoryladder.databinding.ToolbarBinding;
 
 public class ChooseTest extends AppCompatActivity {
+
+    private ActivityChooseTestBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_choose_test);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        binding = ActivityChooseTestBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initToolbar();
         initGraphics();
@@ -34,8 +39,8 @@ public class ChooseTest extends AppCompatActivity {
     }
 
     private void initToolbar() {
-        Toolbar toolbar = findViewById(R.id.test_details_toolbar);
-        setSupportActionBar(toolbar);
+        ToolbarBinding toolbar = binding.testDetailsToolbar;
+        setSupportActionBar(toolbar.getRoot());
         //toolbar.setNavigationIcon(R.drawable.icon);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Choose a Test");
@@ -43,26 +48,27 @@ public class ChooseTest extends AppCompatActivity {
     }
 
     private void initAnimation() {
-    	LinearLayout Numbers = findViewById(R.id.Numbers);
-		LinearLayout Lists = findViewById(R.id.Lists);
+    	LinearLayout Numbers = binding.Numbers;
+		LinearLayout Lists = binding.Lists;
 		LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(this, R.anim.fly_in_layout);
 		Numbers.setLayoutAnimation(controller);
 		Lists.setLayoutAnimation(controller);
     }
     
     private void initGraphics() {
-        findViewById(R.id.SpeedNumbersImage).setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_SPEED));
-        findViewById(R.id.BinaryNumbersImage).setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_BINARY));
-        findViewById(R.id.SpokenNumbersImage).setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_SPOKEN));
-        findViewById(R.id.RandomWordsImage).setOnClickListener(v -> onChooseTestFinished(Constants.LISTS_WORDS));
-        findViewById(R.id.HistoricDatesImage).setOnClickListener(v -> onChooseTestFinished(Constants.LISTS_EVENTS));
-        findViewById(R.id.NamesFacesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_FACES));
-        findViewById(R.id.AbstractImagesImage).setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_ABSTRACT));
-        findViewById(R.id.SpeedCardsImage).setOnClickListener(v -> onChooseTestFinished(Constants.CARDS_LONG));
+        binding.SpeedNumbersImage.setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_SPEED));
+        binding.SpeedNumbersImage.setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_SPEED));
+        binding.BinaryNumbersImage.setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_BINARY));
+        binding.SpokenNumbersImage.setOnClickListener(v -> onChooseTestFinished(Constants.NUMBERS_SPOKEN));
+        binding.RandomWordsImage.setOnClickListener(v -> onChooseTestFinished(Constants.LISTS_WORDS));
+        binding.HistoricDatesImage.setOnClickListener(v -> onChooseTestFinished(Constants.LISTS_EVENTS));
+        binding.NamesFacesImage.setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_FACES));
+        binding.AbstractImagesImage.setOnClickListener(v -> onChooseTestFinished(Constants.SHAPES_ABSTRACT));
+        binding.SpeedCardsImage.setOnClickListener(v -> onChooseTestFinished(Constants.CARDS_LONG));
     }
 
     private void initChangeLog() {
-        findViewById(R.id.textWhatsNew).setOnClickListener(v -> {
+        binding.textWhatsNew.setOnClickListener(v -> {
             WhatsNewDialog dialog = new WhatsNewDialog(ChooseTest.this);
             dialog.show();
         });
@@ -83,11 +89,9 @@ public class ChooseTest extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId())
-        {
-            case R.id.action_send_feedback:
-                getUserFeedback();
-                return true;
+        if (item.getItemId() == R.id.action_send_feedback) {
+            getUserFeedback();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

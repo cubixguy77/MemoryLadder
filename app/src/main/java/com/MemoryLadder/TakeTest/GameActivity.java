@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,18 +31,15 @@ import com.MemoryLadder.TakeTest.Timer.SimpleTimer;
 import com.MemoryLadder.Utils;
 import com.jjoe64.graphview.series.DataPoint;
 import com.mastersofmemory.memoryladder.R;
+import com.mastersofmemory.memoryladder.databinding.ActivityTestArenaBinding;
 
 import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 public class GameActivity extends AppCompatActivity {
 
-    @BindView(R.id.score_panel) ScorePanel scorePanel;
-    @BindView(R.id.generalToolbar) Toolbar toolbar;
-    @BindView(R.id.button_start) Button startButton;
+    private ScorePanel scorePanel;
+    private Toolbar toolbar;
+    private Button startButton;
 
     private GameSettings settings;
     private GameManager gameManager;
@@ -63,9 +62,14 @@ public class GameActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        setContentView(R.layout.activity_test_arena);
 
-        ButterKnife.bind(this);
+        com.mastersofmemory.memoryladder.databinding.ActivityTestArenaBinding binding = ActivityTestArenaBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        scorePanel = binding.scorePanel.getRoot();
+        toolbar = binding.generalToolbar.getRoot();
+        startButton = binding.buttonStart;
+        startButton.setOnClickListener(v -> startGame());
 
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
@@ -132,7 +136,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         getSupportFragmentManager().putFragment(outState, "gameManager", (Fragment) gameManager);
         outState.putSerializable("gamePhase", this.gamePhase);
@@ -205,11 +209,7 @@ public class GameActivity extends AppCompatActivity {
         viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                    gameRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                } else {
-                    gameRootView.getViewTreeObserver().removeGlobalOnLayoutListener(this);
-                }
+                gameRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
 
                 if (gamePhase == GamePhase.PRE_MEMORIZATION) {
                     gameManager.setGamePhase(GamePhase.PRE_MEMORIZATION);
@@ -257,7 +257,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
-
 
     void saveScore(Score score) {
         new FileOps(this).updatePastScores(settings.getMode(), settings.getGameType(), Integer.toString(score.score));
@@ -323,23 +322,22 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_finished_mem:
-                setGamePhase(GamePhase.RECALL);
-                return true;
-            case R.id.menu_finished_recall:
-                setGamePhase(GamePhase.REVIEW);
-                return true;
-            case R.id.menu_play_again:
-                setGamePhase(GamePhase.PRE_MEMORIZATION);
-                return true;
-            case R.id.menu_help:
-                InstructionsDialog dialog = new InstructionsDialog(this, settings.getGameType());
-                dialog.show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_finished_mem) {
+            setGamePhase(GamePhase.RECALL);
+            return true;
+        } else if (itemId == R.id.menu_finished_recall) {
+            setGamePhase(GamePhase.REVIEW);
+            return true;
+        } else if (itemId == R.id.menu_play_again) {
+            setGamePhase(GamePhase.PRE_MEMORIZATION);
+            return true;
+        } else if (itemId == R.id.menu_help) {
+            InstructionsDialog dialog = new InstructionsDialog(this, settings.getGameType());
+            dialog.show();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void renderToolbarFor(GamePhase phase) {
@@ -397,8 +395,7 @@ public class GameActivity extends AppCompatActivity {
         alert.show();
     }
 
-    /* Start Game */
-    @OnClick(R.id.button_start) void startGame() {
+    void startGame() {
         startButton.setVisibility(View.GONE);
 
         gameManager.render(GamePhase.MEMORIZATION);

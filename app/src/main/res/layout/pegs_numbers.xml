@@ -67,7 +67,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="5dp">
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/spadeIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -79,7 +79,7 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icon_suit_spade" />
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/heartIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -91,7 +91,7 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icon_suit_heart" />
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/clubIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
@@ -103,7 +103,7 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/icon_suit_club" />
 
-            <android.support.v7.widget.AppCompatImageButton
+            <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/diamondIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"

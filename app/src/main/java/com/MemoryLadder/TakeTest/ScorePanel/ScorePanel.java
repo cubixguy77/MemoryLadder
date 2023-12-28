@@ -2,7 +2,7 @@ package com.MemoryLadder.TakeTest.ScorePanel;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.design.widget.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
@@ -15,20 +15,17 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.mastersofmemory.memoryladder.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.mastersofmemory.memoryladder.R;
 
 public class ScorePanel extends LinearLayout {
 
-    @BindView(R.id.accuracyText) TextView accuracyText;
-    @BindView(R.id.scoreText) TextView scoreText;
-    @BindView(R.id.memTimeText) TextView memTimeText;
-    @BindView(R.id.viewgroup_score_panel_graph) GraphView graph;
+    private TextView accuracyText;
+    private TextView scoreText;
+    private TextView memTimeText;
+    private GraphView graph;
 
-    BottomSheetBehavior panel;
+    private BottomSheetBehavior panel;
 
     public ScorePanel(Context context) { super(context); }
     public ScorePanel(Context context, AttributeSet attrs) {
@@ -38,11 +35,16 @@ public class ScorePanel extends LinearLayout {
     @Override
     public void onFinishInflate() {
         super.onFinishInflate();
-        ButterKnife.bind(this);
+        accuracyText = findViewById(R.id.accuracyText);
+        scoreText = findViewById(R.id.scoreText);
+        memTimeText = findViewById(R.id.memTimeText);
+        graph = findViewById(R.id.viewgroup_score_panel_graph);
         panel = BottomSheetBehavior.from(this);
+
+        findViewById(R.id.viewgroup_score_panel_summary_section).setOnClickListener(v -> onSummaryPanelClick());
     }
 
-    @OnClick(R.id.viewgroup_score_panel_summary_section) void onSummaryPanelClick() {
+    void onSummaryPanelClick() {
         if (panel.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
             panel.setState(BottomSheetBehavior.STATE_EXPANDED);
         }

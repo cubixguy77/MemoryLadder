@@ -45,14 +45,14 @@
             />
     </FrameLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/numberGrid"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:minHeight="@dimen/numbers.grid.row.height"
         tools:listitem="@layout/viewgroup_numbers_grid_cell"
-        tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:spanCount="5"
         tools:itemCount="25"
         />

@@ -11,7 +11,7 @@ import com.mastersofmemory.memoryladder.R;
 
 public class CardSelectionView extends GridLayout {
 
-    private Context context;
+    private final Context context;
     private SmallCardView[] cardViews;
     private CardSelectionListener cardSelectionListener;
 
