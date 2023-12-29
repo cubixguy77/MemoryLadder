@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 android {
+
     namespace 'com.mastersofmemory.memoryladder'
 
     signingConfigs {
@@ -17,7 +18,22 @@ android {
         vectorDrawables.useSupportLibrary true
     }
 
-    flavorDimensions = ["general"]
+    flavorDimensions = ["env", "store"]
+    productFlavors {
+        dev {
+            dimension "env"
+            versionNameSuffix "-dev"
+        }
+
+        prod {
+            dimension "env"
+        }
+
+        google {
+            dimension "store"
+            buildConfigField "boolean", "lockable", "true"
+        }
+    }
 
     buildTypes {
         debug {
@@ -27,25 +43,22 @@ android {
         release {
             debuggable false
             minifyEnabled true
+            shrinkResources true
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
-    }
-
-    productFlavors {
-        dev {
-            versionNameSuffix "-dev"
-        }
-
-        prod {}
     }
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
     buildFeatures {
+        dataBinding true
         viewBinding true
         buildConfig = true
+    }
+    lint {
+        checkReleaseBuilds false
     }
 }
 

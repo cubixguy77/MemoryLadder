@@ -1,7 +1,5 @@
 package com.MemoryLadder;
 
-import androidx.annotation.DrawableRes;
-
 import com.MemoryLadder.TakeTest.GameActivity;
 import com.MemoryLadder.ListsChallenges.Lists_Mem;
 import com.MemoryLadder.NumbersChallenges.DigitSpeed;
