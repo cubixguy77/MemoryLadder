@@ -4,20 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    tools:context="com.MemoryLadder.TakeTest.GameActivity">
+    tools:context="com.memoryladder.taketest.GameActivity">
 
     <LinearLayout
-        android:id="@+id/gameContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:fitsSystemWindows="true"
-        android:background="@color/activity.background">
+        android:background="@color/activity_background">
 
         <include
             android:id="@+id/generalToolbar"
             layout="@layout/toolbar" />
 
+        <FrameLayout
+            android:id="@+id/gameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <View
+            android:id="@+id/score_panel_invisible"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/score_panel.height"
+            android:visibility="gone"
+            />
     </LinearLayout>
 
     <Button

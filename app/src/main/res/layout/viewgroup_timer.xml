@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.MemoryLadder.TakeTest.Timer.TimerView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.memoryladder.taketest.timer.TimerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/text_timer"
-    android:layout_width="wrap_content"
+    android:layout_width="100dp"
     android:layout_height="@dimen/timer.height"
     android:layout_gravity="center"
     android:gravity="center"
     android:textColor="#ffffffff"
     android:textSize="@dimen/timer.text.size"
-    tools:text="5:00"
+    tools:text="1:00:00"
     tools:showIn="@layout/viewgroup_card_arena"
     />

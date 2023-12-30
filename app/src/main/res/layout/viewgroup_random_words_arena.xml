@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--suppress AndroidUnknownAttribute -->
+    <data class="RandomWordsFragmentBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.memoryladder.taketest.randomwords.ui.viewmodel.RandomWordsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_words"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/timerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_word_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:text="@{@string/wordCount(viewModel.wordCount)}"
+                android:textSize="@dimen/page_selector.text.size"
+                tools:text="XX Words" />
+
+            <include
+                layout="@layout/viewgroup_timer">
+            </include>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/button_prev_deck"
+                android:onClick="@{viewModel::prevColumn}"
+                style="@style/PageSelectorButton"
+                app:srcCompat="@drawable/ic_arrow_left_small"
+                />
+
+            <TextView
+                android:id="@+id/text_column_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="8dp"
+                android:paddingLeft="8dp"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp"
+                android:text="@{@string/columnIndicator(viewModel.columnNum+1, viewModel.columnCount)}"
+                android:textSize="@dimen/page_selector.text.size"
+                tools:text="Column 2 of 5"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/button_next_deck"
+                android:onClick="@{viewModel::nextColumn}"
+                style="@style/PageSelectorButton"
+                app:srcCompat="@drawable/ic_arrow_right_small"
+                />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/word_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="@dimen/words.list.margins"
+            android:layout_marginRight="@dimen/words.list.margins"
+            android:layout_marginBottom="16dp"
+            tools:listitem="@layout/list_item_random_words_memory"
+            />
+    </LinearLayout>
+</layout>

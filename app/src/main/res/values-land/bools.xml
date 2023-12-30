@@ -2,4 +2,6 @@
 <resources>
     <bool name="cards_bottom_navigation_buttons_display">false</bool>
     <bool name="cards_selected_view_display_in_recall">false</bool>
+
+    <bool name="random_words_bottom_navigation_buttons_display">false</bool>
 </resources>

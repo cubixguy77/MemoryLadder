@@ -2,4 +2,6 @@
 <resources>
     <integer name="numbers.grid.maxLines">2</integer>
     <integer name="cards.deckView.maxCardsPerRow">26</integer>
+
+    <integer name="faces_Columns">2</integer>
 </resources>

@@ -22,9 +22,9 @@
     <dimen name="scores.settings.list.text_size">20sp</dimen>
     <dimen name="scores.settings.list.summary.text_size">30sp</dimen>
 
-    <dimen name="deck_selector.size">30dp</dimen>
-    <dimen name="deck_selector.margin">8dp</dimen>
-    <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
+    <dimen name="page_selector.size">30dp</dimen>
+    <dimen name="page_selector.margin">8dp</dimen>
+    <dimen name="page_selector.text.size">@dimen/timer.text.size</dimen>
 
     <dimen name="timer.height">40dp</dimen>
     <dimen name="timer.text.size">16sp</dimen>
@@ -41,4 +41,7 @@
     <dimen name="numbers.grid.row.height">40dp</dimen>
 
     <dimen name="startButton.size">240dp</dimen>
+
+    <!-- Faces -->
+    <dimen name="faces.image.height">250dp</dimen>
 </resources>

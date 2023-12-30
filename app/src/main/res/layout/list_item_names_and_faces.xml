@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:background="#749FE9">
+
+    <ImageView
+        android:id="@+id/image_face"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/faces.image.height"
+        android:scaleType="fitCenter"
+        android:layout_margin="8dp"
+        android:padding="12dp"
+        android:background="#E6EDF8"
+        tools:src="@drawable/male0"
+        />
+
+    <TextView
+        android:id="@+id/name_first"
+        style="@style/Faces_Name_Memory"
+        tools:text="First Last"
+        />
+
+    <EditText
+        android:id="@+id/names_faces_cell_recall_first"
+        style="@style/Faces_Recall_Input"
+        android:hint="First Name"
+        />
+
+    <EditText
+        android:id="@+id/names_faces_cell_recall_last"
+        style="@style/Faces_Recall_Input"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:hint="Last Name"
+        />
+
+    <LinearLayout
+        android:id="@+id/names_faces_cell_review_container_first"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        >
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_memory_first"
+            style="@style/Faces_Review_Left_Cell"
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
+            tools:text="First Memory"
+            />
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_recall_first"
+            style="@style/Faces_Review_Right_Cell"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            tools:text="First Recall"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/names_faces_cell_review_container_last"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        >
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_memory_last"
+            style="@style/Faces_Review_Left_Cell"
+            android:layout_marginRight="2dp"
+            android:layout_marginEnd="2dp"
+            tools:text="Last Memory"
+            />
+
+        <TextView
+            android:id="@+id/names_faces_cell_review_recall_last"
+            style="@style/Faces_Review_Right_Cell"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            tools:text="Last Recall"
+            />
+    </LinearLayout>
+</LinearLayout>

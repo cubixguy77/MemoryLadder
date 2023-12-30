@@ -65,10 +65,10 @@
     <dimen name="navigation_button.margin_from_center">44dp</dimen>
 
 
-    <dimen name="deck_selector.size">24dp</dimen>
-    <dimen name="deck_selector.margin">4dp</dimen>
-    <dimen name="deck_selector.text.size">@dimen/timer.text.size</dimen>
-    <dimen name="deck_selector.arrow.size">24dp</dimen>
+    <dimen name="page_selector.size">24dp</dimen>
+    <dimen name="page_selector.margin">4dp</dimen>
+    <dimen name="page_selector.text.size">@dimen/timer.text.size</dimen>
+    <dimen name="page_selector.arrow.size">24dp</dimen>
 
     <dimen name="timer.height">36dp</dimen>
     <dimen name="timer.text.size">12sp</dimen>
@@ -120,5 +120,22 @@
 
 
     <dimen name="startButton.size">180dp</dimen>
+
+    <dimen name="words.list.indexWidth">40dp</dimen>
+    <dimen name="words.list.memorytext.size">32sp</dimen>
+    <dimen name="words.list.reviewtext.size">20sp</dimen>
+    <dimen name="words.list.margins">32dp</dimen>
+    <dimen name="words.list.icon.marginright">32dp</dimen>
+    <dimen name="words.list.rowheight">80dp</dimen>
+
+    <!-- Images -->
+    <dimen name="images.image.height">100dp</dimen>
+    <dimen name="images.index.textSizes">12sp</dimen>
+    <dimen name="images.rownum.width">14dp</dimen>
+    <dimen name="images.rownum.textSize">12sp</dimen>
+
+
+    <!-- Faces -->
+    <dimen name="faces.image.height">200dp</dimen>
 
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/words.list.rowheight"
+    android:orientation="horizontal"
+    android:background="@color/words_list_background">
+
+    <TextView
+        android:id="@+id/words_list_cell_index"
+        style="@style/Word_List_Index"
+        tools:text="4."
+        />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginRight="8dp">
+
+        <TextView
+            android:id="@+id/words_list_cell_memory_text"
+            style="@style/Word_List_Review_Text"
+            tools:text="Acetate"
+            />
+
+        <TextView
+            android:id="@+id/words_list_cell_recall_text"
+            style="@style/Word_List_Review_Text"
+            tools:text="Aceta"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/words_list_cell_review_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/words.list.icon.marginright"
+        android:layout_marginEnd="@dimen/words.list.icon.marginright"
+        app:srcCompat="@drawable/icon_review_correct_green"
+        android:contentDescription="Outcome Icon" />
+
+</LinearLayout>

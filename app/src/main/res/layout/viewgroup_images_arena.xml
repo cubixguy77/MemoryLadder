@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--suppress AndroidUnknownAttribute -->
+    <data class="ImagesFragmentBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.memoryladder.taketest.images.ui.viewmodel.ImagesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        >
+
+        <FrameLayout
+            android:id="@+id/timerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_row_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:text="@{@string/rowCount(viewModel.rowCount)}"
+                android:textSize="@dimen/page_selector.text.size"
+                tools:text="XX Rows" />
+
+            <include
+                layout="@layout/viewgroup_timer">
+            </include>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grid_images"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:focusableInTouchMode="true"
+            android:descendantFocusability="beforeDescendants"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="6"
+            tools:listitem="@layout/list_item_images"
+            tools:itemCount="12"
+
+            />
+    </LinearLayout>
+</layout>

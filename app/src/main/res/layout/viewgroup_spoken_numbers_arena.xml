@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--suppress AndroidUnknownAttribute -->
+    <data class="SpokenNumbersFragmentBinding">
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.memoryladder.taketest.numbers.spoken.ui.viewmodel.SpokenNumbersViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/numbersFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/activity_background"
+        android:orientation="vertical"
+        tools:context="com.memoryladder.taketest.GameActivity">
+
+        <FrameLayout
+            android:id="@+id/timerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_word_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="start|center_vertical"
+                android:text="@{@string/digitCount(viewModel.digitCount)}"
+                android:textSize="@dimen/page_selector.text.size"
+                tools:text="XX Digits" />
+
+            <include
+                layout="@layout/viewgroup_timer">
+            </include>
+
+            <ImageView
+                android:id="@+id/buttonToggleNightMode"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="48dp"
+                android:layout_marginEnd="48dp"
+                app:srcCompat="@drawable/icon_night_mode_off"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+            <ImageView
+                android:id="@+id/buttonToggleGridLines"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                app:srcCompat="@drawable/icon_gridlines_on"
+                android:clickable="true"
+                android:focusable="true"
+                />
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/speaker"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/pre_graphic_spokennumbers"
+            android:visibility="gone"
+            tools:visibility="gone"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/grid_spoken_numbers"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="@dimen/numbers.grid.row.height"
+            tools:listitem="@layout/viewgroup_numbers_grid_cell"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:spanCount="5"
+            tools:itemCount="25"
+            />
+
+        <include
+            android:id="@+id/keyboard"
+            layout="@layout/viewgroup_numeric_keyboard"
+            android:visibility="gone"
+            tools:visibility="visible"
+            />
+    </LinearLayout>
+</layout>

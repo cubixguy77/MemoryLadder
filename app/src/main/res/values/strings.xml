@@ -39,13 +39,12 @@
     <string name="lists_dates_addon2"></string>
     
     <string name="shapes_faces_about">In this test, you will be presented with a series of color photographs of different people, with a first and last name printed underneath each picture. Your job is to commit to memory and recall as many names as possible and link them to the right face in the time allotted. </string>
-    <string name="shapes_faces_point1">1 point is awarded for each correct first name and each last name.</string>
-    <string name="shapes_faces_point2">0.5 point is awarded for each name that is clearly recalled but misspelled.</string>
-    <string name="shapes_faces_point3">0.5 point is deducted if a name is incorrectly recalled.</string>    
-    <string name="shapes_faces_addon1">0 points are awarded if a name is incorrectly recalled but is within 3 letters of the correct name.</string>
-    <string name="shapes_faces_addon2">Points are still awarded if only the first or last name is recalled.</string>
+    <string name="shapes_faces_point1">1 point is awarded for each correct first name and each correct last name.</string>
+    <string name="shapes_faces_point2">Capitalization does not matter.</string>
+    <string name="shapes_faces_point3">There is no penalty for guessing.</string>
+    <string name="shapes_faces_addon1">Points are still awarded if only the first or last name is recalled. The faces will be shuffled at the start of recall.</string>
     
-    <string name="shapes_images_about">In this test, you will be presented with several rows of abstract images, with each row containing 5 images. On the recall page, the sequence of the images will be shuffled within each individual row (the rows remain in the same order). Contestants must write a number under each image indicating its original position (reading from left to right). Your job is to commit to memory and recall the original sequence of images within as many rows as possible in the time allotted.</string>
+    <string name="shapes_images_about">In this test, you will be presented with several rows of abstract images, with each row containing 5 images. On the recall page, the sequence of the images will be shuffled within each individual row (the rows remain in the same order). You must rearrange the images back to their original position (reading from left to right). Your job is to commit to memory and recall the original sequence of images within as many rows as possible in the time allotted.</string>
     <string name="shapes_images_point1">5 points are awarded for each correct row.</string>
     <string name="shapes_images_point2">1 point is deducted for each incorrectly attempted row.</string>
     <string name="shapes_images_point3">No points are awarded or deducted for rows that are not attempted.</string>    
@@ -68,6 +67,15 @@
     <string name="expand">+Expand</string>
 	<string name="hide">—Hide</string>
 	<string name="Row_Num_Indicator">Row %d%s/%d</string>
+    <string name="night_mode_toggle">Night Mode Toggle</string>
+	<string name="wordCount">%d Words</string>
+	<string name="faceCount">%d Faces</string>
+	<string name="digitCount">%d Digits</string>
+	<string name="dateCount">%d Dates</string>
+	<string name="rowCount">%d Rows</string>
+	<string name="columnIndicator">Column %d of %d</string>
+    <string name="prev_column">Previous Column</string>
+	<string name="next_column">Next Column</string>
 
 	<string-array name="Settings_NumberTypes">
 	    <item>Binary</item>
@@ -81,7 +89,8 @@
 	    <item>Super Fast</item>
     </string-array>
 
-	<string-array name="randomwords1">
+
+<string-array name="randomwords_english_truncated">
 	<item>abseil</item>
 	<item>tire</item>
 	<item>lard</item>
@@ -362,8 +371,6 @@
 	<item>jumper</item>
 	<item>tennis</item>
 	<item>kidney</item>
-</string-array>
-<string-array name="randomwords2">
 	<item>mesh</item>
 	<item>apology</item>
 	<item>cricket</item>
@@ -507,985 +514,3793 @@
 	<item>trellis</item>
 	<item>constable</item>
 	<item>document</item>
-	<item>thunder</item>
-	<item>sing</item>
-	<item>ostrich</item>
-	<item>comic</item>
-	<item>alien</item>
-	<item>offer</item>
-	<item>episode</item>
-	<item>plinth</item>
-	<item>sugar</item>
-	<item>wing</item>
-	<item>razor</item>
-	<item>button</item>
-	<item>dormouse</item>
-	<item>captain</item>
-	<item>asphalt</item>
-	<item>hydrant</item>
-	<item>admiral</item>
-	<item>deflate</item>
-	<item>balloon</item>
-	<item>market</item>
-	<item>beef</item>
-	<item>candy</item>
-	<item>cable</item>
-	<item>canyon</item>
-	<item>atlas</item>
-	<item>accident</item>
-	<item>magic</item>
-	<item>bubble</item>
-	<item>obstacle</item>
-	<item>bean</item>
-	<item>bottom</item>
-	<item>bungalow</item>
-	<item>sack</item>
-	<item>shears</item>
-	<item>amphitheatre</item>
-	<item>orient</item>
-	<item>youth</item>
-	<item>mallet</item>
-	<item>kebab</item>
-	<item>base</item>
-	<item>racket</item>
-	<item>box</item>
-	<item>apron</item>
-	<item>bib</item>
-	<item>hood</item>
-	<item>fee</item>
-	<item>garden</item>
-	<item>horse</item>
-	<item>beauty</item>
-	<item>anger</item>
-	<item>bark</item>
-	<item>cartoon</item>
-	<item>lemon</item>
-	<item>bobbin</item>
-	<item>bead</item>
-	<item>gerbil</item>
-	<item>bell</item>
-	<item>bear</item>
-	<item>illusion</item>
-	<item>bayonet</item>
-	<item>fang</item>
-	<item>abbey</item>
-	<item>abyss</item>
-	<item>bitumen</item>
-	<item>impostor</item>
-	<item>zodiac</item>
-	<item>bingo</item>
-	<item>broom</item>
-	<item>baboon</item>
-	<item>ash</item>
-	<item>silhouette</item>
-	<item>europe</item>
-	<item>band</item>
-	<item>bed</item>
-	<item>brother</item>
-	<item>agent</item>
-	<item>troop</item>
-	<item>ballerina</item>
-	<item>accordion</item>
-	<item>eclipse</item>
-	<item>xylophone</item>
-	<item>gadget</item>
-	<item>brick</item>
-	<item>wood</item>
-	<item>anvil</item>
-	<item>open</item>
-	<item>army</item>
-	<item>thyme</item>
-	<item>finish</item>
-	<item>llama</item>
-	<item>banana</item>
-	<item>foam</item>
-	<item>terrace</item>
-	<item>padlock</item>
-	<item>swan</item>
-	<item>anagram</item>
-	<item>acrobat</item>
-	<item>jar</item>
-	<item>helium</item>
-	<item>ray</item>
-	<item>barbecue</item>
-	<item>kite</item>
-	<item>leap</item>
-	<item>alphabet</item>
-	<item>tape</item>
-	<item>boot</item>
-	<item>river</item>
-	<item>anchor</item>
-	<item>camera</item>
-	<item>blob</item>
-	<item>devil</item>
-	<item>tandem</item>
-	<item>sandwich</item>
-	<item>oil</item>
-	<item>alcohol</item>
-	<item>bait</item>
-	<item>antibiotic</item>
-	<item>bamboo</item>
-	<item>bureau</item>
-	<item>cage</item>
-	<item>bone</item>
-	<item>quill</item>
-	<item>fort</item>
-	<item>finance</item>
-	<item>battery</item>
-	<item>rhinoceros</item>
-	<item>zip</item>
-	<item>weed</item>
-	<item>cash</item>
-	<item>gang</item>
-	<item>acne</item>
-	<item>anaconda</item>
-	<item>scalpel</item>
-	<item>year</item>
-	<item>cannon</item>
-	</string-array>
-<string-array name="randomwords3">
-	<item>berry</item>
-	<item>boat</item>
-	<item>beetle</item>
-	<item>bread</item>
-	<item>beast</item>
-	<item>food</item>
-	<item>palm</item>
-	<item>flower</item>
-	<item>candle</item>
-	<item>baby</item>
-	<item>apricot</item>
-	<item>microscope</item>
-	<item>job</item>
-	<item>beach</item>
-	<item>axle</item>
-	<item>bird</item>
-	<item>iris</item>
-	<item>falcon</item>
-	<item>blaze</item>
-	<item>shrimp</item>
-	<item>yak</item>
-	<item>bishop</item>
-	<item>elephant</item>
-	<item>bugle</item>
-	<item>dairy</item>
-	<item>matrix</item>
-	<item>annotate</item>
-	<item>hair</item>
-	<item>lobster</item>
-	<item>spoon</item>
-	<item>lace</item>
-	<item>particle</item>
-	<item>camp</item>
-	<item>argue</item>
-	<item>weather</item>
-	<item>accountant</item>
-	<item>baron</item>
-	<item>atmosphere</item>
-	<item>bulldog</item>
-	<item>aerial</item>
-	<item>antler</item>
-	<item>enchant</item>
-	<item>battle</item>
-	<item>nymph</item>
-	<item>address</item>
-	<item>arena</item>
-	<item>seal</item>
-	<item>ozone</item>
-	<item>bangle</item>
-	<item>lead</item>
-	<item>barber</item>
-	<item>cassette</item>
-	<item>buckle</item>
-	<item>body</item>
-	<item>festival</item>
-	<item>adder</item>
-	<item>bank</item>
-	<item>archer</item>
-	<item>puffin</item>
-	<item>aqueduct</item>
-	<item>asterisk</item>
-	<item>valve</item>
-	<item>tailor</item>
-	<item>architect</item>
-	<item>belly</item>
-	<item>forceps</item>
-	<item>help</item>
-	<item>operate</item>
-	<item>ladder</item>
-	<item>lash</item>
-	<item>bacon</item>
-	<item>amour</item>
-	<item>dessert</item>
-	<item>uniform</item>
-	<item>parcel</item>
-	<item>vitamin</item>
-	<item>earth</item>
-	<item>saw</item>
-	<item>aisle</item>
-	<item>wasp</item>
-	<item>waffle</item>
-	<item>boomerang</item>
-	<item>taxi</item>
-	<item>bill</item>
-	<item>ache</item>
-	<item>head</item>
-	<item>albatross</item>
-	<item>bradawl</item>
-	<item>banquet</item>
-	<item>toga</item>
-	<item>aerodrome</item>
-	<item>action</item>
-	<item>beacon</item>
-	<item>boy</item>
-	<item>astrologer</item>
-	<item>nest</item>
-	<item>monk</item>
-	<item>bride</item>
-	<item>filament</item>
-	<item>puddle</item>
-	<item>geometry</item>
-	<item>jam</item>
-	<item>echo</item>
-	<item>tack</item>
-	<item>anorak</item>
-	<item>kayak</item>
-	<item>paper</item>
-	<item>brain</item>
-	<item>apple</item>
-	<item>cabin</item>
-	<item>splash</item>
-	<item>talk</item>
-	<item>penguin</item>
-	<item>ambition</item>
-	<item>fry</item>
-	<item>fire</item>
-	<item>baker</item>
-	<item>protect</item>
-	<item>arithmetic</item>
-	<item>canary</item>
-	<item>blush</item>
-	<item>bath</item>
-	<item>jury</item>
-	<item>beverage</item>
-	<item>artifact</item>
-	<item>varnish</item>
-	<item>walrus</item>
-	<item>arbiter</item>
-	<item>acid</item>
-	<item>altar</item>
-	<item>board</item>
-	<item>pagoda</item>
-	<item>knife</item>
-	<item>hand</item>
-	<item>canvas</item>
-	<item>ruler</item>
-	<item>pearl</item>
-	<item>carp</item>
-	<item>case</item>
-	<item>arrange</item>
-	<item>buzzard</item>
-	<item>nucleus</item>
-	<item>face</item>
-	<item>bolt</item>
-	<item>canteen</item>
-	<item>knock</item>
-	<item>ambulance</item>
-	<item>alloy</item>
-	<item>fern</item>
-	<item>embroider</item>
-	<item>listen</item>
-	<item>joy</item>
-	<item>opinion</item>
-	<item>compress</item>
-	<item>liver</item>
-	<item>foil</item>
-	<item>plate</item>
-	<item>navy</item>
-	<item>mitten</item>
-	<item>invoice</item>
-	<item>remark</item>
-	<item>bluebell</item>
-	<item>dream</item>
-	<item>hunter</item>
-	<item>scrapbook</item>
-	<item>sleuth</item>
-	<item>broadsword</item>
-	<item>teddy</item>
-	<item>steam</item>
-	<item>dinner</item>
-	<item>laser</item>
-	<item>cargo</item>
-	<item>group</item>
-	<item>partition</item>
-	<item>railway</item>
-	<item>flag</item>
-	<item>gossip</item>
-	<item>paddle</item>
-	<item>siphon</item>
-	<item>radio</item>
-	<item>dew</item>
-	<item>dentist</item>
-	<item>utopia</item>
-	<item>france</item>
-	<item>tissue</item>
-	<item>peace</item>
-	<item>hyena</item>
-	<item>runt</item>
-	<item>sample</item>
-	<item>spell</item>
-	<item>agriculture</item>
-	<item>brochure</item>
-	<item>cylinder</item>
-	<item>shampoo</item>
-	<item>conductor</item>
-	<item>democracy</item>
-	<item>dot</item>
-	<item>hypnotist</item>
-	<item>annex</item>
-	<item>mummy</item>
-	<item>liquid</item>
-	<item>squaw</item>
-	<item>regiment</item>
-	<item>house</item>
-	<item>niche</item>
-	<item>herb</item>
-	<item>pentagon</item>
-	<item>mother</item>
-	<item>interest</item>
-	<item>pepper</item>
-	<item>confetti</item>
-	<item>eucalyptus</item>
-	<item>unveil</item>
-	<item>concert</item>
-	<item>statue</item>
-	<item>habitat</item>
-	<item>ruff</item>
-	<item>stand</item>
-	<item>stalk</item>
-	<item>hype</item>
-	<item>hollyhock</item>
-	<item>skirt</item>
-	<item>shack</item>
-	<item>fetus</item>
-	<item>satin</item>
-	<item>report</item>
-	<item>demon</item>
-	<item>auction</item>
-	<item>knit</item>
-	<item>empire</item>
-	<item>quiver</item>
-	<item>mobile</item>
-	<item>context</item>
-	<item>pillar</item>
-	<item>shallot</item>
-	<item>newspaper</item>
-	<item>promontory</item>
-	<item>mistletoe</item>
-	<item>register</item>
-	<item>draught</item>
-	<item>bucket</item>
-	<item>monster</item>
-	<item>channel</item>
-	<item>temple</item>
-	<item>entrance</item>
-	<item>bauble</item>
-	<item>hare</item>
-	<item>barrier</item>
-	<item>feeler</item>
-	<item>porter</item>
-	<item>human</item>
-	<item>hull</item>
-	<item>lightning</item>
-	<item>manor</item>
-	<item>clock</item>
-	<item>alley</item>
-	<item>onyx</item>
-	<item>flint</item>
-	<item>zinc</item>
-	<item>jet</item>
-	<item>cymbal</item>
-	<item>gap</item>
-	<item>tonsil</item>
-	<item>lookalike</item>
-	<item>kingfisher</item>
-	<item>diagram</item>
-	<item>love</item>
-	<item>snail</item>
-	<item>zeppelin</item>
-	<item>apostrophe</item>
-	<item>grocer</item>
-	<item>evening</item>
-	<item>seesaw</item>
-	<item>weasel</item>
-	<item>typhoon</item>
-	<item>spade</item>
-	<item>bicycle</item>
-	<item>specter</item>
-	<item>confectionery</item>
-	</string-array>
-<string-array name="randomwords4">
-	<item>gas</item>
-	<item>sash</item>
-	<item>indentation</item>
-	<item>fudge</item>
-	<item>wafer</item>
-	<item>sultan</item>
-	<item>transept</item>
-	<item>stirrup</item>
-	<item>needle</item>
-	<item>hatch</item>
-	<item>roulette</item>
-	<item>stress</item>
-	<item>mace</item>
-	<item>pitcher</item>
-	<item>frankfurter</item>
-	<item>cow</item>
-	<item>delegate</item>
-	<item>emus</item>
-	<item>wick</item>
-	<item>cotton</item>
-	<item>death</item>
-	<item>sickle</item>
-	<item>hump</item>
-	<item>species</item>
-	<item>corpse</item>
-	<item>tram</item>
-	<item>cherry</item>
-	<item>plumber</item>
-	<item>brook</item>
-	<item>trumpet</item>
-	<item>hutch</item>
-	<item>stitch</item>
-	<item>subway</item>
-	<item>chestnut</item>
-	<item>shuttlecock</item>
-	<item>lawn</item>
-	<item>train</item>
-	<item>pew</item>
-	<item>fat</item>
-	<item>marmalade</item>
-	<item>chinchilla</item>
-	<item>rifle</item>
-	<item>cuckoo</item>
-	<item>union</item>
-	<item>embryo</item>
-	<item>straw</item>
-	<item>suck</item>
-	<item>defect</item>
-	<item>soot</item>
-	<item>delta</item>
-	<item>professor</item>
-	<item>reptile</item>
-	<item>picture</item>
-	<item>hyacinth</item>
-	<item>revolver</item>
-	<item>path</item>
-	<item>germ</item>
-	<item>decanter</item>
-	<item>condor</item>
-	<item>cross</item>
-	<item>reef</item>
-	<item>tire</item>
-	<item>rower</item>
-	<item>fuel</item>
-	<item>medal</item>
-	<item>engine</item>
-	<item>violin</item>
-	<item>soda</item>
-	<item>invitation</item>
-	<item>interlude</item>
-	<item>grinder</item>
-	<item>coin</item>
-	<item>comet</item>
-	<item>crop</item>
-	<item>burn</item>
-	<item>coal</item>
-	<item>receptionist</item>
-	<item>nanny</item>
-	<item>warlock</item>
-	<item>crust</item>
-	<item>soil</item>
-	<item>import</item>
-	<item>mule</item>
-	<item>smock</item>
-	<item>explorer</item>
-	<item>traitor</item>
-	<item>inca</item>
-	<item>lobby</item>
-	<item>vomit</item>
-	<item>uranium</item>
-	<item>pedal</item>
-	<item>stair</item>
-	<item>idiot</item>
-	<item>fleet</item>
-	<item>ointment</item>
-	<item>gentleman</item>
-	<item>respirator</item>
-	<item>eskimo</item>
-	<item>charm</item>
-	<item>preen</item>
-	<item>greyhound</item>
-	<item>hostel</item>
-	<item>stethoscope</item>
-	<item>fool</item>
-	<item>iguana</item>
-	<item>shell</item>
-	<item>fruit</item>
-	<item>stake</item>
-	<item>lime</item>
-	<item>cutlass</item>
-	<item>polythene</item>
-	<item>rectangle</item>
-	<item>fly</item>
-	<item>discount</item>
-	<item>geologist</item>
-	<item>arsenic</item>
-	<item>animal</item>
-	<item>energy</item>
-	<item>queue</item>
-	<item>flunkey</item>
-	<item>bridge</item>
-	<item>piston</item>
-	<item>ruby</item>
-	<item>container</item>
-	<item>subside</item>
-	<item>sprout</item>
-	<item>ceremony</item>
-	<item>priest</item>
-	<item>sun</item>
-	<item>intuition</item>
-	<item>guest</item>
-	<item>target</item>
-	<item>briar</item>
-	<item>constellation</item>
-	<item>lion</item>
-	<item>sepal</item>
-	<item>impersonate</item>
-	<item>kiwi</item>
-	<item>wall</item>
-	<item>begonia</item>
-	<item>coupon</item>
-	<item>seam</item>
-	<item>encyclopedia</item>
-	<item>frigate</item>
-	<item>clipper</item>
-	<item>gum</item>
-	<item>tapestry</item>
-	<item>willow</item>
-	<item>stickleback</item>
-	<item>scythe</item>
-	<item>gannet</item>
-	<item>certificate</item>
-	<item>mnemonic</item>
-	<item>thread</item>
-	<item>circle</item>
-	<item>friend</item>
-	<item>girl</item>
-	<item>snare</item>
-	<item>dame</item>
-	<item>staff</item>
-	<item>beagle</item>
-	<item>victim</item>
-	<item>hoist</item>
-	<item>shore</item>
-	<item>pupa</item>
-	<item>clamp</item>
-	<item>trident</item>
-	<item>herd</item>
-	<item>pollard</item>
-	<item>embassy</item>
-	<item>howl</item>
-	<item>pub</item>
-	<item>silk</item>
-	<item>monolith</item>
-	<item>viola</item>
-	<item>daisy</item>
-	<item>gingerbread</item>
-	<item>company</item>
-	<item>chapel</item>
-	<item>monorail</item>
-	<item>cobra</item>
-	<item>corridor</item>
-	<item>pluto</item>
-	<item>concrete</item>
-	<item>mural</item>
-	<item>backpack</item>
-	<item>baseball</item>
-	<item>ember</item>
-	<item>debris</item>
-	<item>pump</item>
-	<item>lottery</item>
-	<item>prince</item>
-	<item>shepherd</item>
-	<item>cornet</item>
-	<item>harpoon</item>
-	<item>jungle</item>
-	<item>wreck</item>
-	<item>dial</item>
-	<item>manikin</item>
-	<item>memory</item>
-	<item>nose</item>
-	<item>crossbow</item>
-	<item>scout</item>
-	<item>gold</item>
-	<item>fund</item>
-	<item>gland</item>
-	<item>goal</item>
-	<item>powerboat</item>
-	<item>poem</item>
-	<item>rose</item>
-	<item>perch</item>
-	<item>plaza</item>
-	<item>metal</item>
-	<item>puma</item>
-	<item>chink</item>
-	<item>rice</item>
-	<item>barn</item>
-	<item>fjord</item>
-	<item>touchstone</item>
-	<item>drawbridge</item>
-	<item>jade</item>
-	<item>crossword</item>
-	<item>cube</item>
-	<item>computer</item>
-	<item>yeast</item>
-	<item>election</item>
-	<item>scent</item>
-	<item>library</item>
-	<item>helmet</item>
-	<item>knee</item>
-	<item>bible</item>
-	<item>plastic</item>
-	<item>rubber</item>
-	<item>doily</item>
-	<item>rubble</item>
-	<item>thinker</item>
-	<item>sentence</item>
-	<item>sentry</item>
-	<item>tot</item>
-	<item>father</item>
-	<item>oracle</item>
-	<item>drumstick</item>
-	<item>uranus</item>
-	<item>toothpaste</item>
-	<item>aardvark</item>
-	<item>topaz</item>
-	<item>crown</item>
-	<item>defender</item>
-	<item>fossil</item>
-	<item>memorial</item>
-	<item>hook</item>
-	<item>abacus</item>
-	<item>organ</item>
-	<item>invader</item>
-	<item>rattle</item>
-	<item>thatch</item>
-	<item>moustache</item>
-	<item>stage</item>
-	<item>turnip</item>
-	<item>ranger</item>
-	<item>gel</item>
-	<item>beaver</item>
-	<item>nylon</item>
-	<item>microbe</item>
-	<item>decoration</item>
-	<item>hobby</item>
-	<item>firework</item>
-	<item>freak</item>
-	<item>yard</item>
-	<item>spider</item>
-	<item>fitter</item>
-	<item>pilot</item>
-	<item>creek</item>
-	<item>explosive</item>
-	<item>cigarette</item>
-	<item>ermine</item>
-	<item>beautician</item>
-	<item>binder</item>
-	<item>encampment</item>
-	</string-array>
-<string-array name="randomwords5">
-	<item>flagpole</item>
-	<item>conference</item>
-	<item>runner</item>
-	<item>incubator</item>
-	<item>dove</item>
-	<item>ledger</item>
-	<item>family</item>
-	<item>bottle</item>
-	<item>gong</item>
-	<item>cream</item>
-	<item>epic</item>
-	<item>directory</item>
-	<item>blazer</item>
-	<item>gopher</item>
-	<item>epitaph</item>
-	<item>tiger</item>
-	<item>transparency</item>
-	<item>knitting</item>
-	<item>binoculars</item>
-	<item>universe</item>
-	<item>broccoli</item>
-	<item>evangelist</item>
-	<item>pointer</item>
-	<item>popcorn</item>
-	<item>shuttering</item>
-	<item>mechanic</item>
-	<item>molasses</item>
-	<item>virus</item>
-	<item>examination</item>
-	<item>quadrangle</item>
-	<item>commander</item>
-	<item>cleaner</item>
-	<item>viper</item>
-	<item>forest</item>
-	<item>assassin</item>
-	<item>rash</item>
-	<item>suture</item>
-	<item>office</item>
-	<item>lung</item>
-	<item>pushchair</item>
-	<item>viscount</item>
-	<item>yarn</item>
-	<item>replica</item>
-	<item>physicist</item>
-	<item>scratch</item>
-	<item>column</item>
-	<item>flask</item>
-	<item>oscar</item>
-	<item>design</item>
-	<item>diplomat</item>
-	<item>gangster</item>
-	<item>congregation</item>
-	<item>spirit</item>
-	<item>champion</item>
-	<item>hyphen</item>
-	<item>indicator</item>
-	<item>sticker</item>
-	<item>cost</item>
-	<item>excavator</item>
-	<item>wader</item>
-	<item>reed</item>
-	<item>blast</item>
-	<item>buyer</item>
-	<item>crescent</item>
-	<item>chocolate</item>
-	<item>bleach</item>
-	<item>golf</item>
-	<item>disciple</item>
-	<item>capital</item>
-	<item>tier</item>
-	<item>transmitter</item>
-	<item>workbench</item>
-	<item>cave</item>
-	<item>crab</item>
-	<item>funnel</item>
-	<item>footbridge</item>
-	<item>limpet</item>
-	<item>bearing</item>
-	<item>democrat</item>
-	<item>basil</item>
-	<item>rascal</item>
-	<item>sorcerer</item>
-	<item>cook</item>
-	<item>purr</item>
-	<item>screen</item>
-	<item>saint</item>
-	<item>mystic</item>
-	<item>piano</item>
-	<item>homestead</item>
-	<item>moon</item>
-	<item>comb</item>
-	<item>hurdle</item>
-	<item>rock</item>
-	<item>operator</item>
-	<item>heptathlon</item>
-	<item>wreath</item>
-	<item>stuffing</item>
-	<item>underwear</item>
-	<item>tripod</item>
-	<item>throne</item>
-	<item>tub</item>
-	<item>film</item>
-	<item>inn</item>
-	<item>onion</item>
-	<item>collie</item>
-	<item>owl</item>
-	<item>regatta</item>
-	<item>feast</item>
-	<item>planet</item>
-	<item>artist</item>
-	<item>medicine</item>
-	<item>ape</item>
-	<item>caterpillar</item>
-	<item>curry</item>
-	<item>contract</item>
-	<item>lens</item>
-	<item>author</item>
-	<item>sabre</item>
-	<item>foot</item>
-	<item>studio</item>
-	<item>soup</item>
-	<item>theatre</item>
-	<item>nettle</item>
-	<item>meal</item>
-	<item>choir</item>
-	<item>college</item>
-	<item>electrician</item>
-	<item>bee</item>
-	<item>tea</item>
-	<item>stump</item>
-	<item>arm</item>
-	<item>travel</item>
-	<item>neon</item>
-	<item>beggar</item>
-	<item>cliff</item>
-	<item>relic</item>
-	<item>ghost</item>
-	<item>slate</item>
-	<item>gremlin</item>
-	<item>bin</item>
-	<item>marzipan</item>
-	<item>tap</item>
-	<item>cheese</item>
-	<item>cab</item>
-	<item>room</item>
-	<item>prophet</item>
-	<item>vermin</item>
-	<item>mess</item>
-	<item>switch</item>
-	<item>coppice</item>
-	<item>ramp</item>
-	<item>mountain</item>
-	<item>treasure</item>
-	<item>sloth</item>
-	<item>jewel</item>
-	<item>walnut</item>
-	<item>whistle</item>
-	<item>myth</item>
-	<item>fabric</item>
-	<item>ball</item>
-	<item>sink</item>
-	<item>flood</item>
-	<item>textile</item>
-	<item>net</item>
-	<item>tail</item>
-	<item>cinema</item>
-	<item>post</item>
-	<item>freezer</item>
-	<item>sheep</item>
-	<item>plank</item>
-	<item>trawler</item>
-	<item>grease</item>
-	<item>spanner</item>
-	<item>incense</item>
-	<item>mat</item>
-	<item>label</item>
-	<item>spear</item>
-	<item>cent</item>
-	<item>tinsel</item>
-	<item>twig</item>
-	<item>card</item>
-	<item>vehicle</item>
-	<item>student</item>
-	<item>shop</item>
-	<item>bet</item>
-	<item>scissors</item>
-	<item>novel</item>
-	<item>farm</item>
-	<item>slime</item>
-	<item>grill</item>
-	<item>dolphin</item>
-	<item>ox</item>
-	<item>bend</item>
-	<item>garage</item>
-	<item>inferno</item>
-	<item>rod</item>
-	<item>abolish</item>
-	<item>fence</item>
-	<item>sweet</item>
-	<item>commuter</item>
-	<item>oxygen</item>
-	<item>amnesia</item>
-	<item>pig</item>
-	<item>page</item>
-	<item>sheet</item>
-	<item>canopy</item>
-	<item>pill</item>
-	<item>property</item>
-	<item>pizza</item>
-	<item>nail</item>
-	<item>freckle</item>
-	<item>copper</item>
-	<item>imprison</item>
-	<item>glove</item>
-	<item>optician</item>
-	<item>abandon</item>
-	<item>grain</item>
-	<item>attack</item>
-	<item>instructor</item>
-	<item>wren</item>
-	<item>car</item>
-	<item>timber</item>
-	<item>urchin</item>
-	<item>shoe</item>
-	<item>velvet</item>
-	<item>magazine</item>
-	<item>disc</item>
-	<item>chip</item>
-	<item>infection</item>
-	<item>urine</item>
-	<item>leopard</item>
-	<item>stamp</item>
-	<item>insult</item>
-	<item>ribbon</item>
-	<item>spice</item>
-	<item>napkin</item>
-	<item>parasol</item>
-	<item>aluminum</item>
-	<item>ambush</item>
-	<item>elastic</item>
-	<item>dragon</item>
-	<item>saucer</item>
-	<item>convent</item>
-	<item>umpire</item>
-	<item>fear</item>
-	<item>sieve</item>
-	<item>potter</item>
-	<item>chart</item>
-	<item>grit</item>
-	<item>mist</item>
-	<item>outlaw</item>
-	<item>surgeon</item>
-	<item>strap</item>
-	<item>inch</item>
-	<item>ship</item>
-	<item>singer</item>
-	<item>crow</item>
-	<item>conjurer</item>
-	<item>kitchen</item>
-	<item>trap</item>
-	<item>refrigerator</item>
-	<item>sister</item>
-	<item>stallion</item>
-	<item>dump</item>
-	<item>ice</item>
-	<item>bachelor</item>
-	<item>mask</item>
-	<item>cap</item>
-	<item>prong</item>
-	<item>decorator</item>
-	<item>mill</item>
-	<item>interpreter</item>
-	<item>hawk</item>
-	<item>stream</item>
 </string-array>
-	
-	
-	
-	
-<string-array name="historicaldates1">
+
+<string-array name="randomwords_english">
+	<item>abacus</item>
+	<item>abbey</item>
+	<item>abdomen</item>
+	<item>ability</item>
+	<item>abroad</item>
+	<item>abuse</item>
+	<item>access</item>
+	<item>accident</item>
+	<item>accordion</item>
+	<item>account</item>
+	<item>accountant</item>
+	<item>achiever</item>
+	<item>acid</item>
+	<item>acoustic</item>
+	<item>acoustics</item>
+	<item>acrylic</item>
+	<item>act</item>
+	<item>action</item>
+	<item>activity</item>
+	<item>actor</item>
+	<item>actress</item>
+	<item>adapter</item>
+	<item>addiction</item>
+	<item>addition</item>
+	<item>address</item>
+	<item>adjustment</item>
+	<item>adrenalin</item>
+	<item>adult</item>
+	<item>adulthood</item>
+	<item>advance</item>
+	<item>advantage</item>
+	<item>advice</item>
+	<item>affair</item>
+	<item>affect</item>
+	<item>aftermath</item>
+	<item>afternoon</item>
+	<item>aftershave</item>
+	<item>aftershock</item>
+	<item>age</item>
+	<item>agency</item>
+	<item>agenda</item>
+	<item>agent</item>
+	<item>aggression</item>
+	<item>agreement</item>
+	<item>aid</item>
+	<item>air</item>
+	<item>airbag</item>
+	<item>airbus</item>
+	<item>airfare</item>
+	<item>airline</item>
+	<item>airmail</item>
+	<item>airplane</item>
+	<item>airport</item>
+	<item>airship</item>
+	<item>alarm</item>
+	<item>albatross</item>
+	<item>alcohol</item>
+	<item>alcove</item>
+	<item>algebra</item>
+	<item>alibi</item>
+	<item>allergist</item>
+	<item>alley</item>
+	<item>alligator</item>
+	<item>alloy</item>
+	<item>almanac</item>
+	<item>almond</item>
+	<item>alpaca</item>
+	<item>alpha</item>
+	<item>alphabet</item>
+	<item>altitude</item>
+	<item>alto</item>
+	<item>aluminum</item>
+	<item>ambassador</item>
+	<item>ambition</item>
+	<item>ambulance</item>
+	<item>amendment</item>
+	<item>amount</item>
+	<item>amusement</item>
+	<item>anagram</item>
+	<item>analog</item>
+	<item>analogue</item>
+	<item>analogy</item>
+	<item>analysis</item>
+	<item>analyst</item>
+	<item>anatomy</item>
+	<item>anger</item>
+	<item>angle</item>
+	<item>anguish</item>
+	<item>animal</item>
+	<item>anime</item>
+	<item>ankle</item>
+	<item>anklet</item>
+	<item>annual</item>
+	<item>answer</item>
+	<item>ant</item>
+	<item>anteater</item>
+	<item>antelope</item>
+	<item>anthony</item>
+	<item>antler</item>
+	<item>anxiety</item>
+	<item>anybody</item>
+	<item>anything</item>
+	<item>anywhere</item>
+	<item>apartment</item>
+	<item>ape</item>
+	<item>apology</item>
+	<item>apparatus</item>
+	<item>apparel</item>
+	<item>appeal</item>
+	<item>appearance</item>
+	<item>appendix</item>
+	<item>applause</item>
+	<item>apple</item>
+	<item>appliance</item>
+	<item>approval</item>
+	<item>apron</item>
+	<item>aquifer</item>
+	<item>arch</item>
+	<item>archer</item>
+	<item>architect</item>
+	<item>area</item>
+	<item>argument</item>
+	<item>arithmetic</item>
+	<item>arm</item>
+	<item>armadillo</item>
+	<item>armament</item>
+	<item>armchair</item>
+	<item>armoire</item>
+	<item>armor</item>
+	<item>army</item>
+	<item>arrival</item>
+	<item>arrow</item>
+	<item>art</item>
+	<item>artichoke</item>
+	<item>article</item>
+	<item>ash</item>
+	<item>ashtray</item>
+	<item>aside</item>
+	<item>ask</item>
+	<item>asparagus</item>
+	<item>aspect</item>
+	<item>asphalt</item>
+	<item>assignment</item>
+	<item>assist</item>
+	<item>assistant</item>
+	<item>associate</item>
+	<item>asterisk</item>
+	<item>astrolabe</item>
+	<item>astrologer</item>
+	<item>astronomy</item>
+	<item>athlete</item>
+	<item>athletics</item>
+	<item>atmosphere</item>
+	<item>atom</item>
+	<item>atrium</item>
+	<item>attachment</item>
+	<item>attack</item>
+	<item>attempt</item>
+	<item>attendant</item>
+	<item>attention</item>
+	<item>attic</item>
+	<item>attitude</item>
+	<item>attorney</item>
+	<item>attraction</item>
+	<item>audience</item>
+	<item>auditorium</item>
+	<item>aunt</item>
+	<item>author</item>
+	<item>authority</item>
+	<item>automaton</item>
+	<item>avalanche</item>
+	<item>avenue</item>
+	<item>average</item>
+	<item>award</item>
+	<item>azimuth</item>
+	<item>babe</item>
+	<item>baboon</item>
+	<item>baby</item>
+	<item>back</item>
+	<item>backbone</item>
+	<item>backdrop</item>
+	<item>background</item>
+	<item>backpack</item>
+	<item>bacon</item>
+	<item>bad</item>
+	<item>badge</item>
+	<item>badger</item>
+	<item>bag</item>
+	<item>bagel</item>
+	<item>baggage</item>
+	<item>bagpipe</item>
+	<item>bail</item>
+	<item>bait</item>
+	<item>bake</item>
+	<item>baker</item>
+	<item>bakery</item>
+	<item>bakeware</item>
+	<item>balance</item>
+	<item>balcony</item>
+	<item>ball</item>
+	<item>ballet</item>
+	<item>balloon</item>
+	<item>ballpark</item>
+	<item>bamboo</item>
+	<item>banana</item>
+	<item>band</item>
+	<item>banjo</item>
+	<item>bank</item>
+	<item>bankbook</item>
+	<item>banker</item>
+	<item>bar</item>
+	<item>barbeque</item>
+	<item>barber</item>
+	<item>barge</item>
+	<item>baritone</item>
+	<item>barium</item>
+	<item>barn</item>
+	<item>barometer</item>
+	<item>barracks</item>
+	<item>base</item>
+	<item>baseball</item>
+	<item>basement</item>
+	<item>basin</item>
+	<item>basis</item>
+	<item>basket</item>
+	<item>basketball</item>
+	<item>bass</item>
+	<item>bassinet</item>
+	<item>bassoon</item>
+	<item>bat</item>
+	<item>bath</item>
+	<item>bather</item>
+	<item>bathhouse</item>
+	<item>bathrobe</item>
+	<item>bathroom</item>
+	<item>bathtub</item>
+	<item>batter</item>
+	<item>battery</item>
+	<item>batting</item>
+	<item>battle</item>
+	<item>battleship</item>
+	<item>bay</item>
+	<item>bayou</item>
+	<item>beach</item>
+	<item>bead</item>
+	<item>beak</item>
+	<item>beam</item>
+	<item>bean</item>
+	<item>beanie</item>
+	<item>beanstalk</item>
+	<item>bear</item>
+	<item>beard</item>
+	<item>beast</item>
+	<item>beat</item>
+	<item>beautiful</item>
+	<item>beauty</item>
+	<item>beaver</item>
+	<item>bed</item>
+	<item>bedroom</item>
+	<item>bee</item>
+	<item>beech</item>
+	<item>beef</item>
+	<item>beer</item>
+	<item>beet</item>
+	<item>beetle</item>
+	<item>beggar</item>
+	<item>beginner</item>
+	<item>behavior</item>
+	<item>behest</item>
+	<item>being</item>
+	<item>belief</item>
+	<item>believe</item>
+	<item>bell</item>
+	<item>bellows</item>
+	<item>belly</item>
+	<item>belt</item>
+	<item>bench</item>
+	<item>bend</item>
+	<item>benefit</item>
+	<item>berry</item>
+	<item>bestseller</item>
+	<item>bet</item>
+	<item>beverage</item>
+	<item>beyond</item>
+	<item>bicycle</item>
+	<item>bid</item>
+	<item>bidet</item>
+	<item>bifocals</item>
+	<item>big</item>
+	<item>bike</item>
+	<item>bikini</item>
+	<item>bill</item>
+	<item>billboard</item>
+	<item>bin</item>
+	<item>biology</item>
+	<item>birch</item>
+	<item>bird</item>
+	<item>birdbath</item>
+	<item>birdcage</item>
+	<item>birdhouse</item>
+	<item>birth</item>
+	<item>birthday</item>
+	<item>bit</item>
+	<item>bite</item>
+	<item>bitter</item>
+	<item>black</item>
+	<item>blackberry</item>
+	<item>blackboard</item>
+	<item>bladder</item>
+	<item>blade</item>
+	<item>blame</item>
+	<item>blank</item>
+	<item>blanket</item>
+	<item>blazer</item>
+	<item>blight</item>
+	<item>blind</item>
+	<item>blinker</item>
+	<item>blister</item>
+	<item>blizzard</item>
+	<item>block</item>
+	<item>blocker</item>
+	<item>blood</item>
+	<item>bloom</item>
+	<item>bloomers</item>
+	<item>blossom</item>
+	<item>blouse</item>
+	<item>blow</item>
+	<item>blowgun</item>
+	<item>blowhole</item>
+	<item>blue</item>
+	<item>blueberry</item>
+	<item>boar</item>
+	<item>board</item>
+	<item>boat</item>
+	<item>boatload</item>
+	<item>boatyard</item>
+	<item>bobcat</item>
+	<item>body</item>
+	<item>bog</item>
+	<item>bolt</item>
+	<item>bomb</item>
+	<item>bomber</item>
+	<item>bone</item>
+	<item>bongo</item>
+	<item>bonnet</item>
+	<item>bonus</item>
+	<item>book</item>
+	<item>bookcase</item>
+	<item>bookend</item>
+	<item>booklet</item>
+	<item>booster</item>
+	<item>boot</item>
+	<item>boots</item>
+	<item>booty</item>
+	<item>border</item>
+	<item>bore</item>
+	<item>bosom</item>
+	<item>boss</item>
+	<item>botany</item>
+	<item>bother</item>
+	<item>bottle</item>
+	<item>bottling</item>
+	<item>bottom</item>
+	<item>boundary</item>
+	<item>bow</item>
+	<item>bowl</item>
+	<item>bowler</item>
+	<item>bowling</item>
+	<item>box</item>
+	<item>boxer</item>
+	<item>boy</item>
+	<item>boyfriend</item>
+	<item>bra</item>
+	<item>brace</item>
+	<item>bracelet</item>
+	<item>bracket</item>
+	<item>brain</item>
+	<item>brake</item>
+	<item>branch</item>
+	<item>brand</item>
+	<item>brandy</item>
+	<item>brass</item>
+	<item>brave</item>
+	<item>bread</item>
+	<item>breadcrumb</item>
+	<item>break</item>
+	<item>breakfast</item>
+	<item>breast</item>
+	<item>breath</item>
+	<item>breeze</item>
+	<item>bribe</item>
+	<item>brick</item>
+	<item>bridge</item>
+	<item>brief</item>
+	<item>briefs</item>
+	<item>brilliant</item>
+	<item>british</item>
+	<item>broccoli</item>
+	<item>brochure</item>
+	<item>broiler</item>
+	<item>broker</item>
+	<item>bronchitis</item>
+	<item>bronco</item>
+	<item>bronze</item>
+	<item>brood</item>
+	<item>brook</item>
+	<item>broom</item>
+	<item>brother</item>
+	<item>brow</item>
+	<item>brown</item>
+	<item>brush</item>
+	<item>brushing</item>
+	<item>bubble</item>
+	<item>bucket</item>
+	<item>buckle</item>
+	<item>bud</item>
+	<item>buddy</item>
+	<item>budget</item>
+	<item>buffer</item>
+	<item>buffet</item>
+	<item>bug</item>
+	<item>buggy</item>
+	<item>bugle</item>
+	<item>building</item>
+	<item>bulb</item>
+	<item>bull</item>
+	<item>bulldozer</item>
+	<item>bullet</item>
+	<item>bumper</item>
+	<item>bun</item>
+	<item>bunch</item>
+	<item>bungalow</item>
+	<item>bunkhouse</item>
+	<item>burglar</item>
+	<item>burlesque</item>
+	<item>burn</item>
+	<item>burst</item>
+	<item>bus</item>
+	<item>bush</item>
+	<item>business</item>
+	<item>bust</item>
+	<item>bustle</item>
+	<item>butane</item>
+	<item>butcher</item>
+	<item>butter</item>
+	<item>button</item>
+	<item>buy</item>
+	<item>buyer</item>
+	<item>cabbage</item>
+	<item>cabin</item>
+	<item>cabinet</item>
+	<item>cable</item>
+	<item>caboose</item>
+	<item>cacao</item>
+	<item>cactus</item>
+	<item>caddy</item>
+	<item>cadet</item>
+	<item>cafe</item>
+	<item>cake</item>
+	<item>calculator</item>
+	<item>calculus</item>
+	<item>calendar</item>
+	<item>calf</item>
+	<item>call</item>
+	<item>calm</item>
+	<item>camel</item>
+	<item>cameo</item>
+	<item>camera</item>
+	<item>camp</item>
+	<item>campaign</item>
+	<item>can</item>
+	<item>canal</item>
+	<item>cancel</item>
+	<item>cancer</item>
+	<item>candidate</item>
+	<item>candle</item>
+	<item>candy</item>
+	<item>cane</item>
+	<item>cannon</item>
+	<item>canoe</item>
+	<item>canon</item>
+	<item>canopy</item>
+	<item>canteen</item>
+	<item>canvas</item>
+	<item>cap</item>
+	<item>cape</item>
+	<item>capital</item>
+	<item>captain</item>
+	<item>caption</item>
+	<item>car</item>
+	<item>caravan</item>
+	<item>carbon</item>
+	<item>card</item>
+	<item>cardboard</item>
+	<item>cardigan</item>
+	<item>care</item>
+	<item>career</item>
+	<item>cargo</item>
+	<item>carload</item>
+	<item>carnation</item>
+	<item>carol</item>
+	<item>carp</item>
+	<item>carpenter</item>
+	<item>carpet</item>
+	<item>carport</item>
+	<item>carriage</item>
+	<item>carrier</item>
+	<item>carrot</item>
+	<item>carry</item>
+	<item>cart</item>
+	<item>cartilage</item>
+	<item>cartload</item>
+	<item>cartoon</item>
+	<item>cartridge</item>
+	<item>cascade</item>
+	<item>case</item>
+	<item>cash</item>
+	<item>cashier</item>
+	<item>casino</item>
+	<item>casserole</item>
+	<item>cast</item>
+	<item>castle</item>
+	<item>cat</item>
+	<item>catacomb</item>
+	<item>catch</item>
+	<item>category</item>
+	<item>cathedral</item>
+	<item>catsup</item>
+	<item>cattle</item>
+	<item>cause</item>
+	<item>caution</item>
+	<item>cave</item>
+	<item>cd</item>
+	<item>ceiling</item>
+	<item>celery</item>
+	<item>cell</item>
+	<item>cellar</item>
+	<item>cello</item>
+	<item>celsius</item>
+	<item>cement</item>
+	<item>cemetery</item>
+	<item>census</item>
+	<item>cent</item>
+	<item>center</item>
+	<item>centimeter</item>
+	<item>century</item>
+	<item>ceramic</item>
+	<item>cereal</item>
+	<item>cesspool</item>
+	<item>chafe</item>
+	<item>chain</item>
+	<item>chair</item>
+	<item>chairlift</item>
+	<item>chairman</item>
+	<item>chalet</item>
+	<item>chalice</item>
+	<item>chalk</item>
+	<item>challenge</item>
+	<item>champion</item>
+	<item>chance</item>
+	<item>chandelier</item>
+	<item>change</item>
+	<item>channel</item>
+	<item>chaos</item>
+	<item>chap</item>
+	<item>chapel</item>
+	<item>chapter</item>
+	<item>character</item>
+	<item>charge</item>
+	<item>charity</item>
+	<item>charlatan</item>
+	<item>charles</item>
+	<item>charm</item>
+	<item>chart</item>
+	<item>chastity</item>
+	<item>chateau</item>
+	<item>chauffeur</item>
+	<item>check</item>
+	<item>checkroom</item>
+	<item>cheek</item>
+	<item>cheetah</item>
+	<item>chef</item>
+	<item>chemical</item>
+	<item>chemistry</item>
+	<item>cheque</item>
+	<item>cherries</item>
+	<item>cherry</item>
+	<item>chess</item>
+	<item>chest</item>
+	<item>chick</item>
+	<item>chicken</item>
+	<item>chief</item>
+	<item>child</item>
+	<item>childhood</item>
+	<item>children</item>
+	<item>chill</item>
+	<item>chimp</item>
+	<item>chin</item>
+	<item>chip</item>
+	<item>chipmunk</item>
+	<item>chivalry</item>
+	<item>chive</item>
+	<item>chocolate</item>
+	<item>choice</item>
+	<item>choke</item>
+	<item>chop</item>
+	<item>chopstick</item>
+	<item>chord</item>
+	<item>chowder</item>
+	<item>chrome</item>
+	<item>chub</item>
+	<item>chug</item>
+	<item>church</item>
+	<item>churn</item>
+	<item>cigarette</item>
+	<item>cinema</item>
+	<item>circle</item>
+	<item>cirrus</item>
+	<item>city</item>
+	<item>claim</item>
+	<item>clam</item>
+	<item>clank</item>
+	<item>clapboard</item>
+	<item>clarinet</item>
+	<item>clasp</item>
+	<item>class</item>
+	<item>classic</item>
+	<item>classroom</item>
+	<item>clause</item>
+	<item>clavicle</item>
+	<item>cleaner</item>
+	<item>cleat</item>
+	<item>cleavage</item>
+	<item>cleric</item>
+	<item>clerk</item>
+	<item>click</item>
+	<item>client</item>
+	<item>cliff</item>
+	<item>climate</item>
+	<item>climb</item>
+	<item>clip</item>
+	<item>clipper</item>
+	<item>cloak</item>
+	<item>cloakroom</item>
+	<item>clock</item>
+	<item>clockwork</item>
+	<item>clogs</item>
+	<item>cloister</item>
+	<item>close</item>
+	<item>closet</item>
+	<item>cloth</item>
+	<item>clothes</item>
+	<item>clothing</item>
+	<item>cloud</item>
+	<item>cloudy</item>
+	<item>clove</item>
+	<item>clover</item>
+	<item>club</item>
+	<item>clue</item>
+	<item>clutch</item>
+	<item>coach</item>
+	<item>coal</item>
+	<item>coast</item>
+	<item>coat</item>
+	<item>cob</item>
+	<item>cobweb</item>
+	<item>cockpit</item>
+	<item>cockroach</item>
+	<item>cocktail</item>
+	<item>cocoa</item>
+	<item>cod</item>
+	<item>code</item>
+	<item>coffee</item>
+	<item>coffin</item>
+	<item>coil</item>
+	<item>coin</item>
+	<item>coke</item>
+	<item>cold</item>
+	<item>coliseum</item>
+	<item>collar</item>
+	<item>collection</item>
+	<item>college</item>
+	<item>collision</item>
+	<item>colon</item>
+	<item>colony</item>
+	<item>color</item>
+	<item>colt</item>
+	<item>column</item>
+	<item>columnist</item>
+	<item>comb</item>
+	<item>combat</item>
+	<item>combine</item>
+	<item>comfort</item>
+	<item>comic</item>
+	<item>comma</item>
+	<item>command</item>
+	<item>comment</item>
+	<item>commerce</item>
+	<item>commercial</item>
+	<item>commission</item>
+	<item>committee</item>
+	<item>common</item>
+	<item>community</item>
+	<item>company</item>
+	<item>comparison</item>
+	<item>compassion</item>
+	<item>competitor</item>
+	<item>complaint</item>
+	<item>complement</item>
+	<item>complex</item>
+	<item>component</item>
+	<item>composer</item>
+	<item>compost</item>
+	<item>compulsion</item>
+	<item>computer</item>
+	<item>concept</item>
+	<item>concern</item>
+	<item>concert</item>
+	<item>conclusion</item>
+	<item>concrete</item>
+	<item>condition</item>
+	<item>condor</item>
+	<item>conductor</item>
+	<item>cone</item>
+	<item>conference</item>
+	<item>confidence</item>
+	<item>conflict</item>
+	<item>confusion</item>
+	<item>conga</item>
+	<item>congo</item>
+	<item>congress</item>
+	<item>conifer</item>
+	<item>connection</item>
+	<item>consent</item>
+	<item>consist</item>
+	<item>console</item>
+	<item>consonant</item>
+	<item>constant</item>
+	<item>consul</item>
+	<item>consulate</item>
+	<item>contact</item>
+	<item>contagion</item>
+	<item>content</item>
+	<item>contest</item>
+	<item>context</item>
+	<item>continent</item>
+	<item>contract</item>
+	<item>contrary</item>
+	<item>control</item>
+	<item>convection</item>
+	<item>convert</item>
+	<item>cook</item>
+	<item>cookie</item>
+	<item>cooking</item>
+	<item>coonskin</item>
+	<item>cope</item>
+	<item>copper</item>
+	<item>copy</item>
+	<item>copyright</item>
+	<item>copywriter</item>
+	<item>cord</item>
+	<item>corduroy</item>
+	<item>cork</item>
+	<item>corn</item>
+	<item>corner</item>
+	<item>cornet</item>
+	<item>corral</item>
+	<item>corridor</item>
+	<item>corruption</item>
+	<item>corsage</item>
+	<item>cost</item>
+	<item>costume</item>
+	<item>cot</item>
+	<item>cottage</item>
+	<item>cotton</item>
+	<item>couch</item>
+	<item>cougar</item>
+	<item>cough</item>
+	<item>council</item>
+	<item>councilman</item>
+	<item>councilor</item>
+	<item>count</item>
+	<item>counter</item>
+	<item>countess</item>
+	<item>country</item>
+	<item>county</item>
+	<item>couple</item>
+	<item>courage</item>
+	<item>course</item>
+	<item>court</item>
+	<item>cousin</item>
+	<item>cover</item>
+	<item>coverall</item>
+	<item>cow</item>
+	<item>cowbell</item>
+	<item>cowboy</item>
+	<item>crab</item>
+	<item>crack</item>
+	<item>cracker</item>
+	<item>crackers</item>
+	<item>cradle</item>
+	<item>craft</item>
+	<item>craftsman</item>
+	<item>crash</item>
+	<item>crate</item>
+	<item>craw</item>
+	<item>crayfish</item>
+	<item>crayon</item>
+	<item>crazy</item>
+	<item>cream</item>
+	<item>creative</item>
+	<item>creator</item>
+	<item>creature</item>
+	<item>credit</item>
+	<item>creditor</item>
+	<item>creek</item>
+	<item>crest</item>
+	<item>crew</item>
+	<item>crib</item>
+	<item>cribbage</item>
+	<item>cricket</item>
+	<item>crime</item>
+	<item>criminal</item>
+	<item>criteria</item>
+	<item>criterion</item>
+	<item>criticism</item>
+	<item>crocodile</item>
+	<item>croissant</item>
+	<item>crook</item>
+	<item>crop</item>
+	<item>cross</item>
+	<item>crotch</item>
+	<item>croup</item>
+	<item>crow</item>
+	<item>crowd</item>
+	<item>crown</item>
+	<item>crude</item>
+	<item>crush</item>
+	<item>cry</item>
+	<item>cub</item>
+	<item>cuckoo</item>
+	<item>cucumber</item>
+	<item>cultivator</item>
+	<item>culture</item>
+	<item>cup</item>
+	<item>cupboard</item>
+	<item>cupcake</item>
+	<item>curio</item>
+	<item>curl</item>
+	<item>curler</item>
+	<item>currency</item>
+	<item>current</item>
+	<item>cursor</item>
+	<item>curtain</item>
+	<item>curve</item>
+	<item>cushion</item>
+	<item>custard</item>
+	<item>customer</item>
+	<item>cut</item>
+	<item>cuticle</item>
+	<item>cutlet</item>
+	<item>cutting</item>
+	<item>cycle</item>
+	<item>cyclone</item>
+	<item>cylinder</item>
+	<item>cymbal</item>
+	<item>cymbals</item>
+	<item>cynic</item>
+	<item>cyst</item>
+	<item>cytoplasm</item>
+	<item>dad</item>
+	<item>daffodil</item>
+	<item>dagger</item>
+	<item>daisy</item>
+	<item>damage</item>
+	<item>dame</item>
+	<item>dance</item>
+	<item>dancer</item>
+	<item>dancing</item>
+	<item>danger</item>
+	<item>dare</item>
+	<item>dark</item>
+	<item>dart</item>
+	<item>dash</item>
+	<item>dashboard</item>
+	<item>data</item>
+	<item>database</item>
+	<item>date</item>
+	<item>daughter</item>
+	<item>david</item>
+	<item>day</item>
+	<item>daybed</item>
+	<item>dead</item>
+	<item>deadline</item>
+	<item>deal</item>
+	<item>dealer</item>
+	<item>dear</item>
+	<item>death</item>
+	<item>debate</item>
+	<item>debt</item>
+	<item>debtor</item>
+	<item>decade</item>
+	<item>decimal</item>
+	<item>decision</item>
+	<item>deck</item>
+	<item>decrease</item>
+	<item>deep</item>
+	<item>deer</item>
+	<item>defense</item>
+	<item>deficit</item>
+	<item>definition</item>
+	<item>degree</item>
+	<item>delay</item>
+	<item>delete</item>
+	<item>delight</item>
+	<item>delivery</item>
+	<item>demand</item>
+	<item>demur</item>
+	<item>den</item>
+	<item>denim</item>
+	<item>dentist</item>
+	<item>deodorant</item>
+	<item>department</item>
+	<item>departure</item>
+	<item>dependent</item>
+	<item>deployment</item>
+	<item>deposit</item>
+	<item>depth</item>
+	<item>deputy</item>
+	<item>derby</item>
+	<item>derrick</item>
+	<item>desert</item>
+	<item>design</item>
+	<item>designer</item>
+	<item>desire</item>
+	<item>desk</item>
+	<item>dessert</item>
+	<item>destiny</item>
+	<item>destroyer</item>
+	<item>detail</item>
+	<item>detainment</item>
+	<item>detective</item>
+	<item>detention</item>
+	<item>device</item>
+	<item>devil</item>
+	<item>dew</item>
+	<item>diamond</item>
+	<item>diaphragm</item>
+	<item>diarist</item>
+	<item>diction</item>
+	<item>dictionary</item>
+	<item>diet</item>
+	<item>difference</item>
+	<item>difficulty</item>
+	<item>dig</item>
+	<item>digestion</item>
+	<item>digger</item>
+	<item>digital</item>
+	<item>dignity</item>
+	<item>dill</item>
+	<item>dime</item>
+	<item>dimension</item>
+	<item>dimple</item>
+	<item>diner</item>
+	<item>dinghy</item>
+	<item>dinner</item>
+	<item>dinosaur</item>
+	<item>diploma</item>
+	<item>dipstick</item>
+	<item>direction</item>
+	<item>director</item>
+	<item>dirt</item>
+	<item>disaster</item>
+	<item>discipline</item>
+	<item>disco</item>
+	<item>discount</item>
+	<item>discovery</item>
+	<item>discussion</item>
+	<item>disease</item>
+	<item>disguise</item>
+	<item>dish</item>
+	<item>dishes</item>
+	<item>dishwasher</item>
+	<item>disk</item>
+	<item>display</item>
+	<item>disposer</item>
+	<item>distance</item>
+	<item>district</item>
+	<item>diver</item>
+	<item>divide</item>
+	<item>divider</item>
+	<item>diving</item>
+	<item>division</item>
+	<item>dock</item>
+	<item>doctor</item>
+	<item>document</item>
+	<item>doe</item>
+	<item>dog</item>
+	<item>dogsled</item>
+	<item>dogwood</item>
+	<item>doll</item>
+	<item>dollar</item>
+	<item>dolphin</item>
+	<item>domain</item>
+	<item>donkey</item>
+	<item>door</item>
+	<item>doorknob</item>
+	<item>doorpost</item>
+	<item>dory</item>
+	<item>dot</item>
+	<item>double</item>
+	<item>doubling</item>
+	<item>doubt</item>
+	<item>doubter</item>
+	<item>downgrade</item>
+	<item>downtown</item>
+	<item>draft</item>
+	<item>drag</item>
+	<item>dragon</item>
+	<item>dragonfly</item>
+	<item>dragster</item>
+	<item>drain</item>
+	<item>drake</item>
+	<item>drama</item>
+	<item>draw</item>
+	<item>drawbridge</item>
+	<item>drawer</item>
+	<item>drawing</item>
+	<item>dream</item>
+	<item>dredger</item>
+	<item>dress</item>
+	<item>dresser</item>
+	<item>dressing</item>
+	<item>drill</item>
+	<item>drink</item>
+	<item>drive</item>
+	<item>driver</item>
+	<item>driveway</item>
+	<item>driving</item>
+	<item>drizzle</item>
+	<item>drop</item>
+	<item>drug</item>
+	<item>drum</item>
+	<item>drummer</item>
+	<item>drunk</item>
+	<item>dry</item>
+	<item>dryer</item>
+	<item>duck</item>
+	<item>duckling</item>
+	<item>dud</item>
+	<item>due</item>
+	<item>duffel</item>
+	<item>dugout</item>
+	<item>dulcimer</item>
+	<item>dump</item>
+	<item>dungarees</item>
+	<item>dungeon</item>
+	<item>duplex</item>
+	<item>dust</item>
+	<item>duster</item>
+	<item>duty</item>
+	<item>dwarf</item>
+	<item>dwelling</item>
+	<item>dynamo</item>
+	<item>eagle</item>
+	<item>ear</item>
+	<item>eardrum</item>
+	<item>earmuffs</item>
+	<item>earplug</item>
+	<item>earrings</item>
+	<item>earth</item>
+	<item>earthquake</item>
+	<item>earthworm</item>
+	<item>ease</item>
+	<item>easel</item>
+	<item>east</item>
+	<item>eat</item>
+	<item>eave</item>
+	<item>eclipse</item>
+	<item>ecliptic</item>
+	<item>economics</item>
+	<item>economy</item>
+	<item>eddy</item>
+	<item>edge</item>
+	<item>edger</item>
+	<item>editor</item>
+	<item>editorial</item>
+	<item>education</item>
+	<item>edward</item>
+	<item>eel</item>
+	<item>effect</item>
+	<item>efficiency</item>
+	<item>effort</item>
+	<item>egg</item>
+	<item>egghead</item>
+	<item>eggnog</item>
+	<item>eggplant</item>
+	<item>eight</item>
+	<item>ejector</item>
+	<item>elbow</item>
+	<item>election</item>
+	<item>element</item>
+	<item>elephant</item>
+	<item>elevator</item>
+	<item>elixir</item>
+	<item>elk</item>
+	<item>ellipse</item>
+	<item>elm</item>
+	<item>embossing</item>
+	<item>emergence</item>
+	<item>emergency</item>
+	<item>emergent</item>
+	<item>emery</item>
+	<item>emotion</item>
+	<item>emphasis</item>
+	<item>employ</item>
+	<item>employee</item>
+	<item>employer</item>
+	<item>employment</item>
+	<item>emu</item>
+	<item>end</item>
+	<item>enemy</item>
+	<item>energy</item>
+	<item>engine</item>
+	<item>engineer</item>
+	<item>enigma</item>
+	<item>enjoyment</item>
+	<item>enquiry</item>
+	<item>enthusiasm</item>
+	<item>entrance</item>
+	<item>entry</item>
+	<item>envy</item>
+	<item>epee</item>
+	<item>ephemera</item>
+	<item>ephemeris</item>
+	<item>epoch</item>
+	<item>epoxy</item>
+	<item>equal</item>
+	<item>equinox</item>
+	<item>equipment</item>
+	<item>equivalent</item>
+	<item>era</item>
+	<item>error</item>
+	<item>escape</item>
+	<item>ese</item>
+	<item>espadrille</item>
+	<item>espalier</item>
+	<item>essay</item>
+	<item>estate</item>
+	<item>estimate</item>
+	<item>estrogen</item>
+	<item>estuary</item>
+	<item>ethernet</item>
+	<item>ethics</item>
+	<item>europe</item>
+	<item>evaluator</item>
+	<item>evening</item>
+	<item>event</item>
+	<item>eviction</item>
+	<item>evidence</item>
+	<item>evolution</item>
+	<item>exam</item>
+	<item>examiner</item>
+	<item>example</item>
+	<item>exchange</item>
+	<item>excitement</item>
+	<item>excuse</item>
+	<item>executor</item>
+	<item>exercise</item>
+	<item>exhaust</item>
+	<item>exile</item>
+	<item>existence</item>
+	<item>exit</item>
+	<item>expansion</item>
+	<item>experience</item>
+	<item>expert</item>
+	<item>expression</item>
+	<item>extension</item>
+	<item>extent</item>
+	<item>external</item>
+	<item>extreme</item>
+	<item>eye</item>
+	<item>eyeball</item>
+	<item>eyebrow</item>
+	<item>eyebrows</item>
+	<item>eyeglasses</item>
+	<item>eyelash</item>
+	<item>eyelashes</item>
+	<item>eyelid</item>
+	<item>eyelids</item>
+	<item>eyeliner</item>
+	<item>eyestrain</item>
+	<item>face</item>
+	<item>facet</item>
+	<item>fact</item>
+	<item>factor</item>
+	<item>factory</item>
+	<item>faculty</item>
+	<item>fahrenheit</item>
+	<item>fail</item>
+	<item>failure</item>
+	<item>fairies</item>
+	<item>fairy</item>
+	<item>faith</item>
+	<item>fall</item>
+	<item>fame</item>
+	<item>familiar</item>
+	<item>family</item>
+	<item>fan</item>
+	<item>fang</item>
+	<item>fanny</item>
+	<item>farm</item>
+	<item>farmer</item>
+	<item>fascia</item>
+	<item>fat</item>
+	<item>father</item>
+	<item>fatigues</item>
+	<item>faucet</item>
+	<item>fault</item>
+	<item>fawn</item>
+	<item>fax</item>
+	<item>fear</item>
+	<item>feast</item>
+	<item>feather</item>
+	<item>feature</item>
+	<item>fedora</item>
+	<item>fee</item>
+	<item>feed</item>
+	<item>feedback</item>
+	<item>feel</item>
+	<item>feeling</item>
+	<item>feet</item>
+	<item>felony</item>
+	<item>female</item>
+	<item>fen</item>
+	<item>fence</item>
+	<item>fencing</item>
+	<item>fender</item>
+	<item>ferry</item>
+	<item>ferryboat</item>
+	<item>fertilizer</item>
+	<item>few</item>
+	<item>fiber</item>
+	<item>fiberglass</item>
+	<item>fibre</item>
+	<item>fiction</item>
+	<item>fiddle</item>
+	<item>field</item>
+	<item>fifth</item>
+	<item>fight</item>
+	<item>fighter</item>
+	<item>figure</item>
+	<item>figurine</item>
+	<item>file</item>
+	<item>fill</item>
+	<item>filly</item>
+	<item>film</item>
+	<item>filth</item>
+	<item>final</item>
+	<item>finance</item>
+	<item>find</item>
+	<item>finding</item>
+	<item>fine</item>
+	<item>finger</item>
+	<item>fingernail</item>
+	<item>finish</item>
+	<item>finisher</item>
+	<item>fire</item>
+	<item>fireman</item>
+	<item>fireplace</item>
+	<item>firewall</item>
+	<item>fish</item>
+	<item>fishbone</item>
+	<item>fisherman</item>
+	<item>fishery</item>
+	<item>fishing</item>
+	<item>fishnet</item>
+	<item>fix</item>
+	<item>fixture</item>
+	<item>flag</item>
+	<item>flame</item>
+	<item>flare</item>
+	<item>flash</item>
+	<item>flat</item>
+	<item>flatboat</item>
+	<item>flavor</item>
+	<item>flax</item>
+	<item>fleck</item>
+	<item>fleece</item>
+	<item>flesh</item>
+	<item>flight</item>
+	<item>flock</item>
+	<item>flood</item>
+	<item>floor</item>
+	<item>flour</item>
+	<item>flow</item>
+	<item>flower</item>
+	<item>flu</item>
+	<item>fluke</item>
+	<item>flute</item>
+	<item>fly</item>
+	<item>flytrap</item>
+	<item>foam</item>
+	<item>fob</item>
+	<item>focus</item>
+	<item>fog</item>
+	<item>fold</item>
+	<item>folder</item>
+	<item>following</item>
+	<item>fondue</item>
+	<item>font</item>
+	<item>food</item>
+	<item>foot</item>
+	<item>football</item>
+	<item>footnote</item>
+	<item>footrest</item>
+	<item>footstool</item>
+	<item>foray</item>
+	<item>force</item>
+	<item>forearm</item>
+	<item>forecast</item>
+	<item>forehead</item>
+	<item>forest</item>
+	<item>forever</item>
+	<item>forgery</item>
+	<item>fork</item>
+	<item>form</item>
+	<item>formal</item>
+	<item>format</item>
+	<item>former</item>
+	<item>fort</item>
+	<item>fortnight</item>
+	<item>fortress</item>
+	<item>fortune</item>
+	<item>forum</item>
+	<item>foundation</item>
+	<item>fountain</item>
+	<item>fowl</item>
+	<item>fox</item>
+	<item>fragrance</item>
+	<item>frame</item>
+	<item>fraudster</item>
+	<item>frazzle</item>
+	<item>freckle</item>
+	<item>freedom</item>
+	<item>freeze</item>
+	<item>freezer</item>
+	<item>freight</item>
+	<item>freighter</item>
+	<item>fresco</item>
+	<item>friction</item>
+	<item>fridge</item>
+	<item>friend</item>
+	<item>friendship</item>
+	<item>frigate</item>
+	<item>fringe</item>
+	<item>frock</item>
+	<item>frog</item>
+	<item>front</item>
+	<item>frost</item>
+	<item>frown</item>
+	<item>fruit</item>
+	<item>fuel</item>
+	<item>full</item>
+	<item>fun</item>
+	<item>function</item>
+	<item>funeral</item>
+	<item>funny</item>
+	<item>fur</item>
+	<item>furnace</item>
+	<item>furniture</item>
+	<item>futon</item>
+	<item>future</item>
+	<item>gain</item>
+	<item>gaiters</item>
+	<item>gale</item>
+	<item>gallery</item>
+	<item>galley</item>
+	<item>gallon</item>
+	<item>game</item>
+	<item>gander</item>
+	<item>gap</item>
+	<item>garage</item>
+	<item>garb</item>
+	<item>garbage</item>
+	<item>garden</item>
+	<item>garlic</item>
+	<item>garment</item>
+	<item>garter</item>
+	<item>gas</item>
+	<item>gasoline</item>
+	<item>gate</item>
+	<item>gateway</item>
+	<item>gather</item>
+	<item>gauge</item>
+	<item>gauntlet</item>
+	<item>gazebo</item>
+	<item>gazelle</item>
+	<item>gear</item>
+	<item>gearshift</item>
+	<item>geese</item>
+	<item>gem</item>
+	<item>gender</item>
+	<item>gene</item>
+	<item>general</item>
+	<item>genetics</item>
+	<item>geography</item>
+	<item>geology</item>
+	<item>geometry</item>
+	<item>george</item>
+	<item>geranium</item>
+	<item>gerbil</item>
+	<item>geyser</item>
+	<item>ghost</item>
+	<item>giant</item>
+	<item>gift</item>
+	<item>ginseng</item>
+	<item>giraffe</item>
+	<item>girdle</item>
+	<item>girl</item>
+	<item>girlfriend</item>
+	<item>git</item>
+	<item>give</item>
+	<item>glad</item>
+	<item>gland</item>
+	<item>glass</item>
+	<item>glasses</item>
+	<item>glen</item>
+	<item>glider</item>
+	<item>gliding</item>
+	<item>glove</item>
+	<item>gloves</item>
+	<item>glue</item>
+	<item>glut</item>
+	<item>go</item>
+	<item>goal</item>
+	<item>goat</item>
+	<item>gobbler</item>
+	<item>god</item>
+	<item>godmother</item>
+	<item>goggles</item>
+	<item>gold</item>
+	<item>goldfish</item>
+	<item>golf</item>
+	<item>gondola</item>
+	<item>gong</item>
+	<item>good</item>
+	<item>goodbye</item>
+	<item>goose</item>
+	<item>gopher</item>
+	<item>gorilla</item>
+	<item>gosling</item>
+	<item>gossip</item>
+	<item>governance</item>
+	<item>government</item>
+	<item>governor</item>
+	<item>gown</item>
+	<item>grab</item>
+	<item>grade</item>
+	<item>grain</item>
+	<item>gram</item>
+	<item>grammar</item>
+	<item>grand</item>
+	<item>grandson</item>
+	<item>granny</item>
+	<item>grape</item>
+	<item>grapefruit</item>
+	<item>graph</item>
+	<item>graphic</item>
+	<item>grass</item>
+	<item>grassland</item>
+	<item>gratitude</item>
+	<item>gray</item>
+	<item>grease</item>
+	<item>great</item>
+	<item>greek</item>
+	<item>green</item>
+	<item>greenhouse</item>
+	<item>grenade</item>
+	<item>grey</item>
+	<item>grief</item>
+	<item>grill</item>
+	<item>grip</item>
+	<item>grit</item>
+	<item>grocery</item>
+	<item>ground</item>
+	<item>group</item>
+	<item>grouper</item>
+	<item>grouse</item>
+	<item>growth</item>
+	<item>guarantee</item>
+	<item>guard</item>
+	<item>guess</item>
+	<item>guest</item>
+	<item>guidance</item>
+	<item>guide</item>
+	<item>guilt</item>
+	<item>guilty</item>
+	<item>guitar</item>
+	<item>guitarist</item>
+	<item>gum</item>
+	<item>gumshoes</item>
+	<item>gun</item>
+	<item>gutter</item>
+	<item>guy</item>
+	<item>gym</item>
+	<item>gymnast</item>
+	<item>gymnastics</item>
+	<item>gyro</item>
+	<item>habit</item>
+	<item>hacksaw</item>
+	<item>hackwork</item>
+	<item>hail</item>
+	<item>hair</item>
+	<item>haircut</item>
+	<item>half</item>
+	<item>halibut</item>
+	<item>hall</item>
+	<item>hallway</item>
+	<item>hamburger</item>
+	<item>hammer</item>
+	<item>hammock</item>
+	<item>hamster</item>
+	<item>hand</item>
+	<item>handball</item>
+	<item>handicap</item>
+	<item>handle</item>
+	<item>handlebar</item>
+	<item>handsaw</item>
+	<item>hang</item>
+	<item>happiness</item>
+	<item>harbor</item>
+	<item>hardcover</item>
+	<item>hardening</item>
+	<item>hardhat</item>
+	<item>hardware</item>
+	<item>harm</item>
+	<item>harmonica</item>
+	<item>harmony</item>
+	<item>harp</item>
+	<item>harpooner</item>
+	<item>hat</item>
+	<item>hatbox</item>
+	<item>hatchet</item>
+	<item>hate</item>
+	<item>hatred</item>
+	<item>haunt</item>
+	<item>hawk</item>
+	<item>hay</item>
+	<item>head</item>
+	<item>headlight</item>
+	<item>headline</item>
+	<item>health</item>
+	<item>hearing</item>
+	<item>heart</item>
+	<item>heartache</item>
+	<item>hearth</item>
+	<item>heat</item>
+	<item>heater</item>
+	<item>heaven</item>
+	<item>heavy</item>
+	<item>hedge</item>
+	<item>hedgehog</item>
+	<item>heel</item>
+	<item>height</item>
+	<item>heirloom</item>
+	<item>helen</item>
+	<item>helicopter</item>
+	<item>helium</item>
+	<item>hell</item>
+	<item>hellcat</item>
+	<item>hello</item>
+	<item>helmet</item>
+	<item>help</item>
+	<item>hemp</item>
+	<item>hen</item>
+	<item>herb</item>
+	<item>heron</item>
+	<item>herring</item>
+	<item>hexagon</item>
+	<item>heyday</item>
+	<item>hide</item>
+	<item>high</item>
+	<item>highlight</item>
+	<item>highway</item>
+	<item>hill</item>
+	<item>hip</item>
+	<item>hire</item>
+	<item>history</item>
+	<item>hit</item>
+	<item>hive</item>
+	<item>hobbies</item>
+	<item>hobbit</item>
+	<item>hobby</item>
+	<item>hockey</item>
+	<item>hoe</item>
+	<item>hog</item>
+	<item>hold</item>
+	<item>hole</item>
+	<item>holiday</item>
+	<item>home</item>
+	<item>homework</item>
+	<item>homonym</item>
+	<item>honesty</item>
+	<item>honey</item>
+	<item>honeybee</item>
+	<item>honoree</item>
+	<item>hood</item>
+	<item>hoof</item>
+	<item>hook</item>
+	<item>hope</item>
+	<item>hops</item>
+	<item>horn</item>
+	<item>hornet</item>
+	<item>horror</item>
+	<item>horse</item>
+	<item>hose</item>
+	<item>hosiery</item>
+	<item>hospice</item>
+	<item>hospital</item>
+	<item>host</item>
+	<item>hostel</item>
+	<item>hostess</item>
+	<item>hot</item>
+	<item>hotel</item>
+	<item>hour</item>
+	<item>hourglass</item>
+	<item>house</item>
+	<item>houseboat</item>
+	<item>housework</item>
+	<item>housing</item>
+	<item>hovel</item>
+	<item>hovercraft</item>
+	<item>hub</item>
+	<item>hubcap</item>
+	<item>hugger</item>
+	<item>human</item>
+	<item>humidity</item>
+	<item>humor</item>
+	<item>hunger</item>
+	<item>hunt</item>
+	<item>hurdler</item>
+	<item>hurricane</item>
+	<item>hurry</item>
+	<item>hurt</item>
+	<item>husband</item>
+	<item>hut</item>
+	<item>hutch</item>
+	<item>hydrant</item>
+	<item>hydrofoil</item>
+	<item>hydrogen</item>
+	<item>hyena</item>
+	<item>hygienic</item>
+	<item>ice</item>
+	<item>icebreaker</item>
+	<item>icicle</item>
+	<item>icon</item>
+	<item>idea</item>
+	<item>ideal</item>
+	<item>if</item>
+	<item>igloo</item>
+	<item>illegal</item>
+	<item>image</item>
+	<item>impact</item>
+	<item>implement</item>
+	<item>importance</item>
+	<item>impress</item>
+	<item>impression</item>
+	<item>impulse</item>
+	<item>inbox</item>
+	<item>inch</item>
+	<item>incident</item>
+	<item>income</item>
+	<item>increase</item>
+	<item>index</item>
+	<item>individual</item>
+	<item>industry</item>
+	<item>inevitable</item>
+	<item>infancy</item>
+	<item>inflation</item>
+	<item>influence</item>
+	<item>infusion</item>
+	<item>ingrate</item>
+	<item>initial</item>
+	<item>initiative</item>
+	<item>injury</item>
+	<item>injustice</item>
+	<item>ink</item>
+	<item>inlay</item>
+	<item>inn</item>
+	<item>innocent</item>
+	<item>input</item>
+	<item>inquiry</item>
+	<item>insect</item>
+	<item>inside</item>
+	<item>inspection</item>
+	<item>inspector</item>
+	<item>instance</item>
+	<item>instrument</item>
+	<item>insulation</item>
+	<item>insurance</item>
+	<item>insurgence</item>
+	<item>intention</item>
+	<item>interest</item>
+	<item>interior</item>
+	<item>interloper</item>
+	<item>internal</item>
+	<item>internet</item>
+	<item>interview</item>
+	<item>intestine</item>
+	<item>intestines</item>
+	<item>invention</item>
+	<item>inventor</item>
+	<item>inventory</item>
+	<item>investment</item>
+	<item>invite</item>
+	<item>invoice</item>
+	<item>iris</item>
+	<item>iron</item>
+	<item>ironclad</item>
+	<item>irony</item>
+	<item>island</item>
+	<item>issue</item>
+	<item>item</item>
+	<item>jackal</item>
+	<item>jacket</item>
+	<item>jaguar</item>
+	<item>jail</item>
+	<item>jailhouse</item>
+	<item>jam</item>
+	<item>jar</item>
+	<item>jasmine</item>
+	<item>jaw</item>
+	<item>jealousy</item>
+	<item>jeans</item>
+	<item>jeep</item>
+	<item>jelly</item>
+	<item>jellyfish</item>
+	<item>jet</item>
+	<item>jewel</item>
+	<item>jewelry</item>
+	<item>jiffy</item>
+	<item>job</item>
+	<item>jockey</item>
+	<item>joey</item>
+	<item>jogging</item>
+	<item>join</item>
+	<item>joint</item>
+	<item>joke</item>
+	<item>jot</item>
+	<item>journey</item>
+	<item>joy</item>
+	<item>judge</item>
+	<item>judgment</item>
+	<item>judo</item>
+	<item>juggernaut</item>
+	<item>juice</item>
+	<item>jumbo</item>
+	<item>jump</item>
+	<item>jumper</item>
+	<item>jumpsuit</item>
+	<item>junior</item>
+	<item>junk</item>
+	<item>junker</item>
+	<item>junket</item>
+	<item>jury</item>
+	<item>justice</item>
+	<item>jute</item>
+	<item>kale</item>
+	<item>kangaroo</item>
+	<item>karate</item>
+	<item>kayak</item>
+	<item>kazoo</item>
+	<item>keep</item>
+	<item>ketchup</item>
+	<item>kettle</item>
+	<item>key</item>
+	<item>keyboard</item>
+	<item>keystone</item>
+	<item>kick</item>
+	<item>kid</item>
+	<item>kidney</item>
+	<item>kidneys</item>
+	<item>kielbasa</item>
+	<item>kill</item>
+	<item>kilogram</item>
+	<item>kilometer</item>
+	<item>kilt</item>
+	<item>kimono</item>
+	<item>kind</item>
+	<item>kindness</item>
+	<item>king</item>
+	<item>kiosk</item>
+	<item>kiss</item>
+	<item>kitchen</item>
+	<item>kite</item>
+	<item>kitten</item>
+	<item>kitty</item>
+	<item>kleenex</item>
+	<item>knee</item>
+	<item>knickers</item>
+	<item>knife</item>
+	<item>knight</item>
+	<item>knitting</item>
+	<item>knot</item>
+	<item>knowledge</item>
+	<item>knuckle</item>
+	<item>koala</item>
+	<item>lab</item>
+	<item>laborer</item>
+	<item>labor</item>
+	<item>lace</item>
+	<item>lack</item>
+	<item>ladder</item>
+	<item>lady</item>
+	<item>ladybug</item>
+	<item>lake</item>
+	<item>lamb</item>
+	<item>lamp</item>
+	<item>lan</item>
+	<item>land</item>
+	<item>landmine</item>
+	<item>landscape</item>
+	<item>language</item>
+	<item>lantern</item>
+	<item>lap</item>
+	<item>lapdog</item>
+	<item>laptop</item>
+	<item>larch</item>
+	<item>larder</item>
+	<item>lark</item>
+	<item>lasagna</item>
+	<item>latency</item>
+	<item>latex</item>
+	<item>lathe</item>
+	<item>latte</item>
+	<item>laugh</item>
+	<item>laughter</item>
+	<item>laundry</item>
+	<item>lava</item>
+	<item>law</item>
+	<item>lawn</item>
+	<item>lawsuit</item>
+	<item>lawyer</item>
+	<item>lay</item>
+	<item>layer</item>
+	<item>lead</item>
+	<item>leader</item>
+	<item>leaf</item>
+	<item>league</item>
+	<item>leash</item>
+	<item>leather</item>
+	<item>leave</item>
+	<item>leaver</item>
+	<item>lecture</item>
+	<item>leek</item>
+	<item>leg</item>
+	<item>legal</item>
+	<item>legging</item>
+	<item>legume</item>
+	<item>lei</item>
+	<item>leisure</item>
+	<item>lemon</item>
+	<item>lemonade</item>
+	<item>lemur</item>
+	<item>length</item>
+	<item>lentil</item>
+	<item>leprosy</item>
+	<item>lesson</item>
+	<item>let</item>
+	<item>letter</item>
+	<item>lettuce</item>
+	<item>level</item>
+	<item>lever</item>
+	<item>leverage</item>
+	<item>license</item>
+	<item>lie</item>
+	<item>life</item>
+	<item>lift</item>
+	<item>light</item>
+	<item>lighting</item>
+	<item>lightning</item>
+	<item>lilac</item>
+	<item>lily</item>
+	<item>limit</item>
+	<item>limo</item>
+	<item>line</item>
+	<item>linen</item>
+	<item>liner</item>
+	<item>link</item>
+	<item>linseed</item>
+	<item>lion</item>
+	<item>lip</item>
+	<item>lipstick</item>
+	<item>liquid</item>
+	<item>liquor</item>
+	<item>lisa</item>
+	<item>list</item>
+	<item>listen</item>
+	<item>literature</item>
+	<item>litigation</item>
+	<item>litter</item>
+	<item>liver</item>
+	<item>livestock</item>
+	<item>living</item>
+	<item>lizard</item>
+	<item>llama</item>
+	<item>load</item>
+	<item>loaf</item>
+	<item>loafer</item>
+	<item>loan</item>
+	<item>lobotomy</item>
+	<item>lobster</item>
+	<item>local</item>
+	<item>location</item>
+	<item>lock</item>
+	<item>locker</item>
+	<item>locket</item>
+	<item>locomotive</item>
+	<item>locust</item>
+	<item>loft</item>
+	<item>log</item>
+	<item>logic</item>
+	<item>loincloth</item>
+	<item>loneliness</item>
+	<item>long</item>
+	<item>look</item>
+	<item>loss</item>
+	<item>lot</item>
+	<item>lotion</item>
+	<item>lounge</item>
+	<item>love</item>
+	<item>low</item>
+	<item>loyalty</item>
+	<item>luck</item>
+	<item>luggage</item>
+	<item>lumber</item>
+	<item>lumberman</item>
+	<item>lunch</item>
+	<item>lunchroom</item>
+	<item>lung</item>
+	<item>lunge</item>
+	<item>lute</item>
+	<item>lye</item>
+	<item>lymphocyte</item>
+	<item>lynx</item>
+	<item>lyre</item>
+	<item>lyric</item>
+	<item>macadamia</item>
+	<item>macaroni</item>
+	<item>machine</item>
+	<item>machinery</item>
+	<item>maestro</item>
+	<item>magazine</item>
+	<item>magic</item>
+	<item>maid</item>
+	<item>maiden</item>
+	<item>mail</item>
+	<item>mailbox</item>
+	<item>mailman</item>
+	<item>main</item>
+	<item>major</item>
+	<item>make</item>
+	<item>makeup</item>
+	<item>male</item>
+	<item>mall</item>
+	<item>mallet</item>
+	<item>mambo</item>
+	<item>mammoth</item>
+	<item>man</item>
+	<item>management</item>
+	<item>manager</item>
+	<item>mandarin</item>
+	<item>mandolin</item>
+	<item>mangrove</item>
+	<item>manhunt</item>
+	<item>maniac</item>
+	<item>manicure</item>
+	<item>mankind</item>
+	<item>manner</item>
+	<item>manor</item>
+	<item>mansion</item>
+	<item>mantel</item>
+	<item>mantle</item>
+	<item>map</item>
+	<item>maple</item>
+	<item>maraca</item>
+	<item>maracas</item>
+	<item>marble</item>
+	<item>mare</item>
+	<item>margin</item>
+	<item>mariachi</item>
+	<item>marimba</item>
+	<item>mark</item>
+	<item>market</item>
+	<item>marketing</item>
+	<item>marksman</item>
+	<item>marriage</item>
+	<item>marsh</item>
+	<item>marshland</item>
+	<item>marxism</item>
+	<item>mascara</item>
+	<item>mask</item>
+	<item>mass</item>
+	<item>massage</item>
+	<item>master</item>
+	<item>mastoid</item>
+	<item>mat</item>
+	<item>match</item>
+	<item>mate</item>
+	<item>material</item>
+	<item>math</item>
+	<item>matter</item>
+	<item>mattock</item>
+	<item>mattress</item>
+	<item>maximum</item>
+	<item>maybe</item>
+	<item>mayonnaise</item>
+	<item>mayor</item>
+	<item>meal</item>
+	<item>meaning</item>
+	<item>measles</item>
+	<item>measure</item>
+	<item>meat</item>
+	<item>mechanic</item>
+	<item>media</item>
+	<item>medicine</item>
+	<item>medium</item>
+	<item>meet</item>
+	<item>meeting</item>
+	<item>melody</item>
+	<item>member</item>
+	<item>membership</item>
+	<item>memory</item>
+	<item>men</item>
+	<item>menorah</item>
+	<item>mention</item>
+	<item>menu</item>
+	<item>mercury</item>
+	<item>mess</item>
+	<item>message</item>
+	<item>metal</item>
+	<item>meteor</item>
+	<item>meter</item>
+	<item>methane</item>
+	<item>method</item>
+	<item>metro</item>
+	<item>metronome</item>
+	<item>mezzanine</item>
+	<item>mice</item>
+	<item>microwave</item>
+	<item>middle</item>
+	<item>middleman</item>
+	<item>midnight</item>
+	<item>midwife</item>
+	<item>might</item>
+	<item>migrant</item>
+	<item>mile</item>
+	<item>milk</item>
+	<item>milkshake</item>
+	<item>millennium</item>
+	<item>millimeter</item>
+	<item>mime</item>
+	<item>mimosa</item>
+	<item>mind</item>
+	<item>mine</item>
+	<item>mini</item>
+	<item>minibus</item>
+	<item>minimum</item>
+	<item>minion</item>
+	<item>minister</item>
+	<item>minor</item>
+	<item>mint</item>
+	<item>minute</item>
+	<item>mirror</item>
+	<item>misfit</item>
+	<item>misogyny</item>
+	<item>misreading</item>
+	<item>miss</item>
+	<item>missile</item>
+	<item>mission</item>
+	<item>mist</item>
+	<item>mistake</item>
+	<item>mister</item>
+	<item>miter</item>
+	<item>mitten</item>
+	<item>mix</item>
+	<item>mixer</item>
+	<item>mixture</item>
+	<item>moat</item>
+	<item>mobile</item>
+	<item>moccasins</item>
+	<item>mocha</item>
+	<item>mode</item>
+	<item>model</item>
+	<item>modem</item>
+	<item>mole</item>
+	<item>mom</item>
+	<item>moment</item>
+	<item>monastery</item>
+	<item>money</item>
+	<item>monger</item>
+	<item>monitor</item>
+	<item>monkey</item>
+	<item>monocle</item>
+	<item>monotheism</item>
+	<item>monsoon</item>
+	<item>monster</item>
+	<item>month</item>
+	<item>mood</item>
+	<item>moon</item>
+	<item>moonscape</item>
+	<item>moonshine</item>
+	<item>mop</item>
+	<item>morning</item>
+	<item>morsel</item>
+	<item>mortgage</item>
+	<item>mosque</item>
+	<item>mosquito</item>
+	<item>most</item>
+	<item>motel</item>
+	<item>moth</item>
+	<item>mother</item>
+	<item>motion</item>
+	<item>motor</item>
+	<item>motorboat</item>
+	<item>motorcar</item>
+	<item>motorcycle</item>
+	<item>mound</item>
+	<item>mountain</item>
+	<item>mouse</item>
+	<item>mouser</item>
+	<item>mousse</item>
+	<item>moustache</item>
+	<item>mouth</item>
+	<item>move</item>
+	<item>mover</item>
+	<item>movie</item>
+	<item>mower</item>
+	<item>mud</item>
+	<item>mug</item>
+	<item>mule</item>
+	<item>multimedia</item>
+	<item>muscle</item>
+	<item>museum</item>
+	<item>music</item>
+	<item>mustache</item>
+	<item>mustard</item>
+	<item>mutt</item>
+	<item>nail</item>
+	<item>name</item>
+	<item>naming</item>
+	<item>napkin</item>
+	<item>nasty</item>
+	<item>nation</item>
+	<item>national</item>
+	<item>native</item>
+	<item>natural</item>
+	<item>nature</item>
+	<item>neat</item>
+	<item>necessary</item>
+	<item>neck</item>
+	<item>necklace</item>
+	<item>necktie</item>
+	<item>need</item>
+	<item>needle</item>
+	<item>negative</item>
+	<item>neon</item>
+	<item>nephew</item>
+	<item>nerve</item>
+	<item>nest</item>
+	<item>net</item>
+	<item>network</item>
+	<item>news</item>
+	<item>newspaper</item>
+	<item>newsprint</item>
+	<item>newsstand</item>
+	<item>nexus</item>
+	<item>nicety</item>
+	<item>niche</item>
+	<item>nickel</item>
+	<item>niece</item>
+	<item>night</item>
+	<item>nightclub</item>
+	<item>nightgown</item>
+	<item>nightlight</item>
+	<item>nitrogen</item>
+	<item>nobody</item>
+	<item>node</item>
+	<item>noise</item>
+	<item>nonsense</item>
+	<item>noodle</item>
+	<item>normal</item>
+	<item>norse</item>
+	<item>north</item>
+	<item>nose</item>
+	<item>note</item>
+	<item>notebook</item>
+	<item>nothing</item>
+	<item>notice</item>
+	<item>notify</item>
+	<item>notoriety</item>
+	<item>nougat</item>
+	<item>novel</item>
+	<item>nudge</item>
+	<item>number</item>
+	<item>numeracy</item>
+	<item>numeric</item>
+	<item>nurse</item>
+	<item>nursery</item>
+	<item>nurture</item>
+	<item>nut</item>
+	<item>nutrition</item>
+	<item>nylon</item>
+	<item>oak</item>
+	<item>oar</item>
+	<item>oasis</item>
+	<item>oatmeal</item>
+	<item>obedience</item>
+	<item>obesity</item>
+	<item>object</item>
+	<item>objective</item>
+	<item>obligation</item>
+	<item>oboe</item>
+	<item>occasion</item>
+	<item>occupation</item>
+	<item>ocean</item>
+	<item>octagon</item>
+	<item>octave</item>
+	<item>octet</item>
+	<item>octopus</item>
+	<item>odometer</item>
+	<item>offence</item>
+	<item>offer</item>
+	<item>office</item>
+	<item>officer</item>
+	<item>official</item>
+	<item>oil</item>
+	<item>okra</item>
+	<item>oldie</item>
+	<item>olive</item>
+	<item>omega</item>
+	<item>onion</item>
+	<item>open</item>
+	<item>opening</item>
+	<item>opera</item>
+	<item>operation</item>
+	<item>opinion</item>
+	<item>opium</item>
+	<item>opossum</item>
+	<item>opposite</item>
+	<item>option</item>
+	<item>orange</item>
+	<item>orangutan</item>
+	<item>orator</item>
+	<item>orchard</item>
+	<item>orchestra</item>
+	<item>orchid</item>
+	<item>order</item>
+	<item>ordinary</item>
+	<item>ordination</item>
+	<item>organ</item>
+	<item>original</item>
+	<item>ornament</item>
+	<item>osmosis</item>
+	<item>osprey</item>
+	<item>ostrich</item>
+	<item>other</item>
+	<item>others</item>
+	<item>otter</item>
+	<item>ounce</item>
+	<item>outback</item>
+	<item>outcome</item>
+	<item>outfit</item>
+	<item>outhouse</item>
+	<item>outlay</item>
+	<item>output</item>
+	<item>outrigger</item>
+	<item>outset</item>
+	<item>outside</item>
+	<item>oval</item>
+	<item>ovary</item>
+	<item>oven</item>
+	<item>overcharge</item>
+	<item>overcoat</item>
+	<item>overshoot</item>
+	<item>owl</item>
+	<item>owner</item>
+	<item>ox</item>
+	<item>oxen</item>
+	<item>oxford</item>
+	<item>oxygen</item>
+	<item>oyster</item>
+	<item>pace</item>
+	<item>pacemaker</item>
+	<item>pack</item>
+	<item>package</item>
+	<item>packet</item>
+	<item>pad</item>
+	<item>paddle</item>
+	<item>paddock</item>
+	<item>page</item>
+	<item>pagoda</item>
+	<item>pail</item>
+	<item>pain</item>
+	<item>paint</item>
+	<item>painter</item>
+	<item>painting</item>
+	<item>paintwork</item>
+	<item>pair</item>
+	<item>pajama</item>
+	<item>pajamas</item>
+	<item>palm</item>
+	<item>pamphlet</item>
+	<item>pan</item>
+	<item>pancake</item>
+	<item>pancreas</item>
+	<item>panda</item>
+	<item>panic</item>
+	<item>pansy</item>
+	<item>panther</item>
+	<item>panties</item>
+	<item>pantry</item>
+	<item>pants</item>
+	<item>pantsuit</item>
+	<item>pantyhose</item>
+	<item>paper</item>
+	<item>paperback</item>
+	<item>parable</item>
+	<item>parachute</item>
+	<item>parade</item>
+	<item>paramedic</item>
+	<item>parcel</item>
+	<item>parchment</item>
+	<item>parent</item>
+	<item>park</item>
+	<item>parka</item>
+	<item>parking</item>
+	<item>parrot</item>
+	<item>parsnip</item>
+	<item>part</item>
+	<item>particle</item>
+	<item>particular</item>
+	<item>partner</item>
+	<item>partridge</item>
+	<item>party</item>
+	<item>pass</item>
+	<item>passage</item>
+	<item>passbook</item>
+	<item>passenger</item>
+	<item>passion</item>
+	<item>passive</item>
+	<item>past</item>
+	<item>pasta</item>
+	<item>paste</item>
+	<item>pastor</item>
+	<item>pastry</item>
+	<item>patch</item>
+	<item>path</item>
+	<item>patience</item>
+	<item>patient</item>
+	<item>patina</item>
+	<item>patio</item>
+	<item>patriarch</item>
+	<item>patricia</item>
+	<item>patriot</item>
+	<item>patrol</item>
+	<item>pattern</item>
+	<item>pause</item>
+	<item>pavement</item>
+	<item>pavilion</item>
+	<item>paw</item>
+	<item>pawnshop</item>
+	<item>pay</item>
+	<item>payment</item>
+	<item>pea</item>
+	<item>peace</item>
+	<item>peach</item>
+	<item>peacock</item>
+	<item>peak</item>
+	<item>peanut</item>
+	<item>pear</item>
+	<item>pearl</item>
+	<item>pedal</item>
+	<item>peen</item>
+	<item>peer</item>
+	<item>pegboard</item>
+	<item>pelican</item>
+	<item>pelt</item>
+	<item>pen</item>
+	<item>penalty</item>
+	<item>pencil</item>
+	<item>pendant</item>
+	<item>pendulum</item>
+	<item>penicillin</item>
+	<item>pension</item>
+	<item>pentagon</item>
+	<item>peony</item>
+	<item>people</item>
+	<item>pepper</item>
+	<item>percentage</item>
+	<item>perception</item>
+	<item>perch</item>
+	<item>perfume</item>
+	<item>period</item>
+	<item>periodical</item>
+	<item>permafrost</item>
+	<item>permission</item>
+	<item>permit</item>
+	<item>person</item>
+	<item>personal</item>
+	<item>pest</item>
+	<item>pet</item>
+	<item>petal</item>
+	<item>petticoat</item>
+	<item>pew</item>
+	<item>pharmacist</item>
+	<item>phase</item>
+	<item>pheasant</item>
+	<item>philosophy</item>
+	<item>phone</item>
+	<item>photo</item>
+	<item>phrase</item>
+	<item>physical</item>
+	<item>physics</item>
+	<item>pianist</item>
+	<item>piano</item>
+	<item>piccolo</item>
+	<item>pick</item>
+	<item>pickax</item>
+	<item>picket</item>
+	<item>pickle</item>
+	<item>picture</item>
+	<item>pie</item>
+	<item>piece</item>
+	<item>pier</item>
+	<item>piety</item>
+	<item>pig</item>
+	<item>pigeon</item>
+	<item>pike</item>
+	<item>pile</item>
+	<item>pilgrimage</item>
+	<item>pillbox</item>
+	<item>pillow</item>
+	<item>pilot</item>
+	<item>pimp</item>
+	<item>pimple</item>
+	<item>pin</item>
+	<item>pine</item>
+	<item>pineapple</item>
+	<item>pinecone</item>
+	<item>ping</item>
+	<item>pink</item>
+	<item>pinkie</item>
+	<item>pinstripe</item>
+	<item>pint</item>
+	<item>pinto</item>
+	<item>pioneer</item>
+	<item>pipe</item>
+	<item>piracy</item>
+	<item>pitch</item>
+	<item>pitching</item>
+	<item>pith</item>
+	<item>pizza</item>
+	<item>place</item>
+	<item>plain</item>
+	<item>plan</item>
+	<item>plane</item>
+	<item>planet</item>
+	<item>plant</item>
+	<item>plantation</item>
+	<item>planter</item>
+	<item>plaster</item>
+	<item>plastic</item>
+	<item>plate</item>
+	<item>platform</item>
+	<item>platinum</item>
+	<item>platypus</item>
+	<item>play</item>
+	<item>player</item>
+	<item>playground</item>
+	<item>playroom</item>
+	<item>pleasure</item>
+	<item>pleated</item>
+	<item>plenty</item>
+	<item>plot</item>
+	<item>plough</item>
+	<item>plow</item>
+	<item>plume</item>
+	<item>plunger</item>
+	<item>plywood</item>
+	<item>pneumonia</item>
+	<item>pocket</item>
+	<item>pocketbook</item>
+	<item>poem</item>
+	<item>poet</item>
+	<item>poetry</item>
+	<item>point</item>
+	<item>poison</item>
+	<item>poisoning</item>
+	<item>pole</item>
+	<item>police</item>
+	<item>policeman</item>
+	<item>policy</item>
+	<item>polish</item>
+	<item>politics</item>
+	<item>pollution</item>
+	<item>polo</item>
+	<item>polyester</item>
+	<item>pompom</item>
+	<item>poncho</item>
+	<item>pond</item>
+	<item>pony</item>
+	<item>poof</item>
+	<item>pool</item>
+	<item>pop</item>
+	<item>popcorn</item>
+	<item>poppy</item>
+	<item>popsicle</item>
+	<item>population</item>
+	<item>populist</item>
+	<item>porch</item>
+	<item>porcupine</item>
+	<item>port</item>
+	<item>porter</item>
+	<item>portfolio</item>
+	<item>porthole</item>
+	<item>position</item>
+	<item>positive</item>
+	<item>possession</item>
+	<item>possible</item>
+	<item>post</item>
+	<item>postage</item>
+	<item>postbox</item>
+	<item>poster</item>
+	<item>pot</item>
+	<item>potato</item>
+	<item>potential</item>
+	<item>potty</item>
+	<item>pouch</item>
+	<item>poultry</item>
+	<item>pound</item>
+	<item>pounding</item>
+	<item>poverty</item>
+	<item>powder</item>
+	<item>power</item>
+	<item>practice</item>
+	<item>precedent</item>
+	<item>preface</item>
+	<item>preference</item>
+	<item>prelude</item>
+	<item>premier</item>
+	<item>presence</item>
+	<item>present</item>
+	<item>president</item>
+	<item>press</item>
+	<item>pressure</item>
+	<item>price</item>
+	<item>pride</item>
+	<item>priest</item>
+	<item>priesthood</item>
+	<item>primary</item>
+	<item>primate</item>
+	<item>prince</item>
+	<item>princess</item>
+	<item>principal</item>
+	<item>principle</item>
+	<item>print</item>
+	<item>printer</item>
+	<item>prior</item>
+	<item>priority</item>
+	<item>prison</item>
+	<item>private</item>
+	<item>prize</item>
+	<item>prizefight</item>
+	<item>probation</item>
+	<item>problem</item>
+	<item>procedure</item>
+	<item>process</item>
+	<item>processing</item>
+	<item>produce</item>
+	<item>producer</item>
+	<item>product</item>
+	<item>production</item>
+	<item>profession</item>
+	<item>professor</item>
+	<item>profile</item>
+	<item>profit</item>
+	<item>program</item>
+	<item>progress</item>
+	<item>project</item>
+	<item>promise</item>
+	<item>promotion</item>
+	<item>prompt</item>
+	<item>proof</item>
+	<item>propane</item>
+	<item>property</item>
+	<item>proposal</item>
+	<item>prose</item>
+	<item>protection</item>
+	<item>protest</item>
+	<item>protocol</item>
+	<item>prow</item>
+	<item>public</item>
+	<item>publisher</item>
+	<item>pudding</item>
+	<item>puddle</item>
+	<item>puffin</item>
+	<item>pull</item>
+	<item>pulley</item>
+	<item>puma</item>
+	<item>pump</item>
+	<item>pumpkin</item>
+	<item>punch</item>
+	<item>punishment</item>
+	<item>pupil</item>
+	<item>puppy</item>
+	<item>purchase</item>
+	<item>puritan</item>
+	<item>purple</item>
+	<item>purpose</item>
+	<item>purse</item>
+	<item>push</item>
+	<item>pusher</item>
+	<item>put</item>
+	<item>pyjama</item>
+	<item>pyramid</item>
+	<item>quadrant</item>
+	<item>quail</item>
+	<item>quality</item>
+	<item>quantity</item>
+	<item>quart</item>
+	<item>quarter</item>
+	<item>quartz</item>
+	<item>queen</item>
+	<item>question</item>
+	<item>quicksand</item>
+	<item>quiet</item>
+	<item>quill</item>
+	<item>quilt</item>
+	<item>quit</item>
+	<item>quiver</item>
+	<item>quotation</item>
+	<item>quote</item>
+	<item>rabbi</item>
+	<item>rabbit</item>
+	<item>raccoon</item>
+	<item>race</item>
+	<item>racer</item>
+	<item>racing</item>
+	<item>rack</item>
+	<item>radar</item>
+	<item>radiator</item>
+	<item>radio</item>
+	<item>radish</item>
+	<item>raffle</item>
+	<item>raft</item>
+	<item>rag</item>
+	<item>rage</item>
+	<item>rail</item>
+	<item>railway</item>
+	<item>rain</item>
+	<item>rainbow</item>
+	<item>raincoat</item>
+	<item>rainmaker</item>
+	<item>rainstorm</item>
+	<item>raise</item>
+	<item>rake</item>
+	<item>ram</item>
+	<item>rambler</item>
+	<item>ranch</item>
+	<item>random</item>
+	<item>range</item>
+	<item>rank</item>
+	<item>raspberry</item>
+	<item>rat</item>
+	<item>rate</item>
+	<item>ratio</item>
+	<item>raven</item>
+	<item>ravioli</item>
+	<item>raw</item>
+	<item>rawhide</item>
+	<item>ray</item>
+	<item>reach</item>
+	<item>reactant</item>
+	<item>reaction</item>
+	<item>read</item>
+	<item>reading</item>
+	<item>reality</item>
+	<item>reamer</item>
+	<item>rear</item>
+	<item>reason</item>
+	<item>receipt</item>
+	<item>reception</item>
+	<item>recess</item>
+	<item>recipe</item>
+	<item>recliner</item>
+	<item>record</item>
+	<item>recorder</item>
+	<item>recording</item>
+	<item>recover</item>
+	<item>recreation</item>
+	<item>recruit</item>
+	<item>rectangle</item>
+	<item>red</item>
+	<item>redesign</item>
+	<item>reduction</item>
+	<item>reef</item>
+	<item>reflection</item>
+	<item>refund</item>
+	<item>refuse</item>
+	<item>region</item>
+	<item>register</item>
+	<item>regret</item>
+	<item>regular</item>
+	<item>regulation</item>
+	<item>reindeer</item>
+	<item>reject</item>
+	<item>relation</item>
+	<item>relative</item>
+	<item>relaxation</item>
+	<item>release</item>
+	<item>relief</item>
+	<item>religion</item>
+	<item>relish</item>
+	<item>reminder</item>
+	<item>remote</item>
+	<item>remove</item>
+	<item>rent</item>
+	<item>repair</item>
+	<item>reparation</item>
+	<item>report</item>
+	<item>republic</item>
+	<item>reputation</item>
+	<item>request</item>
+	<item>resale</item>
+	<item>research</item>
+	<item>reserve</item>
+	<item>resident</item>
+	<item>resist</item>
+	<item>resolution</item>
+	<item>resolve</item>
+	<item>resort</item>
+	<item>resource</item>
+	<item>respect</item>
+	<item>respite</item>
+	<item>respond</item>
+	<item>response</item>
+	<item>rest</item>
+	<item>restaurant</item>
+	<item>result</item>
+	<item>retailer</item>
+	<item>rethinking</item>
+	<item>retina</item>
+	<item>retouch</item>
+	<item>return</item>
+	<item>reveal</item>
+	<item>revenge</item>
+	<item>revenue</item>
+	<item>review</item>
+	<item>revolution</item>
+	<item>revolve</item>
+	<item>revolver</item>
+	<item>reward</item>
+	<item>rhinoceros</item>
+	<item>rhyme</item>
+	<item>rhythm</item>
+	<item>rice</item>
+	<item>rich</item>
+	<item>riddle</item>
+	<item>ride</item>
+	<item>rider</item>
+	<item>ridge</item>
+	<item>rifle</item>
+	<item>right</item>
+	<item>rim</item>
+	<item>ring</item>
+	<item>ringworm</item>
+	<item>rip</item>
+	<item>ripple</item>
+	<item>rise</item>
+	<item>riser</item>
+	<item>risk</item>
+	<item>river</item>
+	<item>riverbed</item>
+	<item>road</item>
+	<item>roadway</item>
+	<item>roast</item>
+	<item>robe</item>
+	<item>robin</item>
+	<item>rock</item>
+	<item>rocker</item>
+	<item>rocket</item>
+	<item>rod</item>
+	<item>role</item>
+	<item>roll</item>
+	<item>roller</item>
+	<item>roof</item>
+	<item>room</item>
+	<item>rooster</item>
+	<item>root</item>
+	<item>rope</item>
+	<item>rose</item>
+	<item>rotate</item>
+	<item>rough</item>
+	<item>round</item>
+	<item>roundabout</item>
+	<item>route</item>
+	<item>router</item>
+	<item>routine</item>
+	<item>row</item>
+	<item>rowboat</item>
+	<item>royal</item>
+	<item>rub</item>
+	<item>rubber</item>
+	<item>rubbish</item>
+	<item>rubric</item>
+	<item>ruckus</item>
+	<item>ruffle</item>
+	<item>rugby</item>
+	<item>ruin</item>
+	<item>rule</item>
+	<item>rum</item>
+	<item>run</item>
+	<item>runaway</item>
+	<item>runner</item>
+	<item>rush</item>
+	<item>rutabaga</item>
+	<item>ruth</item>
+	<item>sack</item>
+	<item>sad</item>
+	<item>saddle</item>
+	<item>safe</item>
+	<item>safety</item>
+	<item>sage</item>
+	<item>sail</item>
+	<item>sailboat</item>
+	<item>sailor</item>
+	<item>salad</item>
+	<item>salary</item>
+	<item>sale</item>
+	<item>salesman</item>
+	<item>salmon</item>
+	<item>salon</item>
+	<item>saloon</item>
+	<item>salt</item>
+	<item>sample</item>
+	<item>sand</item>
+	<item>sandals</item>
+	<item>sandbar</item>
+	<item>sandwich</item>
+	<item>sardine</item>
+	<item>sash</item>
+	<item>satellite</item>
+	<item>satin</item>
+	<item>sauce</item>
+	<item>sausage</item>
+	<item>save</item>
+	<item>saving</item>
+	<item>savings</item>
+	<item>savior</item>
+	<item>saviour</item>
+	<item>saw</item>
+	<item>saxophone</item>
+	<item>scale</item>
+	<item>scallion</item>
+	<item>scanner</item>
+	<item>scarecrow</item>
+	<item>scarf</item>
+	<item>scene</item>
+	<item>scenery</item>
+	<item>scent</item>
+	<item>schedule</item>
+	<item>scheme</item>
+	<item>schnitzel</item>
+	<item>school</item>
+	<item>schooner</item>
+	<item>science</item>
+	<item>scissors</item>
+	<item>scooter</item>
+	<item>score</item>
+	<item>scorn</item>
+	<item>scow</item>
+	<item>scraper</item>
+	<item>scratch</item>
+	<item>screamer</item>
+	<item>screen</item>
+	<item>screw</item>
+	<item>script</item>
+	<item>sculpting</item>
+	<item>sculpture</item>
+	<item>sea</item>
+	<item>seafood</item>
+	<item>seagull</item>
+	<item>seal</item>
+	<item>seaplane</item>
+	<item>search</item>
+	<item>seashore</item>
+	<item>seaside</item>
+	<item>season</item>
+	<item>seat</item>
+	<item>second</item>
+	<item>secret</item>
+	<item>secretary</item>
+	<item>section</item>
+	<item>sectional</item>
+	<item>sector</item>
+	<item>secure</item>
+	<item>security</item>
+	<item>seed</item>
+	<item>segment</item>
+	<item>select</item>
+	<item>selection</item>
+	<item>self</item>
+	<item>sell</item>
+	<item>semicircle</item>
+	<item>semicolon</item>
+	<item>senator</item>
+	<item>senior</item>
+	<item>sense</item>
+	<item>sensitive</item>
+	<item>sentence</item>
+	<item>series</item>
+	<item>servant</item>
+	<item>serve</item>
+	<item>server</item>
+	<item>service</item>
+	<item>session</item>
+	<item>set</item>
+	<item>setting</item>
+	<item>settler</item>
+	<item>sewer</item>
+	<item>shack</item>
+	<item>shade</item>
+	<item>shadow</item>
+	<item>shadowbox</item>
+	<item>shake</item>
+	<item>shakedown</item>
+	<item>shaker</item>
+	<item>shallot</item>
+	<item>shame</item>
+	<item>shampoo</item>
+	<item>shanty</item>
+	<item>shape</item>
+	<item>share</item>
+	<item>shark</item>
+	<item>shawl</item>
+	<item>she</item>
+	<item>shears</item>
+	<item>sheath</item>
+	<item>shed</item>
+	<item>sheep</item>
+	<item>sheet</item>
+	<item>shelf</item>
+	<item>shell</item>
+	<item>shelter</item>
+	<item>sherry</item>
+	<item>shield</item>
+	<item>shift</item>
+	<item>shin</item>
+	<item>shine</item>
+	<item>shingle</item>
+	<item>ship</item>
+	<item>shirt</item>
+	<item>shock</item>
+	<item>shoe</item>
+	<item>shoehorn</item>
+	<item>shoelace</item>
+	<item>shoemaker</item>
+	<item>shoes</item>
+	<item>shoestring</item>
+	<item>shoot</item>
+	<item>shop</item>
+	<item>shopper</item>
+	<item>shopping</item>
+	<item>shore</item>
+	<item>shortage</item>
+	<item>shorts</item>
+	<item>shortwave</item>
+	<item>shot</item>
+	<item>shoulder</item>
+	<item>shovel</item>
+	<item>show</item>
+	<item>shower</item>
+	<item>shred</item>
+	<item>shrimp</item>
+	<item>shrine</item>
+	<item>sibling</item>
+	<item>sick</item>
+	<item>side</item>
+	<item>sideboard</item>
+	<item>sideburns</item>
+	<item>sidecar</item>
+	<item>sidewalk</item>
+	<item>siding</item>
+	<item>sign</item>
+	<item>signal</item>
+	<item>signature</item>
+	<item>silence</item>
+	<item>silica</item>
+	<item>silk</item>
+	<item>silkworm</item>
+	<item>sill</item>
+	<item>silly</item>
+	<item>silo</item>
+	<item>silver</item>
+	<item>simple</item>
+	<item>sing</item>
+	<item>singer</item>
+	<item>single</item>
+	<item>sink</item>
+	<item>sir</item>
+	<item>sister</item>
+	<item>sitar</item>
+	<item>site</item>
+	<item>situation</item>
+	<item>size</item>
+	<item>skate</item>
+	<item>skiing</item>
+	<item>skill</item>
+	<item>skin</item>
+	<item>skirt</item>
+	<item>skull</item>
+	<item>skullcap</item>
+	<item>skunk</item>
+	<item>sky</item>
+	<item>skylight</item>
+	<item>skyscraper</item>
+	<item>slapstick</item>
+	<item>slash</item>
+	<item>slave</item>
+	<item>sled</item>
+	<item>sledge</item>
+	<item>sleep</item>
+	<item>sleet</item>
+	<item>sleuth</item>
+	<item>slice</item>
+	<item>slide</item>
+	<item>slider</item>
+	<item>slime</item>
+	<item>slip</item>
+	<item>slipper</item>
+	<item>slippers</item>
+	<item>slope</item>
+	<item>sloth</item>
+	<item>smash</item>
+	<item>smell</item>
+	<item>smelting</item>
+	<item>smile</item>
+	<item>smock</item>
+	<item>smog</item>
+	<item>smoke</item>
+	<item>smoking</item>
+	<item>smuggling</item>
+	<item>snail</item>
+	<item>snake</item>
+	<item>snakebite</item>
+	<item>sneakers</item>
+	<item>sneeze</item>
+	<item>snob</item>
+	<item>snorer</item>
+	<item>snow</item>
+	<item>snowflake</item>
+	<item>snowman</item>
+	<item>snowplow</item>
+	<item>snowstorm</item>
+	<item>snowsuit</item>
+	<item>snuggle</item>
+	<item>soap</item>
+	<item>soccer</item>
+	<item>society</item>
+	<item>sociology</item>
+	<item>sock</item>
+	<item>socks</item>
+	<item>soda</item>
+	<item>sofa</item>
+	<item>soft</item>
+	<item>softball</item>
+	<item>softening</item>
+	<item>software</item>
+	<item>soil</item>
+	<item>soldier</item>
+	<item>solid</item>
+	<item>solitaire</item>
+	<item>solution</item>
+	<item>sombrero</item>
+	<item>somersault</item>
+	<item>somewhere</item>
+	<item>son</item>
+	<item>song</item>
+	<item>songbird</item>
+	<item>sonnet</item>
+	<item>soot</item>
+	<item>soprano</item>
+	<item>sorrow</item>
+	<item>sort</item>
+	<item>sound</item>
+	<item>soup</item>
+	<item>source</item>
+	<item>south</item>
+	<item>sow</item>
+	<item>soy</item>
+	<item>soybean</item>
+	<item>space</item>
+	<item>spacing</item>
+	<item>spade</item>
+	<item>spaghetti</item>
+	<item>spandex</item>
+	<item>spank</item>
+	<item>spare</item>
+	<item>spark</item>
+	<item>sparrow</item>
+	<item>spasm</item>
+	<item>speaker</item>
+	<item>spear</item>
+	<item>special</item>
+	<item>specialist</item>
+	<item>specific</item>
+	<item>spectacle</item>
+	<item>spectacles</item>
+	<item>speech</item>
+	<item>speed</item>
+	<item>speedboat</item>
+	<item>spell</item>
+	<item>spelling</item>
+	<item>spend</item>
+	<item>sphere</item>
+	<item>spider</item>
+	<item>spike</item>
+	<item>spinach</item>
+	<item>spine</item>
+	<item>spiral</item>
+	<item>spirit</item>
+	<item>spiritual</item>
+	<item>spite</item>
+	<item>spleen</item>
+	<item>split</item>
+	<item>sponge</item>
+	<item>spoon</item>
+	<item>sport</item>
+	<item>spot</item>
+	<item>spotlight</item>
+	<item>spray</item>
+	<item>spread</item>
+	<item>spring</item>
+	<item>sprinter</item>
+	<item>sprout</item>
+	<item>spruce</item>
+	<item>spume</item>
+	<item>spur</item>
+	<item>spy</item>
+	<item>square</item>
+	<item>squash</item>
+	<item>squatter</item>
+	<item>squeegee</item>
+	<item>squid</item>
+	<item>squirrel</item>
+	<item>stable</item>
+	<item>stack</item>
+	<item>stacking</item>
+	<item>stadium</item>
+	<item>staff</item>
+	<item>stag</item>
+	<item>stage</item>
+	<item>stain</item>
+	<item>stair</item>
+	<item>staircase</item>
+	<item>stallion</item>
+	<item>stamina</item>
+	<item>stamp</item>
+	<item>stance</item>
+	<item>stand</item>
+	<item>standard</item>
+	<item>standoff</item>
+	<item>star</item>
+	<item>start</item>
+	<item>starter</item>
+	<item>state</item>
+	<item>statement</item>
+	<item>station</item>
+	<item>statistic</item>
+	<item>status</item>
+	<item>stay</item>
+	<item>steak</item>
+	<item>steal</item>
+	<item>steam</item>
+	<item>steel</item>
+	<item>steeple</item>
+	<item>stem</item>
+	<item>stencil</item>
+	<item>step</item>
+	<item>steps</item>
+	<item>stew</item>
+	<item>stick</item>
+	<item>stiletto</item>
+	<item>still</item>
+	<item>stinger</item>
+	<item>stitch</item>
+	<item>stock</item>
+	<item>stocking</item>
+	<item>stockings</item>
+	<item>stole</item>
+	<item>stomach</item>
+	<item>stone</item>
+	<item>stonework</item>
+	<item>stool</item>
+	<item>stop</item>
+	<item>stopwatch</item>
+	<item>storage</item>
+	<item>store</item>
+	<item>storm</item>
+	<item>story</item>
+	<item>storyboard</item>
+	<item>stove</item>
+	<item>strain</item>
+	<item>strait</item>
+	<item>stranger</item>
+	<item>strap</item>
+	<item>strategy</item>
+	<item>straw</item>
+	<item>strawberry</item>
+	<item>stream</item>
+	<item>street</item>
+	<item>streetcar</item>
+	<item>strength</item>
+	<item>stress</item>
+	<item>stretch</item>
+	<item>strike</item>
+	<item>string</item>
+	<item>strip</item>
+	<item>stroke</item>
+	<item>structure</item>
+	<item>struggle</item>
+	<item>stud</item>
+	<item>student</item>
+	<item>studio</item>
+	<item>study</item>
+	<item>stuff</item>
+	<item>stupid</item>
+	<item>sturgeon</item>
+	<item>style</item>
+	<item>styling</item>
+	<item>stylus</item>
+	<item>subject</item>
+	<item>submarine</item>
+	<item>substance</item>
+	<item>suburb</item>
+	<item>subway</item>
+	<item>success</item>
+	<item>suck</item>
+	<item>suede</item>
+	<item>sugar</item>
+	<item>suggestion</item>
+	<item>suit</item>
+	<item>suitcase</item>
+	<item>sultan</item>
+	<item>summer</item>
+	<item>sun</item>
+	<item>sunbeam</item>
+	<item>sunbonnet</item>
+	<item>sunday</item>
+	<item>sundial</item>
+	<item>sunflower</item>
+	<item>sunglasses</item>
+	<item>sunlamp</item>
+	<item>sunshine</item>
+	<item>supply</item>
+	<item>support</item>
+	<item>supporter</item>
+	<item>surface</item>
+	<item>surfboard</item>
+	<item>surgeon</item>
+	<item>surgery</item>
+	<item>surname</item>
+	<item>surprise</item>
+	<item>surround</item>
+	<item>survey</item>
+	<item>sushi</item>
+	<item>suspect</item>
+	<item>suspenders</item>
+	<item>swallow</item>
+	<item>swamp</item>
+	<item>swan</item>
+	<item>swath</item>
+	<item>sweat</item>
+	<item>sweater</item>
+	<item>sweats</item>
+	<item>sweatshirt</item>
+	<item>sweatshop</item>
+	<item>sweatsuit</item>
+	<item>swedish</item>
+	<item>sweet</item>
+	<item>sweets</item>
+	<item>swell</item>
+	<item>swim</item>
+	<item>swimming</item>
+	<item>swimsuit</item>
+	<item>swing</item>
+	<item>swiss</item>
+	<item>switch</item>
+	<item>swivel</item>
+	<item>sword</item>
+	<item>swordfish</item>
+	<item>sycamore</item>
+	<item>symmetry</item>
+	<item>sympathy</item>
+	<item>syndicate</item>
+	<item>synergy</item>
+	<item>syrup</item>
+	<item>system</item>
+	<item>tabernacle</item>
+	<item>table</item>
+	<item>tablecloth</item>
+	<item>tabletop</item>
+	<item>tackle</item>
+	<item>tadpole</item>
+	<item>tail</item>
+	<item>tailor</item>
+	<item>tailspin</item>
+	<item>tale</item>
+	<item>talk</item>
+	<item>tambourine</item>
+	<item>tandem</item>
+	<item>tangerine</item>
+	<item>tank</item>
+	<item>tanker</item>
+	<item>tankful</item>
+	<item>tap</item>
+	<item>target</item>
+	<item>task</item>
+	<item>tassel</item>
+	<item>taste</item>
+	<item>tattler</item>
+	<item>tattoo</item>
+	<item>tavern</item>
+	<item>tax</item>
+	<item>taxi</item>
+	<item>taxicab</item>
+	<item>tea</item>
+	<item>teach</item>
+	<item>teacher</item>
+	<item>teaching</item>
+	<item>team</item>
+	<item>tear</item>
+	<item>technology</item>
+	<item>teen</item>
+	<item>teeth</item>
+	<item>telephone</item>
+	<item>teletype</item>
+	<item>television</item>
+	<item>tell</item>
+	<item>teller</item>
+	<item>temp</item>
+	<item>temper</item>
+	<item>temple</item>
+	<item>tempo</item>
+	<item>temporary</item>
+	<item>temptress</item>
+	<item>tendency</item>
+	<item>tenement</item>
+	<item>tennis</item>
+	<item>tenor</item>
+	<item>tension</item>
+	<item>tent</item>
+	<item>tepee</item>
+	<item>term</item>
+	<item>terracotta</item>
+	<item>terrapin</item>
+	<item>territory</item>
+	<item>test</item>
+	<item>text</item>
+	<item>textbook</item>
+	<item>texture</item>
+	<item>thanks</item>
+	<item>thaw</item>
+	<item>theater</item>
+	<item>theme</item>
+	<item>theory</item>
+	<item>therapist</item>
+	<item>thermals</item>
+	<item>thigh</item>
+	<item>thing</item>
+	<item>thinking</item>
+	<item>thirst</item>
+	<item>thistle</item>
+	<item>thong</item>
+	<item>thongs</item>
+	<item>thorn</item>
+	<item>thought</item>
+	<item>thread</item>
+	<item>thrill</item>
+	<item>throat</item>
+	<item>throne</item>
+	<item>thrush</item>
+	<item>thumb</item>
+	<item>thunder</item>
+	<item>tiara</item>
+	<item>tic</item>
+	<item>ticket</item>
+	<item>tie</item>
+	<item>tiger</item>
+	<item>tight</item>
+	<item>tights</item>
+	<item>tile</item>
+	<item>till</item>
+	<item>timber</item>
+	<item>time</item>
+	<item>timeline</item>
+	<item>timeout</item>
+	<item>timer</item>
+	<item>timpani</item>
+	<item>tin</item>
+	<item>tinderbox</item>
+	<item>tinkle</item>
+	<item>tintype</item>
+	<item>tip</item>
+	<item>tire</item>
+	<item>tissue</item>
+	<item>titanium</item>
+	<item>title</item>
+	<item>toad</item>
+	<item>toast</item>
+	<item>today</item>
+	<item>toe</item>
+	<item>toenail</item>
+	<item>toga</item>
+	<item>toilet</item>
+	<item>tolerance</item>
+	<item>tom</item>
+	<item>tomato</item>
+	<item>tomorrow</item>
+	<item>ton</item>
+	<item>tone</item>
+	<item>tongue</item>
+	<item>tonight</item>
+	<item>tool</item>
+	<item>toot</item>
+	<item>tooth</item>
+	<item>toothbrush</item>
+	<item>toothpaste</item>
+	<item>toothpick</item>
+	<item>top</item>
+	<item>topic</item>
+	<item>topsail</item>
+	<item>toque</item>
+	<item>tornado</item>
+	<item>torso</item>
+	<item>tortoise</item>
+	<item>tosser</item>
+	<item>total</item>
+	<item>tote</item>
+	<item>touch</item>
+	<item>tough</item>
+	<item>tour</item>
+	<item>tourist</item>
+	<item>towel</item>
+	<item>tower</item>
+	<item>town</item>
+	<item>townhouse</item>
+	<item>toy</item>
+	<item>track</item>
+	<item>tracksuit</item>
+	<item>tractor</item>
+	<item>trade</item>
+	<item>tradition</item>
+	<item>traffic</item>
+	<item>trail</item>
+	<item>trailer</item>
+	<item>train</item>
+	<item>trainer</item>
+	<item>training</item>
+	<item>tram</item>
+	<item>tramp</item>
+	<item>transition</item>
+	<item>transport</item>
+	<item>trapdoor</item>
+	<item>trapezoid</item>
+	<item>trash</item>
+	<item>travel</item>
+	<item>tray</item>
+	<item>treat</item>
+	<item>treatment</item>
+	<item>tree</item>
+	<item>tremor</item>
+	<item>trench</item>
+	<item>trial</item>
+	<item>triangle</item>
+	<item>tribe</item>
+	<item>trick</item>
+	<item>trim</item>
+	<item>trinket</item>
+	<item>trip</item>
+	<item>tripod</item>
+	<item>trolley</item>
+	<item>trombone</item>
+	<item>trooper</item>
+	<item>trouble</item>
+	<item>trousers</item>
+	<item>trout</item>
+	<item>trove</item>
+	<item>trowel</item>
+	<item>truck</item>
+	<item>trumpet</item>
+	<item>trunk</item>
+	<item>trust</item>
+	<item>truth</item>
+	<item>try</item>
+	<item>tsunami</item>
+	<item>tub</item>
+	<item>tuba</item>
+	<item>tube</item>
+	<item>tugboat</item>
+	<item>tulip</item>
+	<item>tummy</item>
+	<item>tuna</item>
+	<item>tune</item>
+	<item>tunic</item>
+	<item>tunnel</item>
+	<item>turban</item>
+	<item>turkish</item>
+	<item>turn</item>
+	<item>turnip</item>
+	<item>turnover</item>
+	<item>turnstile</item>
+	<item>turret</item>
+	<item>turtle</item>
+	<item>tussle</item>
+	<item>tutu</item>
+	<item>tuxedo</item>
+	<item>tv</item>
+	<item>twig</item>
+	<item>twilight</item>
+	<item>twine</item>
+	<item>twist</item>
+	<item>twister</item>
+	<item>two</item>
+	<item>type</item>
+	<item>typewriter</item>
+	<item>typhoon</item>
+	<item>ukulele</item>
+	<item>umbrella</item>
+	<item>uncle</item>
+	<item>underneath</item>
+	<item>underpants</item>
+	<item>underpass</item>
+	<item>undershirt</item>
+	<item>underwear</item>
+	<item>uniform</item>
+	<item>union</item>
+	<item>unique</item>
+	<item>unit</item>
+	<item>unity</item>
+	<item>university</item>
+	<item>upper</item>
+	<item>upstairs</item>
+	<item>urn</item>
+	<item>usage</item>
+	<item>use</item>
+	<item>user</item>
+	<item>usher</item>
+	<item>usual</item>
+	<item>utensil</item>
+	<item>vacation</item>
+	<item>vacuum</item>
+	<item>vagrant</item>
+	<item>valance</item>
+	<item>validity</item>
+	<item>valley</item>
+	<item>valuable</item>
+	<item>value</item>
+	<item>van</item>
+	<item>vane</item>
+	<item>vanity</item>
+	<item>variation</item>
+	<item>variety</item>
+	<item>vase</item>
+	<item>vast</item>
+	<item>vault</item>
+	<item>vaulting</item>
+	<item>veal</item>
+	<item>vegetable</item>
+	<item>vehicle</item>
+	<item>veil</item>
+	<item>vein</item>
+	<item>velvet</item>
+	<item>venom</item>
+	<item>veranda</item>
+	<item>verdict</item>
+	<item>verse</item>
+	<item>version</item>
+	<item>vertigo</item>
+	<item>verve</item>
+	<item>vessel</item>
+	<item>vest</item>
+	<item>vestment</item>
+	<item>vibe</item>
+	<item>vibraphone</item>
+	<item>vibration</item>
+	<item>video</item>
+	<item>view</item>
+	<item>villa</item>
+	<item>village</item>
+	<item>vineyard</item>
+	<item>vinyl</item>
+	<item>viola</item>
+	<item>violence</item>
+	<item>violet</item>
+	<item>violin</item>
+	<item>virginal</item>
+	<item>virtue</item>
+	<item>virus</item>
+	<item>viscose</item>
+	<item>vise</item>
+	<item>vision</item>
+	<item>visit</item>
+	<item>visitor</item>
+	<item>visor</item>
+	<item>visual</item>
+	<item>vitality</item>
+	<item>vixen</item>
+	<item>voice</item>
+	<item>volcano</item>
+	<item>volleyball</item>
+	<item>volume</item>
+	<item>voyage</item>
+	<item>vulture</item>
+	<item>wad</item>
+	<item>wafer</item>
+	<item>waffle</item>
+	<item>waist</item>
+	<item>waistband</item>
+	<item>wait</item>
+	<item>waiter</item>
+	<item>waitress</item>
+	<item>wake</item>
+	<item>walk</item>
+	<item>walker</item>
+	<item>walkway</item>
+	<item>wall</item>
+	<item>wallaby</item>
+	<item>wallet</item>
+	<item>walnut</item>
+	<item>walrus</item>
+	<item>war</item>
+	<item>warden</item>
+	<item>warlock</item>
+	<item>warmth</item>
+	<item>warning</item>
+	<item>wash</item>
+	<item>washcloth</item>
+	<item>washer</item>
+	<item>washtub</item>
+	<item>wasp</item>
+	<item>waste</item>
+	<item>watch</item>
+	<item>watchmaker</item>
+	<item>water</item>
+	<item>waterfall</item>
+	<item>waterspout</item>
+	<item>wave</item>
+	<item>wax</item>
+	<item>way</item>
+	<item>weakness</item>
+	<item>wealth</item>
+	<item>weapon</item>
+	<item>wear</item>
+	<item>weasel</item>
+	<item>weather</item>
+	<item>web</item>
+	<item>wedding</item>
+	<item>wedge</item>
+	<item>weed</item>
+	<item>weeder</item>
+	<item>weedkiller</item>
+	<item>week</item>
+	<item>weekend</item>
+	<item>weekender</item>
+	<item>weight</item>
+	<item>weird</item>
+	<item>welcome</item>
+	<item>welfare</item>
+	<item>well</item>
+	<item>west</item>
+	<item>western</item>
+	<item>wetsuit</item>
+	<item>whale</item>
+	<item>wharf</item>
+	<item>wheat</item>
+	<item>wheel</item>
+	<item>whereas</item>
+	<item>while</item>
+	<item>whip</item>
+	<item>whirlpool</item>
+	<item>whirlwind</item>
+	<item>whisker</item>
+	<item>whiskey</item>
+	<item>whistle</item>
+	<item>white</item>
+	<item>whole</item>
+	<item>wholesale</item>
+	<item>wholesaler</item>
+	<item>whorl</item>
+	<item>width</item>
+	<item>wife</item>
+	<item>wilderness</item>
+	<item>wildlife</item>
+	<item>will</item>
+	<item>willow</item>
+	<item>win</item>
+	<item>wind</item>
+	<item>window</item>
+	<item>windscreen</item>
+	<item>windshield</item>
+	<item>wine</item>
+	<item>wing</item>
+	<item>wingtip</item>
+	<item>winner</item>
+	<item>winter</item>
+	<item>wire</item>
+	<item>wisdom</item>
+	<item>wish</item>
+	<item>witch</item>
+	<item>withdrawal</item>
+	<item>witness</item>
+	<item>wolf</item>
+	<item>wombat</item>
+	<item>women</item>
+	<item>wonder</item>
+	<item>wood</item>
+	<item>woodland</item>
+	<item>woodshed</item>
+	<item>woodwind</item>
+	<item>wool</item>
+	<item>woolen</item>
+	<item>word</item>
+	<item>work</item>
+	<item>workbench</item>
+	<item>worker</item>
+	<item>workhorse</item>
+	<item>working</item>
+	<item>workshop</item>
+	<item>world</item>
+	<item>worm</item>
+	<item>worry</item>
+	<item>worth</item>
+	<item>worthy</item>
+	<item>wound</item>
+	<item>wrap</item>
+	<item>wraparound</item>
+	<item>wrecker</item>
+	<item>wren</item>
+	<item>wrench</item>
+	<item>wrestler</item>
+	<item>wrinkle</item>
+	<item>wrist</item>
+	<item>writer</item>
+	<item>writing</item>
+	<item>wrong</item>
+	<item>xylophone</item>
+	<item>yacht</item>
+	<item>yak</item>
+	<item>yam</item>
+	<item>yard</item>
+	<item>yarn</item>
+	<item>year</item>
+	<item>yeast</item>
+	<item>yellow</item>
+	<item>yesterday</item>
+	<item>yew</item>
+	<item>yoga</item>
+	<item>yogurt</item>
+	<item>yoke</item>
+	<item>you</item>
+	<item>young</item>
+	<item>youth</item>
+	<item>zebra</item>
+	<item>zinc</item>
+	<item>zipper</item>
+	<item>zone</item>
+	<item>zoo</item>
+	<item>zucchini</item>
+</string-array>
+
+<string-array name="historical_dates_steps">
     <item>Jack Sparrow is hanged</item>
 	<item>The horse cart is discovered</item>
 	<item>First shopping mall opened</item>
@@ -1666,8 +4481,6 @@
 	<item>Rum becomes favorite drink</item>
 	<item>Plastic flowers planted in park</item>
 	<item>Child gets into trouble</item>
-</string-array>
-<string-array name="historicaldates2">
 	<item>Bird catches fly</item>
 	<item>Celebrity marries postman</item>
 	<item>Mystery writer found dead</item>
@@ -1739,7 +4552,7 @@
 	<item>New species of fish discovered on reef</item>
 	<item>Computers become more intelligent than people</item>
 	<item>Mystery plant found in greenhouse</item>
-	<item> year old man celebrates birthday</item>
+	<item>90 year old man celebrates birthday</item>
 	<item>Dieter loses Kg</item>
 	<item>Fish drowned in flooding</item>
 	<item>United States president resigns</item>
@@ -1847,7 +4660,424 @@
 	<item>Straight bananas discovered</item>
 	<item>Blues played at \'Happiness Conference\'</item>
 </string-array>
-<string-array name="historicaldates3">
+<string-array name="historical_dates_custom">
+	<item>Dentist repairs teeth with wood</item>
+	<item>Jupiter\'s moons colonised</item>
+	<item>Internet makes TV broadcasts obsolete</item>
+	<item>Rare butterfly photographed</item>
+	<item>Library book returned 59 years late</item>
+	<item>Bus driver forgets route</item>
+	<item>Sequel to best-selling novel flops</item>
+	<item>Farmer breeds sheep with red fleece</item>
+	<item>Bull fight is injured</item>
+	<item>Robots go on strike</item>
+	<item>New fashion - wearing hats made of fruit</item>
+	<item>Bangra dancing is worldwide craze</item>
+	<item>Airline pilot foils hijack</item>
+	<item>Night club opens</item>
+	<item>Space rocket explodes on launch pad</item>
+	<item>Military hero returns home</item>
+	<item>Opera singer loses voice</item>
+	<item>International Space Station completed</item>
+	<item>Cricket team wins test match</item>
+	<item>Cook bakes world\'s biggest cake</item>
+	<item>Inventor designs mouse trap</item>
+	<item>Time flows backwards</item>
+	<item>Florist shop opens new branch</item>
+	<item>Bollywood film is most popular release of year</item>
+	<item>Global creativity in short supply</item>
+	<item>Newspaper folds</item>
+	<item>Nuclear power station declared safe</item>
+	<item>Dinosaurs are getting cloned</item>
+	<item>Aliens are landing on earth</item>
+	<item>Bacon cools on a plate</item>
+	<item>Puppy discovers piglet</item>
+	<item>Apple found on moon</item>
+	<item>Jockey drinks coffee</item>
+	<item>Manager writes on wet fish</item>
+	<item>Elephant discovers brother</item>
+	<item>Termite attacks forest</item>
+	<item>Hollywood hires Mary</item>
+	<item>Man adopts fish</item>
+	<item>Monk makes a mobile</item>
+	<item>Television documentary airs on Pluto</item>
+	<item>Doctor travels to South Pole</item>
+	<item>Warrior arrives in Thailand</item>
+	<item>New language invented</item>
+	<item>Ducks shake forest</item>
+	<item>Scout protects hockey net</item>
+	<item>Nun steals from poor</item>
+	<item>Soccer game played</item>
+	<item>Food dyes stored in hamper</item>
+	<item>Hairdresser travels around the world</item>
+	<item>Revolution in China</item>
+	<item>Bort license plates sell out</item>
+	<item>Top blanks merge into super bank</item>
+	<item>Doping athlete receives sentence</item>
+	<item>Government denies use of spy satellite</item>
+	<item>Global warming accelerates</item>
+	<item>Playtime declared fun</item>
+	<item>Lone programmer eats entire pizza</item>
+	<item>Aerospace startup fails to launch</item>
+	<item>Jack Sparrow is hanged</item>
+	<item>The horse cart is discovered</item>
+	<item>First shopping mall opened</item>
+	<item>Bush visits Pluto</item>
+	<item>The CIA is formed</item>
+	<item>Formal education ends</item>
+	<item>Labor union hunger strike</item>
+	<item>Cars are fueled by air</item>
+	<item>Elvis is born</item>
+	<item>The ozone layer is depleted by half</item>
+	<item>Man starts the first newspaper</item>
+	<item>The last eunuch of China dies</item>
+	<item>Rapunzel marries the king</item>
+	<item>Japanese actor wins an Oscar</item>
+	<item>Elvis is found still alive</item>
+	<item>First trans-oceanic cycling service</item>
+	<item>First US Marine unit formed</item>
+	<item>Chinese Emperor visits Pakistan</item>
+	<item>Halloween is declared a public holiday</item>
+	<item>First Civil War in Europe</item>
+	<item>“No Rain” year</item>
+	<item>Humans drink through the ear</item>
+	<item>First Space War</item>
+	<item>Man discovers bread</item>
+	<item>Basketball becomes very popular</item>
+	<item>Jenny dates Marlow</item>
+	<item>Cotton is widely exported</item>
+	<item>First auction sale in Malaysia</item>
+	<item>Color photography invented</item>
+	<item>Mobile phones are banned from schools</item>
+	<item>Dog eats worm</item>
+	<item>Honey is used as medication</item>
+	<item>Man discovers BBQ cooking style</item>
+	<item>Andalusia gains independence</item>
+	<item>The Third World War</item>
+	<item>Man starts to wear shoes</item>
+	<item>Motorcycle can reverse</item>
+	<item>A camel walks across the Gulf</item>
+	<item>World peace initiatives</item>
+	<item>First language recorded</item>
+	<item>Chocolate can cure insomnia</item>
+	<item>Chimpanzees learn how to swim</item>
+	<item>First inter-racial marriage</item>
+	<item>Watermelon is used to cure cancer</item>
+	<item>Monkeys start to write</item>
+	<item>Bread is declared a brain nutrient</item>
+	<item>The Stone Age turns into civilization</item>
+	<item>The first Mental Olympics</item>
+	<item>Men are couriered to Venus</item>
+	<item>Espionage is declared illegal</item>
+	<item>Mental literacy is achieved</item>
+	<item>Discovery of the Mechanics Theory</item>
+	<item>US satellite shot down</item>
+	<item>A chicken lands on the moon</item>
+	<item>The Chinese cross the Indian Ocean</item>
+	<item>First undersea disco completed</item>
+	<item>Mars moves further away</item>
+	<item>The first shoe factory is built</item>
+	<item>Rhinoceroses become extinct</item>
+	<item>The greatest tsunami in Japan</item>
+	<item>Tobacco companies stop operations</item>
+	<item>UFO lands in San Francisco</item>
+	<item>Spaghetti is made the national food</item>
+	<item>Monkeys stop talking</item>
+	<item>Walt Disney produces artificial eyes</item>
+	<item>The Cultural Revolution ends</item>
+	<item>A factory produces the first Air Nike</item>
+	<item>Man stops sweating</item>
+	<item>Houdini’s greatest escape</item>
+	<item>The world’s largest building burns down</item>
+	<item>Arabians eat with chopsticks</item>
+	<item>Polygamy is widely accepted</item>
+	<item>Oxygen is worth more than diamonds</item>
+	<item>Women are allowed to work</item>
+	<item>First United Nations elections</item>
+	<item>An ostrich lays the biggest egg</item>
+	<item>Jeans are first worn</item>
+	<item>First billionaire from the memory industry</item>
+	<item>Ornithologist spots rare bird</item>
+	<item>Water rationing starts</item>
+	<item>Diamond ring is valued at a million dollars</item>
+	<item>Tree is cut down by lumberjack</item>
+	<item>Cricket team win match</item>
+	<item>Painting is stolen from gallery</item>
+	<item>Asteroid collides with Earth</item>
+	<item>Cat chases dog</item>
+	<item>Chef creates new dish</item>
+	<item>Post office raises price of stamps</item>
+	<item>Terrorist is captured</item>
+	<item>Computer beats backgammon champion</item>
+	<item>Film breaks box-office records</item>
+	<item>Cancer cure is discovered in rainforest</item>
+	<item>New planet is discovered</item>
+	<item>Hottest day ever recorded</item>
+	<item>Speaker gets standing ovation</item>
+	<item>Man walks across Africa</item>
+	<item>New play opens on Broadway</item>
+	<item>American actor wins Academy Award</item>
+	<item>Butcher makes award winning sausage</item>
+	<item>Volcano erupts</item>
+	<item>Pneumonia kills grandmother</item>
+	<item>New airplane takes to the sky</item>
+	<item>Astronaut travels to Mars</item>
+	<item>County declares independence</item>
+	<item>Newspaper publishes apology</item>
+	<item>Campaigner wins legal case</item>
+	<item>Plumber learns to tap-dance</item>
+	<item>Politician tells the truth</item>
+	<item>Royal wedding takes place</item>
+	<item>Glazier fits new window</item>
+	<item>New radio station goes on-air</item>
+	<item>Elephant escapes from zoo</item>
+	<item>First democratic elections held</item>
+	<item>Hay fever sufferer is cured</item>
+	<item>New country discovered by explorer</item>
+	<item>Hotel opens for business</item>
+	<item>Schoolboy passes exam</item>
+	<item>Caveman discovers fire</item>
+	<item>Exhibition attracts record visitor numbers</item>
+	<item>Composer writes concerto</item>
+	<item>Doctor cures disease</item>
+	<item>Butterfly species becomes extinct</item>
+	<item>First contact with extraterrestrial life</item>
+	<item>Lawyer wins court case</item>
+	<item>Card player is banned from casino</item>
+	<item>Rocket launch is delayed by bad weather</item>
+	<item>War ends</item>
+	<item>Financial adviser is arrested</item>
+	<item>Duck is shot by hunter</item>
+	<item>Cabinet minister resigns over scandal</item>
+	<item>President undergoes heart surgery</item>
+	<item>First African pope is elected</item>
+	<item>First domestic robot comes onto the market</item>
+	<item>New statue is unveiled</item>
+	<item>Stock prices reach a record high</item>
+	<item>Rock star cancels World tour</item>
+	<item>Insomnia is cured</item>
+	<item>Car driver fined for speeding</item>
+	<item>Factory closes</item>
+	<item>Inventor builds time machine</item>
+	<item>Crime rate drops</item>
+	<item>Farmer buys a new tractor</item>
+	<item>Company appoints new Chairman</item>
+	<item>Journalist reveals security lapse</item>
+	<item>Ship sets sail on maiden voyage</item>
+	<item>Sailor leaves Navy</item>
+	<item>Musical breaks box-office records</item>
+	<item>Athlete wins silver medal at Olympic Games</item>
+	<item>Coal mine opens</item>
+	<item>House prices fall</item>
+	<item>Missile hits South Pole</item>
+	<item>Alien defeats monster</item>
+	<item>Canada joins America</item>
+	<item>Kitten attacks toy dog</item>
+	<item>Explorer finds Atlantis</item>
+	<item>Mouse eats Elephant</item>
+	<item>Bucket springs big leak</item>
+	<item>Teacher plays in rock band</item>
+	<item>Calendar girls wear pajamas</item>
+	<item>Fat man wins marathon</item>
+	<item>Scouts repair graffiti</item>
+	<item>Famous sisters go missing</item>
+	<item>Footballers sing on stage</item>
+	<item>Elephants turn pink</item>
+	<item>First indoor rainstorm</item>
+	<item>Bowler strikes cricket fan</item>
+	<item>Farmer wants a boyfriend</item>
+	<item>Vacuum swallows snake</item>
+	<item>Spring is in the air</item>
+	<item>Football is banned in Brazil</item>
+	<item>Green plastic boxes break</item>
+	<item>Cool pencils are lost</item>
+	<item>Little girl eats liver</item>
+	<item>Speaker runs from house</item>
+	<item>French men are polite</item>
+	<item>Hollywood moves to China</item>
+	<item>Sharks attack American fleet</item>
+	<item>Rum becomes favorite drink</item>
+	<item>Plastic flowers planted in park</item>
+	<item>Child gets into trouble</item>
+	<item>Bird catches fly</item>
+	<item>Celebrity marries postman</item>
+	<item>Mystery writer found dead</item>
+	<item>Professor files patent</item>
+	<item>New bridge is built</item>
+	<item>Astronomer observes comet</item>
+	<item>Auctioneers sell vase</item>
+	<item>Electric light replaces gas lamps in city</item>
+	<item>Woman gives birth to twins</item>
+	<item>Soldier dies in battle</item>
+	<item>Singer loses voice</item>
+	<item>Industrial revolution begins</item>
+	<item>Millionaire donates money to charity</item>
+	<item>Drugs smuggler is caught by customs</item>
+	<item>Teacher punishes misbehaving pupil</item>
+	<item>Author writes bestseller</item>
+	<item>King loses crown</item>
+	<item>World poverty ends</item>
+	<item>Pensioner runs London marathon</item>
+	<item>New soft drink goes on sale</item>
+	<item>Photographer wins prize</item>
+	<item>Naturalist discovers new plant species</item>
+	<item>Fashion designer stages first show</item>
+	<item>Battle takes place</item>
+	<item>Billionth e-mail is sent</item>
+	<item>Government introduces controversial new law</item>
+	<item>Egyptologist translates hieroglyphics</item>
+	<item>Shark attacks surfer</item>
+	<item>Ballet production praised by critics</item>
+	<item>Lightning strikes church spire</item>
+	<item>Magician disappears</item>
+	<item>Banker sent to jail</item>
+	<item>King abdicates</item>
+	<item>Internet company makes record profits</item>
+	<item>Paper is invented</item>
+	<item>Emperor is assassinated</item>
+	<item>Shark sited in river</item>
+	<item>Stock market prices crash</item>
+	<item>Aliens invade Belgium</item>
+	<item>Taxes cut by city council</item>
+	<item>Rare postage stamp auctioned for record price</item>
+	<item>Toxic waste dumped at sea</item>
+	<item>Anti-gravity boots go on sale</item>
+	<item>Last ice at North Pole melts</item>
+	<item>Detective solves crime</item>
+	<item>Police armed with laser guns</item>
+	<item>Ballet dancer makes final performance</item>
+	<item>Dinosaur skeleton discovered</item>
+	<item>Composer copyrights birdsong</item>
+	<item>Golf tournament won by seven-year-old</item>
+	<item>Concert raises record amount for charity</item>
+	<item>Pop star revealed miming</item>
+	<item>Fraudster captured</item>
+	<item>New art exhibition opens</item>
+	<item>Businessman jailed</item>
+	<item>Prisoner moved to low security jail</item>
+	<item>School holds reunion for former pupils</item>
+	<item>Orator makes historic speech</item>
+	<item>Warship sinks in battle</item>
+	<item>Hunter kills lion</item>
+	<item>Bridge built across Atlantic Ocean</item>
+	<item>Elephant enters memory championships</item>
+	<item>Olive grove is planted</item>
+	<item>Pianist gets standing ovation</item>
+	<item>Woman climbs tall mountain</item>
+	<item>Golden temple built</item>
+	<item>Village church built</item>
+	<item>Poet wins award</item>
+	<item>New species of fish discovered on reef</item>
+	<item>Computers become more intelligent than people</item>
+	<item>Mystery plant found in greenhouse</item>
+	<item>90 year old man celebrates birthday</item>
+	<item>Dieter loses Kg</item>
+	<item>Fish drowned in flooding</item>
+	<item>United States president resigns</item>
+	<item>Chimpanzee elected to parliament</item>
+	<item>Knight killed in battle</item>
+	<item>Play closes after first performance</item>
+	<item>Cinema opens</item>
+	<item>Artist paints portrait of rock star</item>
+	<item>Man chokes on peanut</item>
+	<item>Ancient text is deciphered</item>
+	<item>Billionaire donates entire fortune to charity</item>
+	<item>Highwayman robs stagecoach</item>
+	<item>Clothing shop makes record profits</item>
+	<item>First artificial satellite orbits Neptune</item>
+	<item>First genetically modified flying pig</item>
+	<item>Drug recalled due to safety fears</item>
+	<item>Crime figures fall</item>
+	<item>Water powered car invented</item>
+	<item>Record breaking summer temperatures</item>
+	<item>Traitor is publicly executed</item>
+	<item>Village quarantined after disease outbreak</item>
+	<item>Hijacker overpowered by airline passengers</item>
+	<item>Spider escapes from zoo</item>
+	<item>Alpine ski slopes close due to lack of snow</item>
+	<item>World\'s largest diamond discovered</item>
+	<item>World shortage of tomato sauce</item>
+	<item>Last dragon slain</item>
+	<item>Castle repels invaders</item>
+	<item>Radio station broadcasts silence</item>
+	<item>Tallest tree struck by lightening</item>
+	<item>New production by leading playwright opens</item>
+	<item>Ghost hunter dies of fright</item>
+	<item>Meat shortage causes price rise</item>
+	<item>Dancer breaks leg</item>
+	<item>Actor breaks leg</item>
+	<item>Journalist investigates corruption</item>
+	<item>Forest fires sweep world</item>
+	<item>Pirates loot merchant ship</item>
+	<item>Heiress marries road sweeper</item>
+	<item>Oil well runs dry</item>
+	<item>Most expensive bottle of wine is drunk</item>
+	<item>Paper becomes obsolete</item>
+	<item>Oasis discovered in desert</item>
+	<item>Champion racehorse disappears</item>
+	<item>Gardener eaten by carnivorous plant</item>
+	<item>Council workers strike</item>
+	<item>Mathematician solves equation</item>
+	<item>Best selling book withdrawn from shops</item>
+	<item>Movie star auctions dresses</item>
+	<item>New king is crowned</item>
+	<item>First cheese factory opens on the moon</item>
+	<item>World\'s tallest building erected</item>
+	<item>Explorer sets sail</item>
+	<item>Asteroid impact wipes out city</item>
+	<item>Telephone call charges rise</item>
+	<item>Steam train breaks speed record</item>
+	<item>Lost tribe discovered in rainforest</item>
+	<item>New chemical element discovered</item>
+	<item>First Chinese woman on the moon</item>
+	<item>Dogs must buy an owner license</item>
+	<item>First democratic elections</item>
+	<item>Frenchman wins World Chess championships</item>
+	<item>First successful eye transplant</item>
+	<item>Alcohol made illegal in Europe</item>
+	<item>Volcano erupts</item>
+	<item>Internet closes down</item>
+	<item>Actor fails audition</item>
+	<item>Dentist arrested for torturing patient</item>
+	<item>King\'s tomb excavated by archaeologists</item>
+	<item>First fusion PowerStation opens</item>
+	<item>Sea monster captured by fisherman</item>
+	<item>Opera singer catches laryngitis</item>
+	<item>Queen makes bungee jump</item>
+	<item>World custard shortage</item>
+	<item>Explorer discovers Isle of Wight</item>
+	<item>Artist sells blank canvas</item>
+	<item>Chef poisons diner</item>
+	<item>Fox jumps over the moon</item>
+	<item>Sea Eagle catches fish</item>
+	<item>Mist-free glasses invented</item>
+	<item>Lamp turns people off</item>
+	<item>Concert tickets sold to aliens</item>
+	<item>Cat calls home</item>
+	<item>Saturn invades Jupiter</item>
+	<item>Television becomes obsolete</item>
+	<item>Man washes dinner dishes</item>
+	<item>Soccer is played under water</item>
+	<item>Short trousers are stolen</item>
+	<item>Large weapons banned</item>
+	<item>Mermaid kisses fish</item>
+	<item>Mime sings opera</item>
+	<item>Bottle found in stream</item>
+	<item>Fans boo favorite player</item>
+	<item>Photos become history</item>
+	<item>Girl flies around the world</item>
+	<item>Fortune gambled on ship</item>
+	<item>Husband removes old car</item>
+	<item>Actress dyes her hair</item>
+	<item>Walrus sings on Broadway</item>
+	<item>Turtle swims in bath tub</item>
+	<item>Teenager saves Universe</item>
+	<item>Mirror shows Queen\'s age</item>
+	<item>Runner cools his feet in ice bucket</item>
+	<item>Sun shines on future</item>
+	<item>Ice skater cries foul</item>
+	<item>Straight bananas discovered</item>
+	<item>Blues played at \'Happiness Conference\'</item>
 	<item>Government loses secret files</item>
 	<item>Tap dancing spider wins talent contest</item>
 	<item>Mnemonist breaks world record</item>
@@ -1944,7 +5174,7 @@
 	<item>Mile high skyscraper built</item>
 	<item>Mickey Mouse elected President</item>
 	<item>Rock star sells billionth record</item>
-	<item>Archeologist discovers temple</item>
+	<item>Archaeologist discovers temple</item>
 	<item>Jam rationing ends</item>
 	<item>Bishop loses faith</item>
 	<item>England wins Eurovision Song Contest</item>
@@ -2026,8 +5256,6 @@
 	<item>Rabbit follows Alice</item>
 	<item>Granddad loses hairpiece</item>
 	<item>Da Vinci steals statue</item>
-</string-array>
-<string-array name="historicaldates4">
 	<item>English tennis player wins Wimbledon</item>
 	<item>Wolf eats grandmother</item>
 	<item>Cat burglar steals cream</item>
@@ -2207,8 +5435,6 @@
 	<item>Carpenter cuts square hole</item>
 	<item>Home delivery is cancelled</item>
 	<item>Hockey player scores own goal</item>
-</string-array>
-<string-array name="historicaldates5">
 	<item>Hydrogen powered cars replace petrol ones</item>
 	<item>New fashion - Wearing underpants on the outside</item>
 	<item>Dustmen strike over pay cuts</item>
@@ -2296,10 +5522,444 @@
 	<item>Candle burns alter boy</item>
 	<item>Panda chases men</item>
 	<item>Ice-cream cools hot chili</item>
+	<item>Panda learns Kung Fu</item>
+	<item>Man wears ugly sweater</item>
+	<item>Phone battery dies</item>
+	<item>Phone charger is found</item>
+	<item>Tourists evacuated for tropical storm</item>
+	<item>Human-pig hybrid developed</item>
+	<item>Plastic is banned</item>
+	<item>Kids learn raisins actually grapes</item>
+	<item>Houseplant dies of neglect</item>
+	<item>Space robot explores Venus</item>
+	<item>World land speed record broken</item>
+	<item>Beloved actress dies of cancer</item>
+	<item>Car company faces over scandal</item>
+	<item>Whistle blower jailed by president</item>
+	<item>Hackers release embarrassing emails</item>
+	<item>Hackers release president\'s emails</item>
+	<item>Hackers steal cryptocurrency</item>
+	<item>Major social networks face outage</item>
+	<item>Pilot jailed after reckless crash</item>
+	<item>Government spends billions on fighter jets</item>
+	<item>Climate protests spread worldwide</item>
+	<item>Unvaccinated children banned from school</item>
+	<item>Celebrated artist\'s creation mocked</item>
+	<item>Electric car beats gas powered in race</item>
+	<item>Extremist politician egged</item>
+	<item>Underdog horse wins the big race</item>
+	<item>Elites caught bribing college admissions officer</item>
+	<item>Giraffe gives birth on live TV</item>
+	<item>Panda gives birth on live TV</item>
+	<item>Lion gives birth on live TV</item>
+	<item>Man claims ability to contact aliens</item>
+	<item>Cold fusion provides cheap energy worldwide</item>
+	<item>Golfer hits alligator with ball</item>
+	<item>Mass bird extinction puzzles scientists</item>
+	<item>Restaurant launches on the moon</item>
+	<item>Student gets perfect score</item>
+	<item>Woman eats breakfast in the evening</item>
+	<item>Transatlantic train inaugurated</item>
+	<item>High pressure steam cleaner invented</item>
+	<item>Thailand gets new king</item>
+	<item>Flood in Sahara</item>
+	<item>Amazon grows back</item>
+	<item>Bird big as a 747</item>
+	<item>Pink bananas cultivated</item>
+	<item>New election in Sweden</item>
+	<item>Charity concert sells out</item>
+	<item>World championship in football canceled</item>
+	<item>Chinese singer serenades lover</item>
+	<item>Wall is painted red</item>
+	<item>Plane lands backwards</item>
+	<item>Peace treaty signed in Switzerland</item>
+	<item>Longest yawn ever</item>
+	<item>Apes drive cars</item>
+	<item>Nun repaints cathedral ceiling</item>
+	<item>Plane crashes into Mount Everest</item>
+	<item>Head teacher opens own school</item>
+	<item>The 60s become modern again</item>
+	<item>First world circumnavigation</item>
+	<item>Picasso sketches masterpiece</item>
+	<item>Koala falls out of tree</item>
+	<item>Lambs frolic in Spring</item>
+	<item>Internet closed down by tyrant</item>
+	<item>Cow eats bull</item>
+	<item>Last illness wiped out</item>
+	<item>Money growing on trees</item>
+	<item>Children blow bubbles</item>
+	<item>North Korea hands out cupcakes</item>
+	<item>Devil offers job to angels</item>
+	<item>Dishwasher washes dishes in one second</item>
+	<item>United Nations breaks up</item>
+	<item>Last gun on Earth destroyed</item>
+	<item>No-one sleeps on lecture</item>
+	<item>The sky goes lime green</item>
+	<item>Queens birthday</item>
+	<item>Strict school teacher retires</item>
+	<item>Doctor invents dance therapy</item>
+	<item>Nose starts running</item>
+	<item>Spelling mistakes in dictionary</item>
+	<item>Execution ends in laughter</item>
+	<item>Cloned president dies</item>
+	<item>New flavor is developed</item>
+	<item>The devil becomes good</item>
+	<item>Farmer grows GMO sugar cane</item>
+	<item>Skyscraper crumbles in earthquake</item>
+	<item>Swimmer crosses ocean</item>
+	<item>Meat prices fall</item>
+	<item>Screens bigger than garage gates</item>
+	<item>It rains for 3 months</item>
+	<item>Plum tree becomes 1000 years old</item>
+	<item>Theatre opens</item>
+	<item>Dogs talk to cats</item>
+	<item>Two meter hair found in food</item>
+	<item>Non-reflective mirror invented</item>
+	<item>Grandad fights in battle</item>
+	<item>It snows mushrooms</item>
+	<item>World race becomes Olympic event</item>
+	<item>Women completes marathon in two hours</item>
+	<item>Smartphones made entirely of plastic</item>
+	<item>All cars are electric</item>
+	<item>Island appears in Pacific Ocean</item>
+	<item>Macaque has driving license</item>
+	<item>CEO refuses to step down</item>
+	<item>Taxes rise</item>
+	<item>All of Europe floods</item>
+	<item>Dance band plays out of tune</item>
+	<item>Surgeon makes mistake during operation</item>
+	<item>Female president in China</item>
+	<item>Eating fried food declared healthy</item>
+	<item>School bus drives round the world</item>
+	<item>Vacuum cleaning new Olympic discipline</item>
+	<item>Donkey gets indigestion from carrots</item>
+	<item>Field of lavender sold at auction</item>
+	<item>Blackout in the savannah</item>
+	<item>Quantum physics goes wrong</item>
+	<item>New Eiffel tower built in Rome</item>
+	<item>Supporters cheer wrong team</item>
+	<item>Romans build bridge to Mars</item>
+	<item>Jupiter gets new moon</item>
+	<item>Preventative medicine is compulsory</item>
+	<item>Tunnel through mountain closed</item>
+	<item>Fisherman eats old fish</item>
+	<item>All vegetables are grown organically</item>
+	<item>Mother breast feeds baby</item>
+	<item>Snake eats a whale</item>
+	<item>Dancing frogs eaten</item>
+	<item>Gastric ulcer hurts patient</item>
+	<item>Genetic mutation discovered</item>
+	<item>All Swedes travel abroad in Summer</item>
+	<item>Bus driver refuses to gear up</item>
+	<item>Prince takes part in knight games</item>
+	<item>Death sentence abolished in US</item>
+	<item>Head teacher starts new school</item>
+	<item>New moon discovered on Saturn</item>
+	<item>Countries banned from Olympics for doping</item>
+	<item>Fat man eats whale, becomes fatter</item>
+	<item>Toilet paper shortage</item>
+	<item>Prisoner escapes from Alcatraz</item>
+	<item>New feathered dinosaur species discovered</item>
+	<item>Twins meet in wrestling match</item>
+	<item>Wolves become tame</item>
+	<item>IPad production suspended</item>
+	<item>Sea level drops 3 meters</item>
+	<item>Only red apples grown</item>
+	<item>British monarchy ends</item>
+	<item>Football player yells at referee</item>
+	<item>Elephant goes astray</item>
+	<item>Greece sells its islands</item>
+	<item>Welder prevents pipe burst</item>
+	<item>Mammoth shaves</item>
+	<item>Volcano erupts on Hawaii</item>
+	<item>Mum delivers triplets</item>
+	<item>Planet earth defeated in battle</item>
+	<item>Queen dies</item>
+	<item>Sharks turn vegetarian</item>
+	<item>Artist leaves job</item>
+	<item>Gambler gambles everything, doesn\'t win</item>
+	<item>Peace is abolished</item>
+	<item>School bus takes children to casino</item>
+	<item>Earth spins away</item>
+	<item>Bear teaches at school</item>
+	<item>Loudspeaker breaks down during concert</item>
+	<item>Dog accompanies owner to the park</item>
+	<item>Flags banned</item>
+	<item>Australia and New Zealand collide</item>
+	<item>3-wheel motorbike tips over</item>
+	<item>Kangaroo catches a cold</item>
+	<item>The sun goes on holiday</item>
+	<item>Cartoon characters go on strike</item>
+	<item>3D stamp invented</item>
+	<item>Space tourism commonplace</item>
+	<item>Big net replaces parachutes</item>
+	<item>Whales watch people</item>
+	<item>Wind energy covers all needs</item>
+	<item>Confused duck flies north in winter</item>
+	<item>Tongue gets stuck in cheek</item>
+	<item>Global epidemic wipes out Lichtenstein</item>
+	<item>Fierce warriors frightened of snake</item>
+	<item>Prisoner is put in chains</item>
+	<item>Pharaoh revives from dead</item>
+	<item>Man jumps off a cliff</item>
+	<item>Male politicians banned</item>
+	<item>Queen visits Legoland</item>
+	<item>Funeral held in the living room</item>
+	<item>Cauliflower grows at bus stops</item>
+	<item>Student is late</item>
+	<item>Surgeon operates on gnomes</item>
+	<item>Hairdresser cuts lion\'s mane</item>
+	<item>Opera cancelled</item>
+	<item>Shower toilets popular in Scotland</item>
+	<item>Wedding between gay princes</item>
+	<item>Bank insures customers\' money</item>
+	<item>Life found on Jupiter Moon</item>
+	<item>Justin Bieber wins Nobel prize</item>
+	<item>Ambassador interviewed on TV</item>
+	<item>Air pollution causes record deaths</item>
+	<item>All beaches are nudist</item>
+	<item>Butterflies gather in Mexico</item>
+	<item>Oysters eat living human</item>
+	<item>Queen crowned naked</item>
+	<item>Artist goes to dentist</item>
+	<item>Chocolate is product of the year</item>
+	<item>Aliens candidate for elections</item>
+	<item>Mars stops rotating</item>
+	<item>Watermelon filled with water</item>
+	<item>Teachers go on strike</item>
+	<item>Pasta boils over</item>
+	<item>Aircraft flies itself</item>
+	<item>120 kilo pumpkin found</item>
+	<item>Mushrooms dancing in the woods</item>
+	<item>Cargo-ship stuck in harbor</item>
+	<item>10th Star Trek series</item>
+	<item>Olympics held on the Moon</item>
+	<item>Local leader travels to Jupiter</item>
+	<item>Cream whipped into Parmesan</item>
+	<item>World language introduced</item>
+	<item>Monk gets married</item>
+	<item>First embassy on Pluto</item>
+	<item>McDonald\'s opens on Everest</item>
+	<item>Frog wins middle distance race</item>
+	<item>Excavator digs up ice cream</item>
+	<item>Bees make chocolate</item>
+	<item>Prince rides home in Uber</item>
+	<item>Curved bananas banned</item>
+	<item>First 200-year-old man</item>
+	<item>Football prohibited</item>
+	<item>Speaking computers introduced</item>
+	<item>Lead transformed in gold</item>
+	<item>Plane lands on island</item>
+	<item>Traitor caught</item>
+	<item>Engineer invents peace</item>
+	<item>Fairy princess tired of pink</item>
+	<item>Singer loses voice</item>
+	<item>Spain takes siesta</item>
+	<item>War becomes illegal</item>
+	<item>Fish found on Jupiter\'s moon</item>
+	<item>Mobile phone implant invented</item>
+	<item>First time-travel</item>
+	<item>Barbers using chainsaw</item>
+	<item>Ring changes finger</item>
+	<item>Bear shoots hunter</item>
+	<item>Alchemist lies again</item>
+	<item>Brain gym made compulsory in schools</item>
+	<item>Elbow hits eye</item>
+	<item>Screwdrivers become twice as expensive</item>
+	<item>India becomes most populated country</item>
+	<item>Actor runs from crowd</item>
+	<item>Word stuck in throat</item>
+	<item>PC sends email by itself</item>
+	<item>Biologist discovers microbe</item>
+	<item>Business woman leaves country town</item>
+	<item>Golf star in scandal</item>
+	<item>Donald Duck comes to life</item>
+	<item>Priest cleans the church up</item>
+	<item>Manhattan has to be moved</item>
+	<item>Last Facebook post posted</item>
+	<item>Sheep with tartan wool bred</item>
+	<item>Fox escapes hunt</item>
+	<item>Postman is best spy</item>
+	<item>Hero saves village</item>
+	<item>DaVinci dissects cow</item>
+	<item>Schoolchildren take over town</item>
+	<item>Watching television not allowed</item>
+	<item>Giraffe released from Zoo</item>
+	<item>Tourism is taxed</item>
+	<item>Preventative medicine is compulsory</item>
+	<item>Homeless man inherits castle</item>
+	<item>Hundred year-old tree tells stories</item>
+	<item>First bag snatcher gets caught</item>
+	<item>Homophobia wiped out</item>
+	<item>Bad throw wins Olympics</item>
+	<item>Oranges become watermelons</item>
+	<item>Newton eats apple</item>
+	<item>Tiger learns to sing</item>
+	<item>Puppy attacks boyfriend</item>
+	<item>Mailbox company starts sending e-mails</item>
+	<item>No more religion</item>
+	<item>Einstein looks through telescope</item>
+	<item>Carrots cure blindness</item>
+	<item>Wells dry up</item>
+	<item>Wasp wins insect beauty contest</item>
+	<item>Parrot wins World Memory Championship</item>
+	<item>Only rhymed sentences allowed</item>
+	<item>First trip to another galaxy</item>
+	<item>Friend lost at supermarket</item>
+	<item>Boat sails adrift</item>
+	<item>Storm destroys city</item>
+	<item>Gold runs out</item>
+	<item>Penguins go on holiday</item>
+	<item>Nano wire stronger than diamond</item>
+	<item>Computer smarter than humans</item>
+	<item>Scientist transforms into gas</item>
+	<item>Unimotorcycle gift of the year</item>
+	<item>Painting is repainted</item>
+	<item>Monkeys learn to speak</item>
+	<item>Hockey match ends in fight</item>
+	<item>Laws of physics stop</item>
+	<item>Denmark builds new mountain</item>
+	<item>The sun stops spinning</item>
+	<item>Last facial transplant performed</item>
+	<item>Gramophone teaches kids playing chess</item>
+	<item>Paper banned as a material</item>
+	<item>Reporter wins Olympics</item>
+	<item>School is closed down by accident</item>
+	<item>Dark all day</item>
+	<item>Reversed poem great hit</item>
+	<item>Transplants prohibited</item>
+	<item>King prawn abdicates</item>
+	<item>Birds stop singing</item>
+	<item>Lightning strikes the city</item>
+	<item>Start of new ice age</item>
+	<item>Liver lives on</item>
+	<item>Mine digs through Earth</item>
+	<item>Hitchhiker writes guide to the galaxy</item>
+	<item>Heater explodes</item>
+	<item>President has beauty surgery</item>
+	<item>President dyes hair blue</item>
+	<item>Snow White gets a cold</item>
+	<item>Groceries delivered to South Pole</item>
+	<item>Ring changes finger</item>
+	<item>Coldest summer ever</item>
+	<item>Aliens fly past Earth</item>
+	<item>All Chinese become vegan</item>
+	<item>Inuit emigrate to the Maldives</item>
+	<item>Bison faces mental athlete</item>
+	<item>Refugees refuse to flee</item>
+	<item>War breaks out between kings</item>
+	<item>Pajama party at the office</item>
+	<item>Diver chased by dolphin</item>
+	<item>Revolution of the cone people</item>
+	<item>Every road covered with gold</item>
+	<item>Dancers dance off the stage</item>
+	<item>Coconut becomes softer</item>
+	<item>Invisibility formula discovered</item>
+	<item>Embryo gives birth to child</item>
+	<item>Crickets sing at the theatre</item>
+	<item>Music heard from Jupiter moon</item>
+	<item>Shopping center on Venus</item>
+	<item>Swimming pools filled with soft drinks</item>
+	<item>Movies shown on every wall</item>
+	<item>Dancers dance for a year</item>
+	<item>Salsa dancers dance Samba</item>
+	<item>Old lady sour as lemonade</item>
+	<item>Mushroom takes over in the forest</item>
+	<item>Party at the parliament</item>
+	<item>Computer without keyboard invented</item>
+	<item>Good trade deal agreed</item>
+	<item>Baby remote controls mother</item>
+	<item>Chief annexes Iceland</item>
+	<item>Rose scented tap water introduced</item>
+	<item>1000 poems written</item>
+	<item>Politician divorces</item>
+	<item>Deposed queen gains power</item>
+	<item>Private schools banned</item>
+	<item>Mars rivers reoriented</item>
+	<item>Sumo wrestling Olympic sport</item>
+	<item>Wrestling match misjudged</item>
+	<item>Planet leaves orbit of sun</item>
+	<item>Ginseng becomes a children\'s drink</item>
+	<item>Chinese Great Wall falls down</item>
+	<item>Judge gives sentence of running</item>
+	<item>Speaker loses her voice</item>
+	<item>All deserts flooded</item>
+	<item>Flower has roots instead of leaves</item>
+	<item>Alchemist lies again</item>
+	<item>Smart PC turns off automatically</item>
+	<item>Prince\'s brother plans coup</item>
+	<item>Teenager wins swimming competition</item>
+	<item>Grandparents go back to school</item>
+	<item>Lawyer firm becomes liar firm</item>
+	<item>Paternal uncle becomes maternal uncle</item>
+	<item>Pineapple juice cheaper than water</item>
+	<item>Rudolph eats Santa Claus\' hat</item>
+	<item>Football World Cup in Kenya</item>
+	<item>Photograph of ghost taken</item>
+	<item>Infinite waiting time in phone queue</item>
+	<item>The moon leaves earth</item>
+	<item>Teachers\' salaries cut to zero</item>
+	<item>Assassin commits suicide</item>
+	<item>Oil reserves run out</item>
+	<item>Mirror is secret portal</item>
+	<item>Pilot gets lost</item>
+	<item>Solar wind gives extra power</item>
+	<item>Loudspeaker heard on the moon</item>
+	<item>Ant crosses the Atlantic</item>
+	<item>Sponge-Bob really exists</item>
+	<item>New TV channel for dogs</item>
+	<item>Builder elected president</item>
+	<item>Road sweeper wins lottery</item>
+	<item>Puppet does flips</item>
+	<item>Time machine invented</item>
+	<item>Donkey is knighted</item>
+	<item>Peddle car wins grand prix</item>
+	<item>Rapper president of the US</item>
+	<item>Waiter serves wrong order</item>
+	<item>Jesus returns</item>
+	<item>New giant planet found</item>
+	<item>Matriarch trembles in front of patriarch</item>
+	<item>Cocktail bar serves artisanal water</item>
+	<item>Fabulous world emerges in sea</item>
+	<item>Oldest plant dies</item>
+	<item>Dog lands on moon</item>
+	<item>Private business prohibited</item>
+	<item>Bank bankrupt again</item>
+	<item>Scarecrow scared of crows</item>
+	<item>Dogs play with cats</item>
+	<item>Runner sets 100m record</item>
+	<item>New political party founded</item>
+	<item>Human born from chicken egg</item>
+	<item>The last tree is cut down</item>
+	<item>Ski jumper overflies everything</item>
+	<item>University has professor in memory training</item>
+	<item>120 kilo pumpkin found</item>
+	<item>New recipe invented</item>
+	<item>Hair straightener activated per USB</item>
+	<item>Light bulb spreads darkness</item>
+	<item>Australia wipes out rabbits</item>
+	<item>Kings birthday</item>
+	<item>UN creates peace on Earth</item>
+	<item>Paris-New York underground tunnel</item>
+	<item>Skiiing in Alps no longer possible</item>
+	<item>Russian drama is Hollywood hit film</item>
+	<item>First human on Mars</item>
+	<item>Banker donates bonus to charity</item>
+	<item>Receipts no longer submitted</item>
+	<item>Singer-songwriter breaks glasses</item>
+	<item>Nuclear plants are prohibited</item>
+	<item>Flowers bloom under the snow</item>
+	<item>Charity concert sells out</item>
+	<item>Elephant gets amnesia</item>
+	<item>Salmon learn to speak</item>
+	<item>New mousetrap invented</item>
+	<item>Soldier is awarded medal</item>
+	<item>Onion mousse is most popular dessert</item>
+	<item>Cheese knife banned</item>
+	<item>Invention of invisible condom</item>
+	<item>Wallet lost containing $5,000</item>
+	<item>Opera plays hard rock</item>
 </string-array>
-
-
-
 
 <string-array name="malenames">
         <item>Jonathon</item>
@@ -2558,7 +6218,7 @@
 		<item>Denese</item>
 		<item>Marianne</item>
 		<item>Maula</item>
-		<item>Rebacca</item>
+		<item>Rebecca</item>
 		<item>Martiene</item>
 		<item>Jean</item>
 		<item>Jesica</item>
@@ -2578,7 +6238,7 @@
 		<item>Malanie</item>
 		<item>Elizabeth</item>
 		<item>Brenda</item>
-		<item>Jacquelun</item>
+		<item>Jacquelyn</item>
 		<item>Laura</item>
 		<item>Sandra</item>
 		<item>Yvonne</item>

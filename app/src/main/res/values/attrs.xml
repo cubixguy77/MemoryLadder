@@ -5,7 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="colorControlHighlight">#46ffea00</item>
-        <item name="android:windowBackground">@color/activity.background</item>
+        <item name="android:windowBackground">@color/activity_background</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 
